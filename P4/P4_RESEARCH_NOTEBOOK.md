@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção e resolução; D55–D67)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D71)
 
 ---
 
@@ -437,7 +437,7 @@ Três evidências contrárias novas, todas grau A:
 
 ## 4d · Decisões da inspeção e da resolução (2026-11-14)
 
-Origem: `inspecao/RELATORIO_INSPECAO.md` (I-01 a I-46), `audit/ERRATA_2026-11-14.md`, `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md`. **Estas entradas só registram fatos conferidos e corrigem texto de entradas anteriores por inclusão** (as D## antigas ficam como estão, regra 4). Nenhuma escolhe entre alternativas de mérito, nenhuma fecha uma Q#, nenhuma altera uma recomendação já registrada. Onde há escolha, a pergunta está em `P4_MEMORANDO_DECISOES_2026-11-14.md`.
+Origem: `inspecao/RELATORIO_INSPECAO.md` (I-01 a I-46), `audit/ERRATA_2026-11-14.md`, `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md`. **D55–D67 só registram fatos conferidos e corrigem texto de entradas anteriores por inclusão; D68 em diante são respostas do pesquisador ao memorando (autor: pesquisador)** (as D## antigas ficam como estão, regra 4). Nenhuma escolhe entre alternativas de mérito, nenhuma fecha uma Q#, nenhuma altera uma recomendação já registrada. Onde há escolha, a pergunta está em `P4_MEMORANDO_DECISOES_2026-11-14.md`.
 
 ---
 
@@ -521,6 +521,32 @@ Lista, com valor correto e checagem, em `audit/ERRATA_2026-11-14.md` (E-I02 a E-
 
 ---
 
+---
+
+### D68 — A série anual e a série bruta entram **ambas**, com papéis distintos
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 1; Q9, D24, D46, D57, D65 · **Status:** ativa · **Grau:** decisão humana
+Resposta do pesquisador à pergunta "a série anual ou a bruta é o objeto do P4?": **"Ambas, com papéis distintos."** Não define ainda qual métrica roda em qual série: essa distribuição de papéis é pergunta de acompanhamento (memorando, rodada 2). Não altera D24, D20–D23 enquanto os papéis não forem definidos; Q9 permanece aberta até lá. Q1 não é respondida por esta entrada.
+
+---
+
+### D69 — S e R′_HK são analisados **ambos**; a migração exclusiva para R′_HK é descartada como decisão
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 3 (Q8); D52, D53, D54, D60, D61, D62 · **Status:** ativa · **Grau:** decisão humana · **Complementa:** D54
+Resposta: **"Ambos, porque R′_HK é fotosférico subtraído, diferente de S-index que tem componente fotosférico e cromosférico."** A análise usa os dois índices. D54 continua registrada com a sua recomendação histórica (não migrar), que passa a ser superada por esta decisão no ponto "migrar ou não"; o que D54 estabelece sobre a receita e a faixa de validade continua valendo. Consequências a observar, não decididas aqui: a parte em R′_HK fica sob a faixa 0.44 < B−V < 0.82 de D53 e o escopo de Noyes (D61: nível médio, não flutuação), com a definição de B−V declarada (D62); a CLS VI testa métricas dentro de faixas de massa (D60). Quais estrelas e quais estatísticas entram em R′_HK fica para a rodada de Q1 e Q2.
+
+---
+
+### D70 — A receita de σ_S de Luhn (D45 / D57): subsídios entregues, escolha adiada
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 7; I-01 · **Status:** ativa · **Grau:** A (subsídios)
+Resposta do pesquisador: **"Subsídios para defesa."** Entregue `SUBSIDIOS_RECEITA_SIGMA_S.md` (para cada conta, o que sustenta e o que enfraquece, com ids). **Nenhuma receita foi escolhida.** I-01 permanece aberto como pergunta de mérito. O texto de Methods sobre σ_S fica bloqueado até a escolha.
+
+---
+
+### D71 — Aprovada a incorporação ao caderno além da instrução de DECISOES
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 11; I-18 · **Status:** ativa · **Grau:** decisão humana
+Resposta: **"Aprovo."** Ficam aprovados o cabeçalho "Última entrada", a §6 reescrita, as obrigações de Methods adicionadas à §7, as novas §10 (fatos com página) e §11 (uso de IA) e a supressão da coluna "Subsídios" da §5.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -538,6 +564,8 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 | **Q9** | DFA volta a ser admissível para o subconjunto Baum? | **aberta — reportada, não decidida.** N mediano = **27 estações anuais** (abaixo do piso) vs **698 observações brutas** (acima). **A pergunta é anterior:** a série anual ou a bruta é o objeto do P4? (`paper_state_v6.md` §6) |
 | **Q10** | **NOVA — a transição é lenta o bastante para ter precursor detectável?** | **aberta.** CLS VI: "on order of years". A10-F2: 8 pontos anuais na aproximação do único caso amostrado. **Se a resposta for não, a tese central do P4 não é testável com os dados existentes.** Depende de A7 |
 | **Q11** | **NOVA — a inclinação estelar confunde o grupo `Flat`?** | **aberta.** D51. Confirmada para τ Cet; não medida para as demais |
+
+**Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**. Q1–Q7, Q10 e Q11 seguem abertas.
 
 ---
 
@@ -633,6 +661,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-08-01 | **Fecho da conversa de consolidação.** Descoberta das séries estendidas (Baum+2022, Luhn+2022, Isaacson+2024, CLS VI, A&A 2025); Q1 suspensa; quatro unidades novas; questão do índice unificado levantada | D31–D40 |
 | 2026-08-01 | **Segunda rodada de auditoria: A9 (Baum+2022), A10 (Luhn+2022), A11 (Järvinen & Strassmeier 2025 + CLS V + CLS VI), A12 (Noyes+1984) fechadas em Cowork.** Q1 desbloqueada; Q9 reportada e devolvida; Q8 com balanço invertido; duas questões novas (Q10, Q11). Séries estendidas obtidas em forma numérica local. Cinco contradições registradas | D41–D54 |
 | 2026-11-14 | **Inspeção completa, só de leitura** (`inspecao/`, 43 achados I-01 a I-43) e **resolução do que não depende de mérito**: PDFs lidos por inteiro e guardados em `bib/` (MANIFEST); A7, A8, A13 executadas; Tabela 4 de Egeland obtida; D41–D54 incorporadas (a proposta de `inspecao/NOTEBOOK_proposta_D41_D54.md`); errata em `audit/ERRATA_2026-11-14.md`; reparos do catálogo em arquivo lateral. Nenhuma Q# decidida | D55–D67 |
+| 2026-11-14 | **Respostas do pesquisador ao memorando (bloco 1):** anual e bruta, ambas; S e R′_HK, ambos; subsídios para a receita de σ_S; incorporação aprovada. Q1–Q7, Q10, Q11 e os itens 2, 4, 5, 6, 8, 9, 10 do memorando seguem pendentes | D68–D71 |
 
 ---
 

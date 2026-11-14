@@ -1,17 +1,17 @@
-[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=57
+[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=61
 [INFO] 1-02: package files with a byte-identical copy in the repository root | expected= obtained=24
 [PASS] 1-03: package files whose repository-root copy differs | expected=0 obtained=0
 [PASS] 1-04: VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md | expected=7 obtained=7
 [PASS] 1-05: PDFs in the repository root | expected=9 obtained=9
 [INFO] 1-06: PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6) | expected=0 obtained=13
-[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=28
+[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=27
 [PASS] 1-08: files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent | expected=4 obtained=4
 [PASS] 1-09: bib/aa28479-16.pdf (Olah+2016) anywhere in the clone | expected=absent obtained=absent
-[PASS] 2a-01: decisions D01-D67 defined exactly once in the notebook | expected=67 obtained=67
+[PASS] 2a-01: decisions D01-D71 defined exactly once in the notebook | expected=71 obtained=71
 [PASS] 2a-02: decisions defined more than once or missing | expected=none obtained=none
-[INFO] 2a-03: decision headers outside D01-D67 numbering | expected= obtained=D45b
+[INFO] 2a-03: decision headers outside D01-D71 numbering | expected= obtained=D45b
 [PASS] 2a-04: decisions without a 'Status' field | expected=none obtained=none
-[INFO] 2a-05: status values in use | expected= obtained=ativa: 68
+[INFO] 2a-05: status values in use | expected= obtained=ativa: 72
 [INFO] 2a-06: decisions whose header line carries no 'Grau' field | expected= obtained=36
 [PASS] 2a-07: D## referenced anywhere but not defined | expected=none obtained=none
 [INFO] 2a-08: decisions never cited outside the document that defines them | expected= obtained=none
