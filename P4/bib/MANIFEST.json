@@ -1,4 +1,13 @@
 {
+ "Baum_2022_AJ_163_183.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 728410,
+  "doi": "10.3847/1538-3881/ac5683",
+  "sha256": "306c02c85ee73cce3ec162410b9dd5089038cc7d85bab034fb0687831911738f",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; DOI lido na p. 1-2",
+  "versao": "published"
+ },
  "Baum_2022_arXiv2203.13376.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 612255,
@@ -29,6 +38,33 @@
   "validacao": "padrão de título /S-index of the Sun/ nas páginas 1-2",
   "versao": "manuscript (arXiv:1611.04540)"
  },
+ "Isaacson_2024_ApJS_274_35.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 2392023,
+  "doi": "10.3847/1538-4365/ad676c",
+  "sha256": "c7a60c343b93960218fab7178bfeb8d14e5e501302327e000f2aa01d74e32775",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; DOI lido na p. 1-2",
+  "versao": "published"
+ },
+ "Isaacson_2025_AJ_170_181.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 2131714,
+  "doi": "10.3847/1538-3881/adf2a8",
+  "sha256": "38dab01c6f864ffc3a4fbbc83b0c6b4734c3ab9fe2f04868d5fb6902e2899880",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador (CLS VI); DOI lido na p. 1-2",
+  "versao": "published"
+ },
+ "Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 4255855,
+  "doi": "10.1051/0004-6361/202554111",
+  "sha256": "58ff04647f8709385a0e4dbdab3ca3e4405f02d456d42ae1e65612ac996edca0",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; DOI da versão publicada conferido no Crossref",
+  "versao": "manuscript (arXiv:2504.19670)"
+ },
  "Korolik_2023_AJ_166.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 11667430,
@@ -37,6 +73,15 @@
   "sha256": "00d44d503ef4a7a919a0ccc52318c64baec9bdf5b7a93b49370000d61211ea27",
   "url": "https://iopscience.iop.org/article/10.3847/1538-3881/ace906/pdf",
   "validacao": "padrão de título /Pole-on Solar Analog/ nas páginas 1-2",
+  "versao": "published"
+ },
+ "Luhn_2022_ApJL_936_L23.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 534302,
+  "doi": "10.3847/2041-8213/ac8b13",
+  "sha256": "e7b017008a250a8f662b1f1f6dc920f9ab626951190d61772f83f1857ac6c34b",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; DOI lido na p. 1-2",
   "versao": "published"
  },
  "Luhn_2022_arXiv2207.00612.pdf": {
@@ -48,6 +93,24 @@
   "url": "https://arxiv.org/pdf/2207.00612",
   "validacao": "padrão de título /Portrait of a Star Entering a Grand Magnetic Minimum/ nas páginas 1-2",
   "versao": "manuscript (arXiv:2207.00612)"
+ },
+ "Noyes1984.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 1482975,
+  "doi": "não conferido",
+  "sha256": "1ce4e8757f68135c3d6a382e5256f5d8e3855e8e3be78b01a814fe784e7ac24c",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; título validado na p. 1; DOI não conferido no Crossref",
+  "versao": "published (cópia do pesquisador)"
+ },
+ "Olah_2016_AA_590_A133_arXiv1604.06701.pdf": {
+  "baixado_em": "2026-11-14 (inventariado; enviado antes)",
+  "bytes": 1157630,
+  "doi": "10.1051/0004-6361/201628479",
+  "sha256": "6dd9cdbaaeaa7d25e8117c992652985c7340b388f2f0d80659097ea6e038aeac",
+  "url": "upload do pesquisador",
+  "validacao": "enviado pelo pesquisador; DOI da versão publicada conferido no Crossref",
+  "versao": "manuscript (arXiv:1604.06701)"
  },
  "Shah_2018_ApJL_863_L26.pdf": {
   "baixado_em": "2026-11-14",

@@ -1,2 +1,6 @@
-Pasta vazia de propósito. Os PDFs das fontes (85 MB) ficam no repositório github.com/gpefitura-web/P4.
-Para trazê-los: git clone https://github.com/gpefitura-web/P4 e copie os .pdf para esta pasta, se quiser tudo junto.
+Esta pasta guarda os PDFs das fontes citadas pelo P4 (D38).
+Cada PDF tem entrada em MANIFEST.json (sha256, DOI, origem, publicada ou manuscrito) e foi validado
+pela primeira página antes de ser usado (D63). DOWNLOAD_LOG.md registra as tentativas de download.
+Os nove PDFs mais antigos continuam na raiz do repositório (Baliunas+1995, Lockwood+2007 etc.).
+Faltam, para o pesquisador subir: Held & Kleinen 2004, Livina & Lenton 2007, Peng+1993 (DOIs em
+P4_RESEARCH_NOTEBOOK.md §6).
