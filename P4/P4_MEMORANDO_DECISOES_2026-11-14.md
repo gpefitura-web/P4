@@ -71,3 +71,5 @@
 **Bloco 2 (2026-11-14):** item 4 → D72 e item 5 → D73 ("subsídios para decidir": `SUBSIDIOS_JUNCAO_E_D46.md`, escolha adiada); item 6 → D74 (esperar Held & Kleinen); item 8 → D75 (citar os dois: 0.37–0.45 %). Pendentes: 2, 9, 10 e os papéis das séries.
 
 Cada resposta será registrada como `D68` em diante, com data, autor "pesquisador" e a base (o número do item acima). Nada neste memorando altera uma decisão ou recomendação já registrada.
+
+**Bloco 3 (2026-11-14):** papéis das séries → D76 (subsídios: `SUBSIDIOS_PAPEIS_SERIES.md`, escolha adiada); item 10 → D77 (subsídios: `SUBSIDIOS_LAYOUT_KIT.md`); item 9 → D78 (Q2–Q7 abertas; Q11 com A14); item 2 / Q1 → D79 (espera os papéis).

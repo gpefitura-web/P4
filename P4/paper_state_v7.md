@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D75) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D80) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -62,14 +62,14 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 ## 5 · Decisões humanas: respondidas e pendentes
 
-**Respondidas em 2026-11-14 (caderno §4d):** item 1 → **D68** (anual e bruta, ambas; papéis por definir); item 3 / Q8 → **D69** (S e R′_HK); item 4 → **D72** e item 5 → **D73** (subsídios entregues em `SUBSIDIOS_JUNCAO_E_D46.md`, escolha adiada); item 6 → **D74** (esperar Held & Kleinen); item 7 → **D70** (subsídios em `SUBSIDIOS_RECEITA_SIGMA_S.md`, escolha adiada); item 8 → **D75** (piso 0.37–0.45 %); item 11 → **D71**.
+**Respondidas em 2026-11-14 (caderno §4d):** item 1 → **D68** (anual e bruta; papéis: **D76**, subsídios em `SUBSIDIOS_PAPEIS_SERIES.md`); item 3 / Q8 → **D69** (S e R′_HK); itens 4 e 5 → **D72**, **D73** (subsídios em `SUBSIDIOS_JUNCAO_E_D46.md`); item 6 → **D74** (esperar Held & Kleinen); item 7 → **D70** (subsídios em `SUBSIDIOS_RECEITA_SIGMA_S.md`); item 8 → **D75** (piso 0.37–0.45 %); item 10 → **D77** (subsídios em `SUBSIDIOS_LAYOUT_KIT.md`); item 11 → **D71**; Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). A14 (Korolik) executada para Q11.
 
-**Pendentes** (`P4_MEMORANDO_DECISOES_2026-11-14.md`): papéis de cada série (acompanha D68); (2) Q1; escolhas adiadas dos itens 4, 5 e 7; (6) após Held & Kleinen; (9) Q2–Q7 e Q11; (10) layout do repositório e migração ao Kit.
+**Pendentes, todas do pesquisador:** a distribuição dos papéis das séries (D76) e, depois dela, Q1; as escolhas adiadas dos itens 4, 5, 7 e 10 (D72, D73, D70, D77); o item 6 após Held & Kleinen (D74); Q2–Q7 e Q11. Nenhuma Q# está fechada.
 
 ## 6 · Estado dos arquivos
 
 - **Alterado:** `P4_RESEARCH_NOTEBOOK.md` (só por inclusão, exceto a substituição prevista da tabela da §5 e da §6, e o cabeçalho "Última entrada"; a coluna "Subsídios" da §5 deixa de existir, como a instrução de incorporação mandava: a informação está nos documentos de origem). `bib/LEIAME.txt` foi reescrito porque dizia "pasta vazia".
-- **Novos:** `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md`, `audit/ERRATA_2026-11-14.md`, `consolidacao/rascunho_reparos_catalogo.csv`, `data/Egeland2017_table4_apjaa4e49t4_mrt.txt`, PDFs e `MANIFEST.json`/`DOWNLOAD_LOG.md` em `bib/`, `inspecao/`, `LICOES_PENDENTES.md`, `P4_MEMORANDO_DECISOES_2026-11-14.md`, este arquivo.
+- **Novos:** `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md`, `A14_korolik.md`, `SUBSIDIOS_*.md` (quatro), `audit/ERRATA_2026-11-14.md`, `consolidacao/rascunho_reparos_catalogo.csv`, `data/Egeland2017_table4_apjaa4e49t4_mrt.txt`, PDFs e `MANIFEST.json`/`DOWNLOAD_LOG.md` em `bib/`, `inspecao/`, `LICOES_PENDENTES.md`, `P4_MEMORANDO_DECISOES_2026-11-14.md`, este arquivo.
 - **Congelados e inalterados:** `p4_pipeline.ipynb`, `baliunas_table2_full.csv`, A1–A6 e A9–A12, CSVs existentes, D01–D54.
 
 **O pipeline permanece congelado.** Nenhuma linha foi tocada.
