@@ -1,0 +1,49 @@
+% Esqueleto EPL (classe oup-authoring-template, opção large). Módulo kit/revistas/epl. Achados em docs/LICOES_AMBIENTE.md item 8.
+% Números vêm de results_macros.tex e nunca são digitados no texto.
+\documentclass[unnumsec,webpdf,contemporary,large]{oup-authoring-template}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\input{journal_macros}
+\input{results_extra}
+\input{results_macros}
+\graphicspath{{figures/}}
+\DeclareGraphicsExtensions{.pdf,.png}% só PDF vetorial, nunca EPS
+\newcommand{\societylogo}{}
+\bibpunct[, ]{[}{]}{,}{n}{}{,}% citações numéricas entre colchetes, como na EPL
+
+\begin{document}
+
+\journaltitle{EPL}
+\DOI{added during production}
+\copyrightyear{2026}
+\pubyear{2026}
+\vol{}
+\issue{}
+\access{Manuscript submitted for publication}
+\appnotes{Letter}
+\firstpage{1}
+
+\title[Short title]{Title with only the first word capitalised}
+
+% Nomes, afiliações e autor correspondente: confirmar com o autor
+\author[1,$\ast$]{A. Author}
+\address[1]{\orgdiv{Department}, \orgname{Institution}, \orgaddress{\country{Brazil}}}
+\corresp[$\ast$]{Corresponding author. \href{mailto:author@example.org}{author@example.org}}
+
+\abstract{One paragraph, 120 to 160 words, no figure, table, equation or reference.}
+
+\maketitle
+
+\input{sec_intro}
+\input{sec_methods}
+\input{sec_results}
+\input{sec_discussion}
+\input{sec_conclusions}
+\input{sec_backmatter}
+
+\bibliographystyle{oup-unsrt}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,31 @@
+name: fetch_refs
+on:
+  workflow_dispatch:
+  push:
+    branches: [__BRANCH__]
+    paths:
+      - scripts/refs_list.yml
+      - scripts/fetch_refs.py
+      - .github/workflows/fetch_refs.yml
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: pip install requests pyyaml pypdf
+      - name: Baixar lote
+        env:
+          ADS_DEV_KEY: ${{ secrets.ADS_DEV_KEY }}
+        run: python scripts/fetch_refs.py
+      - name: Commit
+        run: |
+          git config user.name "refs-bot"
+          git config user.email "refs-bot@users.noreply.github.com"
+          git add referencias
+          git diff --cached --quiet || git commit -m "referencias: lote baixado"
+          for i in 1 2 3; do git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && break || sleep 5; done

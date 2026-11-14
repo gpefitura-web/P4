@@ -1,0 +1,53 @@
+% Manuscrito para a EPL. Estrutura da etapa E9a: seções vazias, a redação é a etapa E9b.
+% Números vêm de ../repositorio/results_macros.tex e nunca são digitados no texto.
+\documentclass[unnumsec,webpdf,contemporary,large]{oup-authoring-template}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\input{journal_macros}
+\input{results_extra}
+\input{../repositorio/results_macros}
+\graphicspath{{../repositorio/figures/}}
+\DeclareGraphicsExtensions{.pdf,.png}% só PDF vetorial, nunca EPS
+\newcommand{\societylogo}{}
+\bibpunct[, ]{[}{]}{,}{n}{}{,}% citações numéricas entre colchetes, como na EPL
+
+\begin{document}
+
+\journaltitle{EPL}
+\DOI{added during production}
+\copyrightyear{2026}
+\pubyear{2026}
+\vol{}
+\issue{}
+\access{Manuscript submitted for publication}
+\appnotes{Letter}
+\firstpage{1}
+
+\title[Universality of the flare energy index]{Is the power-law index of stellar flare energies universal across spectral types?}
+
+% Nomes, afiliações e autor correspondente a confirmar com o autor
+\author[1,$\ast$]{A. Author}
+\address[1]{\orgdiv{Department}, \orgname{Institution}, \orgaddress{\country{Brazil}}}
+\corresp[$\ast$]{Corresponding author. \href{mailto:author@example.org}{author@example.org}}
+
+\abstract{Flare energies of stars are often assumed to follow one power law, as expected from self-organized criticality. We test whether the index is the same for M, K and G dwarfs in the Kepler flare catalogue of Yang and Liu, with \NflaresSample{} flares in \NstarsSample{} dwarfs. Energies are divided by the stellar luminosity, because the completeness limit in erg follows it. We fit a power law with an exponential cutoff and resample stars, not flares, to obtain errors and tests. The indices are \AlphaCutM$\pm$\AlphaCutErrM{} (M), \AlphaCutK$\pm$\AlphaCutErrK{} (K) and \AlphaCutG$\pm$\AlphaCutErrG{} (G), above the value 3/2 of the fractal-diffusive model. By classes the test of equality is inconclusive. In \NbandsTeff{} narrow bands of effective temperature the index runs from \BandMinAlpha{} to \BandMaxAlpha{} and equality is rejected in every variant of the analysis. The index is therefore not strictly universal. Rotation, which also changes with temperature, may confound its dependence on it.}
+
+\maketitle
+
+\input{sec_intro}
+
+\input{sec_methods}
+
+\input{sec_results}
+
+\input{sec_discussion}
+
+\input{sec_conclusions}
+\input{sec_backmatter}
+
+\bibliographystyle{oup-unsrt}
+\bibliography{references}
+
+\end{document}

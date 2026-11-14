@@ -1,0 +1,4 @@
+# URLs que scripts/fetch_template.py baixa (Actions) para esta revista.
+paginas: []        # páginas HTML de normas e templates, guardadas em manuscrito/template/paginas
+inspecionar: []    # páginas cujos links para .zip/.cls/.bst/.doc/.pdf são seguidos
+diretos: []        # downloads diretos (ex.: zip do template no CTAN ou Overleaf)

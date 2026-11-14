@@ -1,0 +1,20 @@
+# Parâmetros do paper. O bootstrap.sh copia este arquivo para a raiz do repositório do paper e preenche os campos.
+# Nada aqui é segredo (o token do ADS fica em GitHub Secrets, nunca em arquivo).
+paper_id: "__PAPER_ID__"          # ex.: P2
+branch: "__BRANCH__"              # branch de trabalho (gatilho dos workflows)
+kit_version: "__KIT_VERSION__"    # versão do kit com que o paper começou (atualizada por kit_sync.sh)
+programa: "stellar-activity-29"   # pasta em kit/programas/ ou "" se não houver programa
+revista: "epl"                    # pasta em kit/revistas/. Pode mudar até a etapa E9a/E10
+idioma_manuscrito: "en-GB"        # a revista decide (EPL: britânico consistente)
+idioma_documentos: "pt-BR"        # CADERNO, DECISIONS, PAPER_STATE
+commits:
+  trailer_coautoria: true         # P1 usou false (DEC-07). Defina conforme as instruções da plataforma/usuário
+verificacao:                      # lido por scripts/check_manuscript.py
+  travessao: true                 # proíbe travessão e traço duplo na prosa do manuscrito
+  ponto_virgula: true             # proíbe ; na prosa
+  hifen_pontuacao: true           # proíbe " - " como pontuação
+  marcas_ia: true                 # procura marcas de ferramentas de IA em pastas públicas (ver REG-IA: a revista pode exigir declaração)
+  pastas_publicas: [manuscrito, repositorio]
+  extra: []                       # módulos em kit/pipeline/hooks/<nome>.py com check(root) -> list[str]
+publicacao:
+  modo: copia                     # copia | subtree (ver scripts/publish_repositorio.sh e docs/LAYOUT_REPO.md)

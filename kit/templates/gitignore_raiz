@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+manuscrito_overleaf.zip
+referencias/_pendentes/
+.DS_Store

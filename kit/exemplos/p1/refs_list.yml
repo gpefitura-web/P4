@@ -1,0 +1,323 @@
+# Lista de referências (DEC-09). Alterar só com registro em DECISIONS.md.
+# modo: resolver = só consulta ADS; baixar = baixa PDFs do batch_atual (exige aprovação, R7).
+# fonte: arxiv (padrão) | ads_scan | manual (PDF subido pelo usuário).
+# validacao_visual: scan sem camada de texto, aceito após conferência visual da página 1.
+# modo readme: salva só o ReadMe e a listagem do diretório dos catálogos VizieR listados em 'vizier'.
+# modo ambos: lê ReadMe dos catálogos em 'vizier' e baixa o lote batch_atual.
+batch_atual: B11
+modo: ambos
+refs:
+- bibkey: davenport2016
+  batch: E2
+  first_author: Davenport
+  year: 2016
+  title: The Kepler Catalog of Stellar Flares
+  role: 'dados: catálogo de flares Kepler (já baixado na E2)'
+- bibkey: brown2011
+  batch: B1
+  first_author: Brown
+  year: 2011
+  title: 'Kepler Input Catalog: Photometric Calibration and Stellar Classification'
+  role: 'dados: Teff/logg do KIC'
+- bibkey: huber2014
+  batch: B1
+  first_author: Huber
+  year: 2014
+  title: Revised Stellar Properties of Kepler Targets for the Quarter 1-16 Transit Detection Run
+  role: 'dados: Teff revisado (alternativa ao KIC, D4)'
+- bibkey: mathur2017
+  batch: B1
+  first_author: Mathur
+  year: 2017
+  title: Revised Stellar Properties of Kepler Targets for the Q1-17 (DR25) Transit Detection Run
+  role: 'dados: Teff revisado DR25 (alternativa, D4)'
+- bibkey: koch2010
+  batch: B1
+  first_author: Koch
+  year: 2010
+  title: Kepler Mission Design, Realized Photometric Performance, and Early Science
+  role: 'contexto: missão Kepler'
+- bibkey: shibayama2013
+  batch: B1
+  first_author: Shibayama
+  year: 2013
+  title: Superflares on Solar-type Stars Observed with Kepler I. Statistical Properties of Superflares
+  role: 'comparação: α de superflares em estrelas G; definição de energia bolométrica'
+- bibkey: maehara2012
+  batch: B3
+  first_author: Maehara
+  year: 2012
+  title: Superflares on solar-type stars
+  role: 'comparação: superflares Kepler'
+  fonte: manual
+- bibkey: okamoto2021
+  batch: B1
+  first_author: Okamoto
+  year: 2021
+  title: 'Statistical Properties of Superflares on Solar-type Stars: Results Using All of the Kepler Primary Mission Data'
+  role: 'comparação: α em estrelas G com todos os dados Kepler'
+- bibkey: gunther2020
+  batch: B1
+  first_author: Günther
+  year: 2020
+  title: 'Stellar Flares from the First TESS Data Release: Exploring a New Sample of M Dwarfs'
+  role: 'comparação: flares por tipo espectral'
+- bibkey: aschwanden2016
+  batch: B1
+  first_author: Aschwanden
+  year: 2016
+  title: '25 Years of Self-Organized Criticality: Solar and Astrophysics'
+  role: teoria SOC em astrofísica (substitui livro); valores esperados de α
+- bibkey: watkins2016
+  batch: B1
+  first_author: Watkins
+  year: 2016
+  title: '25 Years of Self-organized Criticality: Concepts and Controversies'
+  role: conceitos e controvérsias de SOC (substitui Bak+1987 como referência conceitual)
+- bibkey: aschwanden2014
+  batch: B1
+  first_author: Aschwanden
+  year: 2014
+  title: 'A Macroscopic Description of a Generalized Self-organized Criticality System: Astrophysical Applications'
+  role: previsão de α do modelo FD-SOC (resolve D2)
+- bibkey: aschwanden2015
+  batch: B2
+  first_author: Aschwanden
+  year: 2015
+  title: Thresholded Power Law Size Distributions of Instabilities in Astrophysics
+  role: efeito de limiar/incompletude em leis de potência (D3)
+- bibkey: pelissetto2002
+  batch: B2
+  first_author: Pelissetto
+  year: 2002
+  title: Critical phenomena and renormalization-group theory
+  role: revisão aberta de fenômenos críticos e universalidade (substitui Binney+1992)
+- bibkey: dickman2000
+  batch: B2
+  first_author: Dickman
+  year: 2000
+  title: Paths to self-organized criticality
+  role: SOC e classes de universalidade
+- bibkey: lubeck2004
+  batch: B2
+  first_author: Lübeck
+  year: 2004
+  title: Universal scaling behavior of non-equilibrium phase transitions
+  role: expoentes e classes de universalidade de modelos tipo sandpile (substitui valores BTW do documento)
+- bibkey: bonachela2009
+  batch: B2
+  first_author: Bonachela
+  year: 2009
+  title: 'Self-organization without conservation: true or just apparent scale-invariance?'
+  role: cautelas sobre leis de potência e SOC
+- bibkey: hinrichsen2000
+  batch: B2
+  first_author: Hinrichsen
+  year: 2000
+  title: Non-equilibrium critical phenomena and phase transitions into absorbing states
+  role: SOC e transições de fase absorvente
+- bibkey: clauset2009
+  batch: B2
+  first_author: Clauset
+  year: 2009
+  title: Power-law distributions in empirical data
+  role: método MLE, estimativa de xmin, teste de aderência
+- bibkey: alstott2014
+  batch: B2
+  first_author: Alstott
+  year: 2014
+  title: 'powerlaw: A Python Package for Analysis of Heavy-Tailed Distributions'
+  role: software obrigatório (D3)
+- bibkey: lu1991
+  batch: B2
+  first_author: Lu
+  year: 1991
+  title: Avalanches and the distribution of solar flares
+  role: SOC em flares solares (artigo fundador; sem arXiv - tentar acesso livre do ADS)
+  fonte: ads_scan
+- bibkey: crosby1993
+  batch: B2
+  first_author: Crosby
+  year: 1993
+  title: Frequency distributions and correlations of solar X-ray flare parameters
+  role: α solar de referência (sem arXiv - tentar acesso livre do ADS)
+  fonte: ads_scan
+  validacao_visual: true
+- bibkey: harris2020
+  batch: B3
+  first_author: Harris
+  year: 2020
+  title: Array programming with NumPy
+  role: software
+- bibkey: virtanen2020
+  batch: B3
+  first_author: Virtanen
+  year: 2020
+  title: 'SciPy 1.0: fundamental algorithms for scientific computing in Python'
+  role: software
+- bibkey: astropy2018
+  batch: B3
+  first_author: Astropy Collaboration
+  year: 2018
+  title: 'The Astropy Project: Building an Open-science Project and Status of the v2.0 Core Package'
+  role: software
+- bibkey: ginsburg2019
+  batch: B3
+  first_author: Ginsburg
+  year: 2019
+  title: 'astroquery: An Astronomical Web-querying Package in Python'
+  role: software
+- bibkey: hunter2007
+  batch: B3
+  first_author: Hunter
+  year: 2007
+  title: 'Matplotlib: A 2D Graphics Environment'
+  role: 'software (sem arXiv: bloqueado por R2 até decisão)'
+  fonte: manual
+  validar_com:
+  - matplotlib
+- bibkey: gao2016
+  batch: B4
+  first_author: Gao
+  year: 2016
+  title: White-light Flares on Close Binaries Observed with Kepler
+  role: fonte de flares por flare (Kepler, binárias próximas) citada no ReadMe do Davenport
+- bibkey: walkowicz2011
+  batch: B4
+  first_author: Walkowicz
+  year: 2011
+  title: White-light Flares on Cool Stars in the Kepler Quarter 1 Data
+  role: flares Kepler vs tipo espectral (Q1)
+- bibkey: mcquillan2014
+  batch: B4
+  first_author: McQuillan
+  year: 2014
+  title: 'Rotation periods of 34,030 Kepler main-sequence stars: the full autocorrelation sample'
+  role: períodos de rotação usados por Davenport; contexto
+- bibkey: notsu2013
+  batch: B4
+  first_author: Notsu
+  year: 2013
+  title: 'Superflares on Solar-type Stars Observed with Kepler. II. Photometric Variability of Superflare-generating Stars: A Signature of Stellar Rotation and Starspots'
+  role: 'superflares: variabilidade e rotação (Shibayama II)'
+  bibcode: 2013ApJ...771..127N
+- bibkey: hawley2014
+  batch: B4
+  first_author: Hawley
+  year: 2014
+  title: Kepler Flares. II. The Temporal Morphology of White-light Flares on GJ 1243
+  role: FFD de anã M, quebra em baixa energia citada por Davenport
+  bibcode: 2014ApJ...797..121H
+- bibkey: yang2019
+  batch: B4
+  first_author: Yang
+  year: 2019
+  title: Flare Catalog
+  role: catálogo alternativo de flares Kepler
+  bibcode: 2019ApJS..241...29Y
+- bibkey: yang2020erratum
+  batch: B6
+  first_author: Yang
+  year: 2020
+  title: 'Erratum: The Flare Catalog and the Flare Activity in the Kepler Mission'
+  role: 'erratum do catálogo Yang & Liu 2019: corrige L_flare/L_bol (x365), não altera energias por flare'
+  bibcode: 2020ApJS..250...25Y
+  fonte: manual
+  validar_com:
+  - erratum
+  - flare
+  - catalog
+  - kepler
+- bibkey: pecaut2013
+  batch: B7
+  first_author: Pecaut
+  year: 2013
+  title: Intrinsic Colors, Temperatures, and Bolometric Corrections of Pre-main-sequence Stars
+  role: tipo espectral por Teff (F, G, K, M); citado por Günther 2020 para a classificação
+  bibcode: 2013ApJS..208....9P
+  fonte: manual
+- bibkey: berger2018
+  batch: B8
+  first_author: Berger
+  year: 2018
+  title: Revised Radii of Kepler Stars and Planets Using Gaia Data Release 2
+  role: seleção de anãs (Gaia-DR2) usada por Okamoto 2021
+- bibkey: tu2020
+  batch: B8
+  first_author: Tu
+  year: 2020
+  title: Superflares on Solar-type Stars from the First-year Observation of TESS
+  role: α em TESS, citado por Okamoto
+- bibkey: notsu2019
+  batch: B8
+  first_author: Notsu
+  year: 2019
+  title: Do Kepler Superflare Stars Really Include Slowly Rotating Sun-like Stars?
+  role: subgigantes na amostra de superflares
+  bibcode: 2019ApJ...876...58N
+- bibkey: isobe1990
+  batch: B8
+  first_author: Isobe
+  year: 1990
+  title: Linear Regression in Astronomy
+  role: OLS bisector usado por Yang (comparação)
+  bibcode: 1990ApJ...364..104I
+  fonte: ads_scan
+  validacao_visual: true
+- bibkey: vandoorsselaere2017
+  batch: B9
+  first_author: Van Doorsselaere
+  year: 2017
+  title: Stellar Flares Observed in Long-cadence Data from the Kepler Mission
+  role: catálogo de flares LC criticado por Yang 2019
+  bibcode: 2017ApJS..232...26V
+- bibkey: covey2007
+  batch: B9
+  first_author: Covey
+  year: 2007
+  title: Stellar SEDs from 0.3 to 2.5 μm
+  role: cor g-i e tipo espectral usadas por Davenport
+  bibcode: 2007AJ....134.2398C
+- bibkey: yang2018
+  batch: B9
+  first_author: Yang
+  year: 2018
+  title: Do Long-cadence Data of the Kepler Spacecraft Capture Basic Properties of Flares?
+  role: energia LC subestimada em 25% (citada por Yang 2019)
+  bibcode: 2018ApJ...859...87Y
+- bibkey: ramsay2013
+  batch: B9
+  first_author: Ramsay
+  year: 2013
+  title: Short-duration high-amplitude flares detected on the M dwarf star KIC 5474065
+  role: citado por Davenport/Hawley (FFD de anãs M, Kepler)
+  bibcode: 2013MNRAS.434.2451R
+- bibkey: wu2015
+  batch: B11
+  first_author: Wu
+  year: 2015
+  title: A Study of Variability in the Frequency Distributions of the Superflares of G-type Stars
+  role: FFD de superflares em estrelas G (4944 flares, 77 estrelas), citado por Aschwanden
+  bibcode: 2015ApJ...798...92W
+  fonte: manual
+- bibkey: yang2017
+  batch: B11
+  first_author: Yang
+  year: 2017
+  title: The Flaring Activity of M Dwarfs in the Kepler Field
+  role: método de energia e flares de anãs M usados por Yang 2019
+  bibcode: 2017ApJ...849...36Y
+  fonte: manual
+- bibkey: balona2015
+  batch: B11
+  first_author: Balona
+  year: 2015
+  title: Flare stars across the H-R diagram
+  role: incidência de flares por tipo espectral, citado por Yang e Davenport
+  bibcode: 2015MNRAS.447.2714B
+  fonte: manual
+vizier: []
+verificar: []
+metadados: []
+consultas: []
+paginas: []

@@ -1,0 +1,27 @@
+# Lista de referências do paper (REG-R7: aprovada pelo usuário ANTES do download; lotes de até 10).
+# Alterar a lista aprovada exige registro em DECISIONS.md.
+# modo: resolver = só consulta o ADS (gera referencias/RESOLVE_<lote>.md, não baixa nada)
+#       baixar   = baixa PDFs do batch_atual e valida (título nas páginas 1-2), grava BibTeX do ADS e MANIFEST.json
+#       verificar= confere refereed/tipo/DOI no ADS dos bibkeys em 'verificar' (ou 'todos')
+#       readme   = só ReadMe + listagem de diretório dos catálogos VizieR em 'vizier' (nenhum dado)
+#       ambos    = readme + 'paginas' + (verificar, metadados, consultas) + baixar
+# fonte por item: arxiv (padrão) | ads_scan | pub_pdf | manual (PDF subido pelo usuário em referencias/<bibkey>.pdf)
+# validacao_visual: true para scan sem camada de texto (aceito após conferir a página 1 a olho)
+batch_atual: B1
+modo: resolver
+refs:
+- bibkey: exemplo2020            # REG-R5: autorAno em minúsculas
+  batch: B1
+  first_author: Exemplo
+  year: 2020
+  title: Título exato do artigo como no ADS
+  role: papel deste item no paper (dados, método, comparação, contexto)
+  # bibcode: 2020ApJ...000..000E   # opcional: força a entrada do ADS (bom para obras com título ambíguo)
+  # fonte: manual
+  # validacao_visual: true
+  # validar_com: [palavra1, palavra2]  # tokens alternativos para validar o PDF quando o título do ADS difere do PDF
+vizier: []        # ex.: [J/ApJS/241/29]  (só ReadMe; os dados vêm do notebook, REG-DADOS)
+verificar: []     # ex.: [exemplo2020] ou o texto "todos"
+metadados: []     # bibcodes para ler resumo e relações (erratum)
+consultas: []     # consultas ADS livres para descobrir referências
+paginas: []       # URLs de normas e páginas web para guardar em referencias/web/

@@ -1,0 +1,2 @@
+Esqueleto neutro de manuscrito (E9a): crie `sec_intro.tex`, `sec_methods.tex`, `sec_results.tex`, `sec_discussion.tex`, `sec_conclusions.tex`, `sec_backmatter.tex` com `\section{...}` e comentários. O `main.tex` vem do módulo da revista (`kit/revistas/<rev>/latex/`).
+Contrato do núcleo com a revista: seções em `sec_*.tex`, números por macros de `results_macros.tex`, referências por `\cite{autorAno}`, `build_manuscript.sh` compila `main.tex`.
