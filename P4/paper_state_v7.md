@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D71) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D75) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -62,9 +62,9 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 ## 5 · Decisões humanas: respondidas e pendentes
 
-**Respondidas em 2026-11-14 (caderno §4d):** item 1, série anual e bruta → **D68** (ambas, papéis por definir); item 3, Q8 → **D69** (S e R′_HK, ambos); item 7, receita de σ_S → **D70** (subsídios entregues em `SUBSIDIOS_RECEITA_SIGMA_S.md`, escolha adiada); item 11 → **D71** (aprovado).
+**Respondidas em 2026-11-14 (caderno §4d):** item 1 → **D68** (anual e bruta, ambas; papéis por definir); item 3 / Q8 → **D69** (S e R′_HK); item 4 → **D72** e item 5 → **D73** (subsídios entregues em `SUBSIDIOS_JUNCAO_E_D46.md`, escolha adiada); item 6 → **D74** (esperar Held & Kleinen); item 7 → **D70** (subsídios em `SUBSIDIOS_RECEITA_SIGMA_S.md`, escolha adiada); item 8 → **D75** (piso 0.37–0.45 %); item 11 → **D71**.
 
-**Pendentes** (`P4_MEMORANDO_DECISOES_2026-11-14.md`): papéis de cada série (acompanha D68); (2) Q1; (4) a junção 2001→2004; (5) aceitar D46; (6) a resposta teórica de D50; (7) a escolha da receita de σ_S; (8) o piso instrumental de Q6; (9) Q2–Q7 e Q11; (10) layout do repositório e migração ao Kit.
+**Pendentes** (`P4_MEMORANDO_DECISOES_2026-11-14.md`): papéis de cada série (acompanha D68); (2) Q1; escolhas adiadas dos itens 4, 5 e 7; (6) após Held & Kleinen; (9) Q2–Q7 e Q11; (10) layout do repositório e migração ao Kit.
 
 ## 6 · Estado dos arquivos
 

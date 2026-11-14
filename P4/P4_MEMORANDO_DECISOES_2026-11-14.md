@@ -67,6 +67,7 @@
 ---
 
 ## Registro das respostas
-**Bloco 1 (2026-11-14):** item 1 → D68 (ambas, papéis por definir); item 3 → D69 (S e R′_HK, ambos); item 7 → D70 ("subsídios para defesa": `SUBSIDIOS_RECEITA_SIGMA_S.md`, escolha adiada); item 11 → D71 (aprovo). Itens 2, 4, 5, 6, 8, 9, 10 pendentes.
+**Bloco 1 (2026-11-14):** item 1 → D68 (ambas, papéis por definir); item 3 → D69 (S e R′_HK, ambos); item 7 → D70 ("subsídios para defesa": `SUBSIDIOS_RECEITA_SIGMA_S.md`, escolha adiada); item 11 → D71 (aprovo). 
+**Bloco 2 (2026-11-14):** item 4 → D72 e item 5 → D73 ("subsídios para decidir": `SUBSIDIOS_JUNCAO_E_D46.md`, escolha adiada); item 6 → D74 (esperar Held & Kleinen); item 8 → D75 (citar os dois: 0.37–0.45 %). Pendentes: 2, 9, 10 e os papéis das séries.
 
 Cada resposta será registrada como `D68` em diante, com data, autor "pesquisador" e a base (o número do item acima). Nada neste memorando altera uma decisão ou recomendação já registrada.

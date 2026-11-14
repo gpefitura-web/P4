@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D71)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D75)
 
 ---
 
@@ -547,6 +547,32 @@ Resposta: **"Aprovo."** Ficam aprovados o cabeçalho "Última entrada", a §6 re
 
 ---
 
+---
+
+### D72 — Junção instrumental 2001→2004 (item 4): subsídios entregues, escolha adiada
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 4; D44; I-09 · **Status:** ativa · **Grau:** A (subsídios)
+Resposta do pesquisador: **"Subsídios para decidir."** Entregue `SUBSIDIOS_JUNCAO_E_D46.md` (parte "Item 4"). Nenhuma alternativa escolhida; vale a regra operacional de D44 (nenhuma janela atravessa a junção sem decisão registrada) até a escolha.
+
+---
+
+### D73 — Aceitar D46 (item 5): subsídios entregues, escolha adiada
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 5; D46; D58 · **Status:** ativa · **Grau:** A (subsídios)
+Resposta: **"Subsídios para decidir."** Entregue `SUBSIDIOS_JUNCAO_E_D46.md` (parte "Item 5"). D46 permanece como registrada, sem ser aceita nem revogada por esta entrada.
+
+---
+
+### D74 — Resposta teórica de D50 (item 6): esperar Held & Kleinen
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 6; D50; A7-F1, A7-F2 · **Status:** ativa · **Grau:** decisão humana
+Resposta: **"Esperar Held & Kleinen."** A decisão sobre a sustentação da resposta teórica de D50 fica adiada até o pesquisador subir o PDF (DOI 10.1029/2004GL020972), que será validado (D63) e lido para completar A7. D50 permanece como registrada.
+
+---
+
+### D75 — Piso instrumental de Q6 (item 8): citar os dois valores
+**Data:** 2026-11-14 · **Autor:** pesquisador · **Base:** memorando item 8; I-03; D67 · **Status:** ativa · **Grau:** decisão humana · **Complementa:** Q6 (que permanece aberta quanto à apresentação do grupo `Flat`)
+Resposta: **"Citar os dois."** O piso é citado como a faixa **0.37–0.45 %**, com as duas fontes: 0.372 % (HD 187923) é o menor SSD/Smed da Tabela 2 da CLS V com Nobs ≥ 45, e 0.45 % é o valor do texto do artigo (HD 55575, 0.448 % na tabela). A frase "três vezes abaixo do limiar `Flat`" deve ser reescrita com a faixa (`3.6-24` a `3.6-26`). Não decide Q6.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -565,7 +591,7 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 | **Q10** | **NOVA — a transição é lenta o bastante para ter precursor detectável?** | **aberta.** CLS VI: "on order of years". A10-F2: 8 pontos anuais na aproximação do único caso amostrado. **Se a resposta for não, a tese central do P4 não é testável com os dados existentes.** Depende de A7 |
 | **Q11** | **NOVA — a inclinação estelar confunde o grupo `Flat`?** | **aberta.** D51. Confirmada para τ Cet; não medida para as demais |
 
-**Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**. Q1–Q7, Q10 e Q11 seguem abertas.
+**Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**; junção → **D72** e D46 → **D73** (subsídios entregues, escolha adiada); D50 → **D74** (esperar Held & Kleinen); piso de Q6 → **D75** (0.37–0.45 %). Q1–Q7, Q10 e Q11 seguem abertas.
 
 ---
 
@@ -662,6 +688,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-08-01 | **Segunda rodada de auditoria: A9 (Baum+2022), A10 (Luhn+2022), A11 (Järvinen & Strassmeier 2025 + CLS V + CLS VI), A12 (Noyes+1984) fechadas em Cowork.** Q1 desbloqueada; Q9 reportada e devolvida; Q8 com balanço invertido; duas questões novas (Q10, Q11). Séries estendidas obtidas em forma numérica local. Cinco contradições registradas | D41–D54 |
 | 2026-11-14 | **Inspeção completa, só de leitura** (`inspecao/`, 43 achados I-01 a I-43) e **resolução do que não depende de mérito**: PDFs lidos por inteiro e guardados em `bib/` (MANIFEST); A7, A8, A13 executadas; Tabela 4 de Egeland obtida; D41–D54 incorporadas (a proposta de `inspecao/NOTEBOOK_proposta_D41_D54.md`); errata em `audit/ERRATA_2026-11-14.md`; reparos do catálogo em arquivo lateral. Nenhuma Q# decidida | D55–D67 |
 | 2026-11-14 | **Respostas do pesquisador ao memorando (bloco 1):** anual e bruta, ambas; S e R′_HK, ambos; subsídios para a receita de σ_S; incorporação aprovada. Q1–Q7, Q10, Q11 e os itens 2, 4, 5, 6, 8, 9, 10 do memorando seguem pendentes | D68–D71 |
+| 2026-11-14 | **Respostas do pesquisador (bloco 2):** subsídios para junção e D46; D50 espera Held & Kleinen; piso de Q6 citado como 0.37–0.45 % | D72–D75 |
 
 ---
 
