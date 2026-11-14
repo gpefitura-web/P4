@@ -1,0 +1,113 @@
+HD,star,bv,sptype,S,primary_class,P_cyc,dP,FAP,secondary,n_pass,fig1_check,disagree,grade
+1835,9 Cet,0.66,G2V,0.349,CYCLE,9.1,0.3,Fair,Long,8,bv=Fig1;class=Fig1,,A
+2454,,0.43,F2 V,0.170,Var,,,,wee,6,bv=Fig1;class=Fig1,,A
+3229,14 Cet,0.44,F2 v°,0.224,CYCLE,49,0.1,Poor,a,6,bv=Fig1;class=Fig1,,A
+3443,,0.72,G5 V,0.183,Var,,,,Long,7,bv=Fig1;class=Fig1,,A
+3651,54 Psc,0.85,KO V,0.176,CYCLE,13.8,0.4,Good,Long,8,bv=Fig1;class=Fig1,P_cyc,A
+3795,,0.70,G3 V,0.156,Var,,,,wee,8,bv=Fig1;class=Fig1,,A
+4628,,0.88,K4V,0.230,CYCLE,8.37,0.08,Excellent,,8,bv=Fig1;class=Fig1,,A
+6920,44 And,0.60,F8 V,0.194,Var,,,,,8,bv=Fig1;class=Fig1,,A
+9562,,0.64,~G2.N?-,0.136,Long,,,,,8,bv=Fig1;class=Fig1,,A
+10476,107 Psc,0.84,K1V,0.198,CYCLE,9.6,0.1,Excellent,,8,bv=Fig1;class=Fig1,P_cyc,A
+10700,t Cet,0.72,G8 Vp,0.171,Flat?,,,,,8,no Fig1 label read,,B
+10780,:,0.81,°KOVS.,0.280,CYCLE,,,,,8,no Fig1 label read,,B
+12235,112 Psc,0.62,G1 V°,0.160,Var,,,,,8,bv=Fig1;class=Fig1,,A
+13421,64 Cet,0.56,F8 v°,0.131,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+16160,,0.98,K3 V,0.226,CYCLE,13.2,0.2,Excellent,,7,bv=Fig1;class=Fig1,,A
+16673,,0.52,F8 V,0.215,Var,,,,,8,bv=Fig1;class=Fig1,,A
+17925,,0.87,KO V,0.653,Long,,,,,8,bv=Fig1;class=Fig1,,A
+18256,p? Ari,0.43,FSV,0.185,CYCLE,6.8,0.2,Fair,wee,8,bv=Fig1;class=Fig1,,A
+20630,k Cet,0.68,GSV.,0.366,CYCLE,5.6,0.1,Fair,Long,8,bv=Fig1;class=Fig1,P_cyc,A
+22049,e Eri -,0.88,K2V,0.496,Var,,,,Long,8,bv=Fig1;class=Fig1,,A
+22072,,0.89,G7 Vv?,0.131,Var,,,,a,6,bv=Fig1;class=Fig1,,A
+23249,6 Eri,0.92,KO Iv?,0.137,Flat?,,,,,7,bv=Fig1;class=Fig1,,A
+25998,50 Per.,0.46,F7V,0.300,Long,,,,see ;,7,bv=Fig1;class=Fig1,,A
+26913,V891 Tau,0.70,G8 V°,0.396,CYCLE,7.8,0.2,Fair,Long,7,bv=Fig1;class=Fig1,,A
+26923,V774 Tau,0.59,GO v*,0.287,Var,,,,wee,7,bv=Fig1;class=Fig1,,A
+26965,o? Eri,0.82,K1V,0.206,CYCLE,10.1,0.1,Excellent,,7,bv=Fig1;class=Fig1,,A
+29645,,0.57,G3 V,0.140,Long,,,,,7,bv=Fig1;class=Fig1,,A
+30495,58 Eri,0.63,G1 V,0.297,Var,,,,wee,6,bv=Fig1;class=Fig1,,A
+32147,,1.06,KS V,0.286,CYCLE,11.1,0.2,Excellent,Long,7,bv=Fig1;class=Fig1,,A
+33608,,0.46,F6 V,0.214,Long,,,,vee,6,bv=Fig1;class=Fig1,,A
+35296,111 Tau,0.53,F8 V,0.332,Long,,,,,5,bv=Fig1;class=Fig1,,A
+37394,-,0.84,Ki V,0.453,CYCLE,3.65,0.1,Poor,wee,7,bv=Fig1;class=Fig1,P_cyc,A
+39587,x’ Ori,0.59,G0 V,0.325,Var,,,,Long,5,bv=Fig1;class=Fig1,,A
+43587,a,0.61,G0 V,0.156,Flat?,,,,vee,7,bv=Fig1;class=Fig1,,A
+45067,,0.56,F8 V,0.141,Flat,,,,,6,bv=Fig1;class=Fig1,,A
+61421,a CMi,0.42,F5 IV-V,0.171,Var,,,,,7,no Fig1 label read,,B
+72905,nm UMa,0.62,F7V,0.367,Var,,,,,7,bv=Fig1;class=Fig1,,A
+75332,,0.49,F7V,0.279,Var,,,,wee,7,bv=Fig1;class=Fig1,,A
+76151,,0.67,G3 V,0.246,CYCLE,2.52,0.02,Fair,Long,6,no Fig1 label read,,B
+76572,61 Cnc,0.43,F3 V,0.148,CYCLE,,,Poor,vee,1,bv=Fig1;class=Fig1,,A
+78366,,0.60,G0 V,0.248,CYCLE,12.2,0.4,Good,"5.9 + 0.1, fair",6,bv=Fig1;class=Fig1,,A
+81809,,0.64,G2 V,0.172,CYCLE,8.17,0.08,Excellent,_,7,bv=Fig1;class=Fig1,,A
+82443,,0.77,KO vF,0.635,CYCLE,2.85,0.1,Poor,vee,7,bv=Fig1;class=Fig1,P_cyc,A
+82885,11 LMi,0.77,G8 Iv-v4,0.284,CYCLE,7.9,0.2,Fair,"12.6 + 0.7, poor",7,cell-level OCR x4 configs agree,,B
+88355,34 Leo,0.46,F6 V,0.170,Var,,,,wee,7,bv=Fig1;class=Fig1,,A
+88737,,0.56,F5 V8,0.234,CYCLE,,,,wee,7,bv=Fig1;class=Fig1,,A
+89744,,0.54,F6 V,0.137,Flat,,,,,7,bv=Fig1;class=Fig1,,A
+95735,Lld 21185,1.51,"M2.1 Ve""",0.424,Var,,,,,6,no Fig1 label read,,B
+97344,,0.61,GO V,0.335,Var,,,,wee,7,no Fig1 label read,,B
+100180,88 Leo,0.57,F7V,0.165,CYCLE,3.56,0.04,Fair,"12.9 + 0.5, fair",7,bv=Fig1;class=Fig1,,A
+100563,89 Leo,0.46,FS V,0.202,Var,,,,wee,7,bv=Fig1;class=Fig1,,A
+101501,61 UMa,0.72,G8 V,0.311,Var,,,,Long,7,bv=Fig1;class=Fig1,,A
+103095,Gmb 1830,0.75,G8 VI,0.188,CYCLE,7.30,0.08,Excellent,bee,7,bv=Fig1;class=Fig1,,A
+106516,,0.46,F6 V,0.208,Var,,,,,7,bv=Fig1;class=Fig1,,A
+107213,9 Com,0.50,F8 V,0.135,Long,,,,,7,bv=Fig1;class=Fig1,,A
+111456,,0.46,F6 V,0.300,CYCLE,,,,,7,bv=Fig1;class=Fig1,,A
+114378,a Com,0.45,F5V+F5V,0.244,Long,,,,vee,7,bv=Fig1;class=Fig1,,A
+114710,BCom,0.57,GO V,0.201,CYCLE,16.6,0.6,Good,"9.6 + 0.3, fair",7,bv=Fig1;class=Fig1,,A
+115043,,0.60,Gi Vi,0.327,Var,,,,wee,7,bv=Fig1;class=Fig1,,A
+115383,59 Vir,0.58,F8 V,0.313,Var,,,,,8,bv=Fig1;class=Fig1,,A
+115404,,0.93,Ki VF,0.535,CYCLE,12.4,0.4,Good,,8,bv=Fig1;class=Fig1,P_cyc,A
+115617,61 Vir,0.71,G6 V,0.162,Var,,,,,8,bv=Fig1;class=Fig1,,A
+120136,t Boo,0.48,F7 Vv?,0.191,CYCLE,11.6,0.5,Poor,,8,bv=Fig1;class=Fig1,,A
+124570,14 Boo,0.54,F6 Vv?,0.133,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+124850,1 Vir,0.52,F7 Ivi,0.210,Long,,,,,8,bv=Fig1;class=Fig1,,A
+126053,,0.63,G3 V,0.165,CYCLE,,,,,8,bv=Fig1;class=Fig1,,A
+129333,EK Dra,0.61,Go Vi,0.544,Var,,,,,8,bv=Fig1;class=Fig1,,A
+131156B,€ Boo B,1.17,K4V,1.381,Long,,,,,8,bv=Fig1;class=Fig1,,A
+131156A,€ Boo A,0.76,G8 V,0.461,Var,,,,,8,bv=Fig1;class=Fig1,,A
+136202,5 Ser,0.54,F8 IV-v*,0.140,Long,,,,,8,bv=Fig1;class=Fig1,,A
+137107AB,n CrB,0.58,G2V+G2V,0.184,Var,,,,,8,no Fig1 label read,,B
+141004,A Ser,0.60,G0 V,0.155,Long,,,,,7,bv=Fig1;class=Fig1,,A
+142373,x Her,0.56,F9 V,0.147,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+143761,p CrB,0.60,G2V,0.150,Long,,,,wee,8,bv=Fig1;class=Fig1,,A
+149661,12 Oph,0.82,KO V,0.339,CYCLE,17.4,0.7,Good,"4.00 + 0.04, Good",8,bv=Fig1;class=Fig1,P_cyc,A
+152391,,0.76,G7 Vi,0.393,CYCLE,10.9,0.2,Excellent,Lee,8,bv=Fig1;class=Fig1,,A
+154417,,0.57,F8 v°,0.269,CYCLE,7.4,0.2,Fair,,8,bv=Fig1;class=Fig1,P_cyc,A
+155885,36 Oph B,0.86,Ki V,0.384,CYCLE,5.7,0.1,Poor,wee,8,bv=Fig1;class=Fig1,,A
+155886,36 Oph A,0.86,KO V,0.375,Var,,,,Long,8,bv=Fig1;class=Fig1,,A
+156026,,1.16,K5 Vi,0.770,CYCLE,21.0,0.9,Good,wee,8,bv=Fig1;class=Fig1,P_cyc,A
+157856,,0.46,F5 V9,0.202,CYCLE,15.9,0.8,Fair,,8,bv=Fig1;class=Fig1,P_cyc,A
+158614,,0.72,G8 IV-V,0.158,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+159332,,0.48,F4V,0.144,Flat?,,,,,8,bv=Fig1;class=Fig1,,A
+160346,,0.96,K3 Vv‘,0.300,CYCLE,7.00,0.08,Excellent,wee,8,bv=Fig1;class=Fig1,,A
+161239,84 Her,0.65,G6 V!,0.138,CYCLE,5.7,0.1,Fair,"11.8 + 0.5, poor",8,bv=Fig1;class=Fig1,,A
+165341A,70 Oph A,0.86,KO V,0.392,CYCLE,5.1,0.1,Fair,wee,8,bv=Fig1;class=Fig1,P_cyc,A
+165341B,70 Oph B,1.16,K6 V,0.691,Var,,,,,8,bv=Fig1;class=Fig1,,A
+166620,,0.87,K2V,0.190,CYCLE,15.8,0.3,Excellent,,7,bv=Fig1;class=Fig1,,A
+176051,,0.59,G0 V,0.176,CYCLE,,,,,8,bv=Fig1;class=Fig1,,A
+176095,,0.46,F5 Ivi,0.202,Long,,,,,8,no Fig1 label read,,B
+178428,,0.70,G4V,0.154,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+182101,,0.44,F6 V,0.216,CYCLE,5.1,0.1,Poor,,8,bv=Fig1;class=Fig1,,A
+182572,31 Aql,0.77,G8 IV,0.148,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+185144,o Dra,0.80,KO V,0.215,CYCLE,,,,,8,bv=Fig1;class=Fig1,,A
+187013,17 Cyg,0.47,F5V,0.154,Long,,,,,8,bv=Fig1;class=Fig1,,A
+187691,o Aql,0.55,F8 V,0.148,CYCLE,5.4,0.1,Fair,,8,bv=Fig1;class=Fig1,P_cyc,A
+188512,B Aql,0.86,G8 Iv?,0.136,CYCLE,4.1,0.1,Poor,nee,8,bv=Fig1;class=Fig1,P_cyc,A
+190007,,1.17,K4 Vi,0.746,CYCLE,13.7,0.7,Fair,"5.3 + 0.1, poor",8,bv=Fig1;class=Fig1,,A
+190360,,0.73,G6 Iv?,0.146,Flat,,,,Snes,8,bv=Fig1;class=Fig1,,A
+190406,15 Sge,0.61,GI V,0.194,CYCLE,2.60,0.02,Fair,"16.9 + 0.8, good",8,bv=Fig1;class=Fig1,,A
+194012,,0.51,F5 V3,0.198,CYCLE,16.7,0.9,Poor,"5.4 + 0.1, fair",8,bv=Fig1;class=Fig1,,A
+201091,61 Cyg,1.18,KS V,0.658,CYCLE,7.3,0.1,Excellent,,8,bv=Fig1;class=Fig1,P_cyc,A
+201092,,1.37,K7V,0.986,CYCLE,11.7,0.4,Good,,8,bv=Fig1;class=Fig1,,A
+206860,HN Peg,0.59,G0 V,0.330,CYCLE,6.2,0.2,Poor,,8,bv=Fig1;class=Fig1,,A
+207978,15 Peg,0.42,FO v°,0.152,Flat,,,,,8,bv=Fig1;class=Fig1(resolved),primary_class,A
+212754,34 Peg,0.52,FSV,0.140,Long,,,,,8,bv=Fig1;class=Fig1,,A
+216385,o Peg,0.48,F7 IV,0.142,Flat,,,,,8,bv=Fig1;class=Fig1,,A
+217014,51 Peg,0.67,G5 v°,0.149,Var,,,,,8,bv=Fig1;class=Fig1,,A
+219834A,94 AqrA,0.80,G5 IV-V,0.155,CYCLE,,,Good,,8,bv=Fig1;class=Fig1,,A
+219834B,94 Aqr B,0.91,K2V,0.204,CYCLE,10.0,0.2,Excellent,wee,8,bv=Fig1;class=Fig1,,A
+224930,85 Peg,0.67,G3 V,0.184,CYCLE,10.2,0.4,Poor,. Long,8,bv=Fig1;class=Fig1,,A
+(Sun),Sun,0.66,G2 V,0.179,CYCLE,10.0,0.1,Excellent,...,8,"bv=Fig1;class=Fig1(10.0,excl)",,A

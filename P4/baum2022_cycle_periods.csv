@@ -1,0 +1,15 @@
+HD,P_baum_yr,metodo_baum,P_baliunas_yr,dP_baliunas,FAP_baliunas,class_baliunas,N_obs,baseline_yr,grau,delta_yr,delta_sigma
+101501,4.2,estimado a olho (§3.1),,,,Var,2239,49,B,,
+10476,10.3,Lomb-Scargle (§3.1),9.6,0.1,Excellent,CYCLE,2352,52,B,0.7000000000000011,7.0
+145958A,7.5,Lomb-Scargle (§3.1),,,,,84,25,B,,
+152391,9.1,Lomb-Scargle (§3.1),10.9,0.2,Excellent,CYCLE,3880,53,B,-1.8000000000000007,-9.0
+166620,17.0,estimado a olho (§3.1),15.8,0.3,Excellent,CYCLE,1766,54,B,1.1999999999999993,4.0
+185144,6.2,Lomb-Scargle (§3.1),,,,CYCLE,2055,42,B,,
+190406,17.2,estimado a olho (§3.1),2.6,0.02,Fair,CYCLE,2570,53,B,14.6,730.0
+20165,7.8,Lomb-Scargle (§3.1),,,,,173,41,B,,
+219834B,9.4,Lomb-Scargle (§3.1),10.0,0.2,Excellent,CYCLE,1340,52,B,-0.5999999999999996,-3.0
+26965,9.9,Lomb-Scargle (§3.1),10.1,0.1,Excellent,CYCLE,1611,52,B,-0.1999999999999993,-2.0
+4628,10.0,estimado a olho (§3.1),8.37,0.08,Excellent,CYCLE,1882,53,B,1.6300000000000008,20.4
+52711,11.0,Lomb-Scargle (§3.1),,,,,400,41,B,,
+75732,10.9,Lomb-Scargle (§3.1),,,,,698,36,B,,
+7924,7.2,Lomb-Scargle (§3.1),,,,,779,40,B,,

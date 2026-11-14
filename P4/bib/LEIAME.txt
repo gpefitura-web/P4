@@ -1,0 +1,2 @@
+Pasta vazia de propósito. Os PDFs das fontes (85 MB) ficam no repositório github.com/gpefitura-web/P4.
+Para trazê-los: git clone https://github.com/gpefitura-web/P4 e copie os .pdf para esta pasta, se quiser tudo junto.
