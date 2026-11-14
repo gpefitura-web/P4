@@ -1,6 +1,6 @@
 # RELATÓRIO DE INSPEÇÃO — Paper P4
 
-Data: 2026-11-14 · Pacote inspecionado: `P4/` (subpasta do repositório `gpefitura-web/p4`) · Todos os números abaixo remetem a `inspecao/checks.csv` (coluna `id`) ou a arquivo e seção do pacote.
+Data: 2026-11-14 · Pacote inspecionado: `P4/` (subpasta do repositório `gpefitura-web/p4`) · Todos os números abaixo remetem a `inspecao/checks.csv` (coluna `id`) ou a arquivo e seção do pacote. Adendo com a verificação contra os PDFs de Baum, Luhn e CLS V na seção 6.
 
 ## Resumo
 
@@ -413,3 +413,30 @@ PYTHON=/caminho/para/python bash inspecao/scripts/run_all.sh
 ```
 
 Requer `numpy`, `pandas` e `scipy`; todos os scripts rodam com `python -I`. Duas execuções seguidas produziram `checks.csv` idênticos. As saídas auxiliares (tabelas completas, listagem numerada do notebook, cálculo passo a passo de D52) ficam em `inspecao/saidas/`. O `scipy` foi instalado num ambiente virtual fora do repositório, porque não estava disponível no ambiente da sessão.
+
+---
+
+## 6. Adendo — verificação contra os PDFs (2026-11-14)
+
+Os PDFs de Baum+2022, Luhn+2022 e Isaacson+2024 (CLS V) foram guardados em `P4/bib/` com os nomes que A9–A12 já citavam (`Baum_2022_AJ_163_183.pdf`, `Luhn_2022_ApJL_936_L23.pdf`, `Isaacson_2024_ApJS_274_35.pdf`). Li o texto de Luhn inteiro, as páginas 1–4 de Baum e as páginas 1–3 de Isaacson, e conferi por busca no texto extraído as passagens de Baum, Luhn e Isaacson abaixo. Os achados acima ficam como estão; este adendo só acrescenta o que a fonte primária mostra. Continuam sem PDF: Järvinen & Strassmeier 2025, CLS VI, Noyes+1984 e Oláh+2016, de modo que D48, D50–D54 seguem sem conferência literal.
+
+**DOI da CLS V** (primeira página do PDF): `10.3847/1538-4365/ad676c`. O DOI `10.26093/cds/vizier.22740035` que aparece nos TSVs é o do catálogo VizieR, não o do artigo.
+
+| Achado | O que a fonte diz | Efeito |
+|---|---|---|
+| **I-01** | Luhn §3.1 (p. 4): o ruído é subtraído "from the **observed values**" e dá σ_S(min. 1) = 0.0027, σ_S(min. 2) = 0.0054, σ_S(grand) = 0.0019. "Seasonal" aparece só na estimativa do ruído do Keck ("lowest seasonal σ_S values approach 0.3%"). Em seguida: "Even when corrected for intrinsic noise differences … an F-test gives 8.78 × 10⁻⁶ chance that σ_S(grand) is drawn from the same distribution as σ_S(min. 1)." | O passo 1 de D45 ("dentro de cada estação") não está em Luhn; é leitura de D45/A10. E o artigo apresenta o p como posterior à correção, mas ele só reproduz com as variâncias brutas (`3.4-50`); com os σ_S corrigidos dá 8.7 × 10⁻³ (`3.4-52`). **A inconsistência está no próprio Luhn, e não só em D45 e no v6.** Continua BLOQUEANTE; a pergunta passa a ser o que Luhn calculou, que só os autores respondem |
+| **I-03** | Isaacson §5.6: "Our least active star **with more than 45 observations** is HD 55575 with a relative dispersion of 0.0007/0.1562 = 0.45%." §2.2 (p. 3): "HD 55575, our least active star … 0.0007/0.156 = 0.45%." A Tabela 2 do mesmo artigo tem HD 187923 (SSD 0.00059, Smed 0.1585, 106 obs) e HD 144579 (SSD 0.00066, Smed 0.1664, 122 obs) abaixo | A contradição é interna ao artigo (texto × tabela), grau A nos dois lados, portanto grau X. Para τ Cet há três valores no mesmo artigo: 0.82 % (0.00139/0.1675, §2.2), 0.75 % (0.00125/0.1674, §5.6) e 0.72 % (Tabela 2). A11 registrava dois |
+| **I-04** | Baum §4.2: "Of the 26 stars that were included in both the B95 catalog and this one, 14 stars were given new classifications"; exemplo HD 10700 (`flat?` → `flat`); "Of the three stars … originally classified as long, only HD 141004 maintained this classification. HD 9562 and HD 143761 were reclassified as flat." | O número 14 é de Baum e Baum não lista quais; a lista é de A9. O achado fica como está |
+| **I-14** | Luhn §3.1: "Baliunas et al. (1995) give σ_S ≈ 1.2% … The calculated σ_S is less than this in six of the nine seasons with more than one S_HK(Keck) measurement. The lowest seasonal σ_S values approach 0.3%" | "this" é o 1.2 %, como em `3.4-57`. A ordem das frases em A10 §1.4 item 2 induz a ler 0.3 % |
+| A10-F1 | Luhn §2.2: "contain 158 observations" | confirmado como texto; a tabela tem 119 |
+| A9-F1 | Baum, Resumo: "We have analyzed 29 stars with periodic cycles". Isaacson §4.2.2: "We cross-check the 13 cycles from 59 stars examined in Baum et al. (2022) … find 10 of the 13 cycles. … HD 101501 and HD 152391 have fewer than 45 observations" | confirmados |
+| A11b-F1 | Isaacson §5.6: "Fifty stars have a smaller S-value standard deviation than HD 10700" | confirmado |
+| A11b-F3 / D47 | Isaacson §5.6: "HD 4915 is a candidate star in a Maunder minimum–like state (Shah et al. 2018), but our extended time baseline shows two cycles." | confirmado. A Tabela 4 dá P = 4.86 e Amp = 0.2046 para HD 4915 (`3.6-27`) |
+| D44 | Baum §2.1.1–2.1.3 (p. 3): "shifting the median of the pre-1977 measurements"; "a constant shift"; "Fourteen stars in the post-2010 CPS data showed a clear offset … and were shifted accordingly" | confirmado |
+| Baum §4.1 | "The data at face value argue that the grand minimum is not at a lower level than the local minima … However, some other stars required offsets between instruments, so this conclusion is not robust." "we estimate the cycle period … to be 17 yr" | confirmado (A9 §1.6) |
+
+**I-34 · MENOR · grau A · janelas dos mínimos em Luhn §3.1.** O texto diz "the minimum occurring from 1971 to 1975 and the minimum occurring from 1986 to 1990" e, na frase seguinte, "The second minimum (1987.0–1991.0)". São duas janelas diferentes para o mesmo mínimo. A10 usa 1987.0–1991.0 e com ela reproduz ⟨S_HK⟩ = 0.1724 e σ = 0.0058 (`3.4-28` a `3.4-30`). Não testei 1986–1990.
+
+**I-35 · IMPORTANTE · grau A · HD 101501 em D49 e no v6.** D49 e v6 §3.4 descrevem "dez anos de estado plano seguidos de retorno à atividade cíclica defasado em 180°". Baum §4.1 e a legenda da Figura 4 dizem: "HD 101501 experienced 10 yr of lower activity, a much lower amplitude cycle than the rest of its cycle"; "This star, while possibly still exhibiting a low-amplitude cycle, is a good example of capturing both the drop from—and return to—cyclic behavior". Baum não chama o trecho de plano e admite que o ciclo de baixa amplitude pode continuar. Isso enfraquece o papel de HD 101501 como contraexemplo de *aged out* (D49): o objeto sai de um estado de baixa amplitude, que o próprio Baum ainda trata como possivelmente cíclico. Complementa I-08 (cobertura de um só instrumento). Nenhuma recomendação nova: decidir se a redação de D49 e do v6 deve seguir a de Baum cabe ao pesquisador.
+
+**I-25 atualizado:** Baum, Luhn e CLS V passam de ausentes a presentes em `bib/`. Continuam ausentes: Järvinen & Strassmeier 2025, CLS VI, Noyes+1984, Oláh+2016.
