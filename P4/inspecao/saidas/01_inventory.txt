@@ -20,7 +20,14 @@
       8013  9ab820d56eae8724  baliunas_table2_full.csv
      17502  7f80024b9da84a84  baum2022_59stars.csv
       1092  4634b8b68002e4ad  baum2022_cycle_periods.csv
+    728410  306c02c85ee73cce  bib/Baum_2022_AJ_163_183.pdf
+   2392023  c7a60c343b939602  bib/Isaacson_2024_ApJS_274_35.pdf
+   2131714  38dab01c6f864ffc  bib/Isaacson_2025_AJ_170_181.pdf
+   4255855  58ff04647f870938  bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf
        223  094f014f7680c8ef  bib/LEIAME.txt
+    534302  e7b017008a250a8f  bib/Luhn_2022_ApJL_936_L23.pdf
+   1482975  1ce4e8757f68135c  bib/Noyes1984.pdf
+   1157630  6dd9cdbaaeaa7d25  bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf
      11651  4bbcc45644f0e8c7  data/J_163_183_table2.tsv
    2674524  7703efab4bdb8ac5  data/J_AJ_163_183_table1.tsv
      84234  f3d7f8b9a6a12756  data/J_ApJS_274_35_table2.tsv
@@ -61,13 +68,12 @@ IDENTICAL  noyes1984_validade_cor.csv  <->  noyes1984_validade_cor.csv
 IDENTICAL  p4_pipeline.ipynb  <->  p4_pipeline.ipynb
 IDENTICAL  paper_state_v4.md  <->  paper_state_v4.md
 IDENTICAL  paper_state_v6.md  <->  paper_state_v6.md
-only in the package: CLAUDE.md, P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, bib/LEIAME.txt, historico/paper_state_v2.md, paper_state_v5.md
+only in the package: CLAUDE.md, P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, bib/Baum_2022_AJ_163_183.pdf, bib/Isaacson_2024_ApJS_274_35.pdf, bib/Isaacson_2025_AJ_170_181.pdf, bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf, bib/LEIAME.txt, bib/Luhn_2022_ApJL_936_L23.pdf, bib/Noyes1984.pdf, bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf, historico/paper_state_v2.md, paper_state_v5.md
 PDFs in the repository root: Baliunas et al. 1995, ApJ 438, 269.pdf | Dakos et al. 2012, PLoS ONE 7, e41010.pdf | Egeland_2017_ApJ_835_25.pdf | Held & Kleinen 2004, GRL 31, L23207.pdf | Lockwood_2007_ApJS_171_260.pdf | Peng et al. 1994, Phys. Rev. E 49, 1685.pdf | Saar_1999_ApJ_524_295.pdf | Scheffer et al. 2009, Nature 461, 53.pdf | Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf
 
 ## File names cited in the documents and not found at the cited place
 COWORK_PROMPT_A9_A12.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md
 FASE1_PAPERS_P1_P12.md: ABSENT from package  <- cited in README_HANDOFF.md
-Isaacson_2025_AJ_170_181.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
 P4_DECISION_SUPPORT_6.1.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, paper_state_v5.md
 P4_SOURCE_VALUES.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
 SUBMISSION_STRATEGY_TIMELINE.md: ABSENT from package  <- cited in README_HANDOFF.md
@@ -78,9 +84,6 @@ audit/A#_*.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 audit/A7_theory.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, README_HANDOFF.md, paper_state_v4.md
 audit/A8_usoskin.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, README_HANDOFF.md, paper_state_v4.md
 audit/baliunas_table2_full.csv: CITED PATH DIFFERS, file is at baliunas_table2_full.csv  <- cited in P4_AUDIT_PROTOCOL.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5_peng.md, audit/A6_saar.md, paper_state_v4.md
-bib/Isaacson_2024_ApJS_274_35.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
-bib/Isaacson_2025_AJ_170_181.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
-bib/Noyes1984.pdf: ABSENT from package  <- cited in audit/A12_noyes.md
 bib/aa28479-16.pdf: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v6.md
 bib/aa54111-25.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
 cell_verify.py: ABSENT from package  <- cited in audit/A1_baliunas.md

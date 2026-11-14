@@ -1,0 +1,8 @@
+[PASS] 3.10-01: stars with a dominant period parsed from Olah Table 1 (29 stars, 28 with a cycle; HD 95735 and HD 131156A/B have no B95 row) | expected=28 obtained=28
+[INFO] 3.10-02: Olah dominant period vs B95 period: stars compared | expected= obtained=25
+[INFO] 3.10-03: of those, |Olah - B95| >= 2 x dP(B95) | expected= obtained=23/25
+[INFO] 3.10-04: CYCLE + FAP Excellent stars compared | with |diff| >= 2 sigma | expected= obtained=12 | 11
+[PASS] 3.10-05: HD 166620: dominant period in Olah Table 1 | expected=13.6 obtained=13.6
+[PASS] 3.10-06: HD 3651: dominant period in Olah Table 1 | expected=11.6 obtained=11.6
+[PASS] 3.10-07: HD 4628: dominant period in Olah Table 1 | expected=8.94 obtained=8.94
+[INFO] 3.10-08: HD 166620 rotation period in Olah Table 1 (Luhn 45.06 +- 4.07 d; Donahue 42.4 d) | expected= obtained=41.5

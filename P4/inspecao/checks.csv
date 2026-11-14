@@ -1,11 +1,11 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,36,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,43,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
-1-06,PDFs in bib/,0,0,README_HANDOFF.md,PASS
-1-07,distinct file names cited (in backticks) and absent from the package,,25,regex over all .md and the notebook,INFO
+1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,7,README_HANDOFF.md,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,21,regex over all .md and the notebook,INFO
 1-08,known-missing files confirmed absent,6,6,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
 2a-01,decisions D01-D54 defined exactly once,54,54,notebook + DECISOES_D41_D54.md,PASS
@@ -393,3 +393,52 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 4-17,"notebook: sensitivity windows (0.25, 0.40, 0.50, 0.60, 0.75) (D20) - code cells",,16,p4_pipeline.ipynb,INFO
 4-18,"notebook: Gaussian sigma fixed at 1.0 yr, no sweep (Q3) - code cells",,"14,16",p4_pipeline.ipynb,INFO
 4-19,cells with a stored execution count | cells whose stored output is an error,,"[2, 4, 6, 8, 10] | [(10, 'FileNotFoundError')]",p4_pipeline.ipynb,INFO
+3.10-01,"stars with a dominant period parsed from Olah Table 1 (29 stars, 28 with a cycle; HD 95735 and HD 131156A/B have no B95 row)",28,28,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),PASS
+3.10-02,Olah dominant period vs B95 period: stars compared,,25,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),INFO
+3.10-03,"of those, |Olah - B95| >= 2 x dP(B95)",,23/25,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),INFO
+3.10-04,CYCLE + FAP Excellent stars compared | with |diff| >= 2 sigma,,12 | 11,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),INFO
+3.10-05,HD 166620: dominant period in Olah Table 1,13.6,13.6,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),PASS
+3.10-06,HD 3651: dominant period in Olah Table 1,11.6,11.6,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),PASS
+3.10-07,HD 4628: dominant period in Olah Table 1,8.94,8.94,bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf (Table 1),PASS
+3.10-08,HD 166620 rotation period in Olah Table 1 (Luhn 45.06 +- 4.07 d; Donahue 42.4 d),,41.5,bib/Luhn_2022_ApJL_936_L23.pdf §3.3,INFO
+3.11-01,Luhn §3.1: noise subtracted 'from the observed values',yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-02,Luhn §3.1: F-test sentence introduced by 'Even when corrected for intrinsic noise differences',yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-03,Luhn §3.1: the words 'within each' season are NOT used for the sigma_S of the minima,no,no,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-04,Luhn §2.2: 'contain 158 observations',yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-05,Luhn §3.1: second minimum 'from 1986 to 1990',yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-06,Luhn §3.1: second minimum '(1987.0.1991.0)',yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-07,Luhn §3.1: 'less than this in six of the nine seasons' follows the 1.2 % value,yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-08,Baum Abstract: 'analyzed 29 stars with periodic cycles',yes,yes,Baum_2022_AJ_163_183.pdf,PASS
+3.11-09,Baum §2.1.3: 'Fourteen stars in the post-2010 CPS data showed a clear offset',yes,yes,Baum_2022_AJ_163_183.pdf,PASS
+3.11-10,Baum §4.1: HD 101501 'dropped to a low S-value with little variation',yes,yes,Baum_2022_AJ_163_183.pdf,PASS
+3.11-11,Baum §4.1: HD 101501 'possibly still exhibiting a low-amplitude cycle',yes,yes,Baum_2022_AJ_163_183.pdf,PASS
+3.11-12,Baum §4.2: '14 stars were given new classifications',yes,yes,Baum_2022_AJ_163_183.pdf,PASS
+3.11-13,CLS V §5.6: 'least active star with more than 45 observations is HD 55575',yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-14,CLS V §5.6: 'Fifty stars have a smaller S-value standard deviation than HD 10700',yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-15,CLS V §3: B-V is derived from Teff and [Fe/H] (Ramirez & Melendez 2005),yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-16,CLS V Fig. 10 caption: '256 stars that have more than 45 observations',yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-17,CLS V §5: '138/284 stars have cycles',yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-18,"CLS V §4.3: 'Out of 70 solar-like stars, we find 29 stars with cycles'",yes,yes,Isaacson_2024_ApJS_274_35.pdf,PASS
+3.11-19,CLS VI Abstract: sample of 91 solar-type dwarfs,yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-20,CLS VI §3.1: mass division 'reduces the need for a spectral-type indifferent metric',yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-21,CLS VI §3.3: 'suggestive of a rapid (on stellar timescales) transition',yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-22,CLS VI §3.3.1: 'requires a stochastic process that is poorly understood',yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-23,CLS VI §3.2: tau Ceti 'pole-on inclination',yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-24,CLS VI §5: 'the S-value itself best correlates with S-value variability',yes,yes,Isaacson_2025_AJ_170_181.pdf,PASS
+3.11-25,Jarvinen: '13 RAVE stars out of 13 326 (0.1%)',yes,yes,Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf,PASS
+3.11-26,Jarvinen: snapshot observations 'in the presence of undetected rotational modulation and cycles',yes,yes,Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf,PASS
+3.11-27,Noyes §II: the paper concerns 'the mean level of activity',yes,yes,Noyes1984.pdf,PASS
+3.11-28,Noyes Appendix b: 'a very significant correction for the chromospherically less active stars',yes,yes,Noyes1984.pdf,PASS
+3.11-29,Noyes §II: 'calibration for B.V > 1.0 may be uncertain by as much as 20%',yes,yes,Noyes1984.pdf,PASS
+3.11-30,Noyes Appendix a: Linsky et al. calibration falls below by 0.3 dex at B-V = 1.25,yes,yes,Noyes1984.pdf,PASS
+3.11-31,Scheffer 2009: Hopf = 'transition from a stable system to an oscillatory system',yes,yes,"Scheffer et al. 2009, Nature 461, 53.pdf",PASS
+3.11-32,Scheffer 2009: critical transitions in cyclic systems 'are less well studied',yes,yes,"Scheffer et al. 2009, Nature 461, 53.pdf",PASS
+3.11-33,Scheffer 2009: 'We know of no explicit work on early-warning signals for such transitions',yes,yes,"Scheffer et al. 2009, Nature 461, 53.pdf",PASS
+3.11-34,"File 'Held & Kleinen 2004' is Boulton, Allison & Lenton 2014 (Nature Commun. 5:5752)",yes,yes,"Held & Kleinen 2004, GRL 31, L23207.pdf",PASS
+3.11-35,File 'Held & Kleinen 2004' does not carry the Held & Kleinen title in its first page,no,no,"Held & Kleinen 2004, GRL 31, L23207.pdf",PASS
+3.11-36,Usoskin 2017: 'hardly able to predict its occurrence',yes,yes,"Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf",PASS
+3.11-37,"Usoskin 2017: 'contrary to some predictions, a Grand minimum of activity has no started'",yes,yes,"Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf",PASS
+3.11-38,Usoskin 2017: start of the Maunder minimum 'not very sudden but via a regular cycle of reduced height',yes,yes,"Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf",PASS
+3.11-39,Egeland 2017: abstract <S_cyc> = 0.1694 +- 0.0005,yes,yes,Egeland_2017_ApJ_835_25.pdf,PASS
+3.11-40,Egeland 2017 text: cycle amplitude '0.0145+-0.0014' (abstract/Table 2 give 0.0012),yes,yes,Egeland_2017_ApJ_835_25.pdf,PASS
+3.11-41,Dakos 2012: rolling windows '25% to 75%' and bandwidths '5 to 200',yes,yes,"Dakos et al. 2012, PLoS ONE 7, e41010.pdf",PASS

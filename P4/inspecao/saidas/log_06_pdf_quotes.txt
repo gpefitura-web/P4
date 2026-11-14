@@ -1,0 +1,41 @@
+[PASS] 3.11-01: Luhn §3.1: noise subtracted 'from the observed values' | expected=yes obtained=yes
+[PASS] 3.11-02: Luhn §3.1: F-test sentence introduced by 'Even when corrected for intrinsic noise differences' | expected=yes obtained=yes
+[PASS] 3.11-03: Luhn §3.1: the words 'within each' season are NOT used for the sigma_S of the minima | expected=no obtained=no
+[PASS] 3.11-04: Luhn §2.2: 'contain 158 observations' | expected=yes obtained=yes
+[PASS] 3.11-05: Luhn §3.1: second minimum 'from 1986 to 1990' | expected=yes obtained=yes
+[PASS] 3.11-06: Luhn §3.1: second minimum '(1987.0.1991.0)' | expected=yes obtained=yes
+[PASS] 3.11-07: Luhn §3.1: 'less than this in six of the nine seasons' follows the 1.2 % value | expected=yes obtained=yes
+[PASS] 3.11-08: Baum Abstract: 'analyzed 29 stars with periodic cycles' | expected=yes obtained=yes
+[PASS] 3.11-09: Baum §2.1.3: 'Fourteen stars in the post-2010 CPS data showed a clear offset' | expected=yes obtained=yes
+[PASS] 3.11-10: Baum §4.1: HD 101501 'dropped to a low S-value with little variation' | expected=yes obtained=yes
+[PASS] 3.11-11: Baum §4.1: HD 101501 'possibly still exhibiting a low-amplitude cycle' | expected=yes obtained=yes
+[PASS] 3.11-12: Baum §4.2: '14 stars were given new classifications' | expected=yes obtained=yes
+[PASS] 3.11-13: CLS V §5.6: 'least active star with more than 45 observations is HD 55575' | expected=yes obtained=yes
+[PASS] 3.11-14: CLS V §5.6: 'Fifty stars have a smaller S-value standard deviation than HD 10700' | expected=yes obtained=yes
+[PASS] 3.11-15: CLS V §3: B-V is derived from Teff and [Fe/H] (Ramirez & Melendez 2005) | expected=yes obtained=yes
+[PASS] 3.11-16: CLS V Fig. 10 caption: '256 stars that have more than 45 observations' | expected=yes obtained=yes
+[PASS] 3.11-17: CLS V §5: '138/284 stars have cycles' | expected=yes obtained=yes
+[PASS] 3.11-18: CLS V §4.3: 'Out of 70 solar-like stars, we find 29 stars with cycles' | expected=yes obtained=yes
+[PASS] 3.11-19: CLS VI Abstract: sample of 91 solar-type dwarfs | expected=yes obtained=yes
+[PASS] 3.11-20: CLS VI §3.1: mass division 'reduces the need for a spectral-type indifferent metric' | expected=yes obtained=yes
+[PASS] 3.11-21: CLS VI §3.3: 'suggestive of a rapid (on stellar timescales) transition' | expected=yes obtained=yes
+[PASS] 3.11-22: CLS VI §3.3.1: 'requires a stochastic process that is poorly understood' | expected=yes obtained=yes
+[PASS] 3.11-23: CLS VI §3.2: tau Ceti 'pole-on inclination' | expected=yes obtained=yes
+[PASS] 3.11-24: CLS VI §5: 'the S-value itself best correlates with S-value variability' | expected=yes obtained=yes
+[PASS] 3.11-25: Jarvinen: '13 RAVE stars out of 13 326 (0.1%)' | expected=yes obtained=yes
+[PASS] 3.11-26: Jarvinen: snapshot observations 'in the presence of undetected rotational modulation and cycles' | expected=yes obtained=yes
+[PASS] 3.11-27: Noyes §II: the paper concerns 'the mean level of activity' | expected=yes obtained=yes
+[PASS] 3.11-28: Noyes Appendix b: 'a very significant correction for the chromospherically less active stars' | expected=yes obtained=yes
+[PASS] 3.11-29: Noyes §II: 'calibration for B.V > 1.0 may be uncertain by as much as 20%' | expected=yes obtained=yes
+[PASS] 3.11-30: Noyes Appendix a: Linsky et al. calibration falls below by 0.3 dex at B-V = 1.25 | expected=yes obtained=yes
+[PASS] 3.11-31: Scheffer 2009: Hopf = 'transition from a stable system to an oscillatory system' | expected=yes obtained=yes
+[PASS] 3.11-32: Scheffer 2009: critical transitions in cyclic systems 'are less well studied' | expected=yes obtained=yes
+[PASS] 3.11-33: Scheffer 2009: 'We know of no explicit work on early-warning signals for such transitions' | expected=yes obtained=yes
+[PASS] 3.11-34: File 'Held & Kleinen 2004' is Boulton, Allison & Lenton 2014 (Nature Commun. 5:5752) | expected=yes obtained=yes
+[PASS] 3.11-35: File 'Held & Kleinen 2004' does not carry the Held & Kleinen title in its first page | expected=no obtained=no
+[PASS] 3.11-36: Usoskin 2017: 'hardly able to predict its occurrence' | expected=yes obtained=yes
+[PASS] 3.11-37: Usoskin 2017: 'contrary to some predictions, a Grand minimum of activity has no started' | expected=yes obtained=yes
+[PASS] 3.11-38: Usoskin 2017: start of the Maunder minimum 'not very sudden but via a regular cycle of reduced height' | expected=yes obtained=yes
+[PASS] 3.11-39: Egeland 2017: abstract <S_cyc> = 0.1694 +- 0.0005 | expected=yes obtained=yes
+[PASS] 3.11-40: Egeland 2017 text: cycle amplitude '0.0145+-0.0014' (abstract/Table 2 give 0.0012) | expected=yes obtained=yes
+[PASS] 3.11-41: Dakos 2012: rolling windows '25% to 75%' and bandwidths '5 to 200' | expected=yes obtained=yes

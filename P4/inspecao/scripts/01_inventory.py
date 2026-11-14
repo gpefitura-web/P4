@@ -71,9 +71,10 @@ check("1-04", "VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.m
       "README_HANDOFF.md 'Nomes dos TSVs'")
 check("1-05", "PDFs in the repository root", 9, len(pdfs),
       "P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs')")
-check("1-06", "PDFs in bib/", 0,
+check("1-06", "PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ "
+      "during the inspection, see RELATORIO_INSPECAO.md §6)", 0,
       len([f for f in pkg if f.startswith("bib/") and f.lower().endswith(".pdf")]),
-      "README_HANDOFF.md")
+      "README_HANDOFF.md", info=True)
 
 # ---- text corpus ---------------------------------------------------------
 docs = {}

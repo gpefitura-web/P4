@@ -1,10 +1,10 @@
-[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=36
+[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=43
 [INFO] 1-02: package files with a byte-identical copy in the repository root | expected= obtained=24
 [PASS] 1-03: package files whose repository-root copy differs | expected=0 obtained=0
 [PASS] 1-04: VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md | expected=7 obtained=7
 [PASS] 1-05: PDFs in the repository root | expected=9 obtained=9
-[PASS] 1-06: PDFs in bib/ | expected=0 obtained=0
-[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=25
+[INFO] 1-06: PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6) | expected=0 obtained=7
+[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=21
 [PASS] 1-08: known-missing files confirmed absent | expected=6 obtained=6
 [PASS] 1-09: bib/aa28479-16.pdf (Olah+2016) anywhere in the clone | expected=absent obtained=absent
 [PASS] 2a-01: decisions D01-D54 defined exactly once | expected=54 obtained=54
