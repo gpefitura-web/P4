@@ -51,7 +51,7 @@ TSV = {"J_AJ_163_183_table1.tsv": "J:AJ:163:183:table1.tsv",
 only_pkg = []
 for f in pkg:
     base = os.path.basename(f)
-    cand = os.path.join(REPO, TSV[base]) if f.startswith("data/") else os.path.join(REPO, f)
+    cand = os.path.join(REPO, TSV.get(base, base)) if f.startswith("data/") else os.path.join(REPO, f)
     if os.path.isfile(cand):
         eq = sha(cand) == sha(os.path.join(ROOT, f))
         same += eq
@@ -116,7 +116,9 @@ check("1-07", "distinct file names cited (in backticks) and absent from the pack
       len(absent), "regex over all .md and the notebook", info=True)
 KNOWN = ["P4_DECISION_SUPPORT_6.1.md", "COWORK_PROMPT_A9_A12.md", "P4_SOURCE_VALUES.md",
          "p4_star_catalog.csv", "audit/A7_theory.md", "audit/A8_usoskin.md"]
-check("1-08", "known-missing files confirmed absent", len(KNOWN),
+# audit/A7 and A8 were executed during the inspection (not absent any more); the other four stay absent
+KNOWN = KNOWN[:4]
+check("1-08", "files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent", len(KNOWN),
       sum(1 for k in KNOWN if not os.path.exists(os.path.join(ROOT, k))),
       "README_HANDOFF.md 'O que ficou de fora'")
 check("1-09", "bib/aa28479-16.pdf (Olah+2016) anywhere in the clone", "absent",
@@ -125,18 +127,18 @@ check("1-09", "bib/aa28479-16.pdf (Olah+2016) anywhere in the clone", "absent",
 
 # ---- decisions -----------------------------------------------------------
 defs = defaultdict(list)
-for name in ("P4_RESEARCH_NOTEBOOK.md", "DECISOES_D41_D54.md"):
+for name in ("P4_RESEARCH_NOTEBOOK.md",):
     for m in re.finditer(r"^### (D\d+b?) — (.*)$", docs[name], re.M):
         blk = docs[name][m.end(): m.end() + 600]
         st = re.search(r"\*\*Status:\*\*\s*([^·\n]+)", blk)
         defs[m.group(1)].append((name, st.group(1).strip() if st else "NO STATUS"))
-allD = [f"D{i:02d}" for i in range(1, 55)]
-check("2a-01", "decisions D01-D54 defined exactly once", 54,
+allD = [f"D{i:02d}" for i in range(1, 68)]
+check("2a-01", "decisions D01-D67 defined exactly once in the notebook", 67,
       sum(1 for d in allD if len(defs.get(d, [])) == 1), "notebook + DECISOES_D41_D54.md")
 check("2a-02", "decisions defined more than once or missing", "none",
       ",".join(d for d in allD if len(defs.get(d, [])) != 1) or "none",
       "notebook + DECISOES_D41_D54.md")
-check("2a-03", "decision headers outside D01-D54 numbering", "",
+check("2a-03", "decision headers outside D01-D67 numbering", "",
       ",".join(sorted(set(defs) - set(allD))) or "none", "DECISOES_D41_D54.md", info=True)
 nostat = [d for d, v in defs.items() if any(s == "NO STATUS" for _, s in v)]
 check("2a-04", "decisions without a 'Status' field", "none", ",".join(nostat) or "none",
@@ -147,7 +149,7 @@ for d, v in defs.items():
 check("2a-05", "status values in use", "", "; ".join(f"{k}: {len(v)}" for k, v in stat.items()),
       "notebook + DECISOES_D41_D54.md", info=True)
 nograde = []
-for name in ("P4_RESEARCH_NOTEBOOK.md", "DECISOES_D41_D54.md"):
+for name in ("P4_RESEARCH_NOTEBOOK.md",):
     for m in re.finditer(r"^### (D\d+b?) — .*\n(.*)$", docs[name], re.M):
         if "Grau" not in m.group(2):
             nograde.append(m.group(1))
@@ -171,13 +173,18 @@ unref = sorted(d for d in defs if not (dref[d] - {"P4_RESEARCH_NOTEBOOK.md"} if 
 check("2a-08", "decisions never cited outside the document that defines them", "",
       ",".join(unref) or "none", "regex", info=True)
 nbk = docs["P4_RESEARCH_NOTEBOOK.md"]
-check("2a-09", "D41-D54 present in P4_RESEARCH_NOTEBOOK.md", 0,
+check("2a-09", "D41-D54 present in P4_RESEARCH_NOTEBOOK.md (absent at hand-off; incorporated 2026-11-14)", 14,
       sum(1 for i in range(41, 55) if re.search(rf"^### D{i}\b", nbk, re.M)),
       "README_HANDOFF.md 'Pendencia de documentacao'")
-check("2a-10", "Q10 / Q11 present in notebook §5", "no/no",
+dd = docs["DECISOES_D41_D54.md"]
+same = sum(1 for i in range(41, 55)
+           if (re.search(rf"^### D{i} — .*$", dd, re.M) or [None])[0] == (re.search(rf"^### D{i} — .*$", nbk, re.M) or [""])[0])
+check("2a-13", "D41-D54 header lines identical in notebook and DECISOES_D41_D54.md", 14, same,
+      "P4_RESEARCH_NOTEBOOK.md §4c vs DECISOES_D41_D54.md")
+check("2a-10", "Q10 / Q11 present in notebook §5", "yes/yes",
       "/".join("yes" if re.search(rf"\*\*Q{i}\*\*", nbk) else "no" for i in (10, 11)),
       "README_HANDOFF.md 'Pendencia de documentacao'")
-check("2a-11", "notebook log (§9) has a D41-D54 line", "no",
+check("2a-11", "notebook log (§9) has a D41-D54 line", "yes",
       "yes" if "D41–D54" in nbk.split("## 9 ·")[1] else "no", "DECISOES_D41_D54.md §D")
 check("2a-12", "rows in notebook §8 (closed questions)", "",
       len([ln for ln in nbk.split("## 8 ·")[1].split("## 9 ·")[0].splitlines()

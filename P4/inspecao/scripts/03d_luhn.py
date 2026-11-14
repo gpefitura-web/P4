@@ -198,4 +198,25 @@ out.append("# Keck seasonal relative sigma (%)\n" + rel.round(3).to_string())
 y14 = lu[lu.yr == 2014]
 check("3.4-58", "2014: N obs | S", "1 | 0.1776",
       f"{len(y14)} | {y14.s.iloc[0]:.4f}" if len(y14) else "0", A10 + " A10-F7")
+
+# ---- numeric fingerprint of the new_MW rows (A13-F2) -------------------------
+def ndec(x):
+    return len(x.strip().rstrip("0").split(".")[-1]) if "." in x else 0
+
+
+for inst_name in ("MW", "HIRES", "new_MW"):
+    g = lu[lu.Inst == inst_name]
+    dm = max(ndec(x) for x in g.SHK)
+    fr = (g.JD.astype(float) % 1).round(2).nunique()
+    check(f"3.4-60 {inst_name}", f"{inst_name}: rows | max decimals in S_HK | distinct JD fractional parts",
+          "", f"{len(g)} | {dm} | {fr}", "data/J_ApJ_936_L23_table2.tsv (A13-F2)", info=True)
+nm = lu[lu.Inst == "new_MW"]
+check("3.4-61", "new_MW rows with S_HK given to more than 4 decimals", "119/119",
+      f"{int(sum(ndec(x) > 4 for x in nm.SHK))}/{len(nm)}", "A13-F2; Luhn arXiv:2207.00612 §2.2 '119 (scraped) observations'")
+check("3.4-62", "MW and HIRES rows with S_HK given to more than 4 decimals", 0,
+      int(sum(ndec(x) > 4 for x in lu[lu.Inst != "new_MW"].SHK)), "data/J_ApJ_936_L23_table2.tsv")
+dup = nm[nm.duplicated("JD", keep=False)]
+check("3.4-63", "new_MW rows sharing an epoch with another row (same JD, different S_HK)", "",
+      len(dup), "A13-F2", info=True)
+
 write_out("03d_luhn.txt", "\n".join(out) + "\n")

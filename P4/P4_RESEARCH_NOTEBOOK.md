@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-08-01 (fecho da conversa de consolidação)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção e resolução; D55–D67)
 
 ---
 
@@ -282,33 +282,282 @@ eixo **temporal**. Registrado para não ser redescoberto.
 
 ---
 
+## 4c · Decisões da segunda rodada de auditoria (A9–A12), 2026-08-01
+
+---
+
+### D41 — Os `.tsv` VizieR da raiz são identificados e passam a ser a fonte numérica primária das séries estendidas
+**Data:** 2026-08-01 · **Base:** A9 §0; quatro checksums exatos contra o texto nativo · **Status:** ativa · **Grau:** A
+
+| Arquivo | Catálogo | Artigo | Conteúdo | Linhas |
+|---|---|---|---|---|
+| `J:AJ:163:183:table1.tsv` | J/AJ/163/183/table1 | Baum+2022 | séries de S-value | 62 135 |
+| `J:163:183:table2.tsv` | J/AJ/163/183/table2 | Baum+2022 | parâmetros e classificações | 59 |
+| `J:ApJ:936:L23:table2.tsv` | J/ApJ/936/L23/table2 | Luhn+2022 | S_HK de HD 166620 | 1 885 |
+| `J:ApJ:936:L23:table3.tsv` | J/ApJ/936/L23/table3 | Luhn+2022 | fotometria APT T4 | 1 278 |
+| `J:ApJS:274:35:table2.tsv` | J/ApJS/274/35/table2 | Isaacson+2024 | 710 estrelas, S e σ_S | 710 |
+| `J:ApJS:274:35:table3.tsv` | J/ApJS/274/35/table3 | Isaacson+2024 | séries S do Keck | 52 380 |
+| `J:ApJS:274:35:table4.tsv` | J/ApJS/274/35/table4 | Isaacson+2024 | 138 ciclos | 138 |
+
+Validação: `Nobs` da Tabela 2 = contagem na Tabela 1, estrela a estrela, 59/59, soma 62 135; `Cadence` = `Nobs`/baseline exato (máx. |Δ| = 0.005); contagens por instrumento de HD 166620 reproduzem exatamente Luhn+2022 §2.1 (107 / 1 547 / 9 / 103).
+**Consequência:** o lado **estelar** deixa de depender de rede. O item de ação da Tabela 4 de Egeland (trilha solar) continua bloqueado.
+
+---
+
+### D42 — Os períodos de Baum ficam ao lado dos de Baliunas e de Saar, nunca fundidos, e com o método explícito
+**Data:** 2026-08-01 · **Base:** D15, D36, A9-F3, A9-F7 · **Status:** ativa
+`baum2022_cycle_periods.csv` tem 14 linhas com a coluna `metodo_baum` distinguindo **10 por periodograma** de **4 estimados a olho** (marcados `?` pelo próprio Baum). Baum **não publica FAP nem qualquer medida de significância**; o período é simplesmente o pico de maior potência. Os períodos de Baum são grau **B** e **não são equiparáveis** a `CYCLE` + FAP Excellent de B95.
+**Descartado:** tratar os dois conjuntos de períodos como comensuráveis.
+
+---
+
+### D43 — As classificações de Baum entram como camada época-dependente para todas as 26 estrelas em comum, não só para HD 166620
+**Data:** 2026-08-01 · **Base:** D34 generalizada; A9 §2 · **Status:** ativa · **Grau:** A
+Das 26 estrelas em comum, **14 receberam nova classificação** (checksum §4.2 de Baum reproduzido). O catálogo `baliunas_table2_full.csv` **permanece congelado**. As classificações de Baum vivem em `baum2022_59stars.csv`, coluna `class_Baum`, ao lado de `class_A1`.
+**Descartado:** corrigir A1 com as classificações de 2022.
+
+---
+
+### D44 — A incerteza residual dos offsets instrumentais de Baum é grau X; a junção 2001→2004 é tratada como descontinuidade declarada
+**Data:** 2026-08-01 · **Base:** A9 §1.5, A9-F6 · **Status:** ativa · **Grau:** X
+Baum corrige offsets por **deslocamento aditivo constante que alinha medianas** (§2.1.1–2.1.3). **Não publica** os valores dos offsets, a sua incerteza, nem a identidade das catorze estrelas de §2.1.3. As séries da Tabela 1 contêm apenas valores já corrigidos.
+Medição própria do resíduo (`audit/a9_instrument_step.csv`, 51 estrelas): degrau relativo HKP-2 → HIRES-2 com **σ = ±4.47 %** entre estrelas; **25/51 excedem 1.2 %** (precisão de longo prazo, D14); 10/51 excedem 5 %; HD 166620 dá −8.8 % e HD 4628 — que Baum classifica como **ainda cíclica** — dá −16.3 %.
+**Regra operacional:** nenhuma janela deslizante atravessa a junção sem decisão explícita registrada.
+**Exceção, por D45b:** para **HD 166620** a calibração é robusta, estabelecida por Luhn+2022 §3.1/§4 via sobreposição temporal com os dados de Oláh+2016 e via fotometria APT independente. **A exceção não se estende às outras 58 estrelas.**
+
+---
+
+### D45 — A definição operacional de variabilidade intra-sazonal de Luhn+2022 §3.1 é adotada como receita e como precedente citável
+**Data:** 2026-08-01 · **Base:** A10 §1.4, reproduzida exatamente · **Status:** ativa · **Grau:** A
+Receita: (1) σ_S calculado **dentro de cada estação**; (2) subtração **em quadratura** de uma estimativa do ruído instrumental — Luhn adota 1.2 % para Mount Wilson (Baliunas+1995, "least variable stars") e **0.3 %** como limite superior do ruído sazonal do Keck; (3) comparação por **F-test**.
+Reprodução independente sobre `J:ApJ:936:L23:table2.tsv`: σ_S(mín 1) = **0.0027**, σ_S(mín 2) = **0.0054**, σ_S(grande mínimo) = **0.0019** — os três valores publicados, exatos.
+**Consequência:** resolve parcialmente **Q6**, ao dar um tratamento publicado para separar variabilidade astrofísica de ruído instrumental. É a citação mais forte disponível para a escolha de indicador do P4.
+
+---
+
+### D45b — A robustez de calibração estabelecida por Luhn é restrita a HD 166620
+**Data:** 2026-08-01 · **Base:** A10-F4 · **Status:** ativa · **Grau:** A
+Luhn §4: "the mutual calibration there is robust"; §3.1: "dispelling any doubts about potential offset errors". A conclusão apoia-se em (a) dados de Mount Wilson **contemporâneos** dos dados HIRES pré-2004, e (b) fotometria APT que **atravessa os três conjuntos**. Nenhuma das outras 58 estrelas de Baum tem qualquer dos dois. **D44 permanece em vigor para elas.**
+
+---
+
+### D46 — O teste temporal de CSD no formato de Dakos não é executável em HD 166620; a unidade de análise é a comparação de variabilidade entre estados
+**Data:** 2026-08-01 · **Base:** A10-F2 · **Status:** ativa · **Grau:** A
+Com os dados de Oláh+2016 a lacuna caiu de 6.91 para **2.82 anos** e a aproximação **está amostrada** — mas com **8 médias anuais de S_HK** (1995–2002) e **12 estações fotométricas APT** (1993–2004). Sob D20 (janela = 50 % do comprimento), 8 pontos dão 5 janelas de 4 pontos: φ₁ sobre 4 pontos não tem sentido estatístico e uma tendência de Kendall sobre 5 valores sobrepostos não é testável pelo procedimento de surrogates de D22.
+**Isto entra no manuscrito como limitação declarada, não é contornado.**
+**Descartado:** aplicar a maquinaria de janela deslizante do P4 à série anual de HD 166620.
+
+---
+
+### D47 — HD 4915 não é apresentada como candidata a mínimo de Maunder sem citar Isaacson+2024
+**Data:** 2026-08-01 · **Base:** A10-F3, A11b-F3 · **Status:** ativa · **Grau:** A
+Cadeia cronológica obrigatória: **Shah+2018** propõe a candidatura → **Luhn+2022 nota 8** especula que "may soon be entering its own grand magnetic minimum" → **Isaacson+2024 §5.6**, com linha de base estendida: "our extended time baseline shows **two cycles**. One periodicity is at 4.9 yr, and the second is more than 40 yr, and **the longer-period cycle is now turning higher**." A Tabela 4 da CLS V registra P = 4.86 yr.
+**D07 permanece ativa** (HD 4915 removida do catálogo por não estar em Baliunas+1995) e **D35 permanece correta**; o que se acrescenta é que **a candidatura está desmentida na literatura de 2024**.
+
+---
+
+### D48 — A raridade publicada entra na Discussion como taxa-base, com a ressalva de que mede nível instantâneo
+**Data:** 2026-08-01 · **Base:** Järvinen & Strassmeier 2025 §6; A11a-F1, A11a-F2 · **Status:** ativa · **Grau:** A
+Número a citar: **13 candidatas em 13 326 alvos F8–G8 de sequência principal (0.1 %)**, das quais **11 são estrelas evoluídas** por paralaxe Gaia DR3 → **2 candidatas, 0.015 %**. Sentença: "Contrary to the initial suggestion from the Mount-Wilson H&K Survey, we conclude that such stars are very rare."
+**Ressalva obrigatória e sustentada por duas fontes grau A:** o critério de Järvinen & Strassmeier é de **nível instantâneo**, e Luhn+2022 demonstrou que o nível **não cai** num grande mínimo (⟨S_HK⟩ = 0.171 no grande mínimo vs 0.172 no mínimo de ciclo). **HD 166620 não seria selecionada por aquele critério.** Logo o 0.1 % mede a frequência de estrelas *anomalamente fracas*, não de estrelas *em grande mínimo* — quantidades identificadas na literatura antiga e desidentificadas por Luhn+2022.
+
+---
+
+### D49 — A hipótese *aged out* entra na Discussion como nula concorrente; HD 101501 é o discriminante empírico
+**Data:** 2026-08-01 · **Base:** CLS VI §3.3, §4; Baum §4.1; A11 §c.1 · **Status:** ativa · **Grau:** A
+CLS VI: "noncycling stars that **may have aged out** of their cycles". Explica as mesmas observações sem bifurcação: perda monotônica e irreversível do ciclo por evolução. **Difere do quadro do P4 na reversibilidade e na existência de precursor.**
+**Discriminante:** o retorno ao ciclo. **HD 101501** — dez anos de estado plano (≈1980–1990) seguidos de retorno à atividade cíclica **defasado em 180°** (Baum §4.1), 2 239 observações, baseline de 49 anos, presente em `baum2022_59stars.csv` — é o único caso conhecido e **falsifica *aged out* para aquele objeto**. A própria CLS VI §4 declara a lacuna: "Whether or not stars reach a noncycling level that is inescapable or if they can begin cycling again will require additional observations."
+
+---
+
+### D50 — A afirmação de estocasticidade e de transição rápida é citada textualmente e respondida, não omitida
+**Data:** 2026-08-01 · **Base:** CLS VI §3.3.1, §3.3; A11 §c.2 · **Status:** ativa · **Grau:** A
+Sentenças a citar na íntegra: "**The mechanisms that cause a star to enter and exit a magnetic minimum requires a stochastic process that is poorly understood**" e "suggestive of a **rapid (on stellar timescales) transition** … these transitions can occur **quickly, on order of years**".
+**Por que é a objeção mais séria:** CSD exige aproximação lenta em relação à amostragem; transição "na ordem de anos" com amostragem anual não deixa janela — e A10-F2 chegou à mesma conclusão empiricamente no único caso amostrado.
+**Resposta registrada, e é teórica:** a CLS VI descreve uma **distribuição bimodal de S-STD**, assinatura de sistema **biestável**. Biestabilidade forçada por ruído produz transições de aparência estocástica que **ainda exibem CSD**, porque a barreira de potencial encolhe antes do salto. **Este argumento exige base auditada em A7 (Scheffer 2009; Held & Kleinen 2004), que ainda não foi executada.** Registrado como dependência.
+
+---
+
+### D51 — A inclinação estelar entra como confundidor declarado do grupo `Flat`
+**Data:** 2026-08-01 · **Base:** CLS VI §3.2; A11 §c.3 · **Status:** ativa · **Grau:** A (para τ Cet) / X (para as demais)
+CLS VI, literal: "τ Ceti … is known to have a **pole-on inclination** (Korolik et al. 2023) that **precludes us from identifying its chromospheric activity cycle or rotational modulation** via S-STD."
+**τ Cet (HD 10700) é uma das cinco `Flat` limpas do P4 e a estrela-padrão de dispersão.** Uma estrela vista de polo tem variabilidade suprimida **por geometria**, sem relação com o dínamo. Nenhuma unidade de auditoria anterior registrou este confundidor.
+**Consequência:** afeta Q1, Q2 e Q6. A inclinação das demais `Flat` do P4 **não foi medida em nenhuma fonte auditada** — grau X, item de ação.
+
+---
+
+### D52 — A receita S → R′_HK fica estabelecida em grau A, com faixa de validade
+**Data:** 2026-08-01 · **Base:** A12 §2, três passes de verificação · **Status:** ativa · **Grau:** A
+
+```
+R_HK      = 1.340 × 10⁻⁴ · C_cf(B−V) · S
+log C_cf  = 1.13(B−V)³ − 3.91(B−V)² + 2.84(B−V) − 0.47
+log C′_cf = log C_cf + Δ log C ;  Δ log C = 0                                    se B−V > 0.63
+                                  Δ log C = 0.135x − 0.814x² + 6.03x³,  x ≡ 0.63 − (B−V) > 0
+log R_phot = −4.898 + 1.918(B−V)² − 2.893(B−V)³
+R′_HK     = R_HK − R_phot
+```
+
+Verificação: o PDF é scan com OCR de origem defeituoso (`10⁻⁴` lido como `Kr4`, `B−V` como `B—F`). Três passes: texto nativo, Tesseract a 400 DPI em `--psm 6/4/11`, e **inspeção visual direta das imagens de página ampliadas** — o passe que fixou expoentes e sinais.
+Forma alternativa de Duncan, "fits the one used in this paper to within observational errors": **log R_phot = −4.02 − 1.40(B−V)** (grau B).
+A constante 1.340 × 10⁻⁴ absorve a constante de Stefan-Boltzmann e um fator de normalização de 10¹⁴.
+
+---
+
+### D53 — A faixa de validade é 0.44 < B−V < 0.82 para R_phot, com extrapolação declarada acima e até 20 % de incerteza acima de 1.0
+**Data:** 2026-08-01 · **Base:** A12 §3, Apêndice *b* e §II de Noyes+1984 · **Status:** ativa · **Grau:** A
+
+| Faixa | Estatuto declarado pela fonte |
+|---|---|
+| B−V < 0.44 | fora do ajuste de R_phot |
+| B−V < 0.63 | requer Δ log C (máximo não-físico de C_cf em 0.43) |
+| **0.44 – 0.82** | **faixa em que R_phot foi ajustada** |
+| 0.82 – 1.0 | extrapolação declarada; C_cf ainda "quite consistent" com espectrofotometria independente |
+| **> 1.0** | "**the calibration may be uncertain by as much as 20 %**"; R_phot "becomes negligible" e "less certain for the coolest stars" |
+| ≳ 1.2 | "**the worst discrepancy** in the various attempts at calibration" |
+
+Aplicação ao catálogo congelado de A1 → `noyes1984_validade_cor.csv` (112 linhas). Distribuição: 82 dentro · 17 em 0.82–1.0 · 6 acima de 1.0 · 2 acima de 1.2 · 5 abaixo de 0.44.
+
+---
+
+### D54 — A migração para R′_HK deixa de ser melhoria presumida e passa a trade-off quantificado; a recomendação registrada é **não migrar**
+**Data:** 2026-08-01 · **Base:** A12-F1, A12-F2, A12-F5; CLS VI §5 e §3.1 · **Status:** ativa · **Decisão final: humana (Q8 continua aberta)**
+
+Três evidências contrárias novas, todas grau A:
+
+1. **A validade da calibração é correlacionada com o grupo (A12-F1).** Das cinco `Flat` limpas, **quatro estão dentro** de 0.44–0.82; das treze `CYCLE` + FAP Excellent, **apenas cinco estão dentro e oito extrapolam**, duas (HD 32147 B−V = 1.06 e HD 201091 = 1.18) na região de até 20 % de incerteza declarada. Converter trocaria um confundimento de cor **conhecido e declarável** por um **erro sistemático concentrado num só braço da comparação** — que é pior.
+2. **A fonte se desautoriza para o regime do P4 (A12-F2).** Noyes+1984, Apêndice *b*: a subtração de R_phot "does not have a large effect for active chromosphere stars, but **it can be a very significant correction for the chromospherically less active stars. For these stars in particular it is important to determine the photospheric correction more rigorously than has been done here.**" A amostra inteira do P4 está nesse regime.
+3. **A comparação já foi feita e deu o resultado oposto ao esperado.** CLS VI §5, sobre 710 estrelas com séries de 20 anos: "neither average activity metrics of S-value, **log(R′_HK)-N1984**, nor the revised log(R′_HK) metric from Lorenzo-Oliveira et al. (2018) are able to identify [as não-cíclicas]. **More so than these two types of log(R′_HK), the S-value itself best correlates with S-value variability.**" E §3.1: "**the S-value plus the stellar mass is the best metric**."
+
+**D40 confirmada e delimitada (A12-F5):** para B−V fixo a transformação é monotônica, logo τ é **exatamente** invariante, φ₁ muda pouco e σ² apenas reescala. O eixo **temporal** nada sofre com a migração — e nada ganha. O ganho seria todo no eixo **comparativo**, que é exatamente onde as três evidências acima incidem. Acresce que a receita tem **duas descontinuidades** (B−V = 0.63 e 0.82) **no interior da amostra P4** (A12-F3): um índice com costuras internas não é um índice unificador.
+
+**Recomendação registrada:** manter S; tratar massa ou T_eff como covariável, seguindo a CLS VI; citar A12-F1 e A12-F2 como justificação explícita em Methods. **A decisão continua sendo humana.**
+
+---
+
+## 4d · Decisões da inspeção e da resolução (2026-11-14)
+
+Origem: `inspecao/RELATORIO_INSPECAO.md` (I-01 a I-46), `audit/ERRATA_2026-11-14.md`, `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md`. **Estas entradas só registram fatos conferidos e corrigem texto de entradas anteriores por inclusão** (as D## antigas ficam como estão, regra 4). Nenhuma escolhe entre alternativas de mérito, nenhuma fecha uma Q#, nenhuma altera uma recomendação já registrada. Onde há escolha, a pergunta está em `P4_MEMORANDO_DECISOES_2026-11-14.md`.
+
+---
+
+### D55 — Errata de D41: a Tabela 3 da CLS V tem 52 372 linhas de dados, não 52 380
+**Data:** 2026-11-14 · **Base:** I-10, `3.6-05`, `3.6-06` · **Status:** ativa · **Grau:** A · **Corrige:** D41
+O arquivo `data/J_ApJS_274_35_table3.tsv` tem 52 413 linhas: 36 de comentário, 2 em branco, 3 de cabeçalho e **52 372 de dados**, igual às 52 372 do texto do artigo. O "Δ = 8" de D41, A9 §0, A11 e v6 §10 não existe. D41 não é editada; este é o valor a usar. Detalhe em `audit/ERRATA_2026-11-14.md` E-I10.
+
+---
+
+### D56 — O checksum de D43 (14 reclassificações de Baum) é grau B
+**Data:** 2026-11-14 · **Base:** I-04, `3.8-08` a `3.8-11b` · **Status:** ativa · **Grau:** A (a contagem), B (o checksum) · **Corrige:** D43, A9 §2
+A Tabela 2 de Baum dá mudança de tipo de classe em 13 das 26 estrelas comuns; HD 190406 não muda de tipo; contando `flat?` → `flat`, são 15. O 14 vem do texto de Baum §4.2 e a identidade dos 14 não se obtém da tabela. D43 permanece ativa em sua substância (camada época-dependente; catálogo congelado). O que muda: o "checksum §4.2 reproduzido" não sustenta grau A.
+
+---
+
+### D57 — Registro de fato sobre a receita de σ_S de Luhn+2022 e o F-test (I-01)
+**Data:** 2026-11-14 · **Base:** I-01, `3.4-25` a `3.4-54`, `3.11-42` a `3.11-47`, A10 §1.4 · **Status:** ativa · **Grau:** A (os números), pergunta de mérito aberta · **Complementa:** D45
+Três contas distintas existem e não coincidem: (i) desvio-padrão bruto do intervalo inteiro, com ruído de 1.2 % (Mount Wilson) ou 0.3 % (Keck) de ⟨S_HK⟩ subtraído em quadratura: 0.00269 / 0.00542 / 0.00195, os três valores publicados; (ii) a leitura literal do passo 1 de D45 (σ por estação de ano civil, quadratura por estação, média | mediana): 0.0028 | 0.0025, 0.0048 | 0.0049, 0.0015 | 0.0014; (iii) o F-test: variâncias brutas p = 8.80 × 10⁻⁶ (publicado 8.78 × 10⁻⁶); σ_S corrigidos p = 8.68 × 10⁻³ bilateral e 4.34 × 10⁻³ unilateral; valores arredondados p = 4.1 × 10⁻³. O p publicado de 8.78 × 10⁻⁶ reproduz-se com as variâncias **brutas** (8.80 × 10⁻⁶), e não com os σ_S corrigidos como a frase de v6 §2 sugere. A10-F1 (158 contra 119 observações) está resolvida por D58. **Não se escolhe a receita**: está no memorando (item 7). D45 permanece ativa como registrada.
+
+---
+
+### D58 — As 119 linhas `new_MW` de HD 166620 (1995–2002) são grau C: foram digitalizadas da Figura 2 de Oláh+2016
+**Data:** 2026-11-14 · **Base:** A13-F2, I-44, Luhn arXiv:2207.00612 PDF p. 2, `3.4-60` a `3.4-63`, `3.11-42` a `3.11-45` · **Status:** ativa · **Grau:** A (o fato) / C (os dados) · **Complementa:** D46, D45b, A10 §1.2
+O manuscrito de Luhn (versão de 5 de julho de 2022) diz que os dados completos de Mount Wilson de 1966–2002 não foram publicados e que usaram "a web application to scrape the data from Figure 2 of Oláh et al. (2016)", "reliable, but not exact", "119 (scraped) observations". A versão publicada troca isso por dados cedidos por K. Oláh e W. Soon e 158 observações. O VizieR tem 119 linhas `new_MW` com S_HK em 8 casas contra 4 nas outras, instantes fora do padrão e 29 linhas com época repetida. Pelo protocolo §4 são **grau C** até que os dados reais sejam obtidos. Não dependem delas: σ_S dos três estados, as médias de S_HK e o F-test de Luhn (A13-F3). Dependem: as oito médias anuais de 1995–2002, a lacuna de 2.82 anos e a afirmação de que a aproximação à transição está amostrada (D46). A lacuna de Baum de 6.91 anos (1997.73 a 2004.64) permanece real. Não decide o que fazer com a série; ver memorando.
+
+---
+
+### D59 — HD 101501: texto completo de Baum §4.1, cobertura e o que D49 deve dizer
+**Data:** 2026-11-14 · **Base:** I-08, I-35, Baum PDF p. 7, `3.3-40`, `3.3-50` a `3.3-54`, `3.11-10` · **Status:** ativa · **Grau:** A · **Complementa:** D49, v6 §3.4
+Baum §4.1: a estrela "appears to have entered a time period of about 10 yr from 1980 to 1990 where its previously identified periodic behavior dropped to a low S-value with little variation. It then returned to its strong, periodic activity variation." Cobertura: 2 239 observações em 49 anos; HKP-1 193, HKP-2 2 040, HIRES-1 0, HIRES-2 6; última época de Mount Wilson 1995.45; Keck de 2009.27 a 2017.14; maior lacuna 13.82 anos; 99.73 % de Mount Wilson. O estado plano e o retorno estão dentro de um só instrumento. Nenhuma estatística de variabilidade foi calculada (D04). D49 continua ativa; o texto do manuscrito sobre HD 101501 deve reproduzir a frase de Baum inteira e a cobertura acima.
+
+---
+
+### D60 — Errata de D54 item 3: a CLS VI analisa 91 estrelas, dentro de faixas de massa
+**Data:** 2026-11-14 · **Base:** I-36, CLS VI PDF p. 1 e p. 4, `3.11-19`, `3.11-20` · **Status:** ativa · **Grau:** A · **Corrige:** D54 item 3, DECISOES §B, v6 §7 e §12
+"We analyze the spectra of 91 solar-type G- and K-type main-sequence dwarfs"; log R′_HK < −4.90; massas 0.7–1.1 M☉ em quatro faixas (ciclo/total: 18/24, 20/29, 15/24, 5/13); 58 com ciclo. As 710 estrelas são a CLS V. A comparação de S contra log R′_HK é feita **dentro de cada faixa de massa**, e o artigo diz que a divisão por massa "reduces the need for a spectral-type indifferent metric". O teste compara métricas de atividade média com S-STD e não testa um indicador de CSD. A recomendação registrada em D54 (não migrar) não é alterada por esta entrada; o que muda é o número e o desenho que o manuscrito pode citar.
+
+---
+
+### D61 — Escopo de Noyes+1984 e magnitude da discrepância com Linsky (complementa D52, D53)
+**Data:** 2026-11-14 · **Base:** I-43, Noyes PDF pp. 2 e 13–14, `3.11-27` a `3.11-30` · **Status:** ativa · **Grau:** A · **Complementa:** D52, D53
+Noyes declara: "We are concerned in this paper with the mean level of activity" (p. 2), não com flutuações; define ⟨S⟩ pelo nível intermediário de uma curva traçada à mão. A calibração de Linsky et al. fica 0.3 dex abaixo da de Noyes em B−V = 1.25 ("disagreement by a factor of 2 seems large", p. 13); D53 registra a pior discrepância como "até 20 %" sem o valor. O uso de R′_HK em estudos de variabilidade é uma extensão do escopo de Noyes e deve ser declarada como tal. A recomendação de D54 permanece.
+
+---
+
+### D62 — B−V do catálogo de Baliunas e B−V da CLS V têm definições diferentes
+**Data:** 2026-11-14 · **Base:** I-07, `3.9-21` a `3.9-24`, `3.7-09`, `3.7-10`, CLS V PDF p. 5, `3.11-15` · **Status:** ativa · **Grau:** A · **Complementa:** D53, A12-F1
+O B−V da CLS V é derivado de T_eff e [Fe/H] (Ramírez & Meléndez 2005), não fotométrico. Nas 38 estrelas comuns, A1 − CLS V tem mediana +0.030 e 19 estrelas com |Δ| > 0.03. HD 10476 (0.84 → 0.801) entra e HD 32147 (1.06 → 0.993) sai da região de D53 conforme a fonte. D53 imprime a faixa como aberta (0.44 < B−V < 0.82); `noyes1984_validade_cor.csv` a trata como fechada: quatro estrelas em exatamente 0.44 ou 0.82 contam "dentro" (82 contra 78 pela leitura aberta). Sem o Sol: 4 dentro, 8 fora de 12 (A12-F1). A assimetria entre os braços permanece em todas as leituras. Que fonte de B−V rege a faixa é decisão humana, só se Q8 for reaberta.
+
+---
+
+### D63 — Todo PDF é validado na primeira página antes de ser usado
+**Data:** 2026-11-14 · **Base:** I-38, A7-F1 · **Status:** ativa · **Grau:** A · **Complementa:** D38
+O arquivo `Held & Kleinen 2004, GRL 31, L23207.pdf` é Boulton, Allison & Lenton 2014. Regra: título, autores e DOI conferidos nas páginas 1–2 do PDF e DOI conferido no Crossref (incluindo errata, REG-R11) antes de qualquer fato entrar. Registro em `bib/MANIFEST.json` (sha256, DOI, origem, publicada ou manuscrito) e `bib/DOWNLOAD_LOG.md`. Máximo de duas tentativas por fonte (REG-R8). Versões de arXiv são rotuladas como manuscrito. Não se contornam acessos bloqueados.
+
+---
+
+### D64 — Períodos de Baliunas+1995 que o catálogo congelado perdeu: reparos num arquivo lateral
+**Data:** 2026-11-14 · **Base:** I-11, I-41, B95 Tabela 2 pp. 280–281, `3.13-01` a `3.13-04`, `consolidacao/rascunho_reparos_catalogo.csv` · **Status:** ativa · **Grau:** B (leitura visual única) · **Complementa:** D36, D01
+B95 imprime período tentativo para seis estrelas `CYCLE` que v4 §2 chama "sem período": HD 10780 "> 7", 88737 "24?", 111456 "7?", 126053 "22?", 176051 "10?", 185144 "7?" (nota s: dados esparsos antes de 1980, fora do periodograma). HD 76572: "7.1 ± 0.2, Poor"; HD 219834A: "21 ± 1, Good". São 10 reparos de valor e 33 normalizações de `secondary`, num arquivo **lateral**; `baliunas_table2_full.csv` permanece congelado (112 × 14, `3.13-04`). Os seis tentativos entram como campo próprio `P_cyc_tentativo`, sem uso como `P_cyc`. A explicação de A9-F2 para o branco de Baum em HD 185144 não se sustenta para o período e A9-F2 segue como contradição aberta. Os dois passes do protocolo (§4) não foram refeitos: grau B.
+
+---
+
+### D65 — A Tabela 4 de Egeland+2017 foi obtida; cobre 1966–2016, ciclos 20–24
+**Data:** 2026-11-14 · **Base:** I-45, `3.12-01` a `3.12-13`, `data/Egeland2017_table4_apjaa4e49t4_mrt.txt`, Egeland PDF p. 9 · **Status:** ativa · **Grau:** A · **Complementa:** D18, D16 · **Corrige:** A3-F5 (cobertura)
+6 349 linhas, 1966.669–2016.153, cinco instrumentos (MWO/HKP-1 162, MWO/HKP-2 75, NSO/SP 4 112, SSS/CCD-1 1 241, SSS/CCD-2 759), maior lacuna interna 2.67 anos, mediana de 152 observações por ano. Egeland §4.6: a composta cobre os ciclos 20–24; os ciclos 15–19 só na composta mensal KKL. O pipeline (célula 10) assume ~20 440 pontos para 1966–2021, o que não é o tamanho da série (pipeline congelado, não editado). A média das médias anuais é 0.1702 em 1966–2016 contra 0.1694 (ciclos 15–24) de Egeland: janelas diferentes. D18 está desbloqueada para 1966–2016; o resto da escolha (anual ou bruta, janela) é do pesquisador. O IOP respondeu (arquivo servido publicamente); o item da §6 sai.
+
+---
+
+### D66 — Estado das auditorias A7, A8 e A13
+**Data:** 2026-11-14 · **Base:** `audit/A7_theory.md`, `A8_usoskin.md`, `A13_olah.md` · **Status:** ativa · **Grau:** A (citações) · **Complementa:** D37
+A7 fechada **parcialmente**: Scheffer 2009 auditado por inteiro, Boulton+2014 como fonte complementar; Held & Kleinen 2004 pendente de upload (DOI 10.1029/2004GL020972). A7-F2: a bifurcação de Hopf de Scheffer é do sentido estável → oscilante, e o caso do P4 é o oposto; nenhuma fonte lida dá sinal precursor para perda de ciclo limite (extensão por analogia). A8 fechada com leitura parcial declarada (Usoskin §3 e §5 não lidos): a previsão de grandes mínimos "hardly" possível; o mínimo de 2008–2009 é "unusual for the space era but may be quite typical for the normal activity"; a série solar cobre o fim de um grande máximo. A13: Oláh+2016 é fonte de período independente (23 de 25 períodos diferem de B95 por mais de 2 dP). Nenhuma decide mérito. Protocolo §10 atualizado.
+
+---
+
+### D67 — Errata dos números de A9, A11, A12 e do v6
+**Data:** 2026-11-14 · **Base:** I-02, I-03, I-05, I-12, I-15, I-16, I-23, I-24, I-33, I-42 · **Status:** ativa · **Grau:** A · **Complementa:** A9, A11, A12, v5, v6
+Lista, com valor correto e checagem, em `audit/ERRATA_2026-11-14.md` (E-I02 a E-I43). Entre as que mudam o uso: HD 3651 tem ciclo de 10.01 anos na CLS V (A11 dizia "não"); as três estrelas de menor SSD/Smed com Nobs ≥ 45 são HD 187923 (0.372 %), HD 144579 (0.397 %) e HD 55575 (0.448 %), de modo que o "piso 0.45 %" é o valor do texto e não da tabela (grau X até o pesquisador escolher qual citar em Q6); a mediana de B−V de `Long` é 0.525, não 0.49, e a faixa "0.49 a 0.88" de Q8 não se reproduz.
+
+---
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
 
-| # | Questão | Subsídios | Status |
-|---|---|---|---|
-| **Q1** | **Composição da amostra — SUSPENSA até A9** (D32). Os dois grupos que sustentam a hipótese desapareceram: o grupo do meio era 0/3 (todas cíclicas) e o pós-transição 0/4. | `P4_DECISION_SUPPORT_6.1.md` §8 — cinco opções com poder, confundimento e objeção teórica quantificados | **aberta** |
-| **Q2** | **O que conta como "flat".** ρ CrB: Tabela 2 = `Long`; Tabela 1 σ_S/S = 1.0% (dentro da definição `Flat`); Saar lista como flat/Maunder. As três afirmações são grau A. | A6 §6.2; A1 §1.3 | **aberta** |
-| **Q3** | **Largura de banda gaussiana.** σ = 1 yr é ~1.8% do registro; o padrão de Dakos é 10%. Mas σ = 1 yr remove um **ciclo determinístico de 11 anos**, que não é o detrending monótono para o qual o passo de Dakos foi desenhado; 5.5 yr deixaria a maior parte do ciclo nos resíduos. Tensão genuína, não erro. | A4-F2 | **aberta** |
-| **Q4** | **A componente de 44 anos** pode ser tratada num registro de 55 anos? | D30; A6-F12 | **aberta** |
-| **Q5** | **Binárias.** HD 81809 (registro composto; a atividade pode vir da componente de menor massa) e HD 219834A/B (par resolvido; Saar rejeita o ciclo de A, mantém o de B). | A1-F7, A1 §2.5, A6 §2.3 | **aberta** |
-| **Q6** | **O grupo `Flat` tem um problema de medida.** O limiar (<1–1.5%) está dentro da precisão de longo prazo declarada por Baliunas (1.4%, ou 1.2% excluindo quatro padrões variáveis), e acima do piso instrumental de 0.8% (A2-F6). Nenhuma estrela `Flat` tem segunda medida na literatura auditada. | A6-F6/F7/F13; A2-F6 | **aberta — decidir apresentação** |
-| **Q7** | **Subgigantes no grupo `Flat`.** Três das cinco elegíveis são IV/Vp. Baixa atividade pode ser evolutiva, não Maunder. | `P4_DECISION_SUPPORT_6.1.md` §2 | **aberta** |
-| **Q8** | **Migrar a análise para log R′_HK?** O índice S é instrumental e sensível à temperatura fotosférica; os grupos diferem sistematicamente em B−V (0,49 a 0,88 nas medianas), o que confunde a comparação. R′_HK normaliza e torna Sol e estrelas comparáveis; Egeland+2017 Tabela 3 já dá o lado solar. Custo: C_cf(B−V) tem faixa de validade limitada. | `paper_state_v5.md` §4; D40 | **nova — depende de A12** |
-| **Q9** | **DFA volta a ser admissível para o subconjunto Baum?** D24 fechou a questão com N ≈ 26 contra piso de >100 pontos. Baum+2022 é fonte nova com cinco décadas de cadência. | A9 | **nova — reaberta legitimamente** |
+| # | Questão | Estado após A9–A12 |
+|---|---|---|
+| **Q1** | **Composição da amostra** | **aberta — desbloqueada.** D32 cumprida. Subsídios: `paper_state_v6.md` §3, com quatro opções e os custos de cada uma. Custo novo e decisivo: A9-F5 (N × grupo no subconjunto Baum) |
+| **Q2** | O que conta como "flat" | **aberta — subsídio novo.** Quatro das cinco `Flat` têm agora medida moderna: σ_S/S = 0.72 / 0.86 / 0.95 / **1.49 %** (A11 §b.3). HD 182572 falha. **E D51 acrescenta a inclinação como confundidor geométrico completo** |
+| **Q3** | Largura de banda gaussiana | **aberta — inalterada** |
+| **Q4** | A componente de 44 anos | **aberta — reforçada.** A11b-F5: componentes longas quase degeneradas com tendência são o caso **típico**, não uma idiossincrasia solar. Isso transforma Q4 numa questão genérica do método |
+| **Q5** | Binárias | **aberta — inalterada.** Nota: HD 81809 está **ausente** de Baum |
+| **Q6** | O grupo `Flat` tem problema de medida | **aberta — grande avanço.** Piso instrumental moderno = **0.45 %**, três vezes abaixo do limiar `Flat`. **D45** dá o tratamento de subtração de ruído em quadratura. Continua a exigir decisão de apresentação |
+| **Q7** | Subgigantes no grupo `Flat` | **aberta — agora é objeção publicada.** Três fontes independentes: Wright 2004, Baum §5.5 (A9-F8), Järvinen & Strassmeier §1 e §6 (11 de 13 candidatas eliminadas por serem evoluídas). Tem de ser neutralizada **por construção da amostra**, não por argumento |
+| **Q8** | Migrar para log R′_HK? | **aberta — balanço invertido.** D54: três evidências contrárias grau A. Recomendação registrada: **não migrar** |
+| **Q9** | DFA volta a ser admissível para o subconjunto Baum? | **aberta — reportada, não decidida.** N mediano = **27 estações anuais** (abaixo do piso) vs **698 observações brutas** (acima). **A pergunta é anterior:** a série anual ou a bruta é o objeto do P4? (`paper_state_v6.md` §6) |
+| **Q10** | **NOVA — a transição é lenta o bastante para ter precursor detectável?** | **aberta.** CLS VI: "on order of years". A10-F2: 8 pontos anuais na aproximação do único caso amostrado. **Se a resposta for não, a tese central do P4 não é testável com os dados existentes.** Depende de A7 |
+| **Q11** | **NOVA — a inclinação estelar confunde o grupo `Flat`?** | **aberta.** D51. Confirmada para τ Cet; não medida para as demais |
 
 ---
 
-## 6 · Itens de ação — bloqueados no sandbox
+## 6 · Itens de ação e bloqueios (atualizado em 2026-11-14)
 
-| Item | Necessário para | Domínio bloqueado |
+Ambiente testado em 2026-11-14 (REG-08): respondem Crossref, arXiv, IOP (download público), Semantic Scholar, OpenAlex; **bloqueados** (HTTP 403): Wiley/AGU, site da A&A; Peng+1993 é de acesso fechado; a cópia do PIK de Held & Kleinen é privada (não contornada). `pdftotext` disponível; `tesseract` não (usado RapidOCR e leitura visual).
+
+| Item | Estado | Necessário para |
 |---|---|---|
-| **Tabela 4 de Egeland+2017** — série S solar calibrada, ciclos 15–24, machine-readable | D18; substitui a calibração K→S própria e estende a série solar muito além de 1966–2021 | IOP |
-| Depósito Harvard Dataverse (Pevtsov 2016, doi:10.7910/DVN/VF5BMO) — índice Ca II K composto subjacente | contexto para D18 | Dataverse |
-| Série S solar NSO | trilha solar, caso Egeland T4 não seja obtida | NOAA |
+| **Tabela 4 de Egeland+2017** | **resolvida** (D65): `data/Egeland2017_table4_apjaa4e49t4_mrt.txt`, 6 349 linhas, 1966–2016 | D18 |
+| **Held & Kleinen 2004**, GRL 31, L23207, DOI 10.1029/2004GL020972 | **pendente — o pesquisador sobe o PDF** (o arquivo que tinha esse nome era Boulton+2014, D63) | A7, D50, Q10 |
+| Livina & Lenton 2007, GRL 34, L03712, DOI 10.1029/2006GL028672 | pendente — o pesquisador sobe o PDF (reescalonamento do DFA) | A5, Q9 |
+| Peng et al. 1993, Phys. Rev. E 47, 3730, DOI 10.1103/PhysRevE.47.3730 | pendente — o pesquisador sobe o PDF (viés de comprimento finito do DFA) | A5, Q9 |
+| Järvinen & Strassmeier 2025, versão publicada, DOI 10.1051/0004-6361/202554111 | opcional — há o manuscrito do arXiv | citação final |
+| Oláh+2016, versão publicada, DOI 10.1051/0004-6361/201628479 | opcional — há o manuscrito do arXiv | citação final |
+| Dados reais de Mount Wilson de HD 166620 em 1995–2002 (Oláh e Soon) | pendente — grau C até lá (D58) | D46 |
+| Harvard Dataverse: Radick & Pevtsov (10.7910/DVN/ZRJ6NT, 10.7910/DVN/H85QPF); Pevtsov 2016 (10.7910/DVN/VF5BMO) | não testados; opcional | offsets de Baum (D44); contexto de D18 |
+| Série S solar NSO | dispensada pela D65 (Tabela 4) | — |
 
-Domínios permitidos: `github.com`, `raw.githubusercontent.com`, `api.github.com`, PyPI, npm.
+Obtidos e validados nesta rodada, em `bib/` (ver `bib/MANIFEST.json`): Shah+2018 (HD 4915), Brandenburg+1998 (Paper I), Korolik+2023 (τ Ceti), Egeland+2017 (arXiv), Luhn+2022 (arXiv), Baum+2022 (arXiv).
 
 ---
 
@@ -333,6 +582,8 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão.
+
 ---
 
 ## 8 · Questões **fechadas** — não reabrir sem fonte nova
@@ -353,6 +604,16 @@ novo raciocínio sobre as mesmas fontes é retrabalho.
 | Lockwood+2007 estende a série? (revisitado) | Não — mas **Baum+2022 sim**. A2-F1 continua correto sobre Lockwood; a extensão vem de outra fonte | A2-F1; D33 |
 | O ⟨S⟩ solar de Baliunas serve? | **Não.** Proxy, +5% na média, +76% na amplitude | A3-F2/F3 |
 | Baliunas e Saar concordam nas classificações? | **Parcialmente.** 5 divergências de classe, 5 de período, registradas | A6 §2.2–2.4 |
+| Baum+2022 estende as séries de forma utilizável? | **Sim, numericamente.** 62 135 observações, 59 estrelas, 1966–2020, machine-readable e locais. **Mas a extensão é não-uniforme entre os grupos do P4** e a incerteza dos offsets não é publicada | A9 §1.1–1.3; A9-F5; D41, D44 |
+| A média de atividade discrimina um grande mínimo? | **Não.** ⟨S_HK⟩ = 0.171 no grande mínimo vs 0.172 no mínimo de ciclo. O discriminante é a **variabilidade** | A10 §1.3, três checksums exatos |
+| A lacuna observacional em HD 166620 foi fechada? | **Sim.** De 6.91 para 2.82 anos, com os dados de Oláh+2016 | A10 §1.2 |
+| A aproximação à transição está amostrada? | **Sim — com 8 médias anuais e 12 estações fotométricas.** Suficiente para comparar estados, **insuficiente** para a maquinaria de janela deslizante do P4 | A10-F2; D46 |
+| Existe precedente publicado para usar variabilidade como diagnóstico de estado magnético? | **Sim.** Luhn+2022 §3.1, com receita completa, reproduzida exatamente | A10 §1.4; D45 |
+| Alguém já afirmou que grandes mínimos são estocásticos/imprevisíveis? | **Sim, em 2025.** CLS VI §3.3.1: "requires a stochastic process that is poorly understood"; transições "on order of years" | A11 §c.2; D50 |
+| Qual a taxa-base publicada de estrelas em estado tipo mínimo de Maunder? | **0.1 %** antes do corte evolutivo, **0.015 %** depois — **mas por critério de nível instantâneo**, que Luhn+2022 declara inválido | A11a-F1/F2; D48 |
+| HD 4915 é candidata a mínimo de Maunder? | **Não, segundo a fonte mais recente.** Isaacson+2024: dois ciclos, 4.9 yr e > 40 yr, com o longo subindo | A11b-F3; D47 |
+| Qual a receita de conversão S → R′_HK e a sua faixa de validade? | **Estabelecida em grau A.** R_phot ajustada em 0.44 < B−V < 0.82; até 20 % de incerteza acima de B−V = 1.0 | A12 §2–3; D52, D53 |
+| R′_HK é melhor que S como correlato de variabilidade? | **Não, segundo teste publicado em 710 estrelas.** S + massa estelar é a melhor métrica | CLS VI §5; A12-F1/F2; D54 |
 
 **Registrado como problema conhecido, não como questão aberta:** o resultado de
 `paper_state_v2` — φ₁(Variable) > φ₁(Maunder), p = 0.029 — comparou, após a auditoria, três
@@ -370,3 +631,35 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-07-30 | A5 (Peng), A6 (Saar) fechadas em Cowork | D13–D15, D25–D30 |
 | 2026-08-01 | Subsídios §6.1 levantados; caderno criado | D06 |
 | 2026-08-01 | **Fecho da conversa de consolidação.** Descoberta das séries estendidas (Baum+2022, Luhn+2022, Isaacson+2024, CLS VI, A&A 2025); Q1 suspensa; quatro unidades novas; questão do índice unificado levantada | D31–D40 |
+| 2026-08-01 | **Segunda rodada de auditoria: A9 (Baum+2022), A10 (Luhn+2022), A11 (Järvinen & Strassmeier 2025 + CLS V + CLS VI), A12 (Noyes+1984) fechadas em Cowork.** Q1 desbloqueada; Q9 reportada e devolvida; Q8 com balanço invertido; duas questões novas (Q10, Q11). Séries estendidas obtidas em forma numérica local. Cinco contradições registradas | D41–D54 |
+| 2026-11-14 | **Inspeção completa, só de leitura** (`inspecao/`, 43 achados I-01 a I-43) e **resolução do que não depende de mérito**: PDFs lidos por inteiro e guardados em `bib/` (MANIFEST); A7, A8, A13 executadas; Tabela 4 de Egeland obtida; D41–D54 incorporadas (a proposta de `inspecao/NOTEBOOK_proposta_D41_D54.md`); errata em `audit/ERRATA_2026-11-14.md`; reparos do catálogo em arquivo lateral. Nenhuma Q# decidida | D55–D67 |
+
+---
+
+## 10 · Fatos com fonte e página (REG-03) — lidos em PDF validado, 2026-11-14
+
+Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/checks.csv` e `inspecao/saidas/06_pdf_pages.txt`. Nada daqui foi tomado de memória.
+
+| Fato | Fonte | Pág. | Id | Grau |
+|---|---|---|---|---|
+| 59 estrelas, 62 135 observações, HKP-1/2 e HIRES-1/2 | Baum+2022 AJ 163, 183 | 1, 3 | 3.11-08, 3.11-09 | A |
+| Lacuna e HD 101501: período plano de ~10 anos e retorno | Baum+2022 §4.1 | 7 | 3.11-10 | A |
+| σ_S da CLS V; B−V derivado de T_eff e [Fe/H] | Isaacson+2024 ApJS 274, 35 | 5, 14 | 3.11-13 a 3.11-15 | A |
+| "256 stars" × 285 (Figura 10); "138/284" | Isaacson+2024 | 10, 14 | 3.11-16, 3.11-17 | A |
+| 91 estrelas, faixas de massa, ciclos | Isaacson+2025 AJ 170, 181 (CLS VI) | 1, 4 | 3.11-19, 3.11-20 | A |
+| Transições "on order of years" | CLS VI | 6, 7, 11 | 3.11-21 a 3.11-24 | A |
+| Estrelas evoluídas e inclinação | Järvinen & Strassmeier 2025 (arXiv) | 1, 7 | 3.11-25, 3.11-26 | A |
+| Escopo "mean level of activity"; Linsky 0.3 dex | Noyes+1984 | 2, 13, 14 | 3.11-27 a 3.11-30 | A |
+| CSD: lentidão de recuperação, Hopf estável → oscilante, não-local sem trabalho explícito | Scheffer+2009 Nature 461, 53 | 3, 4 | 3.11-31 a 3.11-33 | A |
+| Previsão de grandes mínimos, precursor, mínimo de 2008–2009 | Usoskin+2017 LRSP 14, 3 | 4, 23, 58 | 3.11-36 a 3.11-38 | A |
+| ⟨S⟩ solar 0.1694 ± 0.0005; ΔS_cyc ± 0.0012 × 0.0014; Tabela 4 cobre ciclos 20–24 | Egeland+2017 ApJ 835, 25 | 1, 9, 11 | 3.11-39, 3.11-40, 3.12-07 | A |
+| Janela 25–75 %, 1 000 surrogates ARMA | Dakos+2012 PLoS ONE 7, e41010 | 17 | 3.11-41 | A |
+| 119 observações digitalizadas da Figura 2 de Oláh+2016; versão publicada 158 | Luhn+2022 (arXiv 2207.00612; ApJL 936, L23) | 2, 3, 5 | 3.11-42 a 3.11-47 | A |
+| Dados de Baum no arXiv × publicada: sem divergência numérica | Baum+2022 (arXiv 2203.13376) | 1, 8 | 3.11-48, 3.11-49 | A |
+| Períodos de Oláh (Tabela 1) × B95, Baum, Saar | Oláh+2016 (arXiv) | Tabela 1 | 3.10-01 a 3.10-08 | A |
+
+---
+
+## 11 · Uso de IA no processo (REG-IA)
+
+Em 2026-11-14 a inspeção, a leitura dos PDFs, os scripts de verificação (`inspecao/scripts/`, Python, `python -I`), as auditorias A7/A8/A13, a errata, o rascunho de reparos do catálogo e as entradas D55–D67 foram produzidos por **Claude (Anthropic), em sessão de Claude Code, sob direção do pesquisador**. Limitações declaradas: o OCR dos oito valores de B95 foi feito com RapidOCR e leitura visual (sem Tesseract), logo grau B; A7 sem Held & Kleinen; A8 sem §3 e §5 de Usoskin; o relatório afirma só o que cada checagem mostra. Toda decisão de mérito (Q#) permanece do pesquisador; cada resposta dele é registrada como D## nova com autor "pesquisador".

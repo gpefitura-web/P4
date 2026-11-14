@@ -16,7 +16,8 @@ import re
 
 from common import INSP, ROOT, check
 
-with open(os.path.join(ROOT, "P4_RESEARCH_NOTEBOOK.md"), encoding="utf-8") as fh:
+# the notebook was edited after the inspection (incorporation, 2026-11-14); the proposal is rebuilt from the saved original
+with open(os.path.join(INSP, "saidas", "notebook_original_2026-08-01.md"), encoding="utf-8") as fh:
     nb = fh.read()
 with open(os.path.join(ROOT, "DECISOES_D41_D54.md"), encoding="utf-8") as fh:
     dec = fh.read()

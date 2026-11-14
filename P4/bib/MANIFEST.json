@@ -1,0 +1,62 @@
+{
+ "Baum_2022_arXiv2203.13376.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 612255,
+  "doi": "10.3847/1538-3881/ac5683",
+  "key": "baum2022_arxiv",
+  "sha256": "b081dfe7643049f29041061646def355c54522d8c7259efaf73793d4f96669a6",
+  "url": "https://arxiv.org/pdf/2203.13376",
+  "validacao": "padrão de título /Five Decades of Chromospheric Activity/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:2203.13376)"
+ },
+ "Brandenburg_1998_ApJL_498_L51.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 131721,
+  "doi": "10.1086/311297",
+  "key": "brandenburg1998",
+  "sha256": "45f98dc24448885f9a68d1a71e4f39a43bd2c586448f1d126a036622221f6f35",
+  "url": "https://iopscience.iop.org/article/10.1086/311297/pdf",
+  "validacao": "padrão de título /Time Evolution of the Magnetic Activity Cycle Period/ nas páginas 1-2",
+  "versao": "published"
+ },
+ "Egeland_2017_arXiv1611.04540.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 1054740,
+  "doi": "10.3847/1538-4357/835/1/25",
+  "key": "egeland2017_arxiv",
+  "sha256": "93ae7eb4a1ff4fbb2b29e822696b218c9149ab6a1a11705ac7b44ac1f93f1ef0",
+  "url": "https://arxiv.org/pdf/1611.04540",
+  "validacao": "padrão de título /S-index of the Sun/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:1611.04540)"
+ },
+ "Korolik_2023_AJ_166.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 11667430,
+  "doi": "10.3847/1538-3881/ace906",
+  "key": "korolik2023",
+  "sha256": "00d44d503ef4a7a919a0ccc52318c64baec9bdf5b7a93b49370000d61211ea27",
+  "url": "https://iopscience.iop.org/article/10.3847/1538-3881/ace906/pdf",
+  "validacao": "padrão de título /Pole-on Solar Analog/ nas páginas 1-2",
+  "versao": "published"
+ },
+ "Luhn_2022_arXiv2207.00612.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 1192604,
+  "doi": "10.3847/2041-8213/ac8b13",
+  "key": "luhn2022_arxiv",
+  "sha256": "ad0896fa63bfd91b769e18e1e2e2d5714f435e7f12b567aa88006f6a61455770",
+  "url": "https://arxiv.org/pdf/2207.00612",
+  "validacao": "padrão de título /Portrait of a Star Entering a Grand Magnetic Minimum/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:2207.00612)"
+ },
+ "Shah_2018_ApJL_863_L26.pdf": {
+  "baixado_em": "2026-11-14",
+  "bytes": 627871,
+  "doi": "10.3847/2041-8213/aad40c",
+  "key": "shah2018",
+  "sha256": "f7a4ed03310c3248b3eb3148943b49fed864f22a0d5e7a454f548172213c26c8",
+  "url": "https://iopscience.iop.org/article/10.3847/2041-8213/aad40c/pdf",
+  "validacao": "padrão de título /HD 4915/ nas páginas 1-2",
+  "versao": "published"
+ }
+}

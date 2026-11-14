@@ -1,0 +1,44 @@
+HD,campo,valor_atual,valor_proposto,fonte,grau,nota
+10780,P_cyc_tentativo,(campo novo),>7,"Baliunas+1995 Table 2, journal p. 280",A,"nota de rodape s ('Sparse data prior to 1980, not included in periodogram analysis'); sem FAP"
+88737,P_cyc_tentativo,(campo novo),24?,"Baliunas+1995 Table 2, journal p. 280",A,sem FAP
+111456,P_cyc_tentativo,(campo novo),7?,"Baliunas+1995 Table 2, journal p. 280",B,nota s; o '7' foi lido por um motor de OCR como 'T'; sem FAP
+126053,P_cyc_tentativo,(campo novo),22?,"Baliunas+1995 Table 2, journal p. 280",A,sem FAP
+176051,P_cyc_tentativo,(campo novo),10?,"Baliunas+1995 Table 2, journal p. 281",B,"nota s; o segundo motor leu ""10'?""; sem FAP"
+185144,P_cyc_tentativo,(campo novo),7?,"Baliunas+1995 Table 2, journal p. 281",B,nota s; o '7' foi lido por um motor de OCR como 'T'; sem FAP
+219834A,P_cyc,,21,"Baliunas+1995 Table 2, journal p. 281",A,"21 +- 1, Good; v4 §2 defeito a"
+219834A,dP,,1,"Baliunas+1995 Table 2, journal p. 281",A,
+76572,P_cyc,,7.1,"Baliunas+1995 Table 2, journal p. 280",A,"7.1 +- 0.2, Poor; v4 §2 defeito b (a linha tem n_pass = 1 no CSV)"
+76572,dP,,0.2,"Baliunas+1995 Table 2, journal p. 280",A,
+2454,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+3229,secondary,a,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+3795,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+18256,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+22072,secondary,a,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+25998,secondary,see ;,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+26923,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+30495,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+33608,secondary,vee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+37394,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+43587,secondary,vee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+75332,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+76572,secondary,vee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+81809,secondary,_,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+82443,secondary,vee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+88355,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+88737,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+97344,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+100563,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+103095,secondary,bee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+114378,secondary,vee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+115043,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+143761,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+152391,secondary,Lee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+155885,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+156026,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+160346,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+165341A,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+188512,secondary,nee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+190360,secondary,Snes,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+219834B,secondary,wee,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+224930,secondary,. Long,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio
+(Sun),secondary,...,,A6 §5 F14c; A1 §1.1,A,residuo de OCR de uma celula impressa vazia ('...'); normalizar para vazio

@@ -1,25 +1,26 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,43,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,57,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
-1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,7,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,21,regex over all .md and the notebook,INFO
-1-08,known-missing files confirmed absent,6,6,README_HANDOFF.md 'O que ficou de fora',PASS
+1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,13,README_HANDOFF.md,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,28,regex over all .md and the notebook,INFO
+1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D54 defined exactly once,54,54,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D67 defined exactly once in the notebook,67,67,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D54 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D67 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 55,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 68,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
-2a-08,decisions never cited outside the document that defines them,,D45b,regex,INFO
-2a-09,D41-D54 present in P4_RESEARCH_NOTEBOOK.md,0,0,README_HANDOFF.md 'Pendencia de documentacao',PASS
-2a-10,Q10 / Q11 present in notebook §5,no/no,no/no,README_HANDOFF.md 'Pendencia de documentacao',PASS
-2a-11,notebook log (§9) has a D41-D54 line,no,no,DECISOES_D41_D54.md §D,PASS
-2a-12,rows in notebook §8 (closed questions),,11,P4_RESEARCH_NOTEBOOK.md §8,INFO
+2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
+2a-09,D41-D54 present in P4_RESEARCH_NOTEBOOK.md (absent at hand-off; incorporated 2026-11-14),14,14,README_HANDOFF.md 'Pendencia de documentacao',PASS
+2a-13,D41-D54 header lines identical in notebook and DECISOES_D41_D54.md,14,14,P4_RESEARCH_NOTEBOOK.md §4c vs DECISOES_D41_D54.md,PASS
+2a-10,Q10 / Q11 present in notebook §5,yes/yes,yes/yes,README_HANDOFF.md 'Pendencia de documentacao',PASS
+2a-11,notebook log (§9) has a D41-D54 line,yes,yes,DECISOES_D41_D54.md §D,PASS
+2a-12,rows in notebook §8 (closed questions),,21,P4_RESEARCH_NOTEBOOK.md §8,INFO
 2d-01,findings defined in A9,10,10,paper_state_v6.md §10,PASS
 2d-02,findings defined in A10,7,7,paper_state_v6.md §10,PASS
 2d-03,findings defined in A12,7,7,paper_state_v6.md §10,PASS
@@ -33,7 +34,7 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 2d-11,A#-F# references pointing to a finding that does not exist,0,0,regex over all .md,PASS
 2d-12,references written 'A11-F#' where both A11a-F# and A11b-F# exist (ambiguous),0,0,regex over all .md,PASS
 2d-13,units whose 'Findings' cell differs between the audit-log copies,none,A3,audit/A*.md log tables,FAIL
-2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A9_baum.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
+2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A7_theory.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
 2d-15,units marked 'open' in the protocol's own audit log (§10),,8,P4_AUDIT_PROTOCOL.md §10,INFO
 1-10,references 'A# §n' with no matching heading in the audit file,,1,regex (heading match is approximate),INFO
 2b-01,Q numbers referenced anywhere,1-11,1-11,regex,INFO
@@ -230,6 +231,12 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.4-57b,"same, below 0.3 % (the reading suggested by the order of A10 §1.4 item 2)",6/9,0/9,audit/A10_luhn.md §1.4 item 2,INFO
 3.4-57c,two lowest Keck seasonal sigma_S/<S> (%),approach 0.3,"0.303, 0.339",audit/A10_luhn.md §1.4 item 2,INFO
 3.4-58,2014: N obs | S,1 | 0.1776,1 | 0.1776,audit/A10_luhn.md A10-F7,PASS
+3.4-60 MW,MW: rows | max decimals in S_HK | distinct JD fractional parts,,1654 | 4 | 46,data/J_ApJ_936_L23_table2.tsv (A13-F2),INFO
+3.4-60 HIRES,HIRES: rows | max decimals in S_HK | distinct JD fractional parts,,112 | 4 | 36,data/J_ApJ_936_L23_table2.tsv (A13-F2),INFO
+3.4-60 new_MW,new_MW: rows | max decimals in S_HK | distinct JD fractional parts,,119 | 8 | 72,data/J_ApJ_936_L23_table2.tsv (A13-F2),INFO
+3.4-61,new_MW rows with S_HK given to more than 4 decimals,119/119,119/119,A13-F2; Luhn arXiv:2207.00612 §2.2 '119 (scraped) observations',PASS
+3.4-62,MW and HIRES rows with S_HK given to more than 4 decimals,0,0,data/J_ApJ_936_L23_table2.tsv,PASS
+3.4-63,"new_MW rows sharing an epoch with another row (same JD, different S_HK)",,29,A13-F2,INFO
 3.6-01,Isaacson Table 2 rows,710,710,audit/A11_raridade.md check 2,PASS
 3.6-02,Isaacson Table 2 distinct names,710,710,audit/A11_raridade.md check 2,PASS
 3.6-03,Isaacson Table 4 rows,138,138,audit/A11_raridade.md check 1,PASS
@@ -442,3 +449,32 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.11-39,Egeland 2017: abstract <S_cyc> = 0.1694 +- 0.0005,yes,yes,Egeland_2017_ApJ_835_25.pdf,PASS
 3.11-40,Egeland 2017 text: cycle amplitude '0.0145+-0.0014' (abstract/Table 2 give 0.0012),yes,yes,Egeland_2017_ApJ_835_25.pdf,PASS
 3.11-41,Dakos 2012: rolling windows '25% to 75%' and bandwidths '5 to 200',yes,yes,"Dakos et al. 2012, PLoS ONE 7, e41010.pdf",PASS
+3.11-42,Luhn arXiv draft §2.2: 1995-2002 data scraped from Figure 2 of Olah+2016,yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
+3.11-43,"Luhn arXiv draft: 'the scraped data is reliable, but not exact'",yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
+3.11-44,Luhn arXiv draft: 'contains 119 (scraped) observations',yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
+3.11-45,Luhn published: data 'acquired ... courtesy of K. Ol.h and W. Soon' and 158 observations,yes,yes,Luhn_2022_ApJL_936_L23.pdf,PASS
+3.11-46,Luhn arXiv draft: same F-test sentence ('Even corrected for intrinsic noise differences'),yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
+3.11-47,Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006),yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
+3.11-48,Baum arXiv draft: same '29 stars with periodic cycles',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
+3.11-49,Baum arXiv draft: same '14 stars were given new classifications',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
+3.12-01,Table 4 rows parsed,,6349,data/Egeland2017_table4_apjaa4e49t4_mrt.txt,INFO
+3.12-02,sha256 of the stored file (first 16 hex),,6e2746d535d7d9e3,bib/MANIFEST.json,INFO
+3.12-03,first and last epoch (decimal year),,1966.669 - 2016.153,Table 4 (JD - 2400000 in column 1),INFO
+3.12-04,series starts in 1966 and ends in 2016 (not 2021),1966/2016,1966/2016,audit/A3_egeland.md F5 and §8 ('beyond the 1966-2021 window'),PASS
+3.12-05,instruments in Table 4 (as a set),"MWO/HKP-1, MWO/HKP-2, NSO/SP, SSS/CCD-1, SSS/CCD-2","MWO/HKP-1, MWO/HKP-2, NSO/SP, SSS/CCD-1, SSS/CCD-2",audit/A3_egeland.md F5,PASS
+3.12-06 MWO/HKP-1,MWO/HKP-1: rows | first - last year,,162 | 1966.67 - 1977.42,Table 4,INFO
+3.12-06 MWO/HKP-2,MWO/HKP-2: rows | first - last year,,75 | 1994.23 - 2002.89,Table 4,INFO
+3.12-06 NSO/SP,NSO/SP: rows | first - last year,,4112 | 1976.89 - 2015.75,Table 4,INFO
+3.12-06 SSS/CCD-1,SSS/CCD-1: rows | first - last year,,1241 | 1994.17 - 2007.86,Table 4,INFO
+3.12-06 SSS/CCD-2,SSS/CCD-2: rows | first - last year,,759 | 2008.58 - 2016.15,Table 4,INFO
+3.12-07,"A3 F5 says the series spans 'cycles 15-24'; Egeland §4.6 says the composite of Table 4 covers cycles 20-24 and cycles 15-19 are only in the monthly KKL composite (Figure 4, bottom)",15-24,20-24 (1966-2016),audit/A3_egeland.md F5 vs Egeland+2017 §4.6 (p. 9),FAIL
+3.12-08,rows where calibrated S differs from original S,,5515,Table 4,INFO
+3.12-09,calendar years with data | median observations per year | min | max,,49 | 152 | 6 | 280,Table 4,INFO
+3.12-10,largest internal gap (yr),,2.67,Table 4,INFO
+3.12-11,"mean calibrated S, all rows | median",,0.1698 | 0.1686,Table 4 (not a cycle mean: sampling is uneven),INFO
+3.12-12,mean of annual means of calibrated S (D08 convention: annual mean over all years),"0.1694 (cycles 15-24, Egeland Table 2)",0.1702,P4_RESEARCH_NOTEBOOK.md D16; different window (1966-2016),INFO
+3.12-13,"rows vs the ~20 440 daily points the pipeline assumes for 1966-2021 (synthetic generator, cell 10)",20440,6349,p4_pipeline.ipynb cell 10,FAIL
+3.13-01,value repairs proposed (6 tentative periods + 219834A x2 + 76572 x2),10,10,audit/ERRATA_2026-11-14.md E-I41,PASS
+3.13-02,secondary-column normalisations proposed,33,33,inspecao/scripts/03a_baliunas.py (3.1-15),PASS
+3.13-03,repairs with grade A | B,,40 | 3,consolidacao/rascunho_reparos_catalogo.csv,INFO
+3.13-04,frozen catalogue untouched (rows | columns),112 | 14,112 | 14,baliunas_table2_full.csv,PASS

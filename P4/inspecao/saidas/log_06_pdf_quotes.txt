@@ -39,3 +39,11 @@
 [PASS] 3.11-39: Egeland 2017: abstract <S_cyc> = 0.1694 +- 0.0005 | expected=yes obtained=yes
 [PASS] 3.11-40: Egeland 2017 text: cycle amplitude '0.0145+-0.0014' (abstract/Table 2 give 0.0012) | expected=yes obtained=yes
 [PASS] 3.11-41: Dakos 2012: rolling windows '25% to 75%' and bandwidths '5 to 200' | expected=yes obtained=yes
+[PASS] 3.11-42: Luhn arXiv draft §2.2: 1995-2002 data scraped from Figure 2 of Olah+2016 | expected=yes obtained=yes
+[PASS] 3.11-43: Luhn arXiv draft: 'the scraped data is reliable, but not exact' | expected=yes obtained=yes
+[PASS] 3.11-44: Luhn arXiv draft: 'contains 119 (scraped) observations' | expected=yes obtained=yes
+[PASS] 3.11-45: Luhn published: data 'acquired ... courtesy of K. Ol.h and W. Soon' and 158 observations | expected=yes obtained=yes
+[PASS] 3.11-46: Luhn arXiv draft: same F-test sentence ('Even corrected for intrinsic noise differences') | expected=yes obtained=yes
+[PASS] 3.11-47: Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006) | expected=yes obtained=yes
+[PASS] 3.11-48: Baum arXiv draft: same '29 stars with periodic cycles' | expected=yes obtained=yes
+[PASS] 3.11-49: Baum arXiv draft: same '14 stars were given new classifications' | expected=yes obtained=yes

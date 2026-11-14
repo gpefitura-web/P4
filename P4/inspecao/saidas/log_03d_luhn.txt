@@ -57,3 +57,9 @@
 [INFO] 3.4-57b: same, below 0.3 % (the reading suggested by the order of A10 §1.4 item 2) | expected=6/9 obtained=0/9
 [INFO] 3.4-57c: two lowest Keck seasonal sigma_S/<S> (%) | expected=approach 0.3 obtained=0.303, 0.339
 [PASS] 3.4-58: 2014: N obs | S | expected=1 | 0.1776 obtained=1 | 0.1776
+[INFO] 3.4-60 MW: MW: rows | max decimals in S_HK | distinct JD fractional parts | expected= obtained=1654 | 4 | 46
+[INFO] 3.4-60 HIRES: HIRES: rows | max decimals in S_HK | distinct JD fractional parts | expected= obtained=112 | 4 | 36
+[INFO] 3.4-60 new_MW: new_MW: rows | max decimals in S_HK | distinct JD fractional parts | expected= obtained=119 | 8 | 72
+[PASS] 3.4-61: new_MW rows with S_HK given to more than 4 decimals | expected=119/119 obtained=119/119
+[PASS] 3.4-62: MW and HIRES rows with S_HK given to more than 4 decimals | expected=0 obtained=0
+[INFO] 3.4-63: new_MW rows sharing an epoch with another row (same JD, different S_HK) | expected= obtained=29

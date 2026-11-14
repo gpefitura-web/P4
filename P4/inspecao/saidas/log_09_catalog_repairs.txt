@@ -1,0 +1,4 @@
+[PASS] 3.13-01: value repairs proposed (6 tentative periods + 219834A x2 + 76572 x2) | expected=10 obtained=10
+[PASS] 3.13-02: secondary-column normalisations proposed | expected=33 obtained=33
+[INFO] 3.13-03: repairs with grade A | B | expected= obtained=40 | 3
+[PASS] 3.13-04: frozen catalogue untouched (rows | columns) | expected=112 | 14 obtained=112 | 14

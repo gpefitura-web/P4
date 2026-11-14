@@ -1,0 +1,17 @@
+[INFO] 3.12-01: Table 4 rows parsed | expected= obtained=6349
+[INFO] 3.12-02: sha256 of the stored file (first 16 hex) | expected= obtained=6e2746d535d7d9e3
+[INFO] 3.12-03: first and last epoch (decimal year) | expected= obtained=1966.669 - 2016.153
+[PASS] 3.12-04: series starts in 1966 and ends in 2016 (not 2021) | expected=1966/2016 obtained=1966/2016
+[PASS] 3.12-05: instruments in Table 4 (as a set) | expected=MWO/HKP-1, MWO/HKP-2, NSO/SP, SSS/CCD-1, SSS/CCD-2 obtained=MWO/HKP-1, MWO/HKP-2, NSO/SP, SSS/CCD-1, SSS/CCD-2
+[INFO] 3.12-06 MWO/HKP-1: MWO/HKP-1: rows | first - last year | expected= obtained=162 | 1966.67 - 1977.42
+[INFO] 3.12-06 MWO/HKP-2: MWO/HKP-2: rows | first - last year | expected= obtained=75 | 1994.23 - 2002.89
+[INFO] 3.12-06 NSO/SP: NSO/SP: rows | first - last year | expected= obtained=4112 | 1976.89 - 2015.75
+[INFO] 3.12-06 SSS/CCD-1: SSS/CCD-1: rows | first - last year | expected= obtained=1241 | 1994.17 - 2007.86
+[INFO] 3.12-06 SSS/CCD-2: SSS/CCD-2: rows | first - last year | expected= obtained=759 | 2008.58 - 2016.15
+[FAIL] 3.12-07: A3 F5 says the series spans 'cycles 15-24'; Egeland §4.6 says the composite of Table 4 covers cycles 20-24 and cycles 15-19 are only in the monthly KKL composite (Figure 4, bottom) | expected=15-24 obtained=20-24 (1966-2016)
+[INFO] 3.12-08: rows where calibrated S differs from original S | expected= obtained=5515
+[INFO] 3.12-09: calendar years with data | median observations per year | min | max | expected= obtained=49 | 152 | 6 | 280
+[INFO] 3.12-10: largest internal gap (yr) | expected= obtained=2.67
+[INFO] 3.12-11: mean calibrated S, all rows | median | expected= obtained=0.1698 | 0.1686
+[INFO] 3.12-12: mean of annual means of calibrated S (D08 convention: annual mean over all years) | expected=0.1694 (cycles 15-24, Egeland Table 2) obtained=0.1702
+[FAIL] 3.12-13: rows vs the ~20 440 daily points the pipeline assumes for 1966-2021 (synthetic generator, cell 10) | expected=20440 obtained=6349

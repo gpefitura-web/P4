@@ -13,7 +13,7 @@ import re
 import subprocess
 import unicodedata
 
-from common import ROOT, check
+from common import ROOT, check, write_out
 
 REPO = os.path.dirname(ROOT)
 
@@ -31,6 +31,8 @@ PDF = {
     "cls5": os.path.join(ROOT, "bib", "Isaacson_2024_ApJS_274_35.pdf"),
     "cls6": os.path.join(ROOT, "bib", "Isaacson_2025_AJ_170_181.pdf"),
     "jarv": os.path.join(ROOT, "bib", "Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf"),
+    "luhn_ax": os.path.join(ROOT, "bib", "Luhn_2022_arXiv2207.00612.pdf"),
+    "baum_ax": os.path.join(ROOT, "bib", "Baum_2022_arXiv2203.13376.pdf"),
     "noyes": os.path.join(ROOT, "bib", "Noyes1984.pdf"),
     "scheffer": os.path.join(REPO, "Scheffer et al. 2009, Nature 461, 53.pdf"),
     "hk": os.path.join(REPO, "Held & Kleinen 2004, GRL 31, L23207.pdf"),
@@ -120,8 +122,48 @@ Q = [
      "egeland", r"0\.0145[^0-9]{1,6}0\.0014 in S", True),
     ("3.11-41", "Dakos 2012: rolling windows '25% to 75%' and bandwidths '5 to 200'", "dakos",
      r"25% to 75% of the time series length.{0,80}bandwidths ranging from 5 to 200", True),
+    ("3.11-42", "Luhn arXiv draft §2.2: 1995-2002 data scraped from Figure 2 of Olah+2016", "luhn_ax",
+     r"scrape the data from Figure 2 of Ol.h et al\. \(2016\) for HD 166620", True),
+    ("3.11-43", "Luhn arXiv draft: 'the scraped data is reliable, but not exact'", "luhn_ax",
+     r"the scraped data is reliable, but not exact", True),
+    ("3.11-44", "Luhn arXiv draft: 'contains 119 (scraped) observations'", "luhn_ax",
+     r"contains 119 \(scraped\) observations", True),
+    ("3.11-45", "Luhn published: data 'acquired ... courtesy of K. Ol.h and W. Soon' and 158 observations",
+     "luhn", r"acquired this data courtesy of K\. Ol.h and W\. Soon", True),
+    ("3.11-46", "Luhn arXiv draft: same F-test sentence ('Even corrected for intrinsic noise differences')",
+     "luhn_ax", r"Even corrected for intrinsic noise differences.{0,160}F-test gives 8\.78", True),
+    ("3.11-47", "Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006)",
+     "luhn_ax", r"0\.1724 .{0,3}0\.0058", True),
+    ("3.11-48", "Baum arXiv draft: same '29 stars with periodic cycles'", "baum_ax",
+     r"analyzed 29 stars with periodic cycles", True),
+    ("3.11-49", "Baum arXiv draft: same '14 stars were given new classifications'", "baum_ax",
+     r"14 stars were given new classifications", True),
 ]
 for cid, desc, k, rx, want in Q:
     got = bool(re.search(rx, T[k], re.I | re.S))
     check(cid, desc, "yes" if want else "no", "yes" if got else "no",
           os.path.basename(PDF[k]))
+
+
+# page numbers of each passage (PDF page index; journal page is given in the audit text)
+def page_texts(path):
+    n = int(re.search(r"Pages:\s+(\d+)", subprocess.run(["pdfinfo", path], capture_output=True,
+                                                        text=True).stdout).group(1))
+    out = []
+    for pg in range(1, n + 1):
+        r = subprocess.run(["pdftotext", "-f", str(pg), "-l", str(pg), path, "-"],
+                           capture_output=True, text=True).stdout
+        out.append(re.sub(r"\s+", " ", unicodedata.normalize("NFKC", r)))
+    return out
+
+
+PT = {}
+lines = ["id | pdf | PDF pages where the pattern is found (page 1 = first page of the file)"]
+for cid, desc, k, rx, want in Q:
+    if not want:
+        continue
+    if k not in PT:
+        PT[k] = page_texts(PDF[k])
+    pgs = [i + 1 for i, t in enumerate(PT[k]) if re.search(rx, t, re.I | re.S)]
+    lines.append(f"{cid} | {os.path.basename(PDF[k])} | {pgs or 'spans a page break or not found page-wise'}")
+write_out("06_pdf_pages.txt", "\n".join(lines) + "\n")
