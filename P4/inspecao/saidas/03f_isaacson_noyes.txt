@@ -1,0 +1,40 @@
+# Table2 Nobs vs Table3 count mismatches (first 15 of 0): []
+# distinct 'fonte' values: Isaacson+2024 ApJS 274,35 Tabela 2 (VizieR J/ApJS/274/35/table2)
+# A11 b.3 mismatches: [('HD 3651', 'unexpected cycle', '10.01')]
+
+# D52 recipe applied (B-V and <S> from baliunas_table2_full.csv)
+HD 10700: B-V=0.72 S=0.171 band=DENTRO
+  log C_cf = 1.13*0.72^3 - 3.91*0.72^2 + 2.84*0.72 - 0.47 = -0.0304
+  delta log C = 0.0000  ->  C_cf = 0.9325
+  R_HK = 1.340e-4 * 0.9325 * 0.171 = 2.1366e-05
+  log R_phot = -4.898 + 1.918*0.72^2 - 2.893*0.72^3 = -4.9835  ->  R_phot = 1.0387e-05
+  R'_HK = 1.0979e-05  ->  log R'_HK = -4.959
+  R_phot / R_HK = 0.486;  log R'_HK with Duncan form = -4.921
+HD 32147: B-V=1.06 S=0.286 band=EXTRAPOLADO + C_cf incerto
+  log C_cf = 1.13*1.06^3 - 3.91*1.06^2 + 2.84*1.06 - 0.47 = -0.5070
+  delta log C = 0.0000  ->  C_cf = 0.3112
+  R_HK = 1.340e-4 * 0.3112 * 0.286 = 1.1925e-05
+  log R_phot = -4.898 + 1.918*1.06^2 - 2.893*1.06^3 = -6.1885  ->  R_phot = 6.4782e-07
+  R'_HK = 1.1277e-05  ->  log R'_HK = -4.948
+  R_phot / R_HK = 0.054;  log R'_HK with Duncan form = -5.056
+HD 201091: B-V=1.18 S=0.658 band=EXTRAPOLADO + C_cf incerto
+  log C_cf = 1.13*1.18^3 - 3.91*1.18^2 + 2.84*1.18 - 0.47 = -0.7065
+  delta log C = 0.0000  ->  C_cf = 0.1966
+  R_HK = 1.340e-4 * 0.1966 * 0.658 = 1.7333e-05
+  log R_phot = -4.898 + 1.918*1.18^2 - 2.893*1.18^3 = -6.9807  ->  R_phot = 1.0455e-07
+  R'_HK = 1.7228e-05  ->  log R'_HK = -4.764
+  R_phot / R_HK = 0.006;  log R'_HK with Duncan form = -4.818
+HD 166620: B-V=0.87 S=0.19 band=EXTRAPOLADO (0.82-1.0
+  log C_cf = 1.13*0.87^3 - 3.91*0.87^2 + 2.84*0.87 - 0.47 = -0.2146
+  delta log C = 0.0000  ->  C_cf = 0.6101
+  R_HK = 1.340e-4 * 0.6101 * 0.19 = 1.5534e-05
+  log R_phot = -4.898 + 1.918*0.87^2 - 2.893*0.87^3 = -5.3513  ->  R_phot = 4.4533e-06
+  R'_HK = 1.1081e-05  ->  log R'_HK = -4.955
+  R_phot / R_HK = 0.287;  log R'_HK with Duncan form = -5.011
+HD (Sun): B-V=0.66 S=0.179 band=DENTRO
+  log C_cf = 1.13*0.66^3 - 3.91*0.66^2 + 2.84*0.66 - 0.47 = 0.0261
+  delta log C = 0.0000  ->  C_cf = 1.0619
+  R_HK = 1.340e-4 * 1.0619 * 0.179 = 2.5470e-05
+  log R_phot = -4.898 + 1.918*0.66^2 - 2.893*0.66^3 = -4.8942  ->  R_phot = 1.2757e-05
+  R'_HK = 1.2713e-05  ->  log R'_HK = -4.896
+  R_phot / R_HK = 0.501;  log R'_HK with Duncan form = -4.851

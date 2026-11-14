@@ -1,0 +1,153 @@
+## Package files (relative to the package root)
+      2353  a83147094093da14  CLAUDE.md
+     22881  2e3a4d26fea3ef65  DECISOES_D41_D54.md
+     16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
+     24461  84c3f5e5faee2f51  P4_RESEARCH_NOTEBOOK.md
+      9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
+      3704  d32bc37210dba527  README_HANDOFF.md
+     23511  e588c7564cda16ab  audit/A10_luhn.md
+     28797  43fea2295699f920  audit/A11_raridade.md
+     18994  9835a81272cc4f26  audit/A12_noyes.md
+     17575  68a86baac2a66317  audit/A1_baliunas.md
+     12568  7c9f508fdebba6ca  audit/A2_lockwood.md
+     12324  cc9425e21bcaa19d  audit/A3_egeland.md
+     15958  d4f6f17b46376d03  audit/A4_dakos.md
+     22409  e117e432f8193a53  audit/A5_peng.md
+     34988  87622c9115ae0547  audit/A6_saar.md
+     29852  b4c32f79703bd4e9  audit/A9_baum.md
+      3549  c6964c899bea069d  audit/a9_instrument_step.csv
+      4560  f60eb40065fed47d  audit/saar_baliunas_crossmatch.csv
+      8013  9ab820d56eae8724  baliunas_table2_full.csv
+     17502  7f80024b9da84a84  baum2022_59stars.csv
+      1092  4634b8b68002e4ad  baum2022_cycle_periods.csv
+       223  094f014f7680c8ef  bib/LEIAME.txt
+     11651  4bbcc45644f0e8c7  data/J_163_183_table2.tsv
+   2674524  7703efab4bdb8ac5  data/J_AJ_163_183_table1.tsv
+     84234  f3d7f8b9a6a12756  data/J_ApJS_274_35_table2.tsv
+   2830333  6d9db62019cdcbb4  data/J_ApJS_274_35_table3.tsv
+      8189  fccfc06f1c604f42  data/J_ApJS_274_35_table4.tsv
+     72569  b48502d68daa55be  data/J_ApJ_936_L23_table2.tsv
+     45460  1e3c077d090362c5  data/J_ApJ_936_L23_table3.tsv
+     11792  3047df303782da69  historico/paper_state_v2.md
+      8327  648b4ce9773d42f2  isaacson2024_least_active_50.csv
+     16546  2eeab6429e574d66  noyes1984_validade_cor.csv
+     59742  bc539da732b3f115  p4_pipeline.ipynb
+     22804  e106132858d9398a  paper_state_v4.md
+      9525  5fc6d46e755fc2cc  paper_state_v5.md
+     21181  aa76275ba875779c  paper_state_v6.md
+
+## Repository-root copies
+IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
+IDENTICAL  audit/A10_luhn.md  <->  audit/A10_luhn.md
+IDENTICAL  audit/A11_raridade.md  <->  audit/A11_raridade.md
+IDENTICAL  audit/A12_noyes.md  <->  audit/A12_noyes.md
+IDENTICAL  audit/A5_peng.md  <->  audit/A5_peng.md
+IDENTICAL  audit/A6_saar.md  <->  audit/A6_saar.md
+IDENTICAL  audit/A9_baum.md  <->  audit/A9_baum.md
+IDENTICAL  audit/a9_instrument_step.csv  <->  audit/a9_instrument_step.csv
+IDENTICAL  audit/saar_baliunas_crossmatch.csv  <->  audit/saar_baliunas_crossmatch.csv
+IDENTICAL  baliunas_table2_full.csv  <->  baliunas_table2_full.csv
+IDENTICAL  baum2022_59stars.csv  <->  baum2022_59stars.csv
+IDENTICAL  baum2022_cycle_periods.csv  <->  baum2022_cycle_periods.csv
+IDENTICAL  data/J_163_183_table2.tsv  <->  J:163:183:table2.tsv
+IDENTICAL  data/J_AJ_163_183_table1.tsv  <->  J:AJ:163:183:table1.tsv
+IDENTICAL  data/J_ApJS_274_35_table2.tsv  <->  J:ApJS:274:35:table2.tsv
+IDENTICAL  data/J_ApJS_274_35_table3.tsv  <->  J:ApJS:274:35:table3.tsv
+IDENTICAL  data/J_ApJS_274_35_table4.tsv  <->  J:ApJS:274:35:table4.tsv
+IDENTICAL  data/J_ApJ_936_L23_table2.tsv  <->  J:ApJ:936:L23:table2.tsv
+IDENTICAL  data/J_ApJ_936_L23_table3.tsv  <->  J:ApJ:936:L23:table3.tsv
+IDENTICAL  isaacson2024_least_active_50.csv  <->  isaacson2024_least_active_50.csv
+IDENTICAL  noyes1984_validade_cor.csv  <->  noyes1984_validade_cor.csv
+IDENTICAL  p4_pipeline.ipynb  <->  p4_pipeline.ipynb
+IDENTICAL  paper_state_v4.md  <->  paper_state_v4.md
+IDENTICAL  paper_state_v6.md  <->  paper_state_v6.md
+only in the package: CLAUDE.md, P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, bib/LEIAME.txt, historico/paper_state_v2.md, paper_state_v5.md
+PDFs in the repository root: Baliunas et al. 1995, ApJ 438, 269.pdf | Dakos et al. 2012, PLoS ONE 7, e41010.pdf | Egeland_2017_ApJ_835_25.pdf | Held & Kleinen 2004, GRL 31, L23207.pdf | Lockwood_2007_ApJS_171_260.pdf | Peng et al. 1994, Phys. Rev. E 49, 1685.pdf | Saar_1999_ApJ_524_295.pdf | Scheffer et al. 2009, Nature 461, 53.pdf | Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf
+
+## File names cited in the documents and not found at the cited place
+COWORK_PROMPT_A9_A12.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md
+FASE1_PAPERS_P1_P12.md: ABSENT from package  <- cited in README_HANDOFF.md
+Isaacson_2025_AJ_170_181.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
+P4_DECISION_SUPPORT_6.1.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, paper_state_v5.md
+P4_SOURCE_VALUES.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
+SUBMISSION_STRATEGY_TIMELINE.md: ABSENT from package  <- cited in README_HANDOFF.md
+UNIVERSAL_PAPER_CONTEXT.md: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v4.md
+aa28479-16.pdf: ABSENT from package  <- cited in audit/A10_luhn.md
+audit/*.csv: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
+audit/A#_*.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
+audit/A7_theory.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, README_HANDOFF.md, paper_state_v4.md
+audit/A8_usoskin.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, README_HANDOFF.md, paper_state_v4.md
+audit/baliunas_table2_full.csv: CITED PATH DIFFERS, file is at baliunas_table2_full.csv  <- cited in P4_AUDIT_PROTOCOL.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5_peng.md, audit/A6_saar.md, paper_state_v4.md
+bib/Isaacson_2024_ApJS_274_35.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
+bib/Isaacson_2025_AJ_170_181.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
+bib/Noyes1984.pdf: ABSENT from package  <- cited in audit/A12_noyes.md
+bib/aa28479-16.pdf: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v6.md
+bib/aa54111-25.pdf: ABSENT from package  <- cited in audit/A11_raridade.md
+cell_verify.py: ABSENT from package  <- cited in audit/A1_baliunas.md
+extract_tsv.py: ABSENT from package  <- cited in audit/A1_baliunas.md
+finalize.py: ABSENT from package  <- cited in audit/A1_baliunas.md
+merge_table2.py: ABSENT from package  <- cited in audit/A1_baliunas.md
+p4_star_catalog.csv: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, audit/A6_saar.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
+paper_state.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md
+paper_state_v#.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
+results/claude_report.md: ABSENT from package  <- cited in p4_pipeline.ipynb
+
+## Decisions without a grade field: D01,D02,D03,D04,D05,D06,D10,D11,D12,D13,D15,D17,D18,D19,D20,D21,D22,D23,D24,D25,D26,D27,D28,D29,D30,D31,D32,D33,D35,D36,D37,D38,D39,D40,D42,D54
+
+## Findings defined per unit
+A1: F1-F9 (9)
+A2: F1-F7 (7)
+A3: F1-F6 (6)
+A4: F1-F8 (8)
+A5: F1-F6 (6)
+A6: F1-F14 (14)
+A9: F1-F10 (10)
+A10: F1-F7 (7)
+A11a: F1-F4 (4)
+A11b: F1-F5 (5)
+A12: F1-F7 (7)
+
+## Broken finding references
+
+
+## Ambiguous A11 references
+
+
+## Audit-log rows found in each audit file
+A1 as logged in audit/A1_baliunas.md: status=closed findings=F1–F9 unresolved=none (2 escalated to A3)
+A1 as logged in audit/A2_lockwood.md: status=closed findings=F1–F9 unresolved=none (2 escalated to A3)
+A1 as logged in audit/A3_egeland.md: status=closed findings=F1–F9 unresolved=none
+A1 as logged in audit/A4_dakos.md: status=closed findings=F1–F9 unresolved=none (2 → A3)
+A1 as logged in audit/A5_peng.md: status=closed findings=F1–F9 unresolved=none (2 → A3)
+A1 as logged in audit/A6_saar.md: status=closed findings=F1–F9 unresolved=none (2 → A3)
+A2 as logged in audit/A2_lockwood.md: status=closed findings=F1–F7 unresolved=none (2 contradictions recorded, escalated to A3)
+A2 as logged in audit/A3_egeland.md: status=closed findings=F1–F7 unresolved=none
+A2 as logged in audit/A4_dakos.md: status=closed findings=F1–F7 unresolved=none (2 → A3)
+A2 as logged in audit/A5_peng.md: status=closed findings=F1–F7 unresolved=none (2 → A3)
+A2 as logged in audit/A6_saar.md: status=closed findings=F1–F7 unresolved=none (2 → A3)
+A3 as logged in audit/A3_egeland.md: status=closed findings=F1–F6 unresolved=none (1 action item; 1 → A6)
+A3 as logged in audit/A5_peng.md: status=closed findings=— unresolved=none (1 action item)
+A3 as logged in audit/A6_saar.md: status=closed findings=— unresolved=none (1 action item)
+A4 as logged in audit/A3_egeland.md: status=closed findings=F1–F8 unresolved=none (2 → A5)
+A4 as logged in audit/A4_dakos.md: status=closed findings=F1–F8 unresolved=none (2 → A5)
+A4 as logged in audit/A5_peng.md: status=closed findings=F1–F8 unresolved=none (2 → A5)
+A4 as logged in audit/A6_saar.md: status=closed findings=F1–F8 unresolved=none (2 → A5)
+A5 as logged in audit/A5_peng.md: status=closed findings=F1–F6 unresolved=3 grade X, all → action items
+A5 as logged in audit/A6_saar.md: status=closed findings=F1–F6 unresolved=3 grade X → action items
+A6 as logged in audit/A6_saar.md: status=closed findings=F1–F13 unresolved=3 grade X → consolidation
+
+## Section references without a matching heading
+A6 §6.2: no such heading in audit/A6_saar.md <- P4_RESEARCH_NOTEBOOK.md
+
+## Q# usage by document
+Q1: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, audit/A11_raridade.md, audit/A9_baum.md, paper_state_v5.md, paper_state_v6.md
+Q2: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A11_raridade.md, paper_state_v5.md, paper_state_v6.md
+Q3: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, paper_state_v5.md, paper_state_v6.md
+Q4: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A11_raridade.md, paper_state_v5.md, paper_state_v6.md
+Q5: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, paper_state_v5.md, paper_state_v6.md
+Q6: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A10_luhn.md, audit/A11_raridade.md, audit/A9_baum.md, paper_state_v5.md, paper_state_v6.md
+Q7: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A11_raridade.md, audit/A9_baum.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
+Q8: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A11_raridade.md, audit/A12_noyes.md, paper_state_v5.md, paper_state_v6.md
+Q9: DECISOES_D41_D54.md, P4_RESEARCH_NOTEBOOK.md, audit/A9_baum.md, paper_state_v5.md, paper_state_v6.md
+Q10: DECISOES_D41_D54.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md
+Q11: DECISOES_D41_D54.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md

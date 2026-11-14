@@ -1,0 +1,59 @@
+[PASS] 3.4-01: Luhn Table 2 rows | expected=1885 obtained=1885
+[PASS] 3.4-02: Inst=MW rows | expected=1654 obtained=1654
+[PASS] 3.4-03: Inst=HIRES rows | expected=112 obtained=112
+[PASS] 3.4-04: Inst=new_MW rows (table) | expected=119 obtained=119
+[FAIL] 3.4-05: Inst=new_MW rows vs Luhn §2.2 text (158) | expected=158 obtained=119
+[PASS] 3.4-06: Luhn MW rows = 107 + 1547 | expected=1654 obtained=1654
+[PASS] 3.4-06b: Luhn HIRES rows before / from 2004.0 | expected=9/103 obtained=9/103
+[INFO] 3.4-06c: HKP-1/HKP-2 split of Luhn's MW rows by a date cut at Baum's last HKP-1 epoch (1977.568); Baum's first HKP-2 epoch is 1977.256 (overlap), so 107/1547 is not derivable from Luhn's table alone | expected=107/1547 obtained=117/1537
+[PASS] 3.4-06d: Baum HKP-1+HKP-2 rows for HD 166620 = Luhn MW rows | expected=1654 obtained=1654
+[PASS] 3.4-06e: max |S_Luhn - S_Baum| over the MW rows matched in time order | expected=0 obtained=0
+[PASS] 3.4-07: MW range | expected=1966.593-1995.423 obtained=1966.593-1995.423
+[PASS] 3.4-08: new_MW range | expected=1995.447-2002.486 obtained=1995.447-2002.486
+[PASS] 3.4-09: HIRES range | expected=1997.418-2020.185 obtained=1997.418-2020.185
+[PASS] 3.4-10: largest gap in S_HK (yr) | expected=2.82 obtained=2.82
+[PASS] 3.4-11: largest gap interval | expected=2005.64-2008.46 obtained=2005.64-2008.46
+[PASS] 3.4-12: rows of the A10 §1.2 annual-mean table (18) not reproduced | expected=0 obtained=0
+[PASS] 3.4-13: annual S_HK means available 1995-2002 | expected=8 obtained=8
+[PASS] 3.4-14: raw S_HK observations with 1995.0 <= t < 2002.0 | expected=132 obtained=132
+[INFO] 3.4-15: the '132' of paper_state_v6 §5 under other readings of '1995-2002' | expected= obtained={'calendar years 1995-2002 inclusive (the 8 annual means of D46)': 137, 'same, excluding HIRES': 128, 'new_MW only': 119}
+[PASS] 3.4-16: Luhn Table 3 rows | expected=1278 obtained=1278
+[PASS] 3.4-17: APT calendar years with data | expected=17 obtained=17
+[PASS] 3.4-18: APT calendar years 2005-2015 with data | expected=0 obtained=0
+[PASS] 3.4-19: APT calendar years 1993-2004 with data | expected=12 obtained=12
+[PASS] 3.4-20: APT nights per year 1993-2004 (min-max) | expected=47-119 obtained=47-119
+[PASS] 3.4-20b: APT seasonal means (calendar years): range before 2004 (mmag) | expected=2.8 obtained=2.8
+[INFO] 3.4-20c: APT seasonal means: std over 2004 + 2016-2020 (mmag, ddof=1 | ddof=0) | expected=0.22 obtained=0.22 | 0.20
+[INFO] 3.4-20d: same, 2016-2020 only (ddof=1) | range before 2005 (mmag) | expected= obtained=0.19 | 2.8
+[PASS] 3.4-21: min1: N in interval | expected=44 obtained=44
+[PASS] 3.4-22: min1: <S_HK> (4 dec) | expected=0.1810 obtained=0.1810
+[PASS] 3.4-23: min1: raw std of the whole interval (ddof=1, 4 dec) | expected=0.0035 obtained=0.0035
+[INFO] 3.4-24: min1: noise = 1.2% of <S_HK> (4 dec) | expected= obtained=0.0022
+[PASS] 3.4-25: min1: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec) | expected=0.0027 obtained=0.0027
+[INFO] 3.4-26: min1: same, 5 decimals, ddof=1 | ddof=0 | expected= obtained=0.00269 | 0.00264
+[INFO] 3.4-27: min1: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=4) | expected=0.0027 obtained=0.0028 | 0.0025
+[PASS] 3.4-28: min2: N in interval | expected=315 obtained=315
+[PASS] 3.4-29: min2: <S_HK> (4 dec) | expected=0.1724 obtained=0.1724
+[PASS] 3.4-30: min2: raw std of the whole interval (ddof=1, 4 dec) | expected=0.0058 obtained=0.0058
+[INFO] 3.4-31: min2: noise = 1.2% of <S_HK> (4 dec) | expected= obtained=0.0021
+[PASS] 3.4-32: min2: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec) | expected=0.0054 obtained=0.0054
+[INFO] 3.4-33: min2: same, 5 decimals, ddof=1 | ddof=0 | expected= obtained=0.00542 | 0.00541
+[INFO] 3.4-34: min2: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=4) | expected=0.0054 obtained=0.0048 | 0.0049
+[PASS] 3.4-35: grand: N in interval | expected=103 obtained=103
+[PASS] 3.4-36: grand: <S_HK> (4 dec) | expected=0.1705 obtained=0.1705
+[PASS] 3.4-37: grand: raw std of the whole interval (ddof=1, 4 dec) | expected=0.0020 obtained=0.0020
+[INFO] 3.4-38: grand: noise = 0.3% of <S_HK> (4 dec) | expected= obtained=0.0005
+[PASS] 3.4-39: grand: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec) | expected=0.0019 obtained=0.0019
+[INFO] 3.4-40: grand: same, 5 decimals, ddof=1 | ddof=0 | expected= obtained=0.00195 | 0.00194
+[INFO] 3.4-41: grand: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=9) | expected=0.0019 obtained=0.0015 | 0.0014
+[PASS] 3.4-50: F-test min1 vs grand on RAW interval variances, two-sided p | expected=8.78e-06 obtained=8.79788e-06
+[INFO] 3.4-51: same, one-sided p | expected= obtained=4.39894e-06
+[FAIL] 3.4-52: F-test min1 vs grand on noise-CORRECTED sigma_S (D45 steps 2 then 3), two-sided p | expected=8.78e-06 obtained=0.00868207
+[INFO] 3.4-53: same, one-sided p | expected= obtained=0.00434103
+[FAIL] 3.4-54: F-test using the published rounded values 0.0027 (N=44) vs 0.0019 (N=103), two-sided p | expected=8.78e-06 obtained=0.00414892
+[INFO] 3.4-55: F-test min2 vs grand on corrected sigma_S, two-sided p | expected= obtained=2.82012e-25
+[INFO] 3.4-56: seasons with >1 obs: min1 | min2 | grand | expected= obtained=4 | 4 | 9
+[PASS] 3.4-57: Keck seasons (calendar years, >1 obs) with sigma_S/<S> below 1.2 %, out of N | expected=6/9 obtained=6/9
+[INFO] 3.4-57b: same, below 0.3 % (the reading suggested by the order of A10 §1.4 item 2) | expected=6/9 obtained=0/9
+[INFO] 3.4-57c: two lowest Keck seasonal sigma_S/<S> (%) | expected=approach 0.3 obtained=0.303, 0.339
+[PASS] 3.4-58: 2014: N obs | S | expected=1 | 0.1776 obtained=1 | 0.1776

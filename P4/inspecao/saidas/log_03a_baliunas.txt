@@ -1,0 +1,20 @@
+[PASS] 3.1-01: catalogue rows | expected=112 obtained=112
+[PASS] 3.1-02: CYCLE rows | expected=52 obtained=52
+[PASS] 3.1-03: Flat rows | expected=11 obtained=11
+[PASS] 3.1-04: Flat? rows | expected=4 obtained=4
+[PASS] 3.1-05: Long rows | expected=16 obtained=16
+[PASS] 3.1-06: Flat+Flat?+Long | expected=31 obtained=31
+[PASS] 3.1-07: Var rows | expected=29 obtained=29
+[PASS] 3.1-08: rows graded C or X | expected=0 obtained=0
+[PASS] 3.1-09: rows graded A | expected=103 obtained=103
+[PASS] 3.1-10: rows graded B | expected=9 obtained=9
+[PASS] 3.1-11: duplicated HD identifiers | expected=0 obtained=0
+[PASS] 3.1-12: HD 219834A (P_cyc|FAP|grade) | expected=|Good|A obtained=|Good|A
+[PASS] 3.1-13: HD 76572 (P_cyc|FAP|grade|n_pass) | expected=|Poor|A|1 obtained=|Poor|A|1
+[PASS] 3.1-14: CYCLE rows with neither period nor FAP | expected=10780,88737,111456,126053,176051,185144 obtained=10780,88737,111456,126053,176051,185144
+[FAIL] 3.1-15: rows with OCR debris in 'secondary' | expected=32 obtained=33
+[INFO] 3.1-16: rows with legitimate non-empty 'secondary' (Long or 2nd period) | expected= obtained=20
+[INFO] 3.1-17: rows with OCR residue in 'sptype' (deg sign, '?', 'KO', 'FO', lowercase class) | expected= obtained=27
+[INFO] 3.1-18: rows with single-character residue in 'star' | expected= obtained=2
+[INFO] 3.1-19: rows with non-empty 'disagree' (OCR passes disagreed) | expected= obtained=15
+[INFO] 3.1-20: of those, rows graded A | expected= obtained=15

@@ -1,0 +1,53 @@
+[PASS] 3.6-01: Isaacson Table 2 rows | expected=710 obtained=710
+[PASS] 3.6-02: Isaacson Table 2 distinct names | expected=710 obtained=710
+[PASS] 3.6-03: Isaacson Table 4 rows | expected=138 obtained=138
+[PASS] 3.6-04: Isaacson Table 4 distinct names | expected=138 obtained=138
+[FAIL] 3.6-05: Isaacson Table 3 rows | expected=52380 obtained=52372
+[PASS] 3.6-06: Table 3 rows vs text of the paper (52 372) | expected=52372 obtained=52372
+[PASS] 3.6-07: stars with Nobs >= 45 | expected=290 obtained=290
+[INFO] 3.6-08: stars where Table 2 Nobs != Table 3 row count | expected= obtained=0
+[PASS] 3.6-09: Table 4 names absent from Table 2 | expected=0 obtained=0
+[INFO] 3.6-10: Table 4 stars with Table 2 Nobs < 45 | expected= obtained=0
+[PASS] 3.6-11: HD 10700 SSD | Smed | Nobs | expected=0.00121 | 0.1674 | 944 obtained=0.00121 | 0.1674 | 944
+[PASS] 3.6-12: HD 10700 SSD/Smed (%) | expected=0.723 obtained=0.723
+[PASS] 3.6-13: Nobs >= 45 and SSD < 0.00121 (tabulated tau Cet) | expected=48 obtained=48
+[PASS] 3.6-14: Nobs >= 45 and SSD < 0.00125 (text value) | expected=52 obtained=52
+[INFO] 3.6-15: Nobs >= 45 and SSD <= 0.00121 | expected= obtained=50
+[INFO] 3.6-16: Nobs >= 45 and SSD/Smed < tau Cet's (relative criterion) | expected= obtained=32
+[INFO] 3.6-17: Nobs > 45 (strict) and SSD < 0.00121 | expected= obtained=48
+[PASS] 3.6-18: rows in isaacson2024_least_active_50.csv | expected=48 obtained=48
+[PASS] 3.6-19: CSV names == reproduced filter (symmetric difference) | expected=0 obtained=0
+[PASS] 3.6-20: CSV cells (SSD, Smed, Nobs) differing from Table 2 | expected=0 obtained=0
+[PASS] 3.6-21: max |disp_rel_pct - 100*SSD/Smed| in CSV | expected=0 obtained=0
+[FAIL] 3.6-22: 'fonte' column documents the filter criterion (contains 'SSD' or '45') | expected=yes obtained=no
+[INFO] 3.6-23: CSV stars with relative scatter above tau Cet's 0.723 % | expected= obtained=16
+[PASS] 3.6-24: HD 55575 SSD/Smed (%) | expected=0.448 obtained=0.448
+[FAIL] 3.6-25: least-scattered star with Nobs >= 45 by SSD/Smed | expected=HD 55575 obtained=HD 187923
+[FAIL] 3.6-26: least-scattered star with Nobs >= 45 by absolute SSD | expected=HD 55575 obtained=HD 187923
+[FAIL] 3.6-27: rows of the A11 §b.3 table (10 present stars) not reproduced | expected=0 obtained=1
+[PASS] 3.6-28: HD 43587 / HD 160346 present in Table 2 | expected=absent/absent obtained=absent/absent
+[INFO] 3.6-29: HD 32147 in Table 4 (A11 §b.3 prints a dash) | expected= obtained=Per=9.53
+[PASS] 3.6-30: HD 23249 SSD < tau Cet SSD ('menos disperso que tau Cet? sim') | expected=yes obtained=yes
+[INFO] 3.6-31: HD 23249 SSD/Smed < tau Cet SSD/Smed (relative) | expected= obtained=no
+[PASS] 3.7-01: rows in noyes1984_validade_cor.csv | expected=112 obtained=112
+[PASS] 3.7-02: rows whose HD/bv/primary_class/FAP differ from the frozen catalogue | expected=0 obtained=0
+[INFO] 3.7-02b: rows whose B-V string differs from the catalogue only in formatting (e.g. '0.7' vs '0.70') | expected= obtained=11
+[PASS] 3.7-03: recomputed from catalogue B-V: band 'DENTRO' | expected=82 obtained=82
+[PASS] 3.7-04: recomputed from catalogue B-V: band 'EXTRAPOLADO (0.82-1.0' | expected=17 obtained=17
+[PASS] 3.7-05: recomputed from catalogue B-V: band 'EXTRAPOLADO + C_cf incerto' | expected=6 obtained=6
+[PASS] 3.7-06: recomputed from catalogue B-V: band 'EXTRAPOLADO + pior' | expected=2 obtained=2
+[PASS] 3.7-07: recomputed from catalogue B-V: band 'FORA' | expected=5 obtained=5
+[PASS] 3.7-08: CSV rows whose label disagrees with the recomputed band | expected=0 obtained=0
+[INFO] 3.7-09: stars with B-V exactly 0.44 | 0.82 | 1.00 | 1.20 (boundary cases) | expected= obtained=3229,182101 | 26965,149661 | - | -
+[FAIL] 3.7-10: stars strictly inside 0.44 < B-V < 0.82 (open interval, as printed in D52/D53) | expected=82 obtained=78
+[INFO] 3.7-11: stars with B-V > 1.0 (D53 text: '6 acima de 1.0' and '2 acima de 1.2') | expected= obtained=>1.0: 8; >1.2: 2
+[INFO] 3.7-12: HD 10700: log R'_HK from D52 with catalogue B-V=0.72, <S>=0.171 (band DENTRO); R_phot/R_HK; log R'_HK with Duncan R_phot | expected= obtained=-4.959; 0.486; -4.921
+[INFO] 3.7-13: HD 32147: log R'_HK from D52 with catalogue B-V=1.06, <S>=0.286 (band EXTRAPOLADO + C_cf incerto); R_phot/R_HK; log R'_HK with Duncan R_phot | expected= obtained=-4.948; 0.054; -5.056
+[INFO] 3.7-14: HD 201091: log R'_HK from D52 with catalogue B-V=1.18, <S>=0.658 (band EXTRAPOLADO + C_cf incerto); R_phot/R_HK; log R'_HK with Duncan R_phot | expected= obtained=-4.764; 0.006; -4.818
+[INFO] 3.7-15: HD 166620: log R'_HK from D52 with catalogue B-V=0.87, <S>=0.19 (band EXTRAPOLADO (0.82-1.0); R_phot/R_HK; log R'_HK with Duncan R_phot | expected= obtained=-4.955; 0.287; -5.011
+[INFO] 3.7-16: HD (Sun): log R'_HK from D52 with catalogue B-V=0.66, <S>=0.179 (band DENTRO); R_phot/R_HK; log R'_HK with Duncan R_phot | expected= obtained=-4.896; 0.501; -4.851
+[INFO] 3.7-17: HD 10700: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.664 and Smed=0.1674 | vs D52 with catalogue B-V=0.72, <S>=0.171 | expected=-4.958 obtained=-4.958 | -4.959
+[INFO] 3.7-18: HD 32147: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.993 and Smed=0.2598 | vs D52 with catalogue B-V=1.06, <S>=0.286 | expected=-4.905 obtained=-4.905 | -4.948
+[INFO] 3.7-19: HD 166620: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.827 and Smed=0.1706 | vs D52 with catalogue B-V=0.87, <S>=0.190 | expected=-5.002 obtained=-5.002 | -4.955
+[PASS] 3.7-20: D40: R'_HK is affine in S at fixed B-V with positive slope (min of 1.340e-4*C'_cf over the 112 catalogue B-V values > 0) | expected=yes obtained=yes
+[INFO] 3.7-21: catalogue stars for which D52 gives R'_HK <= 0 with <S> of Table 2 | expected= obtained=none

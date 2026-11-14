@@ -1,0 +1,91 @@
+[PASS] 3.8-01: Baum stars present in the A1 catalogue by HD | expected=27 obtained=27
+[PASS] 3.8-02: Baum stars with ClassB95 filled | expected=26 obtained=26
+[PASS] 3.8-03: in A1 by HD but ClassB95 blank | expected=185144 obtained=185144
+[INFO] 3.8-04: ClassB95 filled but HD not in A1 | expected= obtained=none
+[PASS] 3.8-05: HD 185144 in A1 (class|P_cyc|FAP|grade) | expected=CYCLE|||A obtained=CYCLE|||A
+[PASS] 3.8-06: baum2022_59stars.csv em_baliunas_A1 == True | expected=27 obtained=27
+[PASS] 3.8-07: A1 columns copied into baum2022_59stars.csv that differ in value from the catalogue | expected=0 obtained=0
+[PASS] 3.8-08: of the 26, stars changing class TYPE (cycle/flat/long/var; 'flat?' and 'flat' one type) | expected=13 obtained=13
+[FAIL] 3.8-09: HD numbers actually listed in A9 §2 under the label 'treze' | expected=13 obtained=14
+[FAIL] 3.8-10: listed in A9 §2 but with no change of type in Table 2 | expected=none obtained=190406
+[FAIL] 3.8-11: of the 26, stars whose class changes when 'flat?' -> 'flat' also counts (the rule A9 §2 applies to HD 10700) | expected=14 obtained=15
+[FAIL] 3.8-11b: 'flat?' -> 'flat' stars among the 26 | expected=10700 obtained=10700,23249
+[INFO] 3.8-11c: stars with cycle -> cycle but a different period (not a change of type) | expected= obtained=4628:excl-8.4->10.0?,10476:excl-9.6->10.3,26965:excl-10.1->9.9,152391:excl-10.9->9.1,166620:excl-15.8->17.0?,190406:fair-2.6+good-16.9->17.2?,219834B:excl-10.0->9.4
+[PASS] 3.8-12: of the 26, stars where Baum's ClassB95 type differs from A1 primary_class | expected=0 obtained=0
+[INFO] 3.8-12b: stars for which Baum's ClassB95 carries a B95 period/grade while the A1 catalogue has P_cyc blank (HD:ClassB95:P_cyc_A1:FAP_A1) | expected= obtained=10780:<7:'':''; 126053:22?:'':''
+[PASS] 3.8-13: rows in baum2022_cycle_periods.csv | expected=14 obtained=14
+[PASS] 3.8-14: periods 'by periodogram' / 'by eye' | expected=10/4 obtained=10/4
+[PASS] 3.8-15: CSV periods differing from Table 2 ClassTP | expected=0 obtained=0
+[PASS] 3.8-16: CSV 'metodo_baum' inconsistent with the '?' mark in Table 2 | expected=0 obtained=0
+[PASS] 3.8-17: distinct stars marked '?' in Table 2 (A9-F1 lists 'HD 101501, 166620, 190406, 4628, mais HD 4628') | expected=4 obtained=4
+[PASS] 3.8-18: stars with a numeric period in both Baum and A1 | expected=7 obtained=7
+[PASS] 3.8-19: rows of the A9-F3 table whose delta/sigma is not reproduced (tol 0.5) | expected=0 obtained=0
+[INFO] 3.8-20: HD 4628 delta/sigma: recomputed | CSV | A9-F3 text | expected=20.4 | 20.4 | +20 obtained=20.4 | 20.4 | +20
+[INFO] 3.8-21: all overlapping periods diverge by >= 2 sigma (|delta/sigma| min, HD 190406 excluded as a change of primary) | expected=>=2 obtained=2
+[PASS] 3.8-22: FAP Excellent among the 7 overlapping | expected=6 obtained=6
+[INFO] 3.8-23: HD 190406 delta_sigma stored in the CSV (A9-F3 prints 'troca de primario') | expected= obtained=730.0
+[PASS] 3.8-24: CSV delta_sigma differing from recomputation | expected=0 obtained=0
+[PASS] 3.8-25: CSV rows with class_baliunas filled but star absent from A1 | expected=0 obtained=0
+[PASS] 3.8-26: CSV N_obs/baseline differing from Table 2 | expected=0 obtained=0
+[PASS] 3.8-30: rows in saar_baliunas_crossmatch.csv | expected=70 obtained=70
+[PASS] 3.8-31: Saar Table 1 entries / Table 5-only rows | expected=61/9 obtained=61/9
+[PASS] 3.8-32: Saar Table 1 entries flagged in_bal_catalogue | expected=59 obtained=59
+[PASS] 3.8-33: Saar Table 1 entries actually present in the catalogue by HD | expected=59 obtained=59
+[PASS] 3.8-34: Table 1 entries not in the catalogue | expected=98230B,Sun obtained=98230B,Sun
+[INFO] 3.8-35: Table 5-only rows: present in catalogue by HD | in_bal_catalogue filled | bal_class filled | expected= obtained=9 | 0 | 0
+[FAIL] 3.8-36: pairs with a plain numeric primary period in both papers (CSV; Sun row has no Baliunas values in the CSV) | expected=30 obtained=29
+[INFO] 3.8-37: Sun row in CSV: bal_class|bal_Pcyc|in_bal_catalogue | expected= obtained=||False
+[INFO] 3.8-38: numeric pairs identical in value (CSV) | expected= obtained=22
+[INFO] 3.8-39: HD numbers named in A6 §2.1 as identical (excluding Sun and HD 100180) | expected= obtained=22
+[PASS] 3.8-40: named-identical stars that are NOT identical in the CSV | expected=0 obtained=0
+[INFO] 3.8-41: identical pairs in the CSV not named in A6 §2.1 | expected= obtained=none
+[INFO] 3.8-42: numeric pairs differing (CSV) | expected=100180,149661,165341A,201092,3651,4628,81809 obtained=100180,149661,165341A,201092,3651,4628,81809
+[PASS] 3.8-43: Baliunas columns in the cross-match that differ from the catalogue | expected=0 obtained=0
+[PASS] 3.8-44: Baliunas classes of Saar's 59 matched stars CYCLE/Long/Var/Flat?/Flat | expected=42/9/7/1/0 obtained=42/9/7/1/0
+[FAIL] 3.8-45: of the 17 Baliunas standard stars (A6 §3), flagged in the cross-match (bal_T1_sigmaS_pct filled) | expected=17 obtained=11
+[INFO] 3.8-46: standard stars absent from the cross-match file | expected= obtained=13421,29645,76572,142373,159332,216385
+[PASS] 3.8-47: standard stars in the A1 catalogue | expected=17 obtained=17
+[PASS] 3.8-48: Flat stars that are standards | expected=7 obtained=7
+[PASS] 3.8-49: Flat? stars that are standards | expected=1 obtained=1
+[PASS] 3.8-50: Saar Table 5 F stars that are standards | expected=8 obtained=8
+[PASS] 3.8-51: Baliunas classes of Saar's 10 F stars Flat/Long/Flat? | expected=5/4/1 obtained=5/4/1
+[FAIL] 3.9-01: Flat+Flat? stars that are not standards (D13 alone) | expected=5 obtained=7
+[PASS] 3.9-02: Flat+Flat? non-standard AND not in Baliunas Appendix B binary list (A1 §2.5) - inferred rule, the defining document is missing | expected=10700,182572,190360,23249,43587 obtained=10700,182572,190360,23249,43587
+[INFO] 3.9-03: the two non-standard Flat stars left out of the 'five' | expected= obtained=158614,178428
+[PASS] 3.9-04: of the five, in Baum | expected=4 obtained=4
+[PASS] 3.9-05: of the five, absent from Baum | expected=43587 obtained=43587
+[FAIL] 3.9-06: spectral types of the five containing IV or Vp (as OCR'd: 'Iv', 'IV', 'Vp') | expected=3 obtained=4
+[PASS] 3.9-07: CYCLE + FAP Excellent rows | expected=13 obtained=13
+[PASS] 3.9-08: CYCLE+Excellent set equals the A9 §2.1 list | expected=0 obtained=0
+[PASS] 3.9-09: of the 13, in Baum | expected=6 obtained=6
+[PASS] 3.9-10: of the 13, absent from Baum (the Sun row included) | expected=7 obtained=7
+[INFO] 3.9-11: B-V of the absent controls (Sun excluded) | expected=0.96-1.18 or binary obtained=16160=0.98; 32147=1.06; 81809=0.64; 103095=0.75; 160346=0.96; 201091=1.18
+[PASS] 3.9-12: rows of the A9 §2.1 control table whose P, dP or B-V differ from the catalogue | expected=0 obtained=0
+[PASS] 3.9-13: Baum classes printed in A9 §2.1 that differ from Table 2 | expected=0 obtained=0
+[PASS] 3.9-14: five clean Flat inside 0.44-0.82 (closed interval) | expected=4 obtained=4
+[PASS] 3.9-15: 13 CYCLE+Excellent inside 0.44-0.82 (closed interval, Sun included) | expected=5 obtained=5
+[FAIL] 3.9-16: 13 CYCLE+Excellent inside the OPEN interval 0.44 < B-V < 0.82 (HD 26965 sits at 0.82) | expected=5 obtained=4
+[PASS] 3.9-17: CYCLE+Excellent with B-V > 1.0 | expected=201091,32147 obtained=201091,32147
+[INFO] 3.9-18: 12 stellar CYCLE+Excellent (Sun row excluded): inside / outside (closed) | expected= obtained=4/8
+[INFO] 3.9-19: restricted to stars in Baum: Flat inside/total | CYCLE+Excellent inside/total | expected= obtained=3/4 | 2/6
+[INFO] 3.9-20: P4 candidate stars also in CLS V Table 2 | expected= obtained=14
+[INFO] 3.9-21: B-V(A1 catalogue) - B-V(CLS V): min | median | max over those stars | expected= obtained=0.005 | 0.0405 | 0.085
+[INFO] 3.9-22: candidate stars whose Noyes band changes if CLS V's B-V is used | expected= obtained=10476: 0.84->0.801; 32147: 1.06->0.993
+[INFO] 3.9-23: CYCLE+Excellent stars in CLS V: inside 0.44-0.82 with A1 B-V | with CLS V B-V | N | expected= obtained=3 | 4 | 10
+[INFO] 3.9-24: all A1 catalogue stars found in CLS V: N | median(A1 - CLSV) | N with |diff| > 0.03 | expected= obtained=38 | 0.030 | 19
+[FAIL] 3.9-30: median B-V, CYCLE + FAP Excellent (13, Sun included) | expected=0.88 obtained=0.87
+[INFO] 3.9-31: median B-V, CYCLE + FAP Excellent (12, Sun excluded) | expected= obtained=0.875
+[FAIL] 3.9-32: median B-V, Flat + Flat? (15 stars, the label printed in v5 §4) | expected=0.73 obtained=0.56
+[PASS] 3.9-33: median B-V, five clean Flat (label used by A12 §3.1 for 0.73) | expected=0.73 obtained=0.73
+[PASS] 3.9-34: median B-V, Var (29) | expected=0.61 obtained=0.61
+[FAIL] 3.9-35: median B-V, Long (16) | expected=0.49 obtained=0.525
+[PASS] 3.9-36: median B-V, Long (16) vs A12 §3.1 | expected=0.525 obtained=0.525
+[PASS] 3.9-37: median B-V, Flat (11) | expected=0.56 obtained=0.56
+[PASS] 3.9-38: median B-V, Flat? (4) | expected=0.665 obtained=0.665
+[PASS] 3.9-39: median B-V, CYCLE (52) | expected=0.725 obtained=0.725
+[INFO] 3.9-40: median B-V, 7 non-standard Flat+Flat? (D13 only) | expected= obtained=0.72
+[INFO] 3.9-41: median B-V, Long non-standard | expected= obtained=0.52 (n=9)
+[INFO] 3.9-42: median B-V, CYCLE with a graded FAP (46) | expected= obtained=0.755
+[PASS] 3.9-43: B-V of HD 23249 in the catalogue | expected=0.92 obtained=0.92
+[PASS] 3.9-44: B-V of HD 160346 in the catalogue | expected=0.96 obtained=0.96
+[PASS] 3.9-45: B-V of HD 32147 in the catalogue | expected=1.06 obtained=1.06

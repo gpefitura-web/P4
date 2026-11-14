@@ -1,0 +1,5 @@
+[PASS] 2a-20: decision headers in the proposed notebook (D01-D54 + D45b) | expected=55 obtained=55
+[PASS] 2a-21: Q rows in §5 of the proposed notebook | expected=11 obtained=11
+[PASS] 2a-22: rows added to §8 | expected=10 obtained=10
+[PASS] 2a-23: rows added to §9 | expected=1 obtained=1
+[PASS] 2a-24: lines of the original notebook absent from the proposal (the 11 replaced lines of the §5 table: header, rule, Q1-Q9) | expected=11 obtained=11

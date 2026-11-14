@@ -1,0 +1,88 @@
+# OCR debris rows in 'secondary'
+          HD secondary
+1       2454       wee
+2       3229         a
+5       3795       wee
+17     18256       wee
+20     22072         a
+22     25998     see ;
+24     26923       wee
+27     30495       wee
+29     33608       vee
+31     37394       wee
+33     43587       vee
+37     75332       wee
+39     76572       vee
+41     81809         _
+42     82443       vee
+44     88355       wee
+45     88737       wee
+48     97344       wee
+50    100563       wee
+52    103095       bee
+56    114378       vee
+58    115043       wee
+73    143761       wee
+75    152391       Lee
+77    155885       wee
+79    156026       wee
+83    160346       wee
+85   165341A       wee
+96    188512       nee
+98    190360      Snes
+109  219834B       wee
+110   224930    . Long
+111    (Sun)       ...
+
+# residue in sptype
+          HD    sptype
+2       3229     F2 v°
+4       3651      KO V
+8       9562   ~G2.N?-
+11     10780    °KOVS.
+12     12235     G1 V°
+13     13421     F8 v°
+16     17925      KO V
+20     22072    G7 Vv?
+21     23249    KO Iv?
+23     26913     G8 V°
+24     26923     GO v*
+42     82443     KO vF
+43     82885  G8 Iv-v4
+62    120136    F7 Vv?
+63    124570    F6 Vv?
+64    124850    F7 Ivi
+69    136202  F8 IV-v*
+74    149661      KO V
+76    154417     F8 v°
+78    155886      KO V
+85   165341A      KO V
+89    176095    F5 Ivi
+93    185144      KO V
+96    188512    G8 Iv?
+98    190360    G6 Iv?
+104   207978     FO v°
+107   217014     G5 v°
+
+# residue in star
+       HD star
+11  10780    :
+33  43587    a
+
+# rows with 'disagree' set
+          HD       disagree n_pass grade P_cyc   dP primary_class
+4       3651          P_cyc      8     A  13.8  0.4         CYCLE
+9      10476          P_cyc      8     A   9.6  0.1         CYCLE
+18     20630          P_cyc      8     A   5.6  0.1         CYCLE
+31     37394          P_cyc      7     A  3.65  0.1         CYCLE
+42     82443          P_cyc      7     A  2.85  0.1         CYCLE
+60    115404          P_cyc      8     A  12.4  0.4         CYCLE
+74    149661          P_cyc      8     A  17.4  0.7         CYCLE
+76    154417          P_cyc      8     A   7.4  0.2         CYCLE
+79    156026          P_cyc      8     A  21.0  0.9         CYCLE
+80    157856          P_cyc      8     A  15.9  0.8         CYCLE
+85   165341A          P_cyc      8     A   5.1  0.1         CYCLE
+95    187691          P_cyc      8     A   5.4  0.1         CYCLE
+96    188512          P_cyc      8     A   4.1  0.1         CYCLE
+101   201091          P_cyc      8     A   7.3  0.1         CYCLE
+104   207978  primary_class      8     A                     Flat

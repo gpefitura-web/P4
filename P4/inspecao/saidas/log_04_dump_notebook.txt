@@ -1,0 +1,20 @@
+29 cells dumped
+[INFO] 4-01: stars hard-coded in notebook cell 8 | expected= obtained=14
+[PASS] 4-02: cell 8 rows whose S_mean differs from the catalogue <S> | expected=0 obtained=0
+[PASS] 4-03: cell 8 'Cycling' rows whose catalogue class is not CYCLE with FAP Good/Excellent | expected=0 obtained=0
+[FAIL] 4-04: cell 8 'Irregular' rows (defined in cell 7 as Long or Var): catalogue class | expected=Long or Var for all obtained=3651=CYCLE/Good P=13.8; 9562=Long; 76151=CYCLE/Fair P=2.52
+[INFO] 4-05: cell 8 'Flat' rows: catalogue class | standard star (D13) | Appendix B binary | expected= obtained=10700=Flat?|std=False|bin=False; 45067=Flat|std=True|bin=False; 178428=Flat|std=False|bin=True; 182572=Flat|std=False|bin=False
+[FAIL] 4-06: cell 8 rows with P_cyc = 0.00 while the catalogue has a period | expected=0 obtained=1
+[PASS] 4-07: cell 8 contains HD 4915 | expected=no obtained=no
+[INFO] 4-08: notebook: stats.kendalltau used for p-values (D22) - code cells | expected= obtained=14
+[INFO] 4-09: notebook: ARMA / surrogate code present (D22) - code cells | expected= obtained=none
+[INFO] 4-10: notebook: n_max = N // 4 (D26) - code cells | expected= obtained=14
+[INFO] 4-11: notebook: crossover check present (D26) - code cells | expected= obtained=none
+[INFO] 4-12: notebook: H = (beta + 1) / 2 computed (D28) - code cells | expected= obtained=14,16
+[INFO] 4-13: notebook: nolds imported or called (D29) - code cells | expected= obtained=2,4,14
+[INFO] 4-14: notebook: 0.179 present as a constant (D17) - code cells | expected= obtained=none
+[INFO] 4-15: notebook: S_SUN_MEAN = 0.1694 (D16) - code cells | expected= obtained=4
+[INFO] 4-16: notebook: mannwhitneyu between groups - code cells | expected= obtained=20
+[INFO] 4-17: notebook: sensitivity windows (0.25, 0.40, 0.50, 0.60, 0.75) (D20) - code cells | expected= obtained=16
+[INFO] 4-18: notebook: Gaussian sigma fixed at 1.0 yr, no sweep (Q3) - code cells | expected= obtained=14,16
+[INFO] 4-19: cells with a stored execution count | cells whose stored output is an error | expected= obtained=[2, 4, 6, 8, 10] | [(10, 'FileNotFoundError')]

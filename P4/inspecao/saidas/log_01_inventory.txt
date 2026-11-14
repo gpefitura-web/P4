@@ -1,0 +1,38 @@
+[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=36
+[INFO] 1-02: package files with a byte-identical copy in the repository root | expected= obtained=24
+[PASS] 1-03: package files whose repository-root copy differs | expected=0 obtained=0
+[PASS] 1-04: VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md | expected=7 obtained=7
+[PASS] 1-05: PDFs in the repository root | expected=9 obtained=9
+[PASS] 1-06: PDFs in bib/ | expected=0 obtained=0
+[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=25
+[PASS] 1-08: known-missing files confirmed absent | expected=6 obtained=6
+[PASS] 1-09: bib/aa28479-16.pdf (Olah+2016) anywhere in the clone | expected=absent obtained=absent
+[PASS] 2a-01: decisions D01-D54 defined exactly once | expected=54 obtained=54
+[PASS] 2a-02: decisions defined more than once or missing | expected=none obtained=none
+[INFO] 2a-03: decision headers outside D01-D54 numbering | expected= obtained=D45b
+[PASS] 2a-04: decisions without a 'Status' field | expected=none obtained=none
+[INFO] 2a-05: status values in use | expected= obtained=ativa: 55
+[INFO] 2a-06: decisions whose header line carries no 'Grau' field | expected= obtained=36
+[PASS] 2a-07: D## referenced anywhere but not defined | expected=none obtained=none
+[INFO] 2a-08: decisions never cited outside the document that defines them | expected= obtained=D45b
+[PASS] 2a-09: D41-D54 present in P4_RESEARCH_NOTEBOOK.md | expected=0 obtained=0
+[PASS] 2a-10: Q10 / Q11 present in notebook §5 | expected=no/no obtained=no/no
+[PASS] 2a-11: notebook log (§9) has a D41-D54 line | expected=no obtained=no
+[INFO] 2a-12: rows in notebook §8 (closed questions) | expected= obtained=11
+[PASS] 2d-01: findings defined in A9 | expected=10 obtained=10
+[PASS] 2d-02: findings defined in A10 | expected=7 obtained=7
+[PASS] 2d-03: findings defined in A12 | expected=7 obtained=7
+[PASS] 2d-04: findings defined in A11 (A11a + A11b) | expected=9 obtained=9
+[PASS] 2d-05: findings defined in A1 | expected=9 obtained=9
+[PASS] 2d-06: findings defined in A2 | expected=7 obtained=7
+[PASS] 2d-07: findings defined in A3 | expected=6 obtained=6
+[PASS] 2d-08: findings defined in A4 | expected=8 obtained=8
+[PASS] 2d-09: findings defined in A5 | expected=6 obtained=6
+[PASS] 2d-10: findings defined in A6 | expected=14 obtained=14
+[PASS] 2d-11: A#-F# references pointing to a finding that does not exist | expected=0 obtained=0
+[PASS] 2d-12: references written 'A11-F#' where both A11a-F# and A11b-F# exist (ambiguous) | expected=0 obtained=0
+[FAIL] 2d-13: units whose 'Findings' cell differs between the audit-log copies | expected=none obtained=A3
+[INFO] 2d-14: audit files that carry no audit-log table | expected= obtained=audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A9_baum.md
+[INFO] 2d-15: units marked 'open' in the protocol's own audit log (§10) | expected= obtained=8
+[INFO] 1-10: references 'A# §n' with no matching heading in the audit file | expected= obtained=1
+[INFO] 2b-01: Q numbers referenced anywhere | expected=1-11 obtained=1-11

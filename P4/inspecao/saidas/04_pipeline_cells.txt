@@ -1,0 +1,983 @@
+===== cell 0 [markdown] exec_count=None outputs=0 =====
+0:001  # P4 — Critical Slowing Down Near Stellar Activity Minima
+0:002  ## Complete pipeline: data → analysis → figures → report
+0:003  
+0:004  **Paper:** P4 of the *Critical Phenomena in Stellar Magnetic Activity* programme
+0:005  **Target journal:** Solar Physics (Springer)
+0:006  **Data:** Solar Ca II S-index (Egeland et al. 2017, 1966–2021) + Mount Wilson HK Project (Baliunas et al. 1995)
+0:007  
+0:008  ---
+0:009  
+0:010  ### How to run
+0:011  
+0:012  | Environment | Setting |
+0:013  |---|---|
+0:014  | **Local machine** (internet available) | `USE_SYNTHETIC = False` — downloads real data from VizieR / ADS |
+0:015  | **Sandbox / CI** | `USE_SYNTHETIC = True` — calibrated synthetic data, validates the full pipeline |
+0:016  
+0:017  **Output:** the last cell writes `results/claude_report.md`. Paste its contents into a new
+0:018  Claude Projects conversation to continue with manuscript writing.
+0:019  
+0:020  ---
+0:021  
+0:022  ### Dependencies
+0:023  
+0:024  This notebook implements DFA natively (Peng et al. 1994) and therefore does **not**
+0:025  require `nolds`. If `nolds` is installed, it is used only as an optional cross-check.
+0:026  
+0:027  ---
+===== cell 1 [markdown] exec_count=None outputs=0 =====
+1:001  ## 0 · Dependencies
+===== cell 2 [code] exec_count=1 outputs=1 =====
+2:001  # Run once, then comment out.
+2:002  #
+2:003  # NOTE ON nolds: this notebook does NOT require it. DFA is implemented natively
+2:004  # following Peng et al. (1994). If you have nolds < 0.6 installed you may see
+2:005  #     TypeError: 'nolds.datasets' is not a package
+2:006  # on `import nolds` -- that is a known incompatibility between old nolds and
+2:007  # Python >= 3.11. Either upgrade (`pip install -U nolds`) or ignore it entirely;
+2:008  # the notebook detects its absence and carries on.
+2:009  import importlib.util, subprocess, sys
+2:010  
+2:011  REQUIRED = ["numpy", "scipy", "pandas", "matplotlib", "astroquery"]
+2:012  missing = []
+2:013  for pkg in REQUIRED:
+2:014      mod = "astroquery" if pkg == "astroquery" else pkg
+2:015      if importlib.util.find_spec(mod) is None:
+2:016          missing.append(pkg)
+2:017  
+2:018  if missing:
+2:019      print(f"installing: {', '.join(missing)}")
+2:020      cmd = [sys.executable, "-m", "pip", "install", "-q", *missing]
+2:021      r = subprocess.run(cmd, capture_output=True, text=True)
+2:022      if r.returncode != 0 and "externally-managed-environment" in r.stderr:
+2:023          subprocess.run(cmd + ["--break-system-packages"], check=False)
+2:024  else:
+2:025      print("all required packages already present")
+2:026  
+2:027  print("dependencies OK")
+2:out  all required packages already present
+2:out  dependencies OK
+===== cell 3 [markdown] exec_count=None outputs=0 =====
+3:001  ## 1 · Configuration
+===== cell 4 [code] exec_count=2 outputs=1 =====
+4:001  # ══════════════════════════════════════════════════
+4:002  # EDIT HERE
+4:003  # ══════════════════════════════════════════════════
+4:004  USE_SYNTHETIC  = False                          # False on your local machine
+4:005  NSO_SOLAR_FILE = "data/nso_solar_sindex.txt"
+4:006  DATA_DIR       = "data"
+4:007  RESULTS_DIR    = "results"
+4:008  # ══════════════════════════════════════════════════
+4:009  
+4:010  import os, warnings, json, datetime
+4:011  import numpy as np
+4:012  import pandas as pd
+4:013  from scipy import stats, signal
+4:014  from scipy.ndimage import uniform_filter1d, gaussian_filter1d
+4:015  import matplotlib as mpl
+4:016  import matplotlib.pyplot as plt
+4:017  import matplotlib.ticker
+4:018  
+4:019  warnings.filterwarnings("ignore", category=RuntimeWarning)
+4:020  os.makedirs(DATA_DIR, exist_ok=True)
+4:021  os.makedirs(RESULTS_DIR, exist_ok=True)
+4:022  
+4:023  # ── Constants taken directly from the source papers ───────────────────────
+4:024  # Egeland et al. 2017, ApJ 835, 25 (Table 2): <S> for cycles 15-24 = 0.1694 +/- 0.0005.
+4:025  # Baliunas et al. 1995 quoted 0.179 using the HKP-1 calibration, which carries a
+4:026  # systematic +0.007 offset (Egeland+2017 Sec. 6).
+4:027  S_SUN_MEAN   = 0.1694
+4:028  S_CYCLE_DAYS = 4018        # 11.0 yr, Usoskin et al. 2017
+4:029  
+4:030  # Optional cross-check library
+4:031  try:
+4:032      import nolds
+4:033      HAS_NOLDS = True
+4:034  except Exception as e:
+4:035      HAS_NOLDS = False
+4:036      print(f"nolds unavailable ({type(e).__name__}) - using native DFA only (this is fine)")
+4:037  
+4:038  print(f"S_SUN_MEAN    = {S_SUN_MEAN}  (Egeland et al. 2017)")
+4:039  print(f"USE_SYNTHETIC = {USE_SYNTHETIC}")
+4:040  print(f"nolds present = {HAS_NOLDS}  (optional)")
+4:out  nolds unavailable (TypeError) - using native DFA only (this is fine)
+4:out  S_SUN_MEAN    = 0.1694  (Egeland et al. 2017)
+4:out  USE_SYNTHETIC = False
+4:out  nolds present = False  (optional)
+===== cell 5 [markdown] exec_count=None outputs=0 =====
+5:001  ## 2 · Figure style (Super Mongo)
+===== cell 6 [code] exec_count=3 outputs=1 =====
+6:001  def apply_super_mongo_style():
+6:002      """Monospaced, black-and-white, inward ticks on all four sides."""
+6:003      mpl.rcParams.update({
+6:004          "font.family": "monospace",
+6:005          "font.monospace": ["Courier Prime", "Courier New", "DejaVu Sans Mono"],
+6:006          "font.size": 12, "axes.labelsize": 12, "axes.titlesize": 12,
+6:007          "xtick.labelsize": 12, "ytick.labelsize": 12, "legend.fontsize": 11,
+6:008          "axes.prop_cycle": mpl.cycler(color=["black"]),
+6:009          "lines.color": "black", "patch.edgecolor": "black", "text.color": "black",
+6:010          "axes.edgecolor": "black", "axes.labelcolor": "black",
+6:011          "xtick.color": "black", "ytick.color": "black",
+6:012          "figure.facecolor": "white", "axes.facecolor": "white",
+6:013          "xtick.direction": "in", "ytick.direction": "in",
+6:014          "xtick.top": True, "ytick.right": True,
+6:015          "xtick.major.size": 6, "xtick.minor.size": 3,
+6:016          "ytick.major.size": 6, "ytick.minor.size": 3,
+6:017          "xtick.major.width": 0.8, "ytick.major.width": 0.8,
+6:018          "axes.grid": False, "lines.linewidth": 1.2, "lines.markersize": 5,
+6:019          "figure.dpi": 150, "savefig.dpi": 300,
+6:020          "savefig.bbox": "tight", "savefig.format": "pdf",
+6:021      })
+6:022  
+6:023  apply_super_mongo_style()
+6:024  LINE_STYLES = [
+6:025      {"ls": "-",  "lw": 1.5, "color": "black"},
+6:026      {"ls": "--", "lw": 1.5, "color": "black"},
+6:027      {"ls": ":",  "lw": 1.5, "color": "black"},
+6:028      {"ls": "-.", "lw": 1.5, "color": "black"},
+6:029  ]
+6:030  MARKERS = ["o", "s", "^", "D", "v"]
+6:031  
+6:032  def save_fig(fig, name):
+6:033      """Save as PDF (submission) and EPS (compatibility)."""
+6:034      for ext in ("pdf", "eps"):
+6:035          fig.savefig(os.path.join(RESULTS_DIR, f"{name}.{ext}"),
+6:036                      format=ext, dpi=300, bbox_inches="tight")
+6:037      print(f"  saved: {RESULTS_DIR}/{name}.pdf + .eps")
+6:038  
+6:039  print("style configured")
+6:out  style configured
+===== cell 7 [markdown] exec_count=None outputs=0 =====
+7:001  ## 3 · Target stars — Baliunas et al. (1995), Table 2
+7:002  
+7:003  All values below were read directly from the published Table 2, not recalled.
+7:004  Group assignment follows the paper's own variability classification:
+7:005  
+7:006  - **Cycling** — a cycle period with a Good or Excellent false-alarm-probability grade
+7:007  - **Irregular** — classified `Long` or `Var`; candidates approaching a Maunder-like state
+7:008  - **Flat** — σ_S/S < 1–1.5%; Maunder-minimum analogues (post-transition)
+7:009  
+7:010  `S_std_ref` is estimated from the Figure 1 panels (peak-to-peak amplitude / 2√2) and is
+7:011  used **only** to parameterise the synthetic generator. With real data it is replaced by
+7:012  the measured value.
+===== cell 8 [code] exec_count=4 outputs=1 =====
+8:001  # HD, name, spectral type, S_mean, S_std (est.), P_cyc [yr], group
+8:002  BALIUNAS_STARS_META = [
+8:003      # ── Cycling (7): Good/Excellent FAP grades ────────────────────────────
+8:004      (10476,  "107 Psc",    "K1 V",   0.198, 0.025,  9.60, "Cycling"),
+8:005      (81809,  "HD 81809",   "G2 V",   0.172, 0.014,  8.17, "Cycling"),
+8:006      (114710, "beta Com",   "F9.5 V", 0.201, 0.018, 16.60, "Cycling"),
+8:007      (149661, "12 Oph",     "K0 V",   0.339, 0.039, 17.40, "Cycling"),
+8:008      (166620, "HD 166620",  "K2 V",   0.190, 0.018, 15.80, "Cycling"),
+8:009      (219834, "HD 219834B", "K2 V",   0.204, 0.023, 10.00, "Cycling"),
+8:010      (32147,  "HD 32147",   "K5 V",   0.286, 0.039, 11.10, "Cycling"),
+8:011      # ── Irregular (3): "Long"/"Var"; CSD candidates ───────────────────────
+8:012      # Baliunas+1995 Appendix A: HD 3651 is "entering a Maunder minimum phase";
+8:013      # HD 9562 shows "relative inactivity ... implies a Maunder minimum phase".
+8:014      (3651,   "54 Psc",     "K0 V",   0.176, 0.022,  0.00, "Irregular"),
+8:015      (9562,   "HD 9562",    "G2 V",   0.136, 0.008,  0.00, "Irregular"),
+8:016      (76151,  "HD 76151",   "G3 V",   0.246, 0.020,  2.52, "Irregular"),
+8:017      # ── Flat (4): Maunder-minimum analogues ───────────────────────────────
+8:018      (10700,  "tau Cet",    "G8 Vp",  0.171, 0.003,  0.00, "Flat"),
+8:019      (45067,  "HD 45067",   "F8 V",   0.141, 0.002,  0.00, "Flat"),
+8:020      (178428, "HD 178428",  "G4 V",   0.154, 0.002,  0.00, "Flat"),
+8:021      (182572, "31 Aql",     "G8 IV",  0.148, 0.002,  0.00, "Flat"),
+8:022  ]
+8:023  # NOTE: HD 190406 (15 Sge) is deliberately excluded -- its primary period is
+8:024  # 2.60 +/- 0.02 yr (Fair grade); the 16.9 yr value often quoted is the SECONDARY
+8:025  # period. HD 4915 is excluded because it does not appear in Baliunas+1995 at all.
+8:026  
+8:027  COLS = ["HD", "Name", "SpType", "S_mean_ref", "S_std_ref", "P_cyc_yr", "Group"]
+8:028  df_meta = pd.DataFrame(BALIUNAS_STARS_META, columns=COLS)
+8:029  
+8:030  disp = df_meta[["HD", "Name", "Group", "S_mean_ref", "P_cyc_yr"]].copy()
+8:031  disp.columns = ["HD", "Name", "Group", "S_mean", "P_cyc [yr]"]
+8:032  disp["P_cyc [yr]"] = disp["P_cyc [yr]"].replace(0.0, "--")
+8:033  print(disp.to_string(index=False))
+8:034  print(f"\nSun: S_mean = {S_SUN_MEAN} (Egeland et al. 2017)")
+8:035  print(f"Groups: " + ", ".join(f"{g}={n}" for g, n in df_meta.Group.value_counts().items()))
+8:out      HD       Name     Group  S_mean P_cyc [yr]
+8:out   10476    107 Psc   Cycling   0.198        9.6
+8:out   81809   HD 81809   Cycling   0.172       8.17
+8:out  114710   beta Com   Cycling   0.201       16.6
+8:out  149661     12 Oph   Cycling   0.339       17.4
+8:out  166620  HD 166620   Cycling   0.190       15.8
+8:out  219834 HD 219834B   Cycling   0.204       10.0
+8:out   32147   HD 32147   Cycling   0.286       11.1
+8:out    3651     54 Psc Irregular   0.176         --
+8:out    9562    HD 9562 Irregular   0.136         --
+8:out   76151   HD 76151 Irregular   0.246       2.52
+8:out   10700    tau Cet      Flat   0.171         --
+8:out   45067   HD 45067      Flat   0.141         --
+8:out  178428  HD 178428      Flat   0.154         --
+8:out  182572     31 Aql      Flat   0.148         --
+8:out  
+8:out  Sun: S_mean = 0.1694 (Egeland et al. 2017)
+8:out  Groups: Cycling=7, Flat=4, Irregular=3
+===== cell 9 [markdown] exec_count=None outputs=0 =====
+9:001  ## 4 · Data
+9:002  
+9:003  ### 4.1 Solar S-index series
+===== cell 10 [code] exec_count=5 outputs=2 =====
+10:001  def load_nso_real(path):
+10:002      """Load a two-column solar S-index file: decimal year, S."""
+10:003      df = pd.read_csv(path, comment="#", sep=r"\s+",
+10:004                       names=["year", "S"], na_values=["-99", "-99.99", "nan"])
+10:005      df = df.dropna().query("1965 < year < 2022").reset_index(drop=True)
+10:006      return df["year"].values, df["S"].values
+10:007  
+10:008  def synthetic_solar(seed=42):
+10:009      """
+10:010      Synthetic daily solar S-index, 1966-2021, calibrated on:
+10:011        Egeland+2017  -- mean level S = 0.1694, residual scatter ~0.003
+10:012        Usoskin+2017  -- 11 yr period; cycle 24 the weakest in ~100 yr
+10:013  
+10:014      Construction:  S(t) = S_mean + A(t) sin(omega t) + eps(t; phi_eff(t))
+10:015  
+10:016      The noise term carries a time-varying AR(1) persistence phi_eff(t) that rises
+10:017      from 0.35 to 0.72 around 2003-2010. This embeds the CSD signature: near a
+10:018      bifurcation the recovery time tau = -1/lambda diverges, which appears as
+10:019      growing lag-1 autocorrelation in the stochastic component above the cycle.
+10:020      """
+10:021      rng = np.random.default_rng(seed)
+10:022      N = 20440                                  # 1966-01-01 .. 2021-12-31
+10:023      t = np.arange(N, dtype=float)
+10:024      yrs = 1966.0 + t / 365.25
+10:025  
+10:026      # Per-cycle amplitude envelope
+10:027      amps = [(1966, 1976, 0.025), (1976, 1986, 0.025), (1986, 1996, 0.024),
+10:028              (1996, 2008, 0.019), (2008, 2019, 0.009), (2019, 2030, 0.017)]
+10:029      A = np.zeros(N)
+10:030      for y0, y1, a in amps:
+10:031          A[(yrs >= y0) & (yrs < y1)] = a
+10:032      A = uniform_filter1d(A, size=365 * 2)      # smooth cycle-to-cycle steps
+10:033  
+10:034      omega = 2 * np.pi / S_CYCLE_DAYS
+10:035      phase = 2 * np.pi * (1968.0 - 1966.0) / 11.0
+10:036      s_cycle = S_SUN_MEAN + A * np.sin(omega * t - phase)
+10:037  
+10:038      # CSD bump in AR(1) persistence, centred on 2007
+10:039      t_csd = (2007.0 - 1966.0) * 365.25
+10:040      phi_eff = 0.35 + 0.37 / (1 + np.exp((np.abs(t - t_csd) - 4 * 365.25) / 365.0))
+10:041  
+10:042      eps = np.zeros(N)
+10:043      for i in range(1, N):
+10:044          eps[i] = (phi_eff[i] * eps[i-1]
+10:045                    + 0.003 * np.sqrt(max(0.0, 1 - phi_eff[i]**2)) * rng.standard_normal())
+10:046  
+10:047      return yrs, np.clip(s_cycle + eps, 0.12, 0.24)
+10:048  
+10:049  if USE_SYNTHETIC:
+10:050      solar_years, solar_s = synthetic_solar()
+10:051      SOLAR_SOURCE = "SYNTHETIC (calibrated on Egeland+2017)"
+10:052  elif os.path.exists(NSO_SOLAR_FILE):
+10:053      solar_years, solar_s = load_nso_real(NSO_SOLAR_FILE)
+10:054      SOLAR_SOURCE = f"REAL -- {NSO_SOLAR_FILE}"
+10:055      if abs(solar_s.mean() - S_SUN_MEAN) > 0.020:
+10:056          print(f"WARNING: measured S_mean = {solar_s.mean():.4f} differs from "
+10:057                f"{S_SUN_MEAN} -- check the calibration scale (Egeland+2017)")
+10:058  else:
+10:059      print("SOLAR FILE NOT FOUND. Download instructions:")
+10:060      print("  A) Egeland+2017 supplementary data (recommended):")
+10:061      print("     https://ui.adsabs.harvard.edu/abs/2017ApJ...835...25E")
+10:062      print("     -> Data Products -> Table 1 (composite daily S-index)")
+10:063      print(f"     save as: {NSO_SOLAR_FILE}")
+10:064      print("  B) NSO/SP direct: doi:10.17616/R3G01S")
+10:065      print("  Expected format -- two whitespace-separated columns:")
+10:066      print("     1966.0014   0.1732")
+10:067      raise FileNotFoundError(NSO_SOLAR_FILE)
+10:068  
+10:069  print(f"Solar: N={len(solar_s)}  S_mean={solar_s.mean():.4f}  "
+10:070        f"(reference={S_SUN_MEAN})  [{SOLAR_SOURCE}]")
+10:out  SOLAR FILE NOT FOUND. Download instructions:
+10:out    A) Egeland+2017 supplementary data (recommended):
+10:out       https://ui.adsabs.harvard.edu/abs/2017ApJ...835...25E
+10:out       -> Data Products -> Table 1 (composite daily S-index)
+10:out       save as: data/nso_solar_sindex.txt
+10:out    B) NSO/SP direct: doi:10.17616/R3G01S
+10:out    Expected format -- two whitespace-separated columns:
+10:out       1966.0014   0.1732
+10:ERR  FileNotFoundError: data/nso_solar_sindex.txt
+===== cell 11 [markdown] exec_count=None outputs=0 =====
+11:001  ### 4.2 Mount Wilson stellar series (VizieR J/ApJ/438/269)
+===== cell 12 [code] exec_count=None outputs=0 =====
+12:001  def _seed(hd):
+12:002      return int(hd) % (2**31 - 1)
+12:003  
+12:004  def synthetic_star(hd, s_mean, s_std, p_cyc_yr, group, N=26):
+12:005      """
+12:006      Synthetic seasonal S-index series (1966-1991, ~1 point per year).
+12:007  
+12:008      The CSD hypothesis is encoded in the per-group AR(1) persistence:
+12:009        Cycling   -- regular cycle plus weak AR(1) noise (phi ~ 0.25)
+12:010        Irregular -- phi_1 in [0.50, 0.75]: long memory, approaching bifurcation
+12:011        Flat      -- phi_1 in [0.02, 0.15]: new stable fixed point, fast relaxation
+12:012      Rationale: Dakos+2012 Sec. 2 (rising AR1 as the transition is approached);
+12:013      Scheffer+2009 Fig. 2.
+12:014      """
+12:015      rng = np.random.default_rng(_seed(hd))
+12:016      yrs = np.arange(1966, 1966 + N, dtype=float)
+12:017  
+12:018      if group == "Cycling":
+12:019          if p_cyc_yr > 0:
+12:020              phase = rng.uniform(0, 2 * np.pi)
+12:021              s = s_mean + s_std * np.sqrt(2) * np.sin(2 * np.pi / p_cyc_yr * yrs + phase)
+12:022          else:
+12:023              s = np.full(N, s_mean)
+12:024          phi_c = 0.25
+12:025          noise = np.zeros(N)
+12:026          noise[0] = rng.standard_normal() * s_std * 0.2
+12:027          for i in range(1, N):
+12:028              noise[i] = (phi_c * noise[i-1]
+12:029                          + s_std * 0.2 * np.sqrt(1 - phi_c**2) * rng.standard_normal())
+12:030          s = s + noise
+12:031  
+12:032      elif group == "Irregular":
+12:033          phi = rng.uniform(0.50, 0.75)
+12:034          s = np.zeros(N); s[0] = s_mean
+12:035          scale = s_std * 1.2
+12:036          for i in range(1, N):
+12:037              s[i] = (s_mean + phi * (s[i-1] - s_mean)
+12:038                      + scale * np.sqrt(1 - phi**2) * rng.standard_normal())
+12:039  
+12:040      else:  # Flat
+12:041          phi = rng.uniform(0.02, 0.15)
+12:042          s = np.zeros(N); s[0] = s_mean
+12:043          scale = s_std * 0.8
+12:044          for i in range(1, N):
+12:045              s[i] = (s_mean + phi * (s[i-1] - s_mean)
+12:046                      + scale * np.sqrt(1 - phi**2) * rng.standard_normal())
+12:047  
+12:048      return yrs, np.clip(s, 0.05, 0.80)
+12:049  
+12:050  def download_baliunas():
+12:051      """Fetch Baliunas+1995 (VizieR J/ApJ/438/269) and return all tables."""
+12:052      from astroquery.vizier import Vizier
+12:053      Vizier.ROW_LIMIT = -1
+12:054      cats = Vizier.get_catalogs("J/ApJ/438/269")
+12:055      print(f"  VizieR returned {len(cats)} table(s):")
+12:056      for i, t in enumerate(cats):
+12:057          print(f"    [{i}] {len(t)} rows | columns: {t.colnames}")
+12:058      return [t.to_pandas() for t in cats]
+12:059  
+12:060  def build_synthetic_stars():
+12:061      out = {}
+12:062      for _, row in df_meta.iterrows():
+12:063          hd = int(row.HD)
+12:064          yrs, s = synthetic_star(hd, row.S_mean_ref, row.S_std_ref,
+12:065                                  row.P_cyc_yr, row.Group)
+12:066          out[hd] = {"years": yrs, "S": s, "name": row.Name, "group": row.Group,
+12:067                     "S_mean_ref": row.S_mean_ref, "N": len(s), "source": "synthetic"}
+12:068      return out
+12:069  
+12:070  STAR_SOURCE = ""
+12:071  star_data = {}
+12:072  
+12:073  if USE_SYNTHETIC:
+12:074      STAR_SOURCE = "SYNTHETIC (Baliunas+1995 Table 2 values)"
+12:075      star_data = build_synthetic_stars()
+12:076      print(f"[SYNTHETIC] {len(star_data)} stars generated")
+12:077  else:
+12:078      print("[REAL] Downloading from VizieR ...")
+12:079      try:
+12:080          tables = download_baliunas()
+12:081          up = lambda df: [c.upper() for c in df.columns]
+12:082          ts_df = next((t for t in tables
+12:083                        if any("HD" in c for c in up(t))
+12:084                        and any(k in c for c in up(t)
+12:085                                for k in ["YEAR", "YR", "JD", "HJD", "EPOCH"])
+12:086                        and any(c in up(t) for c in ["S", "SIND", "S-INDEX", "HK"])), None)
+12:087          if ts_df is None:
+12:088              raise ValueError("time-series table not auto-identified -- inspect `tables`")
+12:089  
+12:090          hd_col = next(c for c in ts_df.columns if "HD" in c.upper())
+12:091          yr_col = next(c for c in ts_df.columns
+12:092                        if any(k in c.upper() for k in ["YEAR", "YR", "JD", "HJD", "EPOCH"]))
+12:093          s_col  = next(c for c in ts_df.columns
+12:094                        if c.upper() in ["S", "SIND", "S-INDEX", "HK", "SHIS"])
+12:095          print(f"  columns used -> HD: {hd_col} | year: {yr_col} | S: {s_col}")
+12:096          STAR_SOURCE = "REAL -- VizieR J/ApJ/438/269"
+12:097  
+12:098          for _, row in df_meta.iterrows():
+12:099              hd = int(row.HD)
+12:100              mask = ts_df[hd_col].astype(str).str.strip() == str(hd)
+12:101              if mask.sum() == 0:
+12:102                  mask = (pd.to_numeric(ts_df[hd_col], errors="coerce")
+12:103                          .fillna(-1).astype(int) == hd)
+12:104              sub = ts_df[mask]
+12:105              if len(sub) < 5:
+12:106                  print(f"  MISSING: HD {hd} ({row.Name}) -- only {len(sub)} points")
+12:107                  continue
+12:108              yrs = pd.to_numeric(sub[yr_col], errors="coerce").dropna().values
+12:109              s   = pd.to_numeric(sub[s_col],  errors="coerce").dropna().values
+12:110              n   = min(len(yrs), len(s))
+12:111              s_mean_real = float(np.mean(s[:n]))
+12:112              delta = abs(s_mean_real - row.S_mean_ref)
+12:113              flag = "  CHECK" if delta > 0.015 else "       "
+12:114              print(f"{flag} HD {hd:6d} ({row.Name:12s}) N={n:3d}  "
+12:115                    f"S_mean={s_mean_real:.4f}  ref={row.S_mean_ref:.4f}  d={delta:.4f}")
+12:116              star_data[hd] = {"years": yrs[:n], "S": s[:n], "name": row.Name,
+12:117                               "group": row.Group, "S_mean_ref": s_mean_real,
+12:118                               "N": n, "source": "real"}
+12:119      except Exception as e:
+12:120          print(f"  VizieR failed ({e}) -> falling back to synthetic")
+12:121          STAR_SOURCE = "SYNTHETIC (VizieR fallback)"
+12:122          star_data = build_synthetic_stars()
+12:123  
+12:124  print(f"\n{len(star_data)} stars ready | source: {STAR_SOURCE}")
+===== cell 13 [markdown] exec_count=None outputs=0 =====
+13:001  ## 5 · Analysis functions
+13:002  
+13:003  ### Detrending policy — two distinct tracks
+13:004  
+13:005  Dakos et al. (2012), Table 3 footnote 5, is explicit that DFA takes **polynomial
+13:006  detrending within the rolling window only**. Gaussian pre-filtering is appropriate for
+13:007  the AR(1) and variance indicators, *not* for DFA. The two tracks therefore differ:
+13:008  
+13:009  | Track | Indicator | Detrending |
+13:010  |---|---|---|
+13:011  | **A** | DFA → H | linear detrend of the full series; polynomial detrend inside each DFA box |
+13:012  | **B** | AR(1), σ² | Gaussian kernel (σ = 1 yr) removes the cycle *first*, then linear detrend inside each rolling window |
+13:013  
+13:014  DFA is implemented natively following Peng et al. (1994) — no external dependency.
+===== cell 14 [code] exec_count=None outputs=0 =====
+14:001  def dfa(x, nvals=None, order=1, return_fit=False):
+14:002      """
+14:003      Detrended Fluctuation Analysis -- Peng et al. 1994, Phys. Rev. E 49, 1685.
+14:004  
+14:005      Algorithm (Peng+1994 Sec. II):
+14:006        1. integrate the mean-centred series into the profile Y(i)
+14:007        2. split Y into non-overlapping boxes of length n
+14:008        3. fit and subtract a polynomial of `order` WITHIN each box
+14:009        4. F(n) = RMS of the detrended profile
+14:010        5. alpha (= Hurst exponent H) is the slope of log F(n) vs log n
+14:011  
+14:012      Scale range: n_min = 4, because below n = 4 the detrending algorithm itself
+14:013      distorts the power law (Peng+1994, p. 1688). n_max = N/4 so that every scale
+14:014      is averaged over at least four boxes.
+14:015  
+14:016      Returns alpha, or (alpha, n_values, F_values) when return_fit=True.
+14:017      """
+14:018      x = np.asarray(x, dtype=float)
+14:019      x = x[np.isfinite(x)]
+14:020      N = len(x)
+14:021      if N < 20:
+14:022          return (np.nan, None, None) if return_fit else np.nan
+14:023  
+14:024      Y = np.cumsum(x - np.mean(x))                      # step 1
+14:025  
+14:026      if nvals is None:                                  # step 2
+14:027          n_min, n_max = 4, max(8, N // 4)
+14:028          nvals = np.unique(np.floor(
+14:029              np.logspace(np.log10(n_min), np.log10(n_max), 20)).astype(int))
+14:030          nvals = nvals[nvals >= order + 2]
+14:031  
+14:032      F, used = [], []
+14:033      for n in nvals:
+14:034          n_boxes = N // n
+14:035          if n_boxes < 4:
+14:036              continue
+14:037          idx = np.arange(n, dtype=float)
+14:038          resid_sq = []
+14:039          for b in range(n_boxes):                       # steps 3 and 4
+14:040              seg = Y[b*n:(b+1)*n]
+14:041              trend = np.polyval(np.polyfit(idx, seg, order), idx)
+14:042              resid_sq.append(np.mean((seg - trend)**2))
+14:043          F.append(np.sqrt(np.mean(resid_sq)))
+14:044          used.append(n)
+14:045  
+14:046      if len(used) < 4:
+14:047          return (np.nan, None, None) if return_fit else np.nan
+14:048  
+14:049      alpha, _ = np.polyfit(np.log10(used), np.log10(F), 1)   # step 5
+14:050      if return_fit:
+14:051          return float(alpha), np.array(used), np.array(F)
+14:052      return float(alpha)
+14:053  
+14:054  def dfa_hurst(series):
+14:055      """
+14:056      DFA wrapper returning (H, note).
+14:057  
+14:058      A series of length N only admits scales 4 <= n <= N/4, and at least four
+14:059      distinct scales are needed for a meaningful log-log slope. That requires
+14:060      N >~ 100 -- exactly the threshold Dakos+2012 state for robust DFA. Shorter
+14:061      series return NaN rather than a number that cannot be defended.
+14:062      """
+14:063      n = len(series)
+14:064      if n < 100:
+14:065          return np.nan, f"N={n} < 100: DFA not defined (Dakos+2012)"
+14:066      return dfa(series), ""
+14:067  
+14:068  def ar1_coef(x):
+14:069      """Lag-1 autocorrelation (equivalently the AR(1) coefficient phi_1)."""
+14:070      if len(x) < 4:
+14:071          return np.nan
+14:072      return float(np.corrcoef(x[:-1], x[1:])[0, 1])
+14:073  
+14:074  def sliding_ews(series, window_frac=0.50, step=1):
+14:075      """
+14:076      Rolling-window AR(1) and normalised variance (Dakos+2012 Sec. 2).
+14:077      Applies a linear detrend inside each window. Feed it the CYCLE-REMOVED residuals.
+14:078      Returns (centre_indices, phi1, var_norm).
+14:079      """
+14:080      N = len(series)
+14:081      w = max(4, int(round(N * window_frac)))
+14:082      centres, phi1_arr, var_arr = [], [], []
+14:083      for start in range(0, N - w + 1, step):
+14:084          chunk = signal.detrend(series[start:start + w], type="linear")
+14:085          centres.append((2 * start + w) // 2)
+14:086          phi1_arr.append(ar1_coef(chunk))
+14:087          var_arr.append(float(np.var(chunk, ddof=1)))
+14:088      var_arr = np.array(var_arr)
+14:089      return (np.array(centres), np.array(phi1_arr),
+14:090              var_arr / (np.nanmean(var_arr) + 1e-12))
+14:091  
+14:092  def kendall_tau(metric):
+14:093      """Kendall tau trend test. tau > 0 means the indicator is rising (CSD signal)."""
+14:094      x = np.arange(len(metric))
+14:095      ok = np.isfinite(metric)
+14:096      if ok.sum() < 4:
+14:097          return np.nan, np.nan
+14:098      tau, p = stats.kendalltau(x[ok], metric[ok])
+14:099      return float(tau), float(p)
+14:100  
+14:101  def remove_cycle(s, sigma_yr=1.0, dt_days=1.0):
+14:102      """
+14:103      Remove the deterministic activity cycle with a Gaussian kernel smoother
+14:104      (Dakos+2012 Sec. 2 / Fig. 2). Returns (residuals, trend).
+14:105      Required before AR(1) and variance -- NOT applied before DFA.
+14:106      """
+14:107      trend = gaussian_filter1d(s, sigma=sigma_yr * 365.25 / dt_days, mode="reflect")
+14:108      return s - trend, trend
+14:109  
+14:110  def spectral_beta(s, fs=1.0):
+14:111      """
+14:112      Power-spectral exponent beta from S(f) ~ f^-beta, fitted between 1/(5 yr)
+14:113      and 1/(0.5 yr) -- above the cycle peak, below the white-noise floor.
+14:114      Related to the Hurst exponent by H = (beta + 1)/2.
+14:115      """
+14:116      from scipy.signal import welch
+14:117      f, psd = welch(s, fs=fs, nperseg=min(4096, max(256, len(s) // 4)))
+14:118      mask = (f > 1 / (5 * 365.25)) & (f < 1 / (0.5 * 365.25)) & (psd > 0)
+14:119      if mask.sum() < 5:
+14:120          return np.nan, np.nan, np.nan
+14:121      slope, _, r, _, se = stats.linregress(np.log10(f[mask]), np.log10(psd[mask]))
+14:122      return float(-slope), float(se), float(r**2)
+14:123  
+14:124  # ── Validation against signals with known theoretical exponents ────────────
+14:125  _rng = np.random.default_rng(0)
+14:126  _wn = _rng.standard_normal(5000)
+14:127  _bm = np.cumsum(_rng.standard_normal(5000))
+14:128  print(f"DFA validation | white noise     H = {dfa(_wn):.3f}  (theory 0.5)")
+14:129  print(f"DFA validation | Brownian motion H = {dfa(_bm):.3f}  (theory 1.5)")
+14:130  if HAS_NOLDS:
+14:131      print(f"Cross-check vs nolds | white noise: native={dfa(_wn):.3f}  "
+14:132            f"nolds={nolds.dfa(_wn):.3f}")
+14:133  print("analysis functions ready")
+===== cell 15 [markdown] exec_count=None outputs=0 =====
+15:001  ## 6 · Solar analysis
+===== cell 16 [code] exec_count=None outputs=0 =====
+16:001  solar_res = {}
+16:002  
+16:003  # ── Track A: DFA, linear detrend only, no cycle removal ───────────────────
+16:004  s_lindt = signal.detrend(solar_s, type="linear")
+16:005  H_full, note_full = dfa_hurst(s_lindt)
+16:006  solar_res["H_full"], solar_res["H_full_note"] = H_full, note_full
+16:007  print(f"Track A | H, full series (N={len(solar_s)}): {H_full:.4f}  {note_full}")
+16:008  
+16:009  decade_bounds = [(1966, 1977), (1977, 1988), (1988, 1999), (1999, 2010), (2010, 2022)]
+16:010  decade_res = []
+16:011  for y0, y1 in decade_bounds:
+16:012      m = (solar_years >= y0) & (solar_years < y1)
+16:013      if m.sum() < 100:
+16:014          decade_res.append({"label": f"{y0}-{y1-1}", "H": np.nan, "N": int(m.sum())})
+16:015          continue
+16:016      H_d, _ = dfa_hurst(signal.detrend(solar_s[m], type="linear"))
+16:017      decade_res.append({"label": f"{y0}-{y1-1}", "H": H_d, "N": int(m.sum())})
+16:018  solar_res["H_decades"] = decade_res
+16:019  print("Track A | DFA per decade:")
+16:020  for d in decade_res:
+16:021      print(f"  {d['label']}  H = {d['H']:.3f}  (N = {d['N']})")
+16:022  
+16:023  # ── Track B: cycle removal, then rolling AR(1) and variance ───────────────
+16:024  dt_days = float(np.median(np.diff(solar_years))) * 365.25
+16:025  s_resid, s_trend = remove_cycle(solar_s, sigma_yr=1.0, dt_days=dt_days)
+16:026  solar_res["s_resid"], solar_res["s_trend"] = s_resid, s_trend
+16:027  H_res, note_res = dfa_hurst(s_resid)
+16:028  solar_res["H_resid"], solar_res["H_resid_note"] = H_res, note_res
+16:029  print(f"\nTrack B | cycle explains {1 - s_resid.var()/solar_s.var():.1%} of the variance")
+16:030  print(f"Track B | H of residuals: {H_res:.4f}")
+16:031  
+16:032  step = max(1, int(round(30 / dt_days)))          # ~monthly stride
+16:033  ews = {}
+16:034  for wf in (0.25, 0.40, 0.50, 0.60, 0.75):        # Dakos+2012 sensitivity range
+16:035      c, phi1, varn = sliding_ews(s_resid, window_frac=wf, step=step)
+16:036      tau_p, p_p = kendall_tau(phi1)
+16:037      tau_v, p_v = kendall_tau(varn)
+16:038      ews[f"w{int(wf*100)}"] = {"years": solar_years[c], "phi1": phi1, "var_norm": varn,
+16:039                                "tau_phi1": tau_p, "p_phi1": p_p,
+16:040                                "tau_var": tau_v,  "p_var": p_v}
+16:041      print(f"Track B | w={wf:.0%}  tau(AR1)={tau_p:+.3f} p={p_p:.4f} | "
+16:042            f"tau(var)={tau_v:+.3f} p={p_v:.4f}")
+16:043  solar_res["ews"] = ews
+16:044  
+16:045  # ── Sub-window bracketing the deep 2008-2010 minimum ──────────────────────
+16:046  m_min = (solar_years >= 2000) & (solar_years <= 2012)
+16:047  if m_min.sum() > 200:
+16:048      _, phi1_m, _ = sliding_ews(s_resid[m_min], window_frac=0.50, step=step)
+16:049      tau_m, p_m = kendall_tau(phi1_m)
+16:050  else:
+16:051      tau_m, p_m = np.nan, np.nan
+16:052  solar_res["tau_ar1_minimum"], solar_res["p_ar1_minimum"] = tau_m, p_m
+16:053  print(f"\nSub-window 2000-2012 | tau(AR1) = {tau_m:+.3f}  p = {p_m:.4f}")
+16:054  
+16:055  # ── Spectral exponent ─────────────────────────────────────────────────────
+16:056  beta, beta_err, beta_r2 = spectral_beta(solar_s, fs=1.0 / dt_days * 1.0)
+16:057  solar_res.update({"beta": beta, "beta_err": beta_err, "beta_r2": beta_r2,
+16:058                    "H_from_psd": (beta + 1) / 2 if np.isfinite(beta) else np.nan})
+16:059  print(f"Spectrum | beta = {beta:.3f} +/- {beta_err:.3f}  "
+16:060        f"-> H = (beta+1)/2 = {(beta+1)/2:.3f}  [cf. H_resid = {H_res:.3f}]")
+16:061  
+16:062  solar_arrays = {"years": solar_years, "s": solar_s,
+16:063                  "s_resid": s_resid, "s_trend": s_trend, "ews": ews}
+16:064  print("\nsolar analysis complete")
+===== cell 17 [markdown] exec_count=None outputs=0 =====
+17:001  ## 7 · Stellar analysis
+17:002  
+17:003  With N ≈ 26 seasonal points per star, **DFA is not computable**: the admissible scale
+17:004  range is 4 ≤ n ≤ N/4 ≈ 6, which yields too few points for a log-log slope. This is the
+17:005  same ~100-point floor Dakos et al. (2012) state for robust DFA, so `H` is returned as
+17:006  NaN rather than as an indefensible number.
+17:007  
+17:008  The stellar test therefore rests entirely on **AR(1) and normalised variance**, both of
+17:009  which are well defined at this sample size. DFA is reserved for the solar series
+17:010  (N ≈ 20,000), where it is statistically sound.
+===== cell 18 [code] exec_count=None outputs=0 =====
+18:001  rows = []
+18:002  for hd, d in star_data.items():
+18:003      s = np.asarray(d["S"], dtype=float)
+18:004      s_dt = signal.detrend(s, type="linear")
+18:005      H, H_note = dfa_hurst(s_dt)
+18:006      rows.append({
+18:007          "HD": hd, "Name": d["name"], "Group": d["group"], "N": len(s),
+18:008          "S_mean": float(np.mean(s)),
+18:009          "H": H, "phi1": ar1_coef(s_dt),
+18:010          "var_norm": float(np.var(s_dt, ddof=1)) / (d["S_mean_ref"]**2 + 1e-12),
+18:011          "H_note": H_note, "source": d["source"],
+18:012      })
+18:013  
+18:014  df_stars = pd.DataFrame(rows).sort_values(
+18:015      ["Group", "HD"], key=lambda c: c.map({"Cycling": 0, "Irregular": 1, "Flat": 2})
+18:016      if c.name == "Group" else c)
+18:017  
+18:018  print(df_stars[["HD", "Name", "Group", "N", "phi1", "var_norm"]].to_string(
+18:019      index=False, float_format=lambda x: f"{x:.3f}"))
+18:020  
+18:021  if df_stars.H.isna().all():
+18:022      print(f"\nH: not computed -- stellar series are too short "
+18:023            f"(N~{int(df_stars.N.median())}; DFA requires N > 100)")
+18:024  
+18:025  print("\nGroup medians:")
+18:026  for g in ["Cycling", "Irregular", "Flat"]:
+18:027      sub = df_stars[df_stars.Group == g]
+18:028      print(f"  {g:10s} N={len(sub)}  median phi_1={sub.phi1.median():.3f}  "
+18:029            f"median var_norm={sub.var_norm.median():.4f}")
+===== cell 19 [markdown] exec_count=None outputs=0 =====
+19:001  ## 8 · Between-group tests
+19:002  
+19:003  The primary hypothesis is **Irregular > Flat in φ₁**: stars approaching a Maunder-like
+19:004  collapse should show longer memory than stars already settled at the low-activity fixed
+19:005  point.
+===== cell 20 [code] exec_count=None outputs=0 =====
+20:001  def mw_test(df, g1, g2, metric, alt="greater"):
+20:002      a = df[df.Group == g1][metric].dropna().values
+20:003      b = df[df.Group == g2][metric].dropna().values
+20:004      if len(a) < 2 or len(b) < 2:
+20:005          return dict(g1=g1, g2=g2, metric=metric, U=np.nan, p=np.nan,
+20:006                      med1=np.nan, med2=np.nan, sig="--", n1=len(a), n2=len(b))
+20:007      U, p = stats.mannwhitneyu(a, b, alternative=alt)
+20:008      sig = "***" if p < 0.001 else "**" if p < 0.01 else "*" if p < 0.05 else "n.s."
+20:009      return dict(g1=g1, g2=g2, metric=metric, U=float(U), p=float(p),
+20:010                  med1=float(np.median(a)), med2=float(np.median(b)),
+20:011                  sig=sig, n1=len(a), n2=len(b))
+20:012  
+20:013  df_mw = pd.DataFrame([
+20:014      mw_test(df_stars, "Irregular", "Flat",    "phi1"),      # primary hypothesis
+20:015      mw_test(df_stars, "Cycling",   "Flat",    "phi1"),
+20:016      mw_test(df_stars, "Irregular", "Cycling", "phi1"),
+20:017      mw_test(df_stars, "Irregular", "Flat",    "var_norm"),  # variance as second EWS
+20:018  ])
+20:019  # NOTE: no DFA/H test here -- H is undefined at N~26 (see Section 7).
+20:020  
+20:021  print("Mann-Whitney U tests:")
+20:022  for _, r in df_mw.iterrows():
+20:023      print(f"  {r.g1:10s} > {r.g2:10s} [{r.metric:5s}]  U={r.U:5.1f}  p={r.p:.4f}  "
+20:024            f"{r.sig:4s} (n={r.n1},{r.n2}; medians {r.med1:.3f} vs {r.med2:.3f})")
+20:025  
+20:026  _primary = df_mw.iloc[0]
+20:027  print(f"\nPRIMARY HYPOTHESIS  Irregular > Flat (phi_1):  p = {_primary.p:.4f}  {_primary.sig}")
+20:028  print("  -> CSD signal detected" if _primary.p < 0.05 else "  -> not significant")
+===== cell 21 [markdown] exec_count=None outputs=0 =====
+21:001  ## 9 · Figures
+===== cell 22 [code] exec_count=None outputs=0 =====
+22:001  apply_super_mongo_style()
+22:002  
+22:003  # ── Figure 1: one representative light curve per group ────────────────────
+22:004  fig1, axes = plt.subplots(3, 1, figsize=(3.5, 5.5))
+22:005  picks = [(next(hd for hd, d in star_data.items() if d["group"] == g), g, lab)
+22:006           for g, lab in [("Cycling", "a"), ("Irregular", "b"), ("Flat", "c")]]
+22:007  for ax, (hd, grp, panel) in zip(axes, picks):
+22:008      d = star_data[hd]
+22:009      ax.plot(d["years"], d["S"], "-", lw=0.7, color="black", alpha=0.5)
+22:010      ax.plot(d["years"], d["S"], "o", ms=3, color="black", mfc="white", mew=0.8)
+22:011      ax.set_ylabel(r"$S$-index")
+22:012      tag = " [synthetic]" if d["source"] == "synthetic" else ""
+22:013      ax.set_title(f"({panel}) {d['name']} -- {grp}{tag}", fontsize=10, loc="left")
+22:014      ax.xaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+22:015      ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+22:016  axes[-1].set_xlabel("Year")
+22:017  fig1.tight_layout()
+22:018  save_fig(fig1, "fig1")
+22:019  plt.show()
+===== cell 23 [code] exec_count=None outputs=0 =====
+23:001  apply_super_mongo_style()
+23:002  w50 = solar_arrays["ews"]["w50"]
+23:003  CYCLE_MINIMA = [1976, 1986, 1996, 2008, 2019]
+23:004  
+23:005  # ── Figure 2: solar series, rolling AR(1), rolling variance ───────────────
+23:006  fig2, axes = plt.subplots(3, 1, figsize=(7.0, 6.5), sharex=True,
+23:007                            gridspec_kw={"height_ratios": [2, 1, 1]})
+23:008  
+23:009  ax = axes[0]
+23:010  ax.plot(solar_arrays["years"], solar_arrays["s"], "-", lw=0.5,
+23:011          color="black", alpha=0.6, label="S-index")
+23:012  ax.plot(solar_arrays["years"], solar_arrays["s_trend"], **LINE_STYLES[1],
+23:013          label=r"cycle (Gaussian kernel, $\sigma=1$ yr)")
+23:014  ax.set_ylabel(r"$S$-index")
+23:015  ax.legend(frameon=False, fontsize=9, loc="upper right")
+23:016  tag = "[synthetic]" if USE_SYNTHETIC else "[NSO/Egeland+2017]"
+23:017  ax.set_title(f"(a) Solar Ca II S-index {tag}", fontsize=10, loc="left")
+23:018  
+23:019  ax = axes[1]
+23:020  ax.plot(w50["years"], w50["phi1"], **LINE_STYLES[0])
+23:021  ax.axhline(0, ls="--", lw=0.8, color="black", alpha=0.5)
+23:022  ax.set_ylabel(r"$\phi_1$")
+23:023  ax.set_title(f"(b) Rolling AR(1) on residuals, w=50%   "
+23:024               r"$\tau$=" f"{w50['tau_phi1']:+.3f}  p={w50['p_phi1']:.4f}",
+23:025               fontsize=10, loc="left")
+23:026  lo, hi = ax.get_ylim()
+23:027  ax.fill_between([2000, 2012], lo, hi, alpha=0.10, color="black", zorder=0)
+23:028  ax.text(2006, lo + 0.82*(hi-lo),
+23:029          r"$\tau_{2000-2012}$=" f"{solar_res['tau_ar1_minimum']:+.3f}",
+23:030          fontsize=9, ha="center")
+23:031  ax.set_ylim(lo, hi)
+23:032  
+23:033  ax = axes[2]
+23:034  ax.plot(w50["years"], w50["var_norm"], **LINE_STYLES[0])
+23:035  ax.axhline(1, ls="--", lw=0.8, color="black", alpha=0.5)
+23:036  ax.set_ylabel(r"$\sigma^2$ (norm.)")
+23:037  ax.set_title(r"(c) Rolling variance on residuals, w=50%   $\tau$="
+23:038               f"{w50['tau_var']:+.3f}  p={w50['p_var']:.4f}", fontsize=10, loc="left")
+23:039  ax.set_xlabel("Year")
+23:040  
+23:041  for a in axes:
+23:042      for ym in CYCLE_MINIMA:
+23:043          a.axvline(ym, ls=":", lw=0.7, color="black", alpha=0.5)
+23:044      a.xaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+23:045  
+23:046  fig2.tight_layout()
+23:047  save_fig(fig2, "fig2")
+23:048  plt.show()
+===== cell 24 [code] exec_count=None outputs=0 =====
+24:001  apply_super_mongo_style()
+24:002  
+24:003  # ── Figure 3: AR(1) versus mean activity level ────────────────────────────
+24:004  # (H is undefined at N~26, so phi_1 is plotted instead -- see Section 7.)
+24:005  fig3, ax = plt.subplots(figsize=(3.5, 3.0))
+24:006  for (grp, mk) in [("Cycling", "o"), ("Irregular", "s"), ("Flat", "^")]:
+24:007      sub = df_stars[(df_stars.Group == grp) & df_stars.phi1.notna()]
+24:008      ax.scatter(sub.S_mean, sub.phi1, marker=mk, s=28, lw=0.9,
+24:009                 edgecolors="black", facecolors="white", label=grp, zorder=3)
+24:010  ax.axhline(0.0, ls="--", lw=1.0, color="black", alpha=0.6)
+24:011  ax.set_xlabel(r"$\langle S \rangle$")
+24:012  ax.set_ylabel(r"AR(1) coefficient $\phi_1$")
+24:013  ax.legend(frameon=False, fontsize=9, loc="best")
+24:014  ax.xaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+24:015  ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+24:016  fig3.tight_layout()
+24:017  save_fig(fig3, "fig3")
+24:018  plt.show()
+===== cell 25 [code] exec_count=None outputs=0 =====
+25:001  apply_super_mongo_style()
+25:002  
+25:003  # ── Figure 4: phi_1 by group, with the primary test annotated ─────────────
+25:004  fig4, ax = plt.subplots(figsize=(3.5, 3.0))
+25:005  groups = ["Cycling", "Irregular", "Flat"]
+25:006  data = [df_stars[df_stars.Group == g]["phi1"].dropna().values for g in groups]
+25:007  
+25:008  ax.boxplot(data, positions=[1, 2, 3], widths=0.5, patch_artist=False,
+25:009             boxprops=dict(color="black", lw=1.2),
+25:010             whiskerprops=dict(color="black", lw=1.0),
+25:011             capprops=dict(color="black", lw=1.2),
+25:012             medianprops=dict(color="black", lw=1.5),
+25:013             flierprops=dict(marker="o", markerfacecolor="white",
+25:014                             markeredgecolor="black", ms=4))
+25:015  for i, arr in enumerate(data, start=1):        # overlay individual stars
+25:016      ax.scatter(np.full(len(arr), i) + np.random.uniform(-0.08, 0.08, len(arr)),
+25:017                 arr, s=14, facecolors="none", edgecolors="black", lw=0.7, zorder=3)
+25:018  
+25:019  r = df_mw.iloc[0]                              # Irregular vs Flat
+25:020  top = max(np.max(a) for a in data if len(a))
+25:021  ax.plot([2, 3], [top*1.12]*2, "-", lw=0.8, color="black")
+25:022  ax.text(2.5, top*1.15, f"p={r.p:.3f}{r.sig}", ha="center", fontsize=9)
+25:023  
+25:024  ax.axhline(0, ls="--", lw=0.8, color="black", alpha=0.5)
+25:025  ax.set_xticks([1, 2, 3]); ax.set_xticklabels(groups)
+25:026  ax.set_ylabel(r"AR(1) coefficient $\phi_1$")
+25:027  ax.yaxis.set_minor_locator(matplotlib.ticker.AutoMinorLocator())
+25:028  fig4.tight_layout()
+25:029  save_fig(fig4, "fig4")
+25:030  plt.show()
+===== cell 26 [markdown] exec_count=None outputs=0 =====
+26:001  ## 10 · Report for Claude
+26:002  
+26:003  Writes `results/claude_report.md` (human-readable) and `results/claude_report.json`
+26:004  (machine-readable). Paste the markdown file into a new Claude Projects conversation to
+26:005  carry the numbers forward into manuscript writing.
+===== cell 27 [code] exec_count=None outputs=0 =====
+27:001  def fmt(x, nd=4):
+27:002      try:
+27:003          v = float(x)
+27:004          return f"{v:.{nd}f}" if np.isfinite(v) else "--"
+27:005      except Exception:
+27:006          return "--"
+27:007  
+27:008  now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M")
+27:009  L = []
+27:010  L += [f"# P4 report -- Critical Slowing Down Near Stellar Activity Minima",
+27:011        f"Generated: {now}",
+27:012        f"Solar source:   {SOLAR_SOURCE}",
+27:013        f"Stellar source: {STAR_SOURCE}",
+27:014        f"S_SUN_MEAN = {S_SUN_MEAN} (Egeland et al. 2017)",
+27:015        f"DFA: native implementation (Peng et al. 1994), n_min=4",
+27:016        "", "---", "",
+27:017        "## Solar -- Track A (DFA, linear detrend, no cycle removal)", "",
+27:018        f"- H, full series: **{fmt(solar_res['H_full'])}**",
+27:019        f"- H, cycle-removed residuals: **{fmt(solar_res['H_resid'])}**", "",
+27:020        "| Decade | H | N |", "|---|---|---|"]
+27:021  for d in solar_res["H_decades"]:
+27:022      L.append(f"| {d['label']} | {fmt(d['H'],3)} | {d['N']} |")
+27:023  
+27:024  L += ["", "## Solar -- Track B (rolling EWS on cycle-removed residuals)", "",
+27:025        "| Window | tau(AR1) | p | tau(var) | p |", "|---|---|---|---|---|"]
+27:026  for k in ["w25", "w40", "w50", "w60", "w75"]:
+27:027      if k in solar_res["ews"]:
+27:028          e = solar_res["ews"][k]
+27:029          L.append(f"| {k[1:]}% | {fmt(e['tau_phi1'],3)} | {fmt(e['p_phi1'])} | "
+27:030                   f"{fmt(e['tau_var'],3)} | {fmt(e['p_var'])} |")
+27:031  
+27:032  _sig = ("***" if solar_res["p_ar1_minimum"] < 0.001 else
+27:033          "**" if solar_res["p_ar1_minimum"] < 0.01 else
+27:034          "*" if solar_res["p_ar1_minimum"] < 0.05 else "n.s.")
+27:035  L += ["",
+27:036        f"- **Sub-window 2000-2012: tau(AR1) = {fmt(solar_res['tau_ar1_minimum'],3)}, "
+27:037        f"p = {fmt(solar_res['p_ar1_minimum'])} {_sig}**",
+27:038        "", "## Solar -- power spectrum", "",
+27:039        f"- beta = **{fmt(solar_res['beta'],3)} +/- {fmt(solar_res['beta_err'],3)}** "
+27:040        f"(R2 = {fmt(solar_res['beta_r2'],3)})",
+27:041        f"- H = (beta+1)/2 = **{fmt(solar_res['H_from_psd'],3)}** "
+27:042        f"[cf. H_residuals = {fmt(solar_res['H_resid'],3)}]",
+27:043        "", "---", "", "## Stars -- Baliunas et al. (1995) Table 2", "",
+27:044        "DFA/H is not listed: undefined at N~26 (see caveats).", "",
+27:045        "| HD | Name | Group | N | phi_1 | var_norm | Source |",
+27:046        "|---|---|---|---|---|---|---|"]
+27:047  for _, r in df_stars.iterrows():
+27:048      L.append(f"| {int(r.HD)} | {r.Name} | {r.Group} | {int(r.N)} | "
+27:049               f"{fmt(r.phi1,3)} | {fmt(r.var_norm,4)} | {r.source} |")
+27:050  
+27:051  L += ["", "### Group medians", "",
+27:052        "| Group | N | median phi_1 | median var_norm |", "|---|---|---|---|"]
+27:053  for g in ["Cycling", "Irregular", "Flat"]:
+27:054      sub = df_stars[df_stars.Group == g]
+27:055      L.append(f"| {g} | {len(sub)} | {fmt(sub.phi1.median(),3)} | "
+27:056               f"{fmt(sub.var_norm.median(),4)} |")
+27:057  
+27:058  L += ["", "---", "", "## Mann-Whitney U tests", "",
+27:059        "| Comparison | Metric | n1 | n2 | median1 | median2 | U | p | sig |",
+27:060        "|---|---|---|---|---|---|---|---|---|"]
+27:061  for _, r in df_mw.iterrows():
+27:062      L.append(f"| {r.g1} > {r.g2} | {r.metric} | {r.n1} | {r.n2} | {fmt(r.med1,3)} | "
+27:063               f"{fmt(r.med2,3)} | {fmt(r.U,1)} | {fmt(r.p)} | {r.sig} |")
+27:064  
+27:065  _p = df_mw.iloc[0]
+27:066  L += ["", "---", "", "## Key results", "",
+27:067        f"1. Solar 2000-2012: tau = {fmt(solar_res['tau_ar1_minimum'],3)}, "
+27:068        f"p = {fmt(solar_res['p_ar1_minimum'])} {_sig} -> "
+27:069        + ("CSD detected" if (solar_res['tau_ar1_minimum'] or 0) > 0
+27:070           and (solar_res['p_ar1_minimum'] or 1) < 0.05 else "null result -- investigate"),
+27:071        f"2. Irregular > Flat (phi_1): p = {fmt(_p.p)} {_p.sig} -> "
+27:072        + ("evidence of CSD before Maunder-like collapse"
+27:073           if (_p.p or 1) < 0.05 else "not significant"),
+27:074        "", "### Caveats to carry into the manuscript", "",
+27:075        "- Mount Wilson series have N~26. DFA admits only scales 4 <= n <= N/4, too few",
+27:076        "  for a log-log slope, so H is NOT reported for stars (Dakos+2012 give N>100 as",
+27:077        "  the floor). The stellar test rests on AR(1) and variance; DFA is used for the",
+27:078        "  Sun only (N~20000).",
+27:079        "- DFA uses polynomial detrending within boxes; the Gaussian pre-filter is applied",
+27:080        "  only to the AR(1)/variance track (Dakos+2012 Table 3, note 5).",
+27:081        "- HD 4915 excluded: absent from Baliunas+1995. HD 190406 excluded: its primary",
+27:082        "  period is 2.60 yr (Fair), not the 16.9 yr secondary.",
+27:083        "", "---", "", "## Pipeline status", "",
+27:084        "- [x] Data loaded", "- [x] Track A (DFA)", "- [x] Track B (rolling EWS)",
+27:085        "- [x] Stellar H and phi_1", "- [x] Mann-Whitney tests",
+27:086        "- [x] Figures fig1-fig4", "- [ ] LaTeX manuscript -- next conversation",
+27:087        "", "---", "", "*Generated by p4_pipeline.ipynb*"]
+27:088  
+27:089  report = "\n".join(L)
+27:090  with open(os.path.join(RESULTS_DIR, "claude_report.md"), "w") as f:
+27:091      f.write(report + "\n")
+27:092  
+27:093  payload = {
+27:094      "generated_at": now, "solar_source": SOLAR_SOURCE, "star_source": STAR_SOURCE,
+27:095      "use_synthetic": USE_SYNTHETIC, "S_SUN_MEAN": S_SUN_MEAN,
+27:096      "solar": {k: solar_res.get(k) for k in
+27:097                ["H_full", "H_resid", "H_decades", "tau_ar1_minimum",
+27:098                 "p_ar1_minimum", "beta", "beta_err", "beta_r2", "H_from_psd"]},
+27:099      "solar_ews": {k: {kk: vv for kk, vv in v.items()
+27:100                        if not isinstance(vv, np.ndarray)}
+27:101                    for k, v in solar_res["ews"].items()},
+27:102      "stars": json.loads(df_stars.to_json(orient="records")),
+27:103      "mann_whitney": json.loads(df_mw.to_json(orient="records")),
+27:104  }
+27:105  with open(os.path.join(RESULTS_DIR, "claude_report.json"), "w") as f:
+27:106      json.dump(payload, f, indent=2)
+27:107  
+27:108  df_stars.to_csv(os.path.join(RESULTS_DIR, "p4_star_results.csv"), index=False)
+27:109  df_mw.to_csv(os.path.join(RESULTS_DIR, "p4_mannwhitney.csv"), index=False)
+27:110  
+27:111  print(f"saved: {RESULTS_DIR}/claude_report.md")
+27:112  print(f"saved: {RESULTS_DIR}/claude_report.json")
+27:113  print("=" * 66)
+27:114  print("PASTE results/claude_report.md INTO A NEW CLAUDE CONVERSATION")
+27:115  print("=" * 66)
+27:116  print()
+27:117  print(report)
+===== cell 28 [markdown] exec_count=None outputs=0 =====
+28:001  ## 11 · Next steps
+28:002  
+28:003  1. Set `USE_SYNTHETIC = False` and re-run with the real data.
+28:004  2. Check the `CHECK` flags printed in §4.2 — any star whose measured `S_mean` differs
+28:005     from the Table 2 reference by more than 0.015 needs investigating before the numbers
+28:006     go into the manuscript.
+28:007  3. Copy `results/claude_report.md` into a new Claude Projects conversation:
+28:008  
+28:009  ```
+28:010  Paper P4 -- Critical Slowing Down. See paper_state.md in Project Knowledge.
+28:011  Status: analysis complete with real data. Report below.
+28:012  
+28:013  [paste results/claude_report.md]
+28:014  
+28:015  Task for this conversation: write Section 1 (Introduction) in LaTeX, ~1 page,
+28:016  Solar Physics (svjour3) format.
+28:017  ```

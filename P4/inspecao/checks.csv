@@ -1,0 +1,395 @@
+id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
+1-01,files in the package (inspecao/ excluded),,36,inventory,INFO
+1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
+1-03,package files whose repository-root copy differs,0,0,sha256,PASS
+1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
+1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
+1-06,PDFs in bib/,0,0,README_HANDOFF.md,PASS
+1-07,distinct file names cited (in backticks) and absent from the package,,25,regex over all .md and the notebook,INFO
+1-08,known-missing files confirmed absent,6,6,README_HANDOFF.md 'O que ficou de fora',PASS
+1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
+2a-01,decisions D01-D54 defined exactly once,54,54,notebook + DECISOES_D41_D54.md,PASS
+2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
+2a-03,decision headers outside D01-D54 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
+2a-05,status values in use,,ativa: 55,notebook + DECISOES_D41_D54.md,INFO
+2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
+2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
+2a-08,decisions never cited outside the document that defines them,,D45b,regex,INFO
+2a-09,D41-D54 present in P4_RESEARCH_NOTEBOOK.md,0,0,README_HANDOFF.md 'Pendencia de documentacao',PASS
+2a-10,Q10 / Q11 present in notebook §5,no/no,no/no,README_HANDOFF.md 'Pendencia de documentacao',PASS
+2a-11,notebook log (§9) has a D41-D54 line,no,no,DECISOES_D41_D54.md §D,PASS
+2a-12,rows in notebook §8 (closed questions),,11,P4_RESEARCH_NOTEBOOK.md §8,INFO
+2d-01,findings defined in A9,10,10,paper_state_v6.md §10,PASS
+2d-02,findings defined in A10,7,7,paper_state_v6.md §10,PASS
+2d-03,findings defined in A12,7,7,paper_state_v6.md §10,PASS
+2d-04,findings defined in A11 (A11a + A11b),9,9,paper_state_v6.md §10,PASS
+2d-05,findings defined in A1,9,9,paper_state_v5.md §2,PASS
+2d-06,findings defined in A2,7,7,paper_state_v5.md §2,PASS
+2d-07,findings defined in A3,6,6,paper_state_v5.md §2,PASS
+2d-08,findings defined in A4,8,8,paper_state_v5.md §2,PASS
+2d-09,findings defined in A5,6,6,paper_state_v5.md §2,PASS
+2d-10,findings defined in A6,14,14,paper_state_v5.md §2,PASS
+2d-11,A#-F# references pointing to a finding that does not exist,0,0,regex over all .md,PASS
+2d-12,references written 'A11-F#' where both A11a-F# and A11b-F# exist (ambiguous),0,0,regex over all .md,PASS
+2d-13,units whose 'Findings' cell differs between the audit-log copies,none,A3,audit/A*.md log tables,FAIL
+2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A9_baum.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
+2d-15,units marked 'open' in the protocol's own audit log (§10),,8,P4_AUDIT_PROTOCOL.md §10,INFO
+1-10,references 'A# §n' with no matching heading in the audit file,,1,regex (heading match is approximate),INFO
+2b-01,Q numbers referenced anywhere,1-11,1-11,regex,INFO
+2a-20,decision headers in the proposed notebook (D01-D54 + D45b),55,55,DECISOES_D41_D54.md instruction,PASS
+2a-21,Q rows in §5 of the proposed notebook,11,11,DECISOES_D41_D54.md §C,PASS
+2a-22,rows added to §8,10,10,DECISOES_D41_D54.md §B,PASS
+2a-23,rows added to §9,1,1,DECISOES_D41_D54.md §D,PASS
+2a-24,"lines of the original notebook absent from the proposal (the 11 replaced lines of the §5 table: header, rule, Q1-Q9)",11,11,diff P4_RESEARCH_NOTEBOOK.md NOTEBOOK_proposta_D41_D54.md,PASS
+3.1-01,catalogue rows,112,112,paper_state_v4.md §2,PASS
+3.1-02,CYCLE rows,52,52,P4_RESEARCH_NOTEBOOK.md D09,PASS
+3.1-03,Flat rows,11,11,paper_state_v4.md §2.1,PASS
+3.1-04,Flat? rows,4,4,paper_state_v4.md §2.1,PASS
+3.1-05,Long rows,16,16,paper_state_v4.md §2.1,PASS
+3.1-06,Flat+Flat?+Long,31,31,P4_RESEARCH_NOTEBOOK.md D09,PASS
+3.1-07,Var rows,29,29,P4_RESEARCH_NOTEBOOK.md D09,PASS
+3.1-08,rows graded C or X,0,0,paper_state_v4.md §2,PASS
+3.1-09,rows graded A,103,103,paper_state_v4.md §2,PASS
+3.1-10,rows graded B,9,9,paper_state_v4.md §2,PASS
+3.1-11,duplicated HD identifiers,0,0,implicit (one row per star),PASS
+3.1-12,HD 219834A (P_cyc|FAP|grade),|Good|A,|Good|A,paper_state_v4.md §2 defect a,PASS
+3.1-13,HD 76572 (P_cyc|FAP|grade|n_pass),|Poor|A|1,|Poor|A|1,paper_state_v4.md §2 defect b,PASS
+3.1-14,CYCLE rows with neither period nor FAP,"10780,88737,111456,126053,176051,185144","10780,88737,111456,126053,176051,185144",paper_state_v4.md §2,PASS
+3.1-15,rows with OCR debris in 'secondary',32,33,paper_state_v4.md §2 defect c,FAIL
+3.1-16,rows with legitimate non-empty 'secondary' (Long or 2nd period),,20,not stated in the documents,INFO
+3.1-17,"rows with OCR residue in 'sptype' (deg sign, '?', 'KO', 'FO', lowercase class)",,27,not stated in the documents,INFO
+3.1-18,rows with single-character residue in 'star',,2,not stated in the documents,INFO
+3.1-19,rows with non-empty 'disagree' (OCR passes disagreed),,15,not stated in v4/v6,INFO
+3.1-20,"of those, rows graded A",,15,P4_AUDIT_PROTOCOL.md §5 (disagreement drops to C until resolved),INFO
+3.2-01,Table 1 rows,62135,62135,audit/A9_baum.md §1.1,PASS
+3.2-02,Table 1 distinct stars,59,59,audit/A9_baum.md §1.1,PASS
+3.2-03,Table 2 rows,59,59,audit/A9_baum.md §0,PASS
+3.2-04,t_min (2 decimals),1966.18,1966.18,audit/A9_baum.md §1.1,PASS
+3.2-05,t_max (2 decimals),2020.19,2020.18,audit/A9_baum.md §1.1,FAIL
+3.2-06,observations with Inst=HKP-1,2207,2207,audit/A9_baum.md §1.2,PASS
+3.2-07,observations with Inst=HKP-2,50223,50223,audit/A9_baum.md §1.2,PASS
+3.2-08,observations with Inst=HIRES-1,1772,1772,audit/A9_baum.md §1.2,PASS
+3.2-09,observations with Inst=HIRES-2,7933,7933,audit/A9_baum.md §1.2,PASS
+3.2-10,stars with Inst=HKP-1,22,22,audit/A9_baum.md §1.2,PASS
+3.2-11,stars with Inst=HKP-2,59,59,audit/A9_baum.md §1.2,PASS
+3.2-12,stars with Inst=HIRES-1,49,49,audit/A9_baum.md §1.2,PASS
+3.2-13,stars with Inst=HIRES-2,59,59,audit/A9_baum.md §1.2,PASS
+3.2-14,time range of Inst=HKP-1,1966.18-1977.57,1966.18-1977.57,audit/A9_baum.md §1.2,PASS
+3.2-15,time range of Inst=HKP-2,1977.25-2001.77,1977.25-2001.77,audit/A9_baum.md §1.2,PASS
+3.2-16,time range of Inst=HIRES-1,1996.53-2003.54,1996.53-2003.54,audit/A9_baum.md §1.2,PASS
+3.2-17,time range of Inst=HIRES-2,2004.63-2020.18,2004.63-2020.18,audit/A9_baum.md §1.2,PASS
+3.2-18,observations with Flag=none,58880,58880,audit/A9_baum.md §1.2,PASS
+3.2-19,observations with Flag=1day,2782,2782,audit/A9_baum.md §1.2,PASS
+3.2-20,observations with Flag=sigma,444,444,audit/A9_baum.md §1.2,PASS
+3.2-21,observations with Flag=1day/sigma,29,29,audit/A9_baum.md §1.2,PASS
+3.2-22,clean series (no 'sigma' flag),61662,61662,audit/A9_baum.md §1.2,PASS
+3.2-23,stars where Table 2 Nobs != Table 1 row count,0,0,audit/A9_baum.md §3 check 1,PASS
+3.2-24,sum of Table 2 Nobs,62135,62135,audit/A9_baum.md §3 check 1,PASS
+3.2-25,max |Cadence - Nobs/baseline|,0.005,0.005,audit/A9_baum.md §3 check 2,PASS
+3.2-26,ClassTP flat,24,24,audit/A9_baum.md §1.4,PASS
+3.2-27,ClassTP var,17,17,audit/A9_baum.md §1.4,PASS
+3.2-28,ClassTP long,4,4,audit/A9_baum.md §1.4,PASS
+3.2-29,ClassTP numeric period,14,14,audit/A9_baum.md §1.4,PASS
+3.2-30,ClassTP numeric period with '?',4,4,DECISOES_D41_D54.md D42,PASS
+3.2-31,stars marked '?' (sorted),"101501,166620,190406,4628","101501,166620,190406,4628",audit/A9_baum.md A9-F1,PASS
+3.2-32,ClassB95 filled,26,26,audit/A9_baum.md §1.1,PASS
+3.3-01,median N observations per star,698,698,audit/A9_baum.md §1.3,PASS
+3.3-02,min / max N observations,43/4676,43/4676,audit/A9_baum.md §1.3,PASS
+3.3-03,stars with N obs > 100,56,56,audit/A9_baum.md §1.3,PASS
+3.3-04,stars with N obs <= 100,"145958A=84,145958B=76,178911B=43","145958A=84,145958B=76,178911B=43",audit/A9_baum.md §1.3,PASS
+3.3-05,"median annual seasons (distinct calendar years, all points)",27,27,audit/A9_baum.md §1.3,PASS
+3.3-06,min / max annual seasons,9/54,9/54,audit/A9_baum.md §1.3,PASS
+3.3-07,stars with > 100 annual seasons,0,0,audit/A9_baum.md §1.3,PASS
+3.3-08,"median annual seasons, sigma-flagged points removed",,27,"variant, not in the documents",INFO
+3.3-09,median largest internal gap (yr),7.17,7.17,audit/A9_baum.md §1.3,PASS
+3.3-10,stars with largest gap > 5 yr,42,42,audit/A9_baum.md §1.3,PASS
+3.3-11,"median largest gap, sigma-flagged removed",,7.61,"variant, not in the documents",INFO
+3.3-12,"baseline min/median/max (yr, rounded)",24/41/54,24/41/54,audit/A9_baum.md §1.3,PASS
+3.3-13,stars with Cadence > 10 obs/yr,39,36,audit/A9_baum.md A9-F9,FAIL
+3.3-14,baum2022_59stars.csv shape,59x33,59x33,paper_state_v6.md §10,PASS
+3.3-15,baum2022_59stars.csv rows differing from Table 1 in N_obs_total,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-16,baum2022_59stars.csv rows differing from Table 1 in N_obs_limpo,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-17,baum2022_59stars.csv rows differing from Table 1 in N_sigma_clipped,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-18,baum2022_59stars.csv rows differing from Table 1 in N_estacoes_anuais,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-19,baum2022_59stars.csv rows differing from Table 1 in N_HKP1,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-20,baum2022_59stars.csv rows differing from Table 1 in N_HKP2,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-21,baum2022_59stars.csv rows differing from Table 1 in N_HIRES1,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-22,baum2022_59stars.csv rows differing from Table 1 in N_HIRES2,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-23,baum2022_59stars.csv rows differing from Table 1 in t_min,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-24,baum2022_59stars.csv rows differing from Table 1 in t_max,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-25,baum2022_59stars.csv rows differing from Table 1 in maior_lacuna_yr,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-26,baum2022_59stars.csv rows differing from Table 1 in baseline_yr_exato,0,0,baum2022_59stars.csv vs data/J_AJ_163_183_table1.tsv,PASS
+3.3-27,baum2022_59stars.csv rows differing from Table 2 in Smed_baum,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-28,baum2022_59stars.csv rows differing from Table 2 in Teff,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-29,baum2022_59stars.csv rows differing from Table 2 in logg,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-30,baum2022_59stars.csv rows differing from Table 2 in FeH,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-31,baum2022_59stars.csv rows differing from Table 2 in Mass,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-32,baum2022_59stars.csv rows differing from Table 2 in Age,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-33,baum2022_59stars.csv rows differing from Table 2 in baseline_yr_T2,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-34,baum2022_59stars.csv rows differing from Table 2 in cadence_obs_per_yr,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-35,baum2022_59stars.csv rows differing from Table 2 in class_Baum,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-36,baum2022_59stars.csv rows differing from Table 2 in class_B95_por_Baum,0,0,baum2022_59stars.csv vs data/J_163_183_table2.tsv,PASS
+3.3-37,rows of baum2022_59stars.csv graded other than A,0,0,paper_state_v6.md §10,PASS
+3.3-40,HD 101501 Nobs/Base (Table 2),2239/49,2239/49,DECISOES_D41_D54.md D49,PASS
+3.3-41,HD 166620 Nobs/Base (Table 2),1766/54,1766/54,audit/A9_baum.md §1.6,PASS
+3.3-42,HD 10700 Nobs/Base (Table 2),2526/52,2526/52,audit/A9_baum.md §2.1,PASS
+3.3-43,HD 190360 Nobs/Base (Table 2),1659/53,1659/53,audit/A9_baum.md §2.1,PASS
+3.3-44,HD 182572 Nobs/Base (Table 2),2161/52,2161/52,audit/A9_baum.md §2.1,PASS
+3.3-45,HD 23249 Nobs/Base (Table 2),1337/52,1337/52,audit/A9_baum.md §2.1,PASS
+3.3-46,HD 166620 largest gap in Baum Table 1 (yr),6.91,6.91,audit/A10_luhn.md §1.2,PASS
+3.3-47,HD 166620 largest gap interval,1997.73-2004.64,1997.73-2004.64,audit/A10_luhn.md §1.2,PASS
+3.3-48,HD 166620 per instrument (HKP-1/HKP-2/HIRES-1/HIRES-2) in Baum T1,107/1547/9/103,107/1547/9/103,audit/A9_baum.md §3 check 7,PASS
+3.3-50,HD 101501: N per instrument HKP-1/HKP-2/HIRES-1/HIRES-2 | last MW epoch | HIRES epochs (first-last) | largest gap (from-to),,193/2040/0/6 | 1995.45 | 2009.27-2017.14 | 13.82 yr (1995.45-2009.27),data/J_AJ_163_183_table1.tsv,INFO
+3.3-51,HD 166620: N per instrument HKP-1/HKP-2/HIRES-1/HIRES-2 | last MW epoch | HIRES epochs (first-last) | largest gap (from-to),,107/1547/9/103 | 1995.42 | 1997.42-2020.18 | 6.91 yr (1997.73-2004.64),data/J_AJ_163_183_table1.tsv,INFO
+3.3-52,HD 101501: fraction of the 2239 observations taken at Mount Wilson (%),,99.73,"DECISOES_D41_D54.md D49 ('2 239 observacoes, baseline de 49 anos')",INFO
+3.3-53,HD 101501: calendar years with data in 1980-1990 | N obs in 1980-1990,,11 | 1455,DECISOES_D41_D54.md D49 ('estado plano ~1980-1990'),INFO
+3.3-54,HD 101501 in the instrument-step file (needs >= 10 HIRES-2 points),absent,absent,audit/A9_baum.md §1.7,PASS
+3.3-55,4 clean Flat in Baum: median N obs | median annual seasons | median N HIRES-2 | median largest gap (yr),,1910.0 | 47.5 | 115.0 | 3.68,audit/A9_baum.md A9-F5 (N x group in the Baum subset),INFO
+3.3-56,6 CYCLE+Excellent in Baum: median N obs | median annual seasons | median N HIRES-2 | median largest gap (yr),,1824.0 | 45.5 | 105.5 | 6.83,audit/A9_baum.md A9-F5 (N x group in the Baum subset),INFO
+3.5-01,rows in a9_instrument_step.csv,51,51,audit/A9_baum.md §1.7,PASS
+3.5-02,sample std of delta_rel_pct in CSV (ddof=1),4.47,4.47,audit/A9_baum.md §1.7,PASS
+3.5-03,population std of delta_rel_pct in CSV (ddof=0),,4.42,variant,INFO
+3.5-04,median delta_rel_pct in CSV,0,0,audit/A9_baum.md §1.7,PASS
+3.5-05,mean delta_rel_pct in CSV,-0.61,-0.61,audit/A9_baum.md §1.7,PASS
+3.5-06,|delta| > 1.2 % in CSV,25,25,audit/A9_baum.md §1.7,PASS
+3.5-07,|delta| > 5 % in CSV,10,10,audit/A9_baum.md §1.7,PASS
+3.5-08,HD 166620 delta_rel_pct in CSV,-8.78,-8.78,audit/A9_baum.md §1.7,PASS
+3.5-09,HD 4628 delta_rel_pct in CSV,-16.3,-16.3,audit/A9_baum.md §1.7,PASS
+3.5-10,largest |delta| star in CSV,4628,4628,audit/A9_baum.md §1.7,PASS
+3.5-11,variant of Table 1 filtering that reproduces N_HKP2/N_HIRES2 of the CSV,,sigma-flagged removed,audit/A9_baum.md §1.7 (filter rule not stated in the audit),INFO
+3.5-12,recomputed: stars with >=10 pts in HKP-2 and HIRES-2 (sigma-flagged removed),51,51,audit/A9_baum.md §1.7,PASS
+3.5-13,recomputed vs CSV: max |diff| of delta_rel_pct (pct points),0,0,audit/a9_instrument_step.csv,PASS
+3.5-14,recomputed std of relative step (ddof=1),4.47,4.47,audit/A9_baum.md §1.7,PASS
+3.5-15,recomputed |delta| > 1.2 %,25,25,audit/A9_baum.md §1.7,PASS
+3.5-16,recomputed |delta| > 5 %,10,10,audit/A9_baum.md §1.7,PASS
+3.5-17,recomputed HD 166620,-8.78,-8.78,audit/A9_baum.md §1.7,PASS
+3.5-18,recomputed HD 4628,-16.3,-16.3,audit/A9_baum.md §1.7,PASS
+3.5-19,stars with step exactly 0 (medians identical to 4 decimals),,"10697,132142,179957,217014,22072",not stated in the documents,INFO
+3.5-19b,stars with |step| < 0.2 % (HKP-2 and HIRES-2 medians coincide to ~3e-4 in S),,"17: 10145,10697,13043,132142,143761,152391,179957,199960,210277,217014,22072,23249,37394,4307,45067,52711,9562",audit/A9_baum.md §1.5 (Baum: 'Fourteen stars ... were shifted' to align medians; not named),INFO
+3.5-19c,"std of the relative step (ddof=1, pct) over the remaining stars | N",,5.48 | 34,"variant, not in the documents",INFO
+3.5-20,"step of stars Baum names as median-shifted (HD 22072, 23249, 217014 HKP-1->HKP-2; 3795, 10145, 65583 MW->HIRES-1), pct",,22072=+0.00; 23249=+0.15; 217014=+0.00; 3795=n/a; 10145=+0.07; 65583=-1.48,audit/A9_baum.md §1.5,INFO
+3.5-21,stars excluded from the step statistic (<10 pts in one instrument),8,8,audit/A9_baum.md §1.7 (59 - 51),PASS
+3.5-22,"robust spread of relative step (1.4826*MAD, pct)",,1.23,"variant, not in the documents",INFO
+3.4-01,Luhn Table 2 rows,1885,1885,audit/A10_luhn.md header,PASS
+3.4-02,Inst=MW rows,1654,1654,audit/A10_luhn.md §1.1,PASS
+3.4-03,Inst=HIRES rows,112,112,audit/A10_luhn.md §1.1,PASS
+3.4-04,Inst=new_MW rows (table),119,119,audit/A10_luhn.md A10-F1,PASS
+3.4-05,Inst=new_MW rows vs Luhn §2.2 text (158),158,119,"audit/A10_luhn.md A10-F1 (known contradiction, grade X)",FAIL
+3.4-06,Luhn MW rows = 107 + 1547,1654,1654,audit/A10_luhn.md §1.1,PASS
+3.4-06b,Luhn HIRES rows before / from 2004.0,9/103,9/103,audit/A10_luhn.md §1.1,PASS
+3.4-06c,"HKP-1/HKP-2 split of Luhn's MW rows by a date cut at Baum's last HKP-1 epoch (1977.568); Baum's first HKP-2 epoch is 1977.256 (overlap), so 107/1547 is not derivable from Luhn's table alone",107/1547,117/1537,audit/A10_luhn.md §1.1,INFO
+3.4-06d,Baum HKP-1+HKP-2 rows for HD 166620 = Luhn MW rows,1654,1654,audit/A10_luhn.md §1.1 (Luhn retains B22 data before 1995 June 4),PASS
+3.4-06e,max |S_Luhn - S_Baum| over the MW rows matched in time order,0,0,audit/A10_luhn.md §2.2 quote ('No offset of S_HK applied'),PASS
+3.4-07,MW range,1966.593-1995.423,1966.593-1995.423,audit/A10_luhn.md §1.1,PASS
+3.4-08,new_MW range,1995.447-2002.486,1995.447-2002.486,audit/A10_luhn.md §1.1,PASS
+3.4-09,HIRES range,1997.418-2020.185,1997.418-2020.185,audit/A10_luhn.md §1.1,PASS
+3.4-10,largest gap in S_HK (yr),2.82,2.82,audit/A10_luhn.md §1.2,PASS
+3.4-11,largest gap interval,2005.64-2008.46,2005.64-2008.46,audit/A10_luhn.md §1.2,PASS
+3.4-12,rows of the A10 §1.2 annual-mean table (18) not reproduced,0,0,audit/A10_luhn.md §1.2,PASS
+3.4-13,annual S_HK means available 1995-2002,8,8,DECISOES_D41_D54.md D46,PASS
+3.4-14,raw S_HK observations with 1995.0 <= t < 2002.0,132,132,paper_state_v6.md §5,PASS
+3.4-15,the '132' of paper_state_v6 §5 under other readings of '1995-2002',,"{'calendar years 1995-2002 inclusive (the 8 annual means of D46)': 137, 'same, excluding HIRES': 128, 'new_MW only': 119}","paper_state_v6.md §5 (window labelled 1995-2002, same label as the 8 annual means)",INFO
+3.4-16,Luhn Table 3 rows,1278,1278,audit/A10_luhn.md §1.1,PASS
+3.4-17,APT calendar years with data,17,17,audit/A10_luhn.md §1.1,PASS
+3.4-18,APT calendar years 2005-2015 with data,0,0,audit/A10_luhn.md §1.1,PASS
+3.4-19,APT calendar years 1993-2004 with data,12,12,DECISOES_D41_D54.md D46,PASS
+3.4-20,APT nights per year 1993-2004 (min-max),47-119,47-119,audit/A10_luhn.md §1.2,PASS
+3.4-20b,APT seasonal means (calendar years): range before 2004 (mmag),2.8,2.8,audit/A10_luhn.md §1.3,PASS
+3.4-20c,"APT seasonal means: std over 2004 + 2016-2020 (mmag, ddof=1 | ddof=0)",0.22,0.22 | 0.20,audit/A10_luhn.md §1.3 (A10 recomputation; Luhn's text says 0.35),INFO
+3.4-20d,"same, 2016-2020 only (ddof=1) | range before 2005 (mmag)",,0.19 | 2.8,variant,INFO
+3.4-21,min1: N in interval,44,44,audit/A10_luhn.md §1.3,PASS
+3.4-22,min1: <S_HK> (4 dec),0.1810,0.1810,audit/A10_luhn.md §1.3,PASS
+3.4-23,"min1: raw std of the whole interval (ddof=1, 4 dec)",0.0035,0.0035,audit/A10_luhn.md §1.4,PASS
+3.4-24,min1: noise = 1.2% of <S_HK> (4 dec),,0.0022,audit/A10_luhn.md §1.4,INFO
+3.4-25,"min1: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec)",0.0027,0.0027,DECISOES_D41_D54.md D45,PASS
+3.4-26,"min1: same, 5 decimals, ddof=1 | ddof=0",,0.00269 | 0.00264,variant,INFO
+3.4-27,"min1: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=4)",0.0027,0.0028 | 0.0025,"DECISOES_D41_D54.md D45 step (1), literal reading",INFO
+3.4-28,min2: N in interval,315,315,audit/A10_luhn.md §1.3,PASS
+3.4-29,min2: <S_HK> (4 dec),0.1724,0.1724,audit/A10_luhn.md §1.3,PASS
+3.4-30,"min2: raw std of the whole interval (ddof=1, 4 dec)",0.0058,0.0058,audit/A10_luhn.md §1.4,PASS
+3.4-31,min2: noise = 1.2% of <S_HK> (4 dec),,0.0021,audit/A10_luhn.md §1.4,INFO
+3.4-32,"min2: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec)",0.0054,0.0054,DECISOES_D41_D54.md D45,PASS
+3.4-33,"min2: same, 5 decimals, ddof=1 | ddof=0",,0.00542 | 0.00541,variant,INFO
+3.4-34,"min2: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=4)",0.0054,0.0048 | 0.0049,"DECISOES_D41_D54.md D45 step (1), literal reading",INFO
+3.4-35,grand: N in interval,103,103,audit/A10_luhn.md §1.3,PASS
+3.4-36,grand: <S_HK> (4 dec),0.1705,0.1705,audit/A10_luhn.md §1.3,PASS
+3.4-37,"grand: raw std of the whole interval (ddof=1, 4 dec)",0.0020,0.0020,audit/A10_luhn.md §1.4,PASS
+3.4-38,grand: noise = 0.3% of <S_HK> (4 dec),,0.0005,audit/A10_luhn.md §1.4,INFO
+3.4-39,"grand: corrected sigma_S, interval-wide std minus noise in quadrature (ddof=1, 4 dec)",0.0019,0.0019,DECISOES_D41_D54.md D45,PASS
+3.4-40,"grand: same, 5 decimals, ddof=1 | ddof=0",,0.00195 | 0.00194,variant,INFO
+3.4-41,"grand: D45 step (1) read literally - sigma inside each calendar-year season, noise removed in quadrature per season; mean | median over seasons (n seasons=9)",0.0019,0.0015 | 0.0014,"DECISOES_D41_D54.md D45 step (1), literal reading",INFO
+3.4-50,"F-test min1 vs grand on RAW interval variances, two-sided p",8.78e-06,8.79788e-06,audit/A10_luhn.md §1.4 item 4 (Luhn §3.1),PASS
+3.4-51,"same, one-sided p",,4.39894e-06,variant,INFO
+3.4-52,"F-test min1 vs grand on noise-CORRECTED sigma_S (D45 steps 2 then 3), two-sided p",8.78e-06,0.00868207,DECISOES_D41_D54.md D45 / paper_state_v6.md §2,FAIL
+3.4-53,"same, one-sided p",,0.00434103,variant,INFO
+3.4-54,"F-test using the published rounded values 0.0027 (N=44) vs 0.0019 (N=103), two-sided p",8.78e-06,0.00414892,DECISOES_D41_D54.md D45,FAIL
+3.4-55,"F-test min2 vs grand on corrected sigma_S, two-sided p",,2.82012e-25,not in the documents,INFO
+3.4-56,seasons with >1 obs: min1 | min2 | grand,,4 | 4 | 9,variant,INFO
+3.4-57,"Keck seasons (calendar years, >1 obs) with sigma_S/<S> below 1.2 %, out of N",6/9,6/9,audit/A10_luhn.md §1.4 item 2 (Luhn quote: 'less than this in six of the nine seasons'),PASS
+3.4-57b,"same, below 0.3 % (the reading suggested by the order of A10 §1.4 item 2)",6/9,0/9,audit/A10_luhn.md §1.4 item 2,INFO
+3.4-57c,two lowest Keck seasonal sigma_S/<S> (%),approach 0.3,"0.303, 0.339",audit/A10_luhn.md §1.4 item 2,INFO
+3.4-58,2014: N obs | S,1 | 0.1776,1 | 0.1776,audit/A10_luhn.md A10-F7,PASS
+3.6-01,Isaacson Table 2 rows,710,710,audit/A11_raridade.md check 2,PASS
+3.6-02,Isaacson Table 2 distinct names,710,710,audit/A11_raridade.md check 2,PASS
+3.6-03,Isaacson Table 4 rows,138,138,audit/A11_raridade.md check 1,PASS
+3.6-04,Isaacson Table 4 distinct names,138,138,audit/A11_raridade.md check 1,PASS
+3.6-05,Isaacson Table 3 rows,52380,52372,audit/A11_raridade.md check 3,FAIL
+3.6-06,Table 3 rows vs text of the paper (52 372),52372,52372,audit/A11_raridade.md §b.1 (known delta of 8),PASS
+3.6-07,stars with Nobs >= 45,290,290,audit/A11_raridade.md check 4,PASS
+3.6-08,stars where Table 2 Nobs != Table 3 row count,,0,not checked in the audits,INFO
+3.6-09,Table 4 names absent from Table 2,0,0,implicit,PASS
+3.6-10,Table 4 stars with Table 2 Nobs < 45,,0,audit/A11_raridade.md §b.1 (cycle search restricted to >= 45 obs),INFO
+3.6-11,HD 10700 SSD | Smed | Nobs,0.00121 | 0.1674 | 944,0.00121 | 0.1674 | 944,audit/A11_raridade.md §b.3,PASS
+3.6-12,HD 10700 SSD/Smed (%),0.723,0.723,audit/A11_raridade.md §b.2 note,PASS
+3.6-13,Nobs >= 45 and SSD < 0.00121 (tabulated tau Cet),48,48,audit/A11_raridade.md A11b-F1,PASS
+3.6-14,Nobs >= 45 and SSD < 0.00125 (text value),52,52,audit/A11_raridade.md A11b-F1,PASS
+3.6-15,Nobs >= 45 and SSD <= 0.00121,,50,variant (ties),INFO
+3.6-16,Nobs >= 45 and SSD/Smed < tau Cet's (relative criterion),,32,variant: 'menos dispersas' read as relative scatter,INFO
+3.6-17,Nobs > 45 (strict) and SSD < 0.00121,,48,variant,INFO
+3.6-18,rows in isaacson2024_least_active_50.csv,48,48,paper_state_v6.md §10,PASS
+3.6-19,CSV names == reproduced filter (symmetric difference),0,0,isaacson2024_least_active_50.csv 'fonte' column,PASS
+3.6-20,"CSV cells (SSD, Smed, Nobs) differing from Table 2",0,0,isaacson2024_least_active_50.csv vs data/J_ApJS_274_35_table2.tsv,PASS
+3.6-21,max |disp_rel_pct - 100*SSD/Smed| in CSV,0,0,isaacson2024_least_active_50.csv,PASS
+3.6-22,'fonte' column documents the filter criterion (contains 'SSD' or '45'),yes,no,audit/A11_raridade.md A11b-F1 ('criterio documentado na propria coluna fonte'),FAIL
+3.6-23,CSV stars with relative scatter above tau Cet's 0.723 %,,16,consequence of an absolute-SSD criterion,INFO
+3.6-24,HD 55575 SSD/Smed (%),0.448,0.448,audit/A11_raridade.md check 7,PASS
+3.6-25,least-scattered star with Nobs >= 45 by SSD/Smed,HD 55575,HD 187923,audit/A11_raridade.md §b.2 ('a menos ativa com >= 45 obs'),FAIL
+3.6-26,least-scattered star with Nobs >= 45 by absolute SSD,HD 55575,HD 187923,audit/A11_raridade.md §b.2,FAIL
+3.6-27,rows of the A11 §b.3 table (10 present stars) not reproduced,0,1,audit/A11_raridade.md §b.3,FAIL
+3.6-28,HD 43587 / HD 160346 present in Table 2,absent/absent,absent/absent,audit/A11_raridade.md §b.3,PASS
+3.6-29,HD 32147 in Table 4 (A11 §b.3 prints a dash),,Per=9.53,audit/A11_raridade.md §b.3,INFO
+3.6-30,HD 23249 SSD < tau Cet SSD ('menos disperso que tau Cet? sim'),yes,yes,audit/A11_raridade.md §b.3,PASS
+3.6-31,HD 23249 SSD/Smed < tau Cet SSD/Smed (relative),,no,variant,INFO
+3.7-01,rows in noyes1984_validade_cor.csv,112,112,audit/A12_noyes.md §3.1,PASS
+3.7-02,rows whose HD/bv/primary_class/FAP differ from the frozen catalogue,0,0,noyes1984_validade_cor.csv vs baliunas_table2_full.csv,PASS
+3.7-02b,rows whose B-V string differs from the catalogue only in formatting (e.g. '0.7' vs '0.70'),,11,noyes1984_validade_cor.csv vs baliunas_table2_full.csv,INFO
+3.7-03,recomputed from catalogue B-V: band 'DENTRO',82,82,DECISOES_D41_D54.md D53,PASS
+3.7-04,recomputed from catalogue B-V: band 'EXTRAPOLADO (0.82-1.0',17,17,DECISOES_D41_D54.md D53,PASS
+3.7-05,recomputed from catalogue B-V: band 'EXTRAPOLADO + C_cf incerto',6,6,DECISOES_D41_D54.md D53,PASS
+3.7-06,recomputed from catalogue B-V: band 'EXTRAPOLADO + pior',2,2,DECISOES_D41_D54.md D53,PASS
+3.7-07,recomputed from catalogue B-V: band 'FORA',5,5,DECISOES_D41_D54.md D53,PASS
+3.7-08,CSV rows whose label disagrees with the recomputed band,0,0,noyes1984_validade_cor.csv,PASS
+3.7-09,stars with B-V exactly 0.44 | 0.82 | 1.00 | 1.20 (boundary cases),,"3229,182101 | 26965,149661 | - | -",DECISOES_D41_D54.md D53 (source range is the open interval 0.44 < B-V < 0.82),INFO
+3.7-10,"stars strictly inside 0.44 < B-V < 0.82 (open interval, as printed in D52/D53)",82,78,DECISOES_D41_D54.md D53,FAIL
+3.7-11,stars with B-V > 1.0 (D53 text: '6 acima de 1.0' and '2 acima de 1.2'),,>1.0: 8; >1.2: 2,DECISOES_D41_D54.md D53,INFO
+3.7-12,"HD 10700: log R'_HK from D52 with catalogue B-V=0.72, <S>=0.171 (band DENTRO); R_phot/R_HK; log R'_HK with Duncan R_phot",,-4.959; 0.486; -4.921,DECISOES_D41_D54.md D52 (no expected value in the documents: D39 forbade conversion),INFO
+3.7-13,"HD 32147: log R'_HK from D52 with catalogue B-V=1.06, <S>=0.286 (band EXTRAPOLADO + C_cf incerto); R_phot/R_HK; log R'_HK with Duncan R_phot",,-4.948; 0.054; -5.056,DECISOES_D41_D54.md D52 (no expected value in the documents: D39 forbade conversion),INFO
+3.7-14,"HD 201091: log R'_HK from D52 with catalogue B-V=1.18, <S>=0.658 (band EXTRAPOLADO + C_cf incerto); R_phot/R_HK; log R'_HK with Duncan R_phot",,-4.764; 0.006; -4.818,DECISOES_D41_D54.md D52 (no expected value in the documents: D39 forbade conversion),INFO
+3.7-15,"HD 166620: log R'_HK from D52 with catalogue B-V=0.87, <S>=0.19 (band EXTRAPOLADO (0.82-1.0); R_phot/R_HK; log R'_HK with Duncan R_phot",,-4.955; 0.287; -5.011,DECISOES_D41_D54.md D52 (no expected value in the documents: D39 forbade conversion),INFO
+3.7-16,"HD (Sun): log R'_HK from D52 with catalogue B-V=0.66, <S>=0.179 (band DENTRO); R_phot/R_HK; log R'_HK with Duncan R_phot",,-4.896; 0.501; -4.851,DECISOES_D41_D54.md D52 (no expected value in the documents: D39 forbade conversion),INFO
+3.7-17,"HD 10700: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.664 and Smed=0.1674 | vs D52 with catalogue B-V=0.72, <S>=0.171",-4.958,-4.958 | -4.959,data/J_ApJS_274_35_table2.tsv (logRhk column),INFO
+3.7-18,"HD 32147: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.993 and Smed=0.2598 | vs D52 with catalogue B-V=1.06, <S>=0.286",-4.905,-4.905 | -4.948,data/J_ApJS_274_35_table2.tsv (logRhk column),INFO
+3.7-19,"HD 166620: CLS V Table 2 logRhk vs D52 applied to CLS V's own B-V=0.827 and Smed=0.1706 | vs D52 with catalogue B-V=0.87, <S>=0.190",-5.002,-5.002 | -4.955,data/J_ApJS_274_35_table2.tsv (logRhk column),INFO
+3.7-20,D40: R'_HK is affine in S at fixed B-V with positive slope (min of 1.340e-4*C'_cf over the 112 catalogue B-V values > 0),yes,yes,P4_RESEARCH_NOTEBOOK.md D40; audit/A12_noyes.md A12-F5,PASS
+3.7-21,catalogue stars for which D52 gives R'_HK <= 0 with <S> of Table 2,,none,not in the documents,INFO
+3.8-01,Baum stars present in the A1 catalogue by HD,27,27,audit/A9_baum.md §2,PASS
+3.8-02,Baum stars with ClassB95 filled,26,26,audit/A9_baum.md §2,PASS
+3.8-03,in A1 by HD but ClassB95 blank,185144,185144,audit/A9_baum.md A9-F2,PASS
+3.8-04,ClassB95 filled but HD not in A1,,none,implicit,INFO
+3.8-05,HD 185144 in A1 (class|P_cyc|FAP|grade),CYCLE|||A,CYCLE|||A,audit/A9_baum.md A9-F2,PASS
+3.8-06,baum2022_59stars.csv em_baliunas_A1 == True,27,27,audit/A9_baum.md §2,PASS
+3.8-07,A1 columns copied into baum2022_59stars.csv that differ in value from the catalogue,0,0,baum2022_59stars.csv vs baliunas_table2_full.csv,PASS
+3.8-08,"of the 26, stars changing class TYPE (cycle/flat/long/var; 'flat?' and 'flat' one type)",13,13,audit/A9_baum.md §2 ('treze' by change of type),PASS
+3.8-09,HD numbers actually listed in A9 §2 under the label 'treze',13,14,audit/A9_baum.md §2,FAIL
+3.8-10,listed in A9 §2 but with no change of type in Table 2,none,190406,audit/A9_baum.md §2,FAIL
+3.8-11,"of the 26, stars whose class changes when 'flat?' -> 'flat' also counts (the rule A9 §2 applies to HD 10700)",14,15,"audit/A9_baum.md §2 ('Total 14', checksum 6); DECISOES_D41_D54.md D43",FAIL
+3.8-11b,'flat?' -> 'flat' stars among the 26,10700,"10700,23249",audit/A9_baum.md §2 (names only HD 10700),FAIL
+3.8-11c,stars with cycle -> cycle but a different period (not a change of type),,"4628:excl-8.4->10.0?,10476:excl-9.6->10.3,26965:excl-10.1->9.9,152391:excl-10.9->9.1,166620:excl-15.8->17.0?,190406:fair-2.6+good-16.9->17.2?,219834B:excl-10.0->9.4",data/J_163_183_table2.tsv,INFO
+3.8-12,"of the 26, stars where Baum's ClassB95 type differs from A1 primary_class",0,0,implicit (Baum transcribes B95),PASS
+3.8-12b,stars for which Baum's ClassB95 carries a B95 period/grade while the A1 catalogue has P_cyc blank (HD:ClassB95:P_cyc_A1:FAP_A1),,10780:<7:'':''; 126053:22?:'':'',data/J_163_183_table2.tsv vs baliunas_table2_full.csv,INFO
+3.8-13,rows in baum2022_cycle_periods.csv,14,14,DECISOES_D41_D54.md D42,PASS
+3.8-14,periods 'by periodogram' / 'by eye',10/4,10/4,DECISOES_D41_D54.md D42,PASS
+3.8-15,CSV periods differing from Table 2 ClassTP,0,0,baum2022_cycle_periods.csv vs data/J_163_183_table2.tsv,PASS
+3.8-16,CSV 'metodo_baum' inconsistent with the '?' mark in Table 2,0,0,baum2022_cycle_periods.csv vs data/J_163_183_table2.tsv,PASS
+3.8-17,"distinct stars marked '?' in Table 2 (A9-F1 lists 'HD 101501, 166620, 190406, 4628, mais HD 4628')",4,4,audit/A9_baum.md A9-F1,PASS
+3.8-18,stars with a numeric period in both Baum and A1,7,7,audit/A9_baum.md A9-F3,PASS
+3.8-19,rows of the A9-F3 table whose delta/sigma is not reproduced (tol 0.5),0,0,audit/A9_baum.md A9-F3,PASS
+3.8-20,HD 4628 delta/sigma: recomputed | CSV | A9-F3 text,20.4 | 20.4 | +20,20.4 | 20.4 | +20,audit/A9_baum.md A9-F3,INFO
+3.8-21,"all overlapping periods diverge by >= 2 sigma (|delta/sigma| min, HD 190406 excluded as a change of primary)",>=2,2,audit/A9_baum.md A9-F3,INFO
+3.8-22,FAP Excellent among the 7 overlapping,6,6,audit/A9_baum.md A9-F3,PASS
+3.8-23,HD 190406 delta_sigma stored in the CSV (A9-F3 prints 'troca de primario'),,730.0,baum2022_cycle_periods.csv,INFO
+3.8-24,CSV delta_sigma differing from recomputation,0,0,baum2022_cycle_periods.csv,PASS
+3.8-25,CSV rows with class_baliunas filled but star absent from A1,0,0,baum2022_cycle_periods.csv,PASS
+3.8-26,CSV N_obs/baseline differing from Table 2,0,0,baum2022_cycle_periods.csv,PASS
+3.8-30,rows in saar_baliunas_crossmatch.csv,70,70,audit/A6_saar.md §2,PASS
+3.8-31,Saar Table 1 entries / Table 5-only rows,61/9,61/9,audit/A6_saar.md §2,PASS
+3.8-32,Saar Table 1 entries flagged in_bal_catalogue,59,59,audit/A6_saar.md §2,PASS
+3.8-33,Saar Table 1 entries actually present in the catalogue by HD,59,59,audit/A6_saar.md §2,PASS
+3.8-34,Table 1 entries not in the catalogue,"98230B,Sun","98230B,Sun",audit/A6_saar.md §2,PASS
+3.8-35,Table 5-only rows: present in catalogue by HD | in_bal_catalogue filled | bal_class filled,,9 | 0 | 0,audit/saar_baliunas_crossmatch.csv (not stated in A6),INFO
+3.8-36,pairs with a plain numeric primary period in both papers (CSV; Sun row has no Baliunas values in the CSV),30,29,audit/A6_saar.md §2,FAIL
+3.8-37,Sun row in CSV: bal_class|bal_Pcyc|in_bal_catalogue,,||False,audit/A6_saar.md §2.1 lists the Sun among the 24 identical pairs,INFO
+3.8-38,numeric pairs identical in value (CSV),,22,"audit/A6_saar.md §2.1 ('24 of 30 identical', list of 22 HD + Sun + HD 100180)",INFO
+3.8-39,HD numbers named in A6 §2.1 as identical (excluding Sun and HD 100180),,22,audit/A6_saar.md §2.1,INFO
+3.8-40,named-identical stars that are NOT identical in the CSV,0,0,audit/A6_saar.md §2.1,PASS
+3.8-41,identical pairs in the CSV not named in A6 §2.1,,none,audit/A6_saar.md §2.1,INFO
+3.8-42,numeric pairs differing (CSV),"100180,149661,165341A,201092,3651,4628,81809","100180,149661,165341A,201092,3651,4628,81809","audit/A6_saar.md §2.2 (6 rows: 165341A, 201092, 149661, 3651, 4628, 100180)",INFO
+3.8-43,Baliunas columns in the cross-match that differ from the catalogue,0,0,audit/saar_baliunas_crossmatch.csv vs baliunas_table2_full.csv,PASS
+3.8-44,Baliunas classes of Saar's 59 matched stars CYCLE/Long/Var/Flat?/Flat,42/9/7/1/0,42/9/7/1/0,audit/A6_saar.md §2.5,PASS
+3.8-45,"of the 17 Baliunas standard stars (A6 §3), flagged in the cross-match (bal_T1_sigmaS_pct filled)",17,11,audit/A6_saar.md §6 decision 6 ('the flag has been added'),FAIL
+3.8-46,standard stars absent from the cross-match file,,"13421,29645,76572,142373,159332,216385",audit/A6_saar.md §3,INFO
+3.8-47,standard stars in the A1 catalogue,17,17,audit/A6_saar.md §3,PASS
+3.8-48,Flat stars that are standards,7,7,audit/A6_saar.md A6-F7,PASS
+3.8-49,Flat? stars that are standards,1,1,audit/A6_saar.md A6-F7,PASS
+3.8-50,Saar Table 5 F stars that are standards,8,8,audit/A6_saar.md A6-F7,PASS
+3.8-51,Baliunas classes of Saar's 10 F stars Flat/Long/Flat?,5/4/1,5/4/1,audit/A6_saar.md A6-F4,PASS
+3.9-01,Flat+Flat? stars that are not standards (D13 alone),5,7,"P4_RESEARCH_NOTEBOOK.md D13; audit/A9_baum.md §2.1 ('5 estrelas, pos-D13')",FAIL
+3.9-02,"Flat+Flat? non-standard AND not in Baliunas Appendix B binary list (A1 §2.5) - inferred rule, the defining document is missing","10700,182572,190360,23249,43587","10700,182572,190360,23249,43587",audit/A9_baum.md §2.1 (list); rule not stated in any file present,PASS
+3.9-03,the two non-standard Flat stars left out of the 'five',,"158614,178428",A1 §2.5 lists both in Appendix B,INFO
+3.9-04,"of the five, in Baum",4,4,audit/A9_baum.md §2.1,PASS
+3.9-05,"of the five, absent from Baum",43587,43587,audit/A9_baum.md §2.1,PASS
+3.9-06,"spectral types of the five containing IV or Vp (as OCR'd: 'Iv', 'IV', 'Vp')",3,4,P4_RESEARCH_NOTEBOOK.md Q7 ('Tres das cinco elegiveis sao IV/Vp'),FAIL
+3.9-07,CYCLE + FAP Excellent rows,13,13,audit/A9_baum.md §2.1,PASS
+3.9-08,CYCLE+Excellent set equals the A9 §2.1 list,0,0,audit/A9_baum.md §2.1,PASS
+3.9-09,"of the 13, in Baum",6,6,audit/A9_baum.md §2.1,PASS
+3.9-10,"of the 13, absent from Baum (the Sun row included)",7,7,audit/A9_baum.md A9-F5 ('os sete ausentes'),PASS
+3.9-11,B-V of the absent controls (Sun excluded),0.96-1.18 or binary,16160=0.98; 32147=1.06; 81809=0.64; 103095=0.75; 160346=0.96; 201091=1.18,paper_state_v6.md §3.1,INFO
+3.9-12,"rows of the A9 §2.1 control table whose P, dP or B-V differ from the catalogue",0,0,audit/A9_baum.md §2.1,PASS
+3.9-13,Baum classes printed in A9 §2.1 that differ from Table 2,0,0,audit/A9_baum.md §2.1,PASS
+3.9-14,five clean Flat inside 0.44-0.82 (closed interval),4,4,audit/A12_noyes.md A12-F1,PASS
+3.9-15,"13 CYCLE+Excellent inside 0.44-0.82 (closed interval, Sun included)",5,5,audit/A12_noyes.md A12-F1,PASS
+3.9-16,13 CYCLE+Excellent inside the OPEN interval 0.44 < B-V < 0.82 (HD 26965 sits at 0.82),5,4,audit/A12_noyes.md A12-F1; D53,FAIL
+3.9-17,CYCLE+Excellent with B-V > 1.0,"201091,32147","201091,32147",audit/A12_noyes.md A12-F1,PASS
+3.9-18,12 stellar CYCLE+Excellent (Sun row excluded): inside / outside (closed),,4/8,variant,INFO
+3.9-19,restricted to stars in Baum: Flat inside/total | CYCLE+Excellent inside/total,,3/4 | 2/6,variant relevant to Q1 option (ii) x Q8,INFO
+3.9-20,P4 candidate stars also in CLS V Table 2,,14,variant,INFO
+3.9-21,B-V(A1 catalogue) - B-V(CLS V): min | median | max over those stars,,0.005 | 0.0405 | 0.085,baliunas_table2_full.csv vs data/J_ApJS_274_35_table2.tsv,INFO
+3.9-22,candidate stars whose Noyes band changes if CLS V's B-V is used,,10476: 0.84->0.801; 32147: 1.06->0.993,audit/A12_noyes.md A12-F1 (band assignment used A1 B-V only),INFO
+3.9-23,CYCLE+Excellent stars in CLS V: inside 0.44-0.82 with A1 B-V | with CLS V B-V | N,,3 | 4 | 10,variant,INFO
+3.9-24,all A1 catalogue stars found in CLS V: N | median(A1 - CLSV) | N with |diff| > 0.03,,38 | 0.030 | 19,baliunas_table2_full.csv vs data/J_ApJS_274_35_table2.tsv,INFO
+3.9-30,"median B-V, CYCLE + FAP Excellent (13, Sun included)",0.88,0.87,paper_state_v5.md §4,FAIL
+3.9-31,"median B-V, CYCLE + FAP Excellent (12, Sun excluded)",,0.875,variant,INFO
+3.9-32,"median B-V, Flat + Flat? (15 stars, the label printed in v5 §4)",0.73,0.56,paper_state_v5.md §4,FAIL
+3.9-33,"median B-V, five clean Flat (label used by A12 §3.1 for 0.73)",0.73,0.73,audit/A12_noyes.md §3.1,PASS
+3.9-34,"median B-V, Var (29)",0.61,0.61,paper_state_v5.md §4,PASS
+3.9-35,"median B-V, Long (16)",0.49,0.525,paper_state_v5.md §4,FAIL
+3.9-36,"median B-V, Long (16) vs A12 §3.1",0.525,0.525,audit/A12_noyes.md §3.1,PASS
+3.9-37,"median B-V, Flat (11)",0.56,0.56,audit/A12_noyes.md §3.1,PASS
+3.9-38,"median B-V, Flat? (4)",0.665,0.665,audit/A12_noyes.md §3.1,PASS
+3.9-39,"median B-V, CYCLE (52)",0.725,0.725,audit/A12_noyes.md §3.1,PASS
+3.9-40,"median B-V, 7 non-standard Flat+Flat? (D13 only)",,0.72,variant,INFO
+3.9-41,"median B-V, Long non-standard",,0.52 (n=9),variant,INFO
+3.9-42,"median B-V, CYCLE with a graded FAP (46)",,0.755,variant,INFO
+3.9-43,B-V of HD 23249 in the catalogue,0.92,0.92,P4_RESEARCH_NOTEBOOK.md D39,PASS
+3.9-44,B-V of HD 160346 in the catalogue,0.96,0.96,P4_RESEARCH_NOTEBOOK.md D39,PASS
+3.9-45,B-V of HD 32147 in the catalogue,1.06,1.06,P4_RESEARCH_NOTEBOOK.md D39,PASS
+4-01,stars hard-coded in notebook cell 8,,14,p4_pipeline.ipynb cell 8,INFO
+4-02,cell 8 rows whose S_mean differs from the catalogue <S>,0,0,baliunas_table2_full.csv (D08),PASS
+4-03,cell 8 'Cycling' rows whose catalogue class is not CYCLE with FAP Good/Excellent,0,0,p4_pipeline.ipynb cell 7 (group definition) vs catalogue,PASS
+4-04,cell 8 'Irregular' rows (defined in cell 7 as Long or Var): catalogue class,Long or Var for all,3651=CYCLE/Good P=13.8; 9562=Long; 76151=CYCLE/Fair P=2.52,baliunas_table2_full.csv; P4_RESEARCH_NOTEBOOK.md D09,FAIL
+4-05,cell 8 'Flat' rows: catalogue class | standard star (D13) | Appendix B binary,,10700=Flat?|std=False|bin=False; 45067=Flat|std=True|bin=False; 178428=Flat|std=False|bin=True; 182572=Flat|std=False|bin=False,P4_RESEARCH_NOTEBOOK.md D13; audit/A6_saar.md §3; audit/A1_baliunas.md §2.5,INFO
+4-06,cell 8 rows with P_cyc = 0.00 while the catalogue has a period,0,1,baliunas_table2_full.csv,FAIL
+4-07,cell 8 contains HD 4915,no,no,P4_RESEARCH_NOTEBOOK.md D07,PASS
+4-08,notebook: stats.kendalltau used for p-values (D22) - code cells,,14,p4_pipeline.ipynb,INFO
+4-09,notebook: ARMA / surrogate code present (D22) - code cells,,none,p4_pipeline.ipynb,INFO
+4-10,notebook: n_max = N // 4 (D26) - code cells,,14,p4_pipeline.ipynb,INFO
+4-11,notebook: crossover check present (D26) - code cells,,none,p4_pipeline.ipynb,INFO
+4-12,notebook: H = (beta + 1) / 2 computed (D28) - code cells,,"14,16",p4_pipeline.ipynb,INFO
+4-13,notebook: nolds imported or called (D29) - code cells,,"2,4,14",p4_pipeline.ipynb,INFO
+4-14,notebook: 0.179 present as a constant (D17) - code cells,,none,p4_pipeline.ipynb,INFO
+4-15,notebook: S_SUN_MEAN = 0.1694 (D16) - code cells,,4,p4_pipeline.ipynb,INFO
+4-16,notebook: mannwhitneyu between groups - code cells,,20,p4_pipeline.ipynb,INFO
+4-17,"notebook: sensitivity windows (0.25, 0.40, 0.50, 0.60, 0.75) (D20) - code cells",,16,p4_pipeline.ipynb,INFO
+4-18,"notebook: Gaussian sigma fixed at 1.0 yr, no sweep (Q3) - code cells",,"14,16",p4_pipeline.ipynb,INFO
+4-19,cells with a stored execution count | cells whose stored output is an error,,"[2, 4, 6, 8, 10] | [(10, 'FileNotFoundError')]",p4_pipeline.ipynb,INFO
