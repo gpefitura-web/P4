@@ -1,0 +1,112 @@
+#
+#   VizieR Astronomical Server vizier.cds.unistra.fr
+#    Date: 2026-08-01T04:06:43 [V7.5.6]
+#   In case of problem, please report to:	cds-question@unistra.fr
+#
+#
+#Coosys	J2000:	eq_FK5 J2000
+#INFO	service_protocol=ASU	  IVOID of the protocol through which the data was retrieved
+#INFO	request_date=2026-08-01T04:06:43	  Query execution date
+#INFO	request=https://vizier.cds.unistra.fr/viz-bin/asu-tsv?-oc.form=dec&-out.max=999999&-c.eq=J2000&-c.r=  2&-c.u=arcmin&-c.geom=r&-source=J/AJ/163/183/table2&-order=I&-out=HD&-out=Svalue&-out=Teff&-out=logg&-out=vsini&-out=Fe/H&-out=Mass&-out=Age&-out=SpType&-out=Base&-out=Cadence&-out=ClassB95&-out=ClassTP&-out=Nobs&-out=S-value&S-value=S-value&-out=Simbad&Simbad=Simbad&-out=_RA&-out=_DE&	  Full request URL (POST)
+#INFO	contact=cds-question@unistra.fr	  Email or URL to contact publisher
+#INFO	server_software=VizieR/7.5.6	  Software version
+#INFO	publisher=CDS	  Data centre that produced the VOTable
+
+#RESOURCE=yCat_51630183
+#Name: J/AJ/163/183
+#Title: S-value for 59 Sun-like starswith HIRES and HKP (Baum+, 2022)
+#INFO	ivoid=ivo://cds.vizier/j/aj/163/183	    IVOID of underlying data collection
+#INFO	data_ivoid=ivo://cds.vizier/j/aj/163/183	    IVOID of underlying data collection
+#INFO	creator=Baum A.C.	    First author or institution
+#INFO	cites=bibcode:2022AJ....163..183B	    Article or Data origin sources
+#INFO	journal=AJ	    Journal name
+#INFO	original_date=2022	    Year of the article publication
+#INFO	reference_url=https://cdsarc.cds.unistra.fr/viz-bin/cat/J/AJ/163/183	    Dataset landing page
+#INFO	citation=doi:10.26093/cds/vizier.51630183	    Dataset identifier that can be used for citation
+#INFO	publication_date=2022-10-27	    Date of first publication in the data centre
+#INFO	rights_uri=https://cds.unistra.fr/vizier-org/licences_vizier.html	    Licence URI
+#Coosys	J2000_2000.000:	eq_FK5 J2000
+#Table	J_AJ_163_183_table2:
+#Name: J/AJ/163/183/table2
+#Title: *Parameters and classifications of program stars
+#Column	HD	(A7)	Stellar identifier	[ucd=meta.id;meta.main]
+#Column	Svalue	(F6.3)	[0.13/0.46] Median S-value, excludes sigma-clipped values	[ucd=spect.index]
+#Column	Teff	(I4)	[4937/6002] Effective temperature (1)	[ucd=phys.temperature.effective]
+#Column	logg	(F5.2)	[3.46/4.61] log surface gravity (1)	[ucd=phys.gravity]
+#Column	vsini	(F6.3)	[0.1/9.6] Projected rotation velocity (1)	[ucd=phys.veloc.rotat]
+#Column	Fe/H	(F7.4)	[-0.73/0.35] log Metallicity (1)	[ucd=phys.abund.Fe]
+#Column	Mass	(F6.3)	[0.69/6.37] Mass (1)	[ucd=phys.mass]
+#Column	Age	(F4.1)	[1.3/14.7] Age (1)	[ucd=time.age]
+#Column	SpType	(a8)	SIMBAD spectral type	[ucd=src.spType]
+#Column	Base	(I2)	[24/54] Baseline (2)	[ucd=meta.number]
+#Column	Cadence	(F5.2)	[1.77/86.6] Average number of observations /year	[ucd=meta.number]
+#Column	ClassB95	(a18)	Baliunas+ 1995ApJ...438..269B classification (3)	[ucd=meta.code.class]
+#Column	ClassTP	(A5)	This paper's classification (4)	[ucd=meta.code.class]
+#Column	Nobs	(I4)	Number of S-value for this star (table1)	[ucd=meta.number]
+#Column	S-value	(a7)	Interactive Plot	[ucd=meta.ref.url]
+#Column	Simbad	(a6)	Simbad column added by the CDS	[ucd=meta.ref.url]
+#Column	_RA	(F9.5)	Position from SIMBAD (right ascension part)	[ucd=pos.eq.ra;meta.main]
+#Column	_DE	(F9.5)	Position from SIMBAD (declination part)	[ucd=pos.eq.dec;meta.main]
+HD;Svalue;Teff;logg;vsini;Fe/H;Mass;Age;SpType;Base;Cadence;ClassB95;ClassTP;Nobs;S-value;Simbad;_RA;_DE
+ ; ;K;[cm/s2];km/s;[Sun];Msun;Gyr; ;yr; ; ; ; ; ; ;deg;deg
+-------;------;----;-----;------;-------;------;----;--------;--;-----;------------------;-----;----;-------;------;---------;---------
+1388   ; 0.154;5924; 4.32; 2.300; 0.0300; 1.050; 4.3;G0V     ;27;10.34;                  ;flat ; 279;S-value;Simbad;004.49529;-13.45564
+1461   ; 0.158;5739; 4.34; 1.800; 0.1600; 0.970; 4.1;G3V     ;27;29.44;                  ;var  ; 806;S-value;Simbad;004.67445;-08.05300
+3795   ; 0.155;5379; 4.11; 1.900;-0.5400; 1.670;11.0;K0V     ;51;18.11;var               ;flat ; 922;S-value;Simbad;010.13664;-23.80492
+4307   ; 0.145;5795; 4.05; 2.500;-0.1800; 1.120; 7.7;G0V     ;32; 8.33;                  ;flat ; 266;S-value;Simbad;011.36953;-12.88081
+4628   ; 0.223;4937; 4.54; 0.700;-0.2500; 0.690;11.4;K2.5V   ;53;35.43;excl-8.4          ;10.0?;1882;S-value;Simbad;012.09573;+05.28061
+7924   ; 0.210;5136; 4.55; 0.200;-0.1600; 0.770; 8.7;K0.5V   ;40;19.49;                  ;7.2  ; 779;S-value;Simbad;020.49631;+76.71029
+9562   ; 0.137;5837; 4.02; 4.200; 0.2200; 1.300; 5.0;G1V     ;52;59.92;long              ;flat ;3145;S-value;Simbad;023.42848;-07.02534
+10145  ; 0.150;5650; 4.43; 1.300;-0.0400; 1.060; 7.3;G5V     ;40; 2.93;                  ;flat ; 117;S-value;Simbad;025.40721;+66.90994
+10476  ; 0.186;5190; 4.51; 0.100;-0.0300; 0.780; 8.1;K1V     ;52;44.86;excl-9.6          ;10.3 ;2352;S-value;Simbad;025.62401;+20.26851
+10697  ; 0.149;5600; 3.96; 1.500; 0.1300; 1.070; 7.2;G3Va    ;41; 4.64;                  ;flat ; 190;S-value;Simbad;026.23261;+20.08315
+10700  ; 0.169;5333; 4.60; 0.100;-0.5300; 0.990;12.4;G8V     ;52;48.24;flat?             ;flat ;2526;S-value;Simbad;026.01701;-15.93748
+10780  ; 0.273;5344; 4.54; 0.800; 0.0400; 0.890; 4.4;K0V     ;37;24.38;<7                ;var  ; 898;S-value;Simbad;026.93681;+63.85250
+13043  ; 0.149;5859; 4.19; 2.000; 0.0900; 1.070; 5.0;G2V     ;26;12.39;                  ;flat ; 321;S-value;Simbad;031.89280;-00.61742
+20165  ; 0.205;5098; 4.51; 1.600; 0.0100; 0.730; 7.5;K1V     ;41; 4.21;                  ;7.8  ; 173;S-value;Simbad;048.69678;+08.98079
+22072  ; 0.131;4941; 3.46; 0.100;-0.2500; 1.140;10.7;K0.5IV  ;52;18.96;var               ;flat ; 991;S-value;Simbad;053.53491;+17.83283
+23249  ; 0.136;5037; 3.75; 0.100; 0.1600; 1.110; 6.7;K0+IV   ;52;25.58;flat?             ;flat ;1337;S-value;Simbad;055.81209;-09.76339
+26965  ; 0.196;5092; 4.51; 0.500;-0.3000; 0.800;12.8;K0V     ;52;30.82;excl-10.1         ;9.9  ;1611;S-value;Simbad;063.81800;-07.65287
+34411  ; 0.146;5873; 4.26; 0.100; 0.1000; 1.080; 4.8;G1.5IV-V;41; 6.01;                  ;flat ; 247;S-value;Simbad;079.78531;+40.09905
+37124  ; 0.181;5604; 4.60; 0.300;-0.4500; 1.380;11.6;G4IV-V  ;41; 2.49;                  ;var  ; 102;S-value;Simbad;084.26036;+20.73079
+37394  ; 0.451;5249; 4.50; 3.000; 0.1400; 0.780; 4.1;K1V     ;37;16.83;poor-4            ;var  ; 627;S-value;Simbad;085.33473;+53.48106
+45067  ; 0.141;5940; 3.92; 5.300;-0.0200; 1.100; 5.0;F9V     ;53;60.63;flat              ;flat ;3216;S-value;Simbad;096.31894;-00.94588
+50692  ; 0.156;5913; 4.39; 0.100;-0.1400; 1.030; 4.7;G0V     ;41; 7.96;                  ;long ; 325;S-value;Simbad;103.82778;+25.37570
+52711  ; 0.158;5886; 4.39; 0.100;-0.0900; 1.070; 5.1;G0V     ;41; 9.80;                  ;11.0 ; 400;S-value;Simbad;105.87691;+29.33708
+65583  ; 0.167;5238; 4.61; 0.100;-0.7300; 0.930;13.3;K0V     ;41; 4.38;                  ;flat ; 179;S-value;Simbad;120.13387;+29.21235
+72905  ; 0.360;5866; 4.50; 9.600; 0.0200; 1.040; 1.3;G1.5Vb  ;41;20.59;var               ;var  ; 835;S-value;Simbad;129.79877;+65.02091
+75732  ; 0.176;5250; 4.36; 1.700; 0.3500; 0.710; 7.9;G8V     ;36;19.33;                  ;10.9 ; 698;S-value;Simbad;133.14921;+28.33082
+86728  ; 0.147;5742; 4.31; 2.400; 0.2000; 1.040; 4.9;G3Va    ;41; 6.58;                  ;flat ; 271;S-value;Simbad;150.25274;+31.92367
+100180 ; 0.163;6002; 4.38; 1.700; 0.0500; 1.020; 2.0;F9.5V   ;51;26.38;fair-3.6+12.9     ;var  ;1354;S-value;Simbad;172.93727;+14.36450
+101501 ; 0.297;5502; 4.52; 2.200;-0.0400; 0.900; 3.5;G8V     ;49;45.67;var               ;4.2? ;2239;S-value;Simbad;175.26257;+34.20163
+115617 ; 0.164;5562; 4.44; 0.800;-0.0400; 0.930; 7.1;G6.5V   ;41;44.98;var               ;flat ;1850;S-value;Simbad;199.60131;-18.31119
+126053 ; 0.166;5714; 4.54; 0.100;-0.3500; 1.050; 6.5;G1.5V   ;54;23.47;22?               ;flat ;1263;S-value;Simbad;215.81369;+01.24157
+132142 ; 0.169;5145; 4.55; 0.400;-0.4100; 0.850;12.5;K1V     ;42; 2.75;                  ;flat ; 115;S-value;Simbad;223.79602;+53.68035
+141004 ; 0.156;5901; 4.22; 2.000; 0.0500; 1.150; 4.8;G0-V    ;53;39.35;long              ;long ;2103;S-value;Simbad;236.61089;+07.35307
+142267 ; 0.174;5829; 4.53; 0.100;-0.4100; 1.150; 7.5;G1V     ;35; 3.69;                  ;flat ; 129;S-value;Simbad;238.30040;+13.19663
+143761 ; 0.149;5833; 4.29; 0.100;-0.2100; 1.190; 8.4;G0+Va   ;54;86.60;long              ;flat ;4676;S-value;Simbad;240.26109;+33.30351
+145958A; 0.177;5414; 4.48; 1.600;-0.0500; 1.510;13.8;G9V     ;25; 3.39;                  ;7.5  ;  84;S-value;Simbad;243.32687;+13.52690
+145958B; 0.180;5343; 4.46; 1.700;-0.0500; 1.550;14.7;G9V     ;25; 3.07;                  ;var  ;  76;S-value;Simbad;243.32675;+13.52805
+146233 ; 0.170;5785; 4.41; 1.500; 0.0400; 0.970; 3.3;G2Va    ;39;25.27;                  ;var  ; 976;S-value;Simbad;243.90529;-08.36944
+152391 ; 0.386;5425; 4.51; 3.800; 0.0100; 0.870; 4.6;G8.5Vk  ;53;72.53;excl-10.9         ;9.1  ;3880;S-value;Simbad;253.24501;-00.02642
+157214 ; 0.155;5817; 4.61; 0.100;-0.3500; 1.790; 8.0;G0V     ;41; 6.67;                  ;flat ; 276;S-value;Simbad;260.16486;+32.46774
+159222 ; 0.174;5870; 4.41; 1.000; 0.1700; 1.010; 1.6;G1V     ;41; 7.17;                  ;var  ; 297;S-value;Simbad;263.00413;+34.27115
+166620 ; 0.185;4970; 4.51; 0.100;-0.1600; 0.760;12.4;K2V     ;54;32.95;excl-15.8         ;17.0?;1766;S-value;Simbad;272.40590;+38.45778
+173701 ; 0.193;5337; 4.36; 2.200; 0.2900; 0.720; 5.9;G8V     ;36; 6.33;                  ;var  ; 230;S-value;Simbad;281.14633;+43.83327
+176377 ; 0.179;5877; 4.52; 0.900;-0.2100; 1.020; 2.3;G1V     ;41;10.29;                  ;var  ; 424;S-value;Simbad;284.71251;+30.18064
+178911B; 0.179;5564; 4.40; 2.200; 0.2100; 5.240; 4.3;G5D     ;24; 1.77;                  ;var  ;  43;S-value;Simbad;287.26291;+34.59985
+179957 ; 0.149;5741; 4.42; 0.100; 0.0000; 2.270; 7.9;G3V     ;41; 7.64;                  ;flat ; 314;S-value;Simbad;288.01950;+49.85389
+182572 ; 0.148;5587; 4.15; 1.300; 0.3300; 0.980; 6.6;G7IV    ;52;41.26;flat              ;var  ;2161;S-value;Simbad;291.24250;+11.94441
+185144 ; 0.214;5242; 4.56; 0.500;-0.2100; 0.810; 8.8;K0V     ;42;49.21;                  ;6.2  ;2055;S-value;Simbad;293.08996;+69.66118
+186408 ; 0.150;5778; 4.28; 2.300; 0.0900; 1.030; 5.9;G1.5Vb  ;37;10.37;                  ;long ; 388;S-value;Simbad;295.45397;+50.52506
+186427 ; 0.152;5747; 4.37; 1.600; 0.0600; 1.030; 5.6;G3V     ;38;11.40;                  ;long ; 429;S-value;Simbad;295.46655;+50.51752
+188512 ; 0.136;5081; 3.55; 0.100;-0.1000; 1.300; 4.4;G8IV    ;51;25.90;poor              ;var  ;1319;S-value;Simbad;298.82830;+06.40676
+190360 ; 0.146;5549; 4.29; 2.100; 0.1800; 0.920; 8.2;G7IV-V  ;53;31.48;flat              ;flat ;1659;S-value;Simbad;300.90585;+29.89680
+190406 ; 0.192;5940; 4.40; 2.300; 0.0700; 1.020; 1.8;G0V     ;53;48.26;fair-2.6+good-16.9;17.2?;2570;S-value;Simbad;301.02592;+17.07019
+197076 ; 0.179;5810; 4.42; 0.100;-0.0900; 0.920; 3.4;G5V     ;42; 8.40;                  ;var  ; 349;S-value;Simbad;310.18809;+19.93554
+199960 ; 0.145;5885; 4.22; 2.600; 0.2700; 1.120; 4.0;G1V     ;34; 6.00;                  ;var  ; 204;S-value;Simbad;315.14100;-04.73026
+210277 ; 0.153;5484; 4.32; 0.100; 0.1600; 0.930; 9.6;G8V     ;38; 6.71;                  ;flat ; 255;S-value;Simbad;332.37444;-07.54866
+215704 ; 0.248;5374; 4.48; 1.500; 0.1500; 0.840; 3.8;K0      ;37; 3.39;                  ;var  ; 126;S-value;Simbad;341.58490;+50.20997
+217014 ; 0.149;5758; 4.32; 2.000; 0.1900; 1.030; 4.7;G2IV    ;53;31.97;var               ;flat ;1690;S-value;Simbad;344.36659;+20.76883
+219834B; 0.201;5135; 4.48; 1.200; 0.2100; 6.370; 5.2;K2D     ;52;25.86;excl-10.0         ;9.4  ;1340;S-value;Simbad;349.77734;-13.45525
+
