@@ -440,3 +440,29 @@ Os PDFs de Baum+2022, Luhn+2022 e Isaacson+2024 (CLS V) foram guardados em `P4/b
 **I-35 · IMPORTANTE · grau A · HD 101501 em D49 e no v6.** D49 e v6 §3.4 descrevem "dez anos de estado plano seguidos de retorno à atividade cíclica defasado em 180°". Baum §4.1 e a legenda da Figura 4 dizem: "HD 101501 experienced 10 yr of lower activity, a much lower amplitude cycle than the rest of its cycle"; "This star, while possibly still exhibiting a low-amplitude cycle, is a good example of capturing both the drop from—and return to—cyclic behavior". Baum não chama o trecho de plano e admite que o ciclo de baixa amplitude pode continuar. Isso enfraquece o papel de HD 101501 como contraexemplo de *aged out* (D49): o objeto sai de um estado de baixa amplitude, que o próprio Baum ainda trata como possivelmente cíclico. Complementa I-08 (cobertura de um só instrumento). Nenhuma recomendação nova: decidir se a redação de D49 e do v6 deve seguir a de Baum cabe ao pesquisador.
 
 **I-25 atualizado:** Baum, Luhn e CLS V passam de ausentes a presentes em `bib/`. Continuam ausentes: Järvinen & Strassmeier 2025, CLS VI, Noyes+1984, Oláh+2016.
+
+### 6.1 Segundo lote de PDFs (2026-11-14)
+
+Foram baixados e guardados em `P4/bib/`: `Isaacson_2025_AJ_170_181.pdf` (CLS VI), `Noyes1984.pdf`, `Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf` e `Olah_2016_AA_590_A133_arXiv1604.06701.pdf`. Os DOIs foram conferidos no Crossref (título, volume e página batem): CLS VI `10.3847/1538-3881/adf2a8`; Järvinen & Strassmeier `10.1051/0004-6361/202554111`; Oláh+2016 `10.1051/0004-6361/201628479`; Noyes+1984 `10.1086/161945`.
+
+Limites do que foi obtido:
+- CLS VI veio do site da IOP (acesso aberto, 12 páginas).
+- Järvinen & Strassmeier e Oláh vieram do arXiv. **São manuscritos, não a versão publicada**; o site da A&A respondeu 403. O manuscrito de Järvinen traz a data "April 29, 2025" e "accepted 10 April 2025".
+- Noyes é o escaneamento do ADS (15 páginas) com camada de texto de OCR. O texto extraído tem glifos trocados (`B—F`, `Kr4`, `5phot`). Os coeficientes de D52 foram vistos no texto, não reverificados na imagem.
+
+Conferido por busca no texto extraído:
+
+| Documento | Passagem encontrada |
+|---|---|
+| D48 | Järvinen: "78 111 RAVE dwarf stars"; "13 RAVE stars out of 13 326 (0.1%)"; log R_IRT = −4.13, "≈20% below the solar-minimum value"; "such stars are very rare"; "at most ≈0.1%" |
+| D49 | CLS VI §3.3: "noncycling stars that may have aged out of their cycles"; §4: "Whether or not stars reach a noncycling level that is inescapable or if they can begin cycling again will require addition observations" |
+| D50 | CLS VI §3.3.1: "requires a stochastic process that is poorly understood"; §3.3: "suggestive of a rapid (on stellar timescales) transition"; "can occur quickly, on order of years"; "stochastic mechanism requires a bimodal distribution of S-STDs" |
+| D51 | CLS VI §3.2: τ Ceti "is known to have a pole-on inclination (M. Korolik et al. 2023) that precludes us from identifying its chromospheric activity cycle or rotational modulation via S-STD" |
+| D52, D53 | Noyes: `1.340`; `log R_phot = −4.898 + 1.918(B−V)² − 2.893(B−V)³ in the range 0.44 < (B−V) < 0.82`; "We have also used the same expression for B−V > 0.82"; Δlog C com 0.135, −0.814, 6.03 e x = 0.63 − (B−V); forma de Duncan `−4.02 − 1.40(B−V)`; "uncertain by as much as 20%"; "The worst discrepancy … occurs for B−V > 1.2" |
+| D54 | Noyes, Apêndice *b*: "does not have a large effect for active chromosphere stars, but it can be a very significant correction for the chromospherically less active stars … important to determine the photospheric correction more rigorously than has been done here". CLS VI §5: "neither average activity metrics of S-value, log(R′_HK)-N1984, nor the revised log(R′_HK) metric … More so than these two types of log(R′_HK), the S-value itself best correlates with S-value variability"; §3.1: "the S-value plus the stellar mass is the best metric" |
+
+Nada disso contradiz os documentos. Duas observações novas:
+- **CLS VI não cita HD 101501.** D49 só atribui à CLS VI a declaração da lacuna ("can begin cycling again"), o que confere. A identificação de HD 101501 como discriminante é de Baum §4.1, com a ressalva de I-35.
+- **Järvinen & Strassmeier:** a lista de alvos do manuscrito inclui HD 101501 (G8 V) numa tabela. Não li o contexto; fica registrado para quem for usar o artigo.
+
+**I-25 atualizado de novo:** nenhum dos sete artigos da segunda rodada está mais ausente de `bib/`. As versões de Järvinen e Oláh são do arXiv; as publicadas continuam sem acesso. `bib/LEIAME.txt` ("Pasta vazia de propósito") deixou de descrever a pasta e não foi editado.
