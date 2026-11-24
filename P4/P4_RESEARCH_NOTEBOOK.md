@@ -780,6 +780,14 @@ Hashes de `APROVACAO_2026-11-24.md` conferidos (5/5) antes de começar. Constru�
 **Data:** 2026-11-24 · **Autor:** pesquisador ("Incluir as linhas 1day/sigma em HD 190360") · **Base:** D105, `pipeline_v2/ACHADOS.md` #3 · **Status:** ativa · **Grau:** decisão humana
 As 29 linhas com flag `1day/sigma` entram nas séries anuais, o que mantém HD 190360 elegível (segmento MW de 28 anos). A execução oficial de D105 já usava essa regra (`rule="catalog"`, `Flag != "sigma"`) para todas as estrelas; portanto **nada foi reexecutado** e os resultados não mudam. Efeito sobre outra estrela: só HD 217014 (30 anos com as linhas, 29 sem). A decisão foi dada para HD 190360; a extensão às demais estrelas segue o catálogo congelado e fica registrada como tal. A contagem de `N_obs_limpo` (61 662 linhas) continua a remover `sigma` e `1day/sigma`.
 
+### D107 — Cauda do p: P(τ\* ≥ τ) é o p do texto (esclarece D22)
+**Data:** 2026-11-24 · **Autor:** pesquisador ("Aceito R-A") · **Base:** D22, D105, `RECOMENDACOES_POS_PIPELINE.md` R-A, `pipeline_v2/ACHADOS.md` #4 · **Status:** ativa · **Grau:** decisão humana
+O p do texto é `p_upper = P(τ* ≥ τ)` (τ crescente é a direção de CSD), com a correção +1 e 1 000 surrogates. D22 escreve P(τ* ≤ τ), que é a convenção de sinal oposta; **D22 não é revogada** (D## é imutável): esta entrada esclarece a leitura a usar. O `p_D22` literal fica no material suplementar. Ambos passaram no autoteste (3.2 % e 4.2 %). Nada foi recalculado: as duas colunas já estão em `pipeline_v2/results/star_results.csv`.
+
+### D108 — Testes entre grupos: exploratórios, com par primário fixado e Holm
+**Data:** 2026-11-24 · **Autor:** pesquisador ("Aceito R-B") · **Base:** D105, `RECOMENDACOES_POS_PIPELINE.md` R-B, `pipeline_v2/ACHADOS.md` #7 · **Status:** ativa · **Grau:** decisão humana
+Os testes entre grupos (`REPORT.md` §6) são **exploratórios** (n = 4 a 8 por grupo). Se citados no manuscrito: (i) **par primário** fixado antes de qualquer leitura: Var ∪ Long contra Flat, AR(1) com σ = 1, unilateral (greater); (ii) **Holm** nos demais pares; (iii) declarar que o AR(1) de uma série inteira depois de σ = 1 sai negativo por construção (mediana ≈ −0.3) e não é comparável ao AR(1) em janela; (iv) declarar a variância de ciclo como confundidor (Q4, D30). A alternativa de omitir os testes do manuscrito **não foi escolhida**. O par primário (Var ∪ Long) exige um agrupamento que o `REPORT.md` ainda não calcula (ele testa Var e Long separados); o cálculo e a correção de Holm ficam para a etapa do manuscrito, a partir de `results/star_metrics.csv`, sem nova execução do pipeline.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana

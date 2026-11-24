@@ -17,8 +17,8 @@
 
 ## 3 · Pendências para o pesquisador (`pipeline_v2/ACHADOS.md`)
 1. ~~Linhas `1day/sigma` de Baum~~ — resolvido em D106: entram (HD 190360 segue elegível); a execução oficial já as incluía.
-2. Qual cauda do p aparece no texto: P(τ* ≤ τ) literal de D22 ou P(τ* ≥ τ) (#4).
-3. Correspondência dos grupos nos testes entre grupos e correção para múltiplas comparações (#7).
+2. ~~Cauda do p~~ — resolvido em D107: P(τ* ≥ τ).
+3. ~~Testes entre grupos~~ — resolvido em D108: exploratórios, par primário Var ∪ Long contra Flat (AR(1), σ = 1), Holm nos demais; cálculo pendente para a etapa do manuscrito.
 4. ~~`inspecao/run_all.sh`~~ — rodado uma vez após o fecho (ACHADOS #12); hashes congelados intactos.
 5. Figuras e manuscrito: não iniciados (fora do escopo desta etapa).
 - Verificação final e recomendações: `RECOMENDACOES_POS_PIPELINE.md`.

@@ -18,9 +18,9 @@ Recomendações **não são decisões**: cada ponto abaixo é do pesquisador (re
 - A variância normalizada de CYCLE_Excellent supera a de Flat (p = 0.008 sem remoção, p = 0.002 com σ = 1), o que é o que a amplitude do ciclo produziria sem qualquer CSD (confundidor de Q4/D30).
 
 ## 2. Recomendações
-**R-A — Cauda do p (ACHADOS #4).** Adotar `p_upper = P(τ* ≥ τ)` como p do texto (τ crescente é a direção de CSD) e registrar uma D## que diga que D22, ao escrever P(τ* ≤ τ), usa a convenção de sinal oposta; manter `p_D22` no material suplementar. Os dois passaram no autoteste. Custo: nenhum, tudo já está calculado.
+**R-A — Cauda do p (ACHADOS #4). ACEITA: D107.** Adotar `p_upper = P(τ* ≥ τ)` como p do texto (τ crescente é a direção de CSD) e registrar uma D## que diga que D22, ao escrever P(τ* ≤ τ), usa a convenção de sinal oposta; manter `p_D22` no material suplementar. Os dois passaram no autoteste. Custo: nenhum, tudo já está calculado.
 
-**R-B — Testes entre grupos (ACHADOS #7).** Tratar `REPORT.md` §6 como exploratório, com n = 4 a 8 por grupo. Se o texto os citar: (i) fixar **antes** de olhar um par primário (a hipótese do notebook antigo, "irregular > Flat" em φ₁, traduz-se como Var ∪ Long contra Flat, AR(1) com σ = 1); (ii) aplicar Holm aos demais pares; (iii) declarar que o AR(1) de uma série inteira depois de σ = 1 sai negativo por construção (mediana ≈ −0.3) e não é comparável ao AR(1) em janela; (iv) nomear a variância de ciclo como confundidor (Q4). Alternativa mais enxuta: omitir os testes entre grupos do manuscrito e manter só H1 e H2, que são o que D90 declara.
+**R-B — Testes entre grupos (ACHADOS #7). ACEITA: D108.** Tratar `REPORT.md` §6 como exploratório, com n = 4 a 8 por grupo. Se o texto os citar: (i) fixar **antes** de olhar um par primário (a hipótese do notebook antigo, "irregular > Flat" em φ₁, traduz-se como Var ∪ Long contra Flat, AR(1) com σ = 1); (ii) aplicar Holm aos demais pares; (iii) declarar que o AR(1) de uma série inteira depois de σ = 1 sai negativo por construção (mediana ≈ −0.3) e não é comparável ao AR(1) em janela; (iv) nomear a variância de ciclo como confundidor (Q4). Alternativa mais enxuta: omitir os testes entre grupos do manuscrito e manter só H1 e H2, que são o que D90 declara.
 
 **R-C — Poder (D100).** Manter a frase de Methods que já existe (poder baixo; "não suportado" ≠ refutação) e acrescentar o número observado: autoteste 3.2 % de rejeição e 2 de 192 p < 0.05. Não reabrir o piso de 24 anos nem a grade ARMA.
 
@@ -29,5 +29,5 @@ Recomendações **não são decisões**: cada ponto abaixo é do pesquisador (re
 **R-E — 1day/sigma.** Resolvido em D106. Se quiser a regra só para HD 190360, é preciso reexecutar (HD 217014 mudaria de 30 para 29 anos, sem efeito de elegibilidade).
 
 ## 3. Ordem sugerida para a próxima conversa
-1. Registrar as respostas a R-A e R-B como D107 e D108 (decisões suas).
+1. ~~Registrar R-A e R-B~~ — feito (D107, D108).
 2. Só depois, figuras e manuscrito, em conversa nova, com `REPORT.md` e `P4_SOURCE_VALUES.md` como únicas fontes de número.
