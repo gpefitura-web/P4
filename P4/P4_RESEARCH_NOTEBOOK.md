@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D95)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D97)
 
 ---
 
@@ -703,6 +703,18 @@ Respostas do pesquisador: **(1) Q1 — "Opção (v)"**: o subconjunto de Baum (5
 
 ---
 
+### D96 — Anos faltantes: teste sintético, justificativa física e referências entregues; regra pendente
+**Data:** 2026-11-24 · **Autor:** pesquisador (pedido), execução por Claude · **Base:** `SUBSIDIOS_INTERPOLACAO.md`, `3.17-01` a `3.17-03`, `3.11-77` a `3.11-84`, `bib/MANIFEST.json` · **Status:** ativa · **Grau:** A (teste e citações) / C (raciocínio físico marcado) · **Complementa:** D95, D93
+Teste sintético (AR(1) estacionário sobre as lacunas reais de 10 estrelas, sem valores de S, D04/D11 intactas): ignorar as lacunas subestima o AR(1) e inventa tendência negativa; interpolar **todas** cria tendência positiva espúria (τ nulo +0.18; tendência real inflada +0.39 contra +0.28 do *oracle*); interpolar só lacunas de 1–2 anos fica mais perto do *oracle* na mediana, com compensação entre dois viés; **nas estrelas de lacuna longa (HD 101501, 166620, 4628) nenhum método recupera o *oracle***. Fontes lidas e baixadas (manuscritos/OA, validadas): Liu et al. (dados faltantes; interpolação linear suaviza e enviesa), Rehfeld+2011 (interpolação superestima a memória; núcleo gaussiano), estudo de Dansgaard–Oeschger (ESD 2025; série irregular sem interpolar), Braun+2022 (baixado, não lido). No campo estelar, Oláh+2016 e Egeland+2017 usam interpolação para análise espectral e reescalonamento, **não** para CSD; nenhuma outra fonte estelar lida interpola. A justificativa física depende do tempo de memória do índice, que não é conhecido (Q10). **A regra para anos faltantes continua pendente.**
+
+---
+
+### D97 — Subsídios entregues para Q2–Q7, Q9, Q10, Q11 e as sub-perguntas de Q1; todas seguem abertas
+**Data:** 2026-11-24 · **Autor:** pesquisador (pedido: "subsídios para as demais perguntas") · **Base:** `SUBSIDIOS_Q2_Q11.md` · **Status:** ativa · **Grau:** A (subsídios) · **Complementa:** D78, D95
+Entregue `SUBSIDIOS_Q2_Q11.md` (fatos com fonte, alternativas e dependências entre as perguntas). Nenhuma Q# foi decidida; D78 (abertas) permanece.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -831,6 +843,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Papéis das séries decididos** (A e C): anual para CSD temporal; bruta para σ por estado e períodos; DFA com Q9. Q1 destravada | D92 |
 | 2026-11-24 | **Validação de D92 e subsídios para Q1:** D92 consistente; regra para anos faltantes e períodos próprios/publicados a confirmar; Q1 com a nova opção (v) | D93, D94 |
 | 2026-11-24 | **Q1: opção (v); períodos publicados; anos faltantes explicados, regra pendente** | D95 |
+| 2026-11-24 | **Anos faltantes: teste sintético, justificativa física e referências; subsídios para Q2–Q11** | D96, D97 |
 
 ---
 
@@ -859,6 +872,7 @@ Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/chec
 | Hopf só é transição crítica se subcrítica; aproximação analisada pelo lado estável; variância cresce como O(1/y) e covariância tende a zero; sinal pode não existir ou inverter | Kuehn 2011 Physica D 240, 1020; Kuehn 2013 J. Nonlinear Sci. 23, 457; Boettiger+2013 Theor. Ecol. 6, 255 | 8, 32, 5 | 3.11-63 a 3.11-70 | A |
 | Sem reddening espectral antes de transições oscilatórias; todos os locais têm CSD; quimióstato com dois Hopf, Smax sobe antes de ambos; Hopf supercrítica reversível | Bury et al. 2020 J. R. Soc. Interface 17, 20200482 | 1, 2, 5, 8 | 3.11-71 a 3.11-74 | A |
 | Lag-1 ACF vulnerável a ruído, agregação necessária; três observações por noite no HK Project | Livina & Lenton 2007; README do HK Project (Radick & Pevtsov) | 3, 1 | 3.11-75, 3.11-76 | A |
+| Interpolação linear suaviza e enviesa; um valor faltante tira dois pontos do AC1 e um da variância; memória superestimada com interpolação; série irregular analisada sem interpolar; interpolação usada em Oláh e Egeland | Liu et al. (arXiv 2505.19034); Rehfeld+2011 NPG 18, 389; ESD 16, 2035 (2025); Oláh+2016; Egeland+2017 | 4, 7–8, 1–2, 4, 2 e 5, 5 | 3.11-77 a 3.11-84 | A |
 
 ---
 

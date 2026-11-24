@@ -94,3 +94,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 13 (2026-11-24):** Q1 → opção (v) (D95); períodos = publicados; interpolação de anos faltantes explicada, regra pendente; sub-perguntas de Q1 (binaridade, D04/D11) pendentes.
 
+**Bloco 14 (2026-11-24):** anos faltantes → D96 (teste, física, referências); demais perguntas → D97 (`SUBSIDIOS_Q2_Q11.md`). Escolhas pendentes.
+

@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,116,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,122,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
-1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,20,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,54,regex over all .md and the notebook,INFO
+1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,24,README_HANDOFF.md,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,56,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D95 defined exactly once in the notebook,95,95,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D97 defined exactly once in the notebook,97,97,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D95 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D97 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 96,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 98,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -36,7 +36,7 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 2d-13,units whose 'Findings' cell differs between the audit-log copies,none,A3,audit/A*.md log tables,FAIL
 2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A5b_peng_livina.md,audit/A7_theory.md,audit/A7b_held_kleinen.md,audit/A7c_limit_cycle_sources.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
 2d-15,units marked 'open' in the protocol's own audit log (§10),,8,P4_AUDIT_PROTOCOL.md §10,INFO
-1-10,references 'A# §n' with no matching heading in the audit file,,2,regex (heading match is approximate),INFO
+1-10,references 'A# §n' with no matching heading in the audit file,,3,regex (heading match is approximate),INFO
 2b-01,Q numbers referenced anywhere,1-11,1-11,regex,INFO
 2a-20,decision headers in the proposed notebook (D01-D54 + D45b),55,55,DECISOES_D41_D54.md instruction,PASS
 2a-21,Q rows in §5 of the proposed notebook,11,11,DECISOES_D41_D54.md §C,PASS
@@ -471,6 +471,14 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.11-74,Bury+2020: supercritical Hopf = smooth reversible transition to small oscillations; subcritical = critical irreversible transition,yes,yes,Bury_2020_JRSocInterface_17_20200482.pdf,PASS
 3.11-75,"Livina & Lenton 2007: lag-1 ACF is tied to the shortest time scale, vulnerable to noise, so aggregation is required",yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
 3.11-76,HK Project README: after about 1980 typically three observations per star each night in rapid succession,yes,yes,README.pdf,PASS
+3.11-77,Liu+ (gaps): one missing value removes two consecutive points from the AC1 calculation but one from the variance,yes,yes,DataGaps_2025_arXiv2505.19034.pdf,PASS
+3.11-78,"Liu+ (gaps): linear interpolation may impose artificially smooth dynamics, obscuring true variability",yes,yes,DataGaps_2025_arXiv2505.19034.pdf,PASS
+3.11-79,Rehfeld+2011: persistence time (memory) strongly overestimated with the standard interpolation-based approach,yes,yes,Rehfeld_2011_NPG_18_389.pdf,PASS
+3.11-80,"Rehfeld+2011: controversial if, when and how missing observations can be appropriately approximated",yes,yes,Rehfeld_2011_NPG_18_389.pdf,PASS
+3.11-81,Dansgaard-Oeschger EWS paper: raw irregular record analysed to circumvent interpolation effects,yes,yes,Inconclusive_2025_ESD_16_2035.pdf,PASS
+3.11-82,Olah+2016: Mount Wilson/NSO data binned (and if necessary interpolated) to 30 days,yes,yes,Olah_2016_AA_590_A133_arXiv1604.06701.pdf,PASS
+3.11-83,Olah+2016: Fig. 2 shows the datasets and the spline interpolation used,yes,yes,Olah_2016_AA_590_A133_arXiv1604.06701.pdf,PASS
+3.11-84,Egeland+2017: linear interpolation of the cycle across the lost-data region used to rescale it,yes,yes,Egeland_2017_ApJ_835_25.pdf,PASS
 3.11-50,Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
 3.11-51,Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz),yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
 3.11-52,Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
@@ -522,3 +530,9 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.16-04,CYCLE+Excellent controls present in the Baum subset,6/13,6/13,paper_state_v6.md §3.1,INFO
 3.16-05,"stars (Flat, CYCLE+Excellent, HD 101501 with Table 1 rows) whose longest consecutive-year run is shorter than half of their seasons",,2/10,data/J_AJ_163_183_table1.tsv (sigma-flagged rows removed),INFO
 3.16-06,missing-year gaps in the annual series of the 10 stars: total | of 1-2 years | of 3 years or more,,39 | 32 | 7,data/J_AJ_163_183_table1.tsv; saidas/13_annual_runs.txt,INFO
+3.17-01,synthetic test run on the real gap masks of the 10 stars (no stellar values used),10,10,data/J_AJ_163_183_table1.tsv (year presence only),INFO
+3.17-02-c0.3,"median bias of the whole-series lag-1 estimate, c = 0.3: oracle | naive | pairs | lin_short | lin_all",,-0.037 | -0.063 | -0.047 | -0.001 | +0.053,saidas/15_gap_interpolation_test.txt,INFO
+3.17-02-c0.5,"median bias of the whole-series lag-1 estimate, c = 0.5: oracle | naive | pairs | lin_short | lin_all",,-0.047 | -0.079 | -0.054 | -0.020 | +0.013,saidas/15_gap_interpolation_test.txt,INFO
+3.17-02-c0.7,"median bias of the whole-series lag-1 estimate, c = 0.7: oracle | naive | pairs | lin_short | lin_all",,-0.065 | -0.098 | -0.079 | -0.053 | -0.021,saidas/15_gap_interpolation_test.txt,INFO
+3.17-03-null,median over stars of mean Kendall tau of the rolling lag-1 estimate (null): oracle | naive | pairs | lin_short | lin_all,,+0.02 | -0.14 | -0.03 | +0.00 | +0.18,saidas/15_gap_interpolation_test.txt,INFO
+3.17-03-trend,median over stars of mean Kendall tau of the rolling lag-1 estimate (trend): oracle | naive | pairs | lin_short | lin_all,,+0.28 | +0.17 | +0.22 | +0.27 | +0.39,saidas/15_gap_interpolation_test.txt,INFO

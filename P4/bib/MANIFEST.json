@@ -46,6 +46,15 @@
   "validacao": "título, autores e DOI na p. 1 (J. R. Soc. Interface 17: 20200482)",
   "versao": "published"
  },
+ "DataGaps_2025_arXiv2505.19034.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 3303823,
+  "doi": "10.1126/sciadv.aee1916",
+  "sha256": "64cba6c0a3b92ef4dea730a356d7be54b9a52c654aa7fd3d2356d51a8fa101ab",
+  "url": "https://arxiv.org/pdf/2505.19034",
+  "validacao": "padrão de título /Data gaps and outliers/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:2505.19034) da versão publicada em Sci. Adv."
+ },
  "Egeland_2017_arXiv1611.04540.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 1054740,
@@ -64,6 +73,15 @@
   "url": "upload do pesquisador",
   "validacao": "Detection of climate system bifurcations by degenerate fingerprinting (título e DOI na p. 1)",
   "versao": "published"
+ },
+ "Inconclusive_2025_ESD_16_2035.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 6836403,
+  "doi": "10.5194/esd-16-2035-2025",
+  "sha256": "90453e00cf0288b58b036155a0ba4027debd9ac2b9ed3bacd49eef0b9bc77fe5",
+  "url": "https://esd.copernicus.org/articles/16/2035/2025/esd-16-2035-2025.pdf",
+  "validacao": "padrão de título /Inconclusive early warning/ nas páginas 1-2",
+  "versao": "open access (OpenAlex)"
  },
  "Isaacson_2024_ApJS_274_35.pdf": {
   "baixado_em": "2026-11-14 (inventariado; enviado antes)",
@@ -174,6 +192,24 @@
   "url": "upload do pesquisador",
   "validacao": "Finite-size effects on long-range correlations: Implications for analyzing DNA sequences (título e volume 47, pp. 3730-3733 conferidos na p. 1 e no Crossref)",
   "versao": "published"
+ },
+ "Rehfeld_2011_NPG_18_389.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 5817686,
+  "doi": "10.5194/npg-18-389-2011",
+  "sha256": "f9fbd3ad238d3dce6bf420f485de01cb59e118504c45f06250eaf9cb9d573096",
+  "url": "https://npg.copernicus.org/articles/18/389/2011/npg-18-389-2011.pdf",
+  "validacao": "padrão de título /irregularly sampled time series/ nas páginas 1-2",
+  "versao": "open access (OpenAlex)"
+ },
+ "SamplingRateCorrected_2022_PRE_105_024206.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 7818081,
+  "doi": "10.1103/physreve.105.024206",
+  "sha256": "e31d53df20c0df399e250132a030932c18823eeff242b46346b75e40ff34b087",
+  "url": "https://arxiv.org/pdf/2112.04843",
+  "validacao": "padrão de título /Sampling rate/ nas páginas 1-2",
+  "versao": "open access (OpenAlex)"
  },
  "Shah_2018_ApJL_863_L26.pdf": {
   "baixado_em": "2026-11-14",

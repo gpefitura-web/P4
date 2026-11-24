@@ -7,7 +7,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PY="${PYTHON:-python3}"
 rm -f "$HERE/../checks.csv"
 for s in 01_inventory.py 02_build_notebook_proposal.py 03a_baliunas.py 03b_baum.py 03d_luhn.py 03f_isaacson_noyes.py \
-         03h_crossmatch_groups.py 04_dump_notebook.py 05_olah_periods.py 06_pdf_quotes.py 08_egeland_t4.py 09_catalog_repairs.py 10_dataverse_hd166620.py 11_dataverse_v2001.py 13_series_roles.py; do
+         03h_crossmatch_groups.py 04_dump_notebook.py 05_olah_periods.py 06_pdf_quotes.py 08_egeland_t4.py 09_catalog_repairs.py 10_dataverse_hd166620.py 11_dataverse_v2001.py 13_series_roles.py 15_gap_interpolation_test.py; do
   echo "== $s"
   "$PY" -I "$HERE/$s" > "$HERE/../saidas/log_${s%.py}.txt" 2>&1 || { echo "FAILED: $s"; exit 1; }
 done

@@ -67,3 +67,15 @@ Os 35 arquivos `.mgd` e o `README.pdf` do Dataverse `10.7910/DVN/H85QPF` foram c
 | bury2020 | falhou na tentativa 2 (HTTP 200) | https://pmc.ncbi.nlm.nih.gov/articles/PMC7536046/pdf/ |
 | MANUAL | subir pelo pesquisador | bury2020, DOI 10.1098/rsif.2020.0482 |
 | boettiger2013 | ok (tentativa 1) | https://arxiv.org/pdf/1305.6700 |
+
+## 2026-11-24 — fontes sobre lacunas, amostragem irregular e interpolação em indicadores de CSD
+| Item | Resultado | URL / arquivo |
+|---|---|---|
+| gaps2026 | falhou na tentativa 1 (HTTP 403) | https://www.science.org/doi/pdf/10.1126/sciadv.aee1916?download=true |
+| gaps2026 | falhou na tentativa 2 (HTTP 200) | https://pmc.ncbi.nlm.nih.gov/articles/PMC12985669/pdf/sciadv.aee1916.pdf |
+| MANUAL | subir pelo pesquisador | gaps2026, DOI 10.1126/sciadv.aee1916 |
+| rehfeld2011 | ok (tentativa 1) | https://npg.copernicus.org/articles/18/389/2011/npg-18-389-2011.pdf |
+| do2025 | ok (tentativa 1) | https://esd.copernicus.org/articles/16/2035/2025/esd-16-2035-2025.pdf |
+| srca2022 | falhou na tentativa 1 (HTTP 403) | http://link.aps.org/pdf/10.1103/PhysRevE.105.024206 |
+| srca2022 | ok (tentativa 2) | https://arxiv.org/pdf/2112.04843 |
+| gaps2026 (outra versão) | ok | https://arxiv.org/pdf/2505.19034 (manuscrito; Science e PMC falharam) |

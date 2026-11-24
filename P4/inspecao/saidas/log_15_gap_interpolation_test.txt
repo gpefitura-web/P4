@@ -1,0 +1,6 @@
+[INFO] 3.17-01: synthetic test run on the real gap masks of the 10 stars (no stellar values used) | expected=10 obtained=10
+[INFO] 3.17-02-c0.3: median bias of the whole-series lag-1 estimate, c = 0.3: oracle | naive | pairs | lin_short | lin_all | expected= obtained=-0.037 | -0.063 | -0.047 | -0.001 | +0.053
+[INFO] 3.17-02-c0.5: median bias of the whole-series lag-1 estimate, c = 0.5: oracle | naive | pairs | lin_short | lin_all | expected= obtained=-0.047 | -0.079 | -0.054 | -0.020 | +0.013
+[INFO] 3.17-02-c0.7: median bias of the whole-series lag-1 estimate, c = 0.7: oracle | naive | pairs | lin_short | lin_all | expected= obtained=-0.065 | -0.098 | -0.079 | -0.053 | -0.021
+[INFO] 3.17-03-null: median over stars of mean Kendall tau of the rolling lag-1 estimate (null): oracle | naive | pairs | lin_short | lin_all | expected= obtained=+0.02 | -0.14 | -0.03 | +0.00 | +0.18
+[INFO] 3.17-03-trend: median over stars of mean Kendall tau of the rolling lag-1 estimate (trend): oracle | naive | pairs | lin_short | lin_all | expected= obtained=+0.28 | +0.17 | +0.22 | +0.27 | +0.39

@@ -1,17 +1,17 @@
-[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=116
+[INFO] 1-01: files in the package (inspecao/ excluded) | expected= obtained=122
 [INFO] 1-02: package files with a byte-identical copy in the repository root | expected= obtained=24
 [PASS] 1-03: package files whose repository-root copy differs | expected=0 obtained=0
 [PASS] 1-04: VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md | expected=7 obtained=7
 [PASS] 1-05: PDFs in the repository root | expected=9 obtained=9
-[INFO] 1-06: PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6) | expected=0 obtained=20
-[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=54
+[INFO] 1-06: PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6) | expected=0 obtained=24
+[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=56
 [PASS] 1-08: files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent | expected=4 obtained=4
 [PASS] 1-09: bib/aa28479-16.pdf (Olah+2016) anywhere in the clone | expected=absent obtained=absent
-[PASS] 2a-01: decisions D01-D95 defined exactly once in the notebook | expected=95 obtained=95
+[PASS] 2a-01: decisions D01-D97 defined exactly once in the notebook | expected=97 obtained=97
 [PASS] 2a-02: decisions defined more than once or missing | expected=none obtained=none
-[INFO] 2a-03: decision headers outside D01-D95 numbering | expected= obtained=D45b
+[INFO] 2a-03: decision headers outside D01-D97 numbering | expected= obtained=D45b
 [PASS] 2a-04: decisions without a 'Status' field | expected=none obtained=none
-[INFO] 2a-05: status values in use | expected= obtained=ativa: 96
+[INFO] 2a-05: status values in use | expected= obtained=ativa: 98
 [INFO] 2a-06: decisions whose header line carries no 'Grau' field | expected= obtained=36
 [PASS] 2a-07: D## referenced anywhere but not defined | expected=none obtained=none
 [INFO] 2a-08: decisions never cited outside the document that defines them | expected= obtained=none
@@ -35,5 +35,5 @@
 [FAIL] 2d-13: units whose 'Findings' cell differs between the audit-log copies | expected=none obtained=A3
 [INFO] 2d-14: audit files that carry no audit-log table | expected= obtained=audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A5b_peng_livina.md,audit/A7_theory.md,audit/A7b_held_kleinen.md,audit/A7c_limit_cycle_sources.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md
 [INFO] 2d-15: units marked 'open' in the protocol's own audit log (§10) | expected= obtained=8
-[INFO] 1-10: references 'A# §n' with no matching heading in the audit file | expected= obtained=2
+[INFO] 1-10: references 'A# §n' with no matching heading in the audit file | expected= obtained=3
 [INFO] 2b-01: Q numbers referenced anywhere | expected=1-11 obtained=1-11

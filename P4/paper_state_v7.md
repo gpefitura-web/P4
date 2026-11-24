@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D95) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D97) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -66,7 +66,7 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 **Q1 respondida quanto à composição (D95): opção (v)**, Baum mais `HK_Project_v2001_NSO` ao lado; períodos = publicados (D15, D42).
 
-**Pendentes, todas do pesquisador:** a regra para anos faltantes (explicada em `SUBSIDIOS_Q1.md`, adendo; D95); as sub-perguntas de Q1 (regra de binaridade das cinco `Flat`, I-06; D04/D11, I-13; o que a amostra entrega à hipótese de D90); o enunciado da hipótese de D90 (indicador anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas de junção (D72), D46 (D73), receita de σ_S (D70) e layout (D77); Q2–Q7, Q9, Q10 e Q11. Nenhuma outra Q# está fechada.
+**Pendentes, todas do pesquisador:** a regra para anos faltantes (teste, justificativa e referências em `SUBSIDIOS_INTERPOLACAO.md`, D96); as sub-perguntas de Q1 (regra de binaridade das cinco `Flat`, I-06; D04/D11, I-13; o que a amostra entrega à hipótese de D90); o enunciado da hipótese de D90 (indicador anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas de junção (D72), D46 (D73), receita de σ_S (D70) e layout (D77); Q2–Q7, Q9, Q10 e Q11 (subsídios em `SUBSIDIOS_Q2_Q11.md`, D97). Nenhuma outra Q# está fechada.
 
 ## 6 · Estado dos arquivos
 
