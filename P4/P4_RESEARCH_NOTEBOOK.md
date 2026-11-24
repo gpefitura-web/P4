@@ -776,6 +776,10 @@ Aprovados os quatro pontos da lista final: (1) **Var e Long entram** como grupos
 **Data:** 2026-11-24 · **Autor:** Claude (sessão autônoma, sem acompanhamento) · **Base:** D104, `PROMPT_PROXIMO_CHAT.md` · **Status:** ativa · **Grau:** registro de execução (não é decisão de mérito)
 Hashes de `APROVACAO_2026-11-24.md` conferidos (5/5) antes de começar. Construídos e verificados os módulos `p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `report` (cada passo com seu critério "pronto"; `pipeline_v2/PROGRESSO.md`). Autoteste dos surrogates: rejeição de 3.2 % e 4.2 % a 5 % em AR(1) nulo (faixa exigida 3–7 %). Execução oficial única: 24 segmentos (23 estrelas elegíveis + Sol exploratório), 4 configurações de tendência, 5 janelas (25–75 %), AR(1) e variância, S e R′_HK, 1 000 surrogates, semente 20261124; resultados em `pipeline_v2/results/`, fatos em `results/REPORT.md`, sem interpretação. Atritos para o pesquisador em `pipeline_v2/ACHADOS.md` (flag `1day/sigma`, definição do p, grade ARMA, desenho dos testes entre grupos). Nenhuma D## anterior, nem o catálogo, nem o notebook antigo foram alterados.
 
+### D106 — Linhas `1day/sigma` de Baum entram nas séries anuais (HD 190360)
+**Data:** 2026-11-24 · **Autor:** pesquisador ("Incluir as linhas 1day/sigma em HD 190360") · **Base:** D105, `pipeline_v2/ACHADOS.md` #3 · **Status:** ativa · **Grau:** decisão humana
+As 29 linhas com flag `1day/sigma` entram nas séries anuais, o que mantém HD 190360 elegível (segmento MW de 28 anos). A execução oficial de D105 já usava essa regra (`rule="catalog"`, `Flag != "sigma"`) para todas as estrelas; portanto **nada foi reexecutado** e os resultados não mudam. Efeito sobre outra estrela: só HD 217014 (30 anos com as linhas, 29 sem). A decisão foi dada para HD 190360; a extensão às demais estrelas segue o catálogo congelado e fica registrada como tal. A contagem de `N_obs_limpo` (61 662 linhas) continua a remover `sigma` e `1day/sigma`.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana

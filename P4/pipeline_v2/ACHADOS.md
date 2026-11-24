@@ -10,3 +10,4 @@
 8. **`run_all.sh` da inspeção não foi rodado** (o prompt permite duas execuções só no passo 10): ele reescreve `inspecao/checks.csv`, fora do escopo seguro de uma sessão sem acompanhamento. Pendente.
 9. **R′_HK:** τ idêntico ao de S em todas as 960 comparações (|Δ| = 0), como previsto (#6); o R′_HK não acrescenta informação aos indicadores temporais, só à descrição da amostra.
 10. **Nenhum segmento atinge destaque** (concordância ≥ 3 de 4 com τ > 0 e p_upper < 0.05) na janela de 50 % para AR(1); para variância também nenhum no S a 50 % (contagens em `results/REPORT.md` §3). Registro de fato, não interpretação (D90: "não suportado" ≠ refutação).
+11. **#3 resolvido pelo pesquisador (D106):** linhas `1day/sigma` entram em HD 190360. A execução oficial já as incluía (regra do catálogo, para todas as estrelas); nada reexecutado.

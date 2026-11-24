@@ -16,7 +16,7 @@
 - Testes entre grupos: ver `REPORT.md` §6 (desenho a confirmar, `ACHADOS.md` #7).
 
 ## 3 · Pendências para o pesquisador (`pipeline_v2/ACHADOS.md`)
-1. Linhas `1day/sigma` de Baum (29): decidir se entram (#3; afeta elegibilidade de HD 190360).
+1. ~~Linhas `1day/sigma` de Baum~~ — resolvido em D106: entram (HD 190360 segue elegível); a execução oficial já as incluía.
 2. Qual cauda do p aparece no texto: P(τ* ≤ τ) literal de D22 ou P(τ* ≥ τ) (#4).
 3. Correspondência dos grupos nos testes entre grupos e correção para múltiplas comparações (#7).
 4. `inspecao/run_all.sh` não foi rodado (#8).
