@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D101)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D102)
 
 ---
 
@@ -739,6 +739,29 @@ Entregues 16 recomendações (R1 a R16) com base quantitativa e qualitativa, ris
 
 ---
 
+### D102 — Aceitas as recomendações R1 a R16: decisões sobre os itens pendentes
+**Data:** 2026-11-24 · **Autor:** pesquisador (resposta "Aceito todas as recomendações") · **Base:** D101; `RECOMENDACOES_PENDENTES.md`, `3.19-01` a `3.19-05`, `3.18-01` a `3.18-06` · **Status:** ativa · **Grau:** decisão humana · **Cumpre:** D70, D72, D73, D77, D90 (enunciado), D95 (sub-perguntas de Q1) · **Fecha:** Q1 a Q11 (com D69, D75, D95, D98, D100)
+Ficam decididos, nos termos de `RECOMENDACOES_PENDENTES.md`:
+1. **R1 (Q1, binaridade):** a regra é D13 mais a exclusão das 12 estrelas do Apêndice B de B95; ela dá exatamente as cinco `Flat` limpas (HD 10700, 23249, 43587, 182572, 190360).
+2. **R2 (Q1, D04/D11):** D04 e D11 permanecem; registra-se a **exceção declarada** (seleção informada por medidas descritivas prévias); a **lista final de estrelas será escrita e datada antes de calcular qualquer indicador temporal**; a pertinência à `Flat` vem da classe de B95 e de Baum, não de σ_S/S.
+3. **R3 (hipótese de D90):** **H1 (confirmatória):** a variabilidade (σ_S, R4) de HD 166620 no grande mínimo é menor que nos mínimos de ciclo (Luhn+2022 §3.1). **H2 (exploratória):** no segmento anterior à transição, AR(1) e variância do resíduo da série anual têm tendência positiva (τ de Kendall unilateral, p < 0.05 por surrogates com as lacunas e a interpolação de D98); **não suporte** = τ ≤ 0 ou p ≥ 0.05 nos dois indicadores, reportado como "não suportado com poder baixo", **não como refutação**. H2 tem n = 1 (HD 166620) e poder baixo (AUC 0.57–0.67).
+4. **R4 (σ_S, D70):** a **conta A** (σ do intervalo inteiro, menos o ruído em quadratura) é a principal; a **conta B** (por estação) é sensibilidade; o passo 1 de D45 não descreve a conta A (a registrar na redação); o p de Luhn (8.78 × 10⁻⁶) é citado como de **variâncias brutas**, ao lado do recalculado com σ corrigidos (8.7 × 10⁻³).
+5. **R5 (junção, D72):** **descontinuidade declarada** (D44): nenhuma janela atravessa HKP-2 → HIRES-2; o indicador temporal roda **dentro da era Mount Wilson** (segmento ≥ 24 anos em 10 de 10 estrelas); segmentos da era Keck (≥ 24 anos em 3 de 10) são só descritivos; **sem correção de degrau**; HD 166620 cruza a junção só na comparação de estados, sob a exceção D45b.
+6. **R6 (D46, D73):** **D46 é aceita**, com a limitação declarada e a ressalva de grau C (D58, D86).
+7. **R7 (layout, D77):** o **layout atual permanece** até a consolidação assinada; na migração cria-se `DECISIONS.md` que **remete** às D## sem renumerá-las.
+8. **R8 (Q2):** a classe de **B95** (catálogo congelado, D36) é a principal; a de Baum é camada de época (D43); `Flat` e `Flat?` ficam distintos; ρ CrB (HD 143761) é sinalizada.
+9. **R9 (Q3):** **varredura pré-registrada** de remoção de tendência com σ ∈ {1, 3, 5} anos e "sem remoção"; **σ = 1 ano é o padrão** (D21); o ciclo ajustado é só sensibilidade; o p do τ vem de surrogates que passam pelo mesmo filtro; um resultado só é destacado se concordar em pelo menos 3 das 4 configurações.
+10. **R10 (Q4):** a componente de 44 anos é **declarada como confundidor e não controlada**; a série solar é exploratória.
+11. **R11 (Q5):** **HD 81809 e HD 219834A são excluídas** dos controles; HD 219834B só entra se houver série utilizável.
+12. **R12 (Q6):** o limiar `Flat` (< 1–1.5 %) é apresentado **com o piso instrumental (0.37–0.45 %, D75) e a precisão de B95 (1.4 %; 1.2 % sem quatro padrões) lado a lado**; `Flat` = variabilidade não distinguível da precisão de longo prazo de B95; **não se afirma "três vezes acima do piso"**.
+13. **R13 (Q7):** os **subgigantes ficam como subgrupo declarado** e a análise roda **com e sem** eles, com log g e [Fe/H] como covariáveis; cita-se Wright 2004 e a objeção.
+14. **R14 (Q9):** o **DFA fica fora** (D24, D92).
+15. **R15 (Q10):** a lentidão da transição é **parte da hipótese** (a falsificação é o resultado); **não se estima o tempo de decaimento** como etapa preliminar.
+16. **R16 (Q11):** o confundidor de inclinação é **declarado para HD 10700** (Korolik: 7° ± 7°); as demais ficam grau X; **não se exclui nem se estima** inclinação própria.
+**Efeito:** com D69, D75, D95, D98 e D100, **Q1 a Q11 estão todas decididas**; as decisões de método de D68–D102 substituem o que o §5 mantinha aberto. O **pipeline continua congelado** e a **consolidação** (`p4_star_catalog.csv`, `P4_SOURCE_VALUES.md`) **exige assinatura do pesquisador** e aprovação escrita para a próxima etapa (REG-01). A redação da regra de σ_S em Methods e a correção textual de D45 (R4) ficam como obrigações de Methods.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -759,7 +782,7 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 
 **Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**; junção → **D72** e D46 → **D73** (subsídios entregues, escolha adiada); D50 → **D74** (esperar Held & Kleinen); piso de Q6 → **D75** (0.37–0.45 %); papéis das séries → **D76** (subsídios) e A14 (Korolik); layout → **D77** (subsídios); Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). Q1–Q7, Q10 e Q11 seguem abertas.
 
-**Atualização de 2026-11-24:** Q1 → opção (v), **D95**; item 6 (D50) → **D90** (reformulada como hipótese testável); Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
+**Atualização de 2026-11-24 (fim):** **todas as Q# estão decididas (D102)**; ver §8. **Atualização anterior:** Q1 → opção (v), **D95**; item 6 (D50) → **D90** (reformulada como hipótese testável); Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
 
 ---
 
@@ -805,7 +828,7 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
-**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D100 (2026-11-24):** segmentos de pelo menos 24 anos, rótulos de precisão, p por surrogates e declaração do poder baixo. **D98 (2026-11-24):** declarar a regra de anos faltantes (interpolação linear só de lacunas de 1–2 anos, pontos marcados, segmentos em lacunas ≥ 3 anos, surrogates com a mesma regra). **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D100 (2026-11-24):** segmentos de pelo menos 24 anos, rótulos de precisão, p por surrogates e declaração do poder baixo. **D102 (2026-11-24):** declarar as regras R1–R16 (conta A de σ_S com a B como sensibilidade; era Mount Wilson para o indicador; varredura de σ; DFA fora; hipóteses H1 e H2 com critério de não suporte). **D98 (2026-11-24):** declarar a regra de anos faltantes (interpolação linear só de lacunas de 1–2 anos, pontos marcados, segmentos em lacunas ≥ 3 anos, surrogates com a mesma regra). **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
 
 ---
 
@@ -837,6 +860,7 @@ novo raciocínio sobre as mesmas fontes é retrabalho.
 | HD 4915 é candidata a mínimo de Maunder? | **Não, segundo a fonte mais recente.** Isaacson+2024: dois ciclos, 4.9 yr e > 40 yr, com o longo subindo | A11b-F3; D47 |
 | Qual a receita de conversão S → R′_HK e a sua faixa de validade? | **Estabelecida em grau A.** R_phot ajustada em 0.44 < B−V < 0.82; até 20 % de incerteza acima de B−V = 1.0 | A12 §2–3; D52, D53 |
 | R′_HK é melhor que S como correlato de variabilidade? | **Não, segundo teste publicado em 710 estrelas.** S + massa estelar é a melhor métrica | CLS VI §5; A12-F1/F2; D54 |
+| Q1 a Q11: foram todas decididas? | **Sim, em 2026-11-24.** Q1 opção (v) com R1 e R2; Q2 B95 principal; Q3 varredura com σ = 1 ano padrão; Q4 confundidor declarado; Q5 exclui HD 81809 e 219834A; Q6 limiar com piso e precisão lado a lado; Q7 subgrupo declarado, com e sem; Q8 S e R′_HK; Q9 DFA fora; Q10 parte da hipótese; Q11 confundidor declarado para HD 10700 | D68–D102 |
 
 **Registrado como problema conhecido, não como questão aberta:** o resultado de
 `paper_state_v2` — φ₁(Variable) > φ₁(Maunder), p = 0.029 — comparou, após a auditoria, três
@@ -872,6 +896,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Recomendação do tamanho mínimo de segmento** (24 anos; não é decisão) | D99 |
 | 2026-11-24 | **Tamanho mínimo de segmento decidido:** 24 anos (aceita D99) | D100 |
 | 2026-11-24 | **Recomendações para todos os itens pendentes** (16, não são decisões) | D101 |
+| 2026-11-24 | **Aceitas as recomendações R1–R16:** Q1 a Q11 decididas; aguarda aprovação escrita para a consolidação (REG-01) | D102 |
 
 ---
 

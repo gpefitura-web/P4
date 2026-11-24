@@ -3,8 +3,8 @@
      22881  2e3a4d26fea3ef65  DECISOES_D41_D54.md
       2438  7d2ede7b4dd5adbe  LICOES_PENDENTES.md
      16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
-     12201  731f6cac9287cff9  P4_MEMORANDO_DECISOES_2026-11-14.md
-    101666  d2b798d94fa0a331  P4_RESEARCH_NOTEBOOK.md
+     12383  a6f90f3d484db900  P4_MEMORANDO_DECISOES_2026-11-14.md
+    107237  b0ce71ea1d0cad2a  P4_RESEARCH_NOTEBOOK.md
       9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
       3704  d32bc37210dba527  README_HANDOFF.md
      16505  481f1954e8a9f8ca  RECOMENDACOES_PENDENTES.md
@@ -122,7 +122,7 @@
      22804  e106132858d9398a  paper_state_v4.md
       9525  5fc6d46e755fc2cc  paper_state_v5.md
      21181  aa76275ba875779c  paper_state_v6.md
-      8155  769badf147105681  paper_state_v7.md
+      7956  53d26bd6eb8cb87a  paper_state_v7.md
 
 ## Repository-root copies
 IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
@@ -166,7 +166,7 @@ PDFs in the repository root: Baliunas et al. 1995, ApJ 438, 269.pdf | Dakos et a
 BACKLOG.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 CADERNO_PESQUISA.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 COWORK_PROMPT_A9_A12.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md
-DECISIONS.md: ABSENT from package  <- cited in RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md
+DECISIONS.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md
 FASE1_PAPERS_P1_P12.md: ABSENT from package  <- cited in README_HANDOFF.md
 FICHA_PAPER.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 P4/CLAUDE.md: CITED PATH DIFFERS, file is at CLAUDE.md  <- cited in SUBSIDIOS_LAYOUT_KIT.md
@@ -175,7 +175,7 @@ P4/P4_RESEARCH_NOTEBOOK.md: CITED PATH DIFFERS, file is at P4_RESEARCH_NOTEBOOK.
 P4/p4_pipeline.ipynb: CITED PATH DIFFERS, file is at p4_pipeline.ipynb  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 P4/paper_state_v4…v7.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 P4_DECISION_SUPPORT_6.1.md: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v5.md
-P4_SOURCE_VALUES.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
+P4_SOURCE_VALUES.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md, paper_state_v7.md
 PAPER_STATE.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 PROMPT_PROXIMO_CHAT.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 SUBMISSION_STRATEGY_TIMELINE.md: ABSENT from package  <- cited in README_HANDOFF.md
@@ -215,7 +215,7 @@ kit/CLAUDE.md: CITED PATH DIFFERS, file is at CLAUDE.md  <- cited in SUBSIDIOS_L
 kit/docs/LAYOUT_REPO.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 kit/kit.yml: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 merge_table2.py: ABSENT from package  <- cited in audit/A1_baliunas.md
-p4_star_catalog.csv: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, audit/A6_saar.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md
+p4_star_catalog.csv: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, audit/A6_saar.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md, paper_state_v7.md
 paper_state.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md
 paper_state_v#.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 results/claude_report.md: ABSENT from package  <- cited in p4_pipeline.ipynb

@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D101) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D102) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -60,15 +60,11 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 - **Grau X que permanece:** incerteza dos offsets de Baum (D44); períodos de B95 relidos só uma vez (D64); A8 sem §3 e §5 de Usoskin; Vaquero+2011, Miyahara+2004, Nagaya+2012 não auditados.
 - **Contradições abertas** (protocolo, regra 4): A9-F2 (HD 185144); 0.45 % contra a tabela da CLS V; 158 contra 119 resolvida como fato (D58), sem decisão sobre o uso.
 
-## 5 · Decisões humanas: respondidas e pendentes
+## 5 · Decisões humanas: todas respondidas
 
-**Respondidas em 2026-11-14 e 2026-11-24 (caderno §4d):** anual e bruta → **D68**, com os papéis em **D92** (anual para o CSD temporal; bruta para σ por estado e períodos; DFA só se Q9 for decidida a favor); Q8 → **D69** (S e R′_HK); piso de Q6 → **D75** (0.37–0.45 %); item 6 / D50 → **D90** (hipótese testável, depois de D74, D81, D87–D89); dados de Oláh e Soon → **D86** (seguir sem eles, grau C); incorporação → **D71**; Q2–Q7 → **D78** (abertas). A14 (Korolik) para Q11.
+**Q1 a Q11 estão decididas** (D68–D102): anual para o CSD temporal e bruta para σ por estado, com períodos publicados (D92, D95); Q1 opção (v) (D95) com a regra de binaridade (R1) e a exceção declarada de D04/D11 (R2); Q2 B95 principal (R8); Q3 varredura de σ com σ = 1 ano padrão (R9); Q4 confundidor declarado (R10); Q5 exclui HD 81809 e 219834A (R11); Q6 limiar com piso 0.37–0.45 % e precisão de B95 (D75, R12); Q7 subgrupo declarado, com e sem (R13); Q8 S e R′_HK (D69); Q9 DFA fora (R14); Q10 parte da hipótese (R15); Q11 confundidor para HD 10700 (R16). Anos faltantes: interpolar só lacunas de 1–2 anos (D98); segmento mínimo de 24 anos (D100). Hipótese de D90: H1 confirmatória e H2 exploratória (R3). σ_S: conta A (R4). Junção: descontinuidade (R5). D46 aceita (R6). Layout mantido (R7). Dados de Oláh e Soon: sem eles, grau C (D86). Incorporação ao caderno: D71.
 
-**Q1 respondida quanto à composição (D95): opção (v)**, Baum mais `HK_Project_v2001_NSO` ao lado; períodos = publicados (D15, D42).
-
-**Recomendações de Claude para todos os pendentes: `RECOMENDACOES_PENDENTES.md` (D101), aguardando aceite item a item.**
-
-**Pendentes, todas do pesquisador:** **regra de anos faltantes decidida (D98):** interpolar só lacunas de 1–2 anos; **tamanho mínimo de segmento decidido: 24 anos (D100, aceita D99)**; as sub-perguntas de Q1 (regra de binaridade das cinco `Flat`, I-06; D04/D11, I-13; o que a amostra entrega à hipótese de D90); o enunciado da hipótese de D90 (indicador anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas de junção (D72), D46 (D73), receita de σ_S (D70) e layout (D77); Q2–Q7, Q9, Q10 e Q11 (subsídios em `SUBSIDIOS_Q2_Q11.md`, D97). Nenhuma outra Q# está fechada.
+**Próximo passo (REG-01):** a **consolidação** (`p4_star_catalog.csv`, `P4_SOURCE_VALUES.md`, lista final de estrelas datada antes de qualquer indicador, R2) **exige assinatura e aprovação escrita do pesquisador**. O pipeline permanece congelado até lá. Nada foi consolidado.
 
 ## 6 · Estado dos arquivos
 

@@ -104,3 +104,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 18 (2026-11-24):** recomendações para todos os pendentes → D101 (`RECOMENDACOES_PENDENTES.md`); nenhuma é decisão.
 
+**Bloco 19 (2026-11-24):** aceitas as recomendações R1–R16 → D102. Todos os itens do memorando estão respondidos. Próximo: consolidação, com aprovação escrita (REG-01).
+
