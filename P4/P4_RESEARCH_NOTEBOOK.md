@@ -788,6 +788,10 @@ O p do texto é `p_upper = P(τ* ≥ τ)` (τ crescente é a direção de CSD), 
 **Data:** 2026-11-24 · **Autor:** pesquisador ("Aceito R-B") · **Base:** D105, `RECOMENDACOES_POS_PIPELINE.md` R-B, `pipeline_v2/ACHADOS.md` #7 · **Status:** ativa · **Grau:** decisão humana
 Os testes entre grupos (`REPORT.md` §6) são **exploratórios** (n = 4 a 8 por grupo). Se citados no manuscrito: (i) **par primário** fixado antes de qualquer leitura: Var ∪ Long contra Flat, AR(1) com σ = 1, unilateral (greater); (ii) **Holm** nos demais pares; (iii) declarar que o AR(1) de uma série inteira depois de σ = 1 sai negativo por construção (mediana ≈ −0.3) e não é comparável ao AR(1) em janela; (iv) declarar a variância de ciclo como confundidor (Q4, D30). A alternativa de omitir os testes do manuscrito **não foi escolhida**. O par primário (Var ∪ Long) exige um agrupamento que o `REPORT.md` ainda não calcula (ele testa Var e Long separados); o cálculo e a correção de Holm ficam para a etapa do manuscrito, a partir de `results/star_metrics.csv`, sem nova execução do pipeline.
 
+### D109 — Família do Holm: por métrica e configuração (completa D108)
+**Data:** 2026-11-24 · **Autor:** pesquisador ("Usar a família Holm por métrica e configuração") · **Base:** D108, `pipeline_v2/ACHADOS.md` #14 · **Status:** ativa · **Grau:** decisão humana
+Holm aplicado dentro de cada bloco métrica × configuração (5 pares por bloco), não sobre os 30 testes juntos. O par primário de D108 continua fora da correção. Recalculado uma vez a partir de `results/star_metrics.csv` (`group_primary.py`); a família de 30 testes do primeiro cálculo fica só como coluna `p_holm_30` (superada). Resultado: 2 dos 30 testes com p_Holm < 0.05, ambos CYCLE_Excellent > Flat na variância normalizada (σ = 1: p = 0.0020, p_Holm = 0.0101; sem remoção: p = 0.0081, p_Holm = 0.0404). Esses dois são o confundidor de ciclo declarado em D108 (iv), não evidência de CSD.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana

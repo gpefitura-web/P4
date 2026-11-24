@@ -1,4 +1,4 @@
-"""D108: primary pair (Var u Long > Flat_limpa, AR(1), sigma = 1, one-sided Mann-Whitney) and Holm over the
+"""D108: primary pair (Var u Long > Flat_limpa, AR(1), sigma = 1, one-sided Mann-Whitney) and Holm (D109: per metric x configuration block of 5 pairs; the 30-test family of the first run is kept as p_holm_30) over the
 30 other tests of REPORT.md s.6 (5 pairs x [AC1 in 4 configs + var_norm in 2 configs]). Reads results/star_metrics.csv only.
 Family of 30 fixed here before computing. Usage: python -I group_primary.py"""
 import os, sys
@@ -32,8 +32,9 @@ for cfg in ("none", "s1", "s3", "s5"):
             U_, p_ = mw(x, y)
             rows.append(dict(config=cfg, metric=metric, g1=g1, g2=g2, n1=len(x), n2=len(y), U=U_, p=p_))
 t = pd.DataFrame(rows)
-t["p_holm"] = multipletests(t.p.values, method="holm")[1]
+t["p_holm_30"] = multipletests(t.p.values, method="holm")[1]          # superseded family (D109), kept for the record
+t["p_holm"] = t.groupby(["metric", "config"]).p.transform(lambda x: pd.Series(multipletests(x.values, method="holm")[1], index=x.index))   # D109: family = the 5 pairs of one metric x configuration
 t.to_csv(os.path.join(R, "group_holm.csv"), index=False)
 pd.DataFrame([prim]).to_csv(os.path.join(R, "group_primary.csv"), index=False)
-print(prim); print(len(t), "tests; Holm p < 0.05:", int((t.p_holm < 0.05).sum()), "; raw p < 0.05:", int((t.p < 0.05).sum()))
+print(prim); print(len(t), "tests; Holm (block) p < 0.05:", int((t.p_holm < 0.05).sum()), "; raw p < 0.05:", int((t.p < 0.05).sum()))
 print(t.sort_values("p").head(6).to_string(index=False))
