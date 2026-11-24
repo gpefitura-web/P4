@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D94)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D95)
 
 ---
 
@@ -697,6 +697,12 @@ Resposta do pesquisador: **"Subsídios para decidir Q1."** Entregue `SUBSIDIOS_Q
 
 ---
 
+### D95 — Q1: opção (v); períodos publicados; anos faltantes com explicação entregue
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** D94, D93; `SUBSIDIOS_Q1.md` e seu adendo · **Status:** ativa · **Grau:** decisão humana (Q1, períodos), A (explicação) · **Responde:** Q1 (no que decide); **cumpre** D79
+Respostas do pesquisador: **(1) Q1 — "Opção (v)"**: o subconjunto de Baum (59 estrelas) **mais o `HK_Project_v2001_NSO` (D85) como camada ao lado**, para as estrelas que Baum não tem; (2) **"períodos publicados"**: em D92, os "períodos" da série bruta são os **valores publicados** (Baliunas, Saar, Baum, Oláh), registrados lado a lado e sem fusão (D15, D42); **o P4 não calcula periodogramas próprios**; (3) **"interpolar anos faltantes? (como e para quê?)"**: pergunta, não decisão; a explicação e as quatro alternativas estão no adendo de `SUBSIDIOS_Q1.md` (39 lacunas: 32 de 1 a 2 anos e 7 de 3 a 13; `3.16-06`); **a regra para anos faltantes continua pendente**. **Não respondidas e portanto pendentes (sub-perguntas de Q1):** a regra de exclusão por binaridade que define as "cinco `Flat`" (I-06), a reconciliação de D04/D11 com as medidas já feitas (I-13) e o que a amostra entrega à hipótese de D90. Consequências, sem decisão nova: o catálogo `baliunas_table2_full.csv` e as séries de Baum não são alterados (D36); o v2001 entra ao lado e só vai a 2001, um instrumento, sem HIRES, sem HD 166620 nem HD 101501; as quatro controles ganhas são HD 160346, 201091, 81809 e 103095 (presença de controles 6/13 → 10/13); a análise em R′_HK vale só na faixa de D53 (HD 201091, B−V 1.18, está fora). Q1 fica **decidida quanto à composição** (opção v), com as três sub-perguntas abertas.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -717,7 +723,7 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 
 **Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**; junção → **D72** e D46 → **D73** (subsídios entregues, escolha adiada); D50 → **D74** (esperar Held & Kleinen); piso de Q6 → **D75** (0.37–0.45 %); papéis das séries → **D76** (subsídios) e A14 (Korolik); layout → **D77** (subsídios); Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). Q1–Q7, Q10 e Q11 seguem abertas.
 
-**Atualização de 2026-11-24:** item 6 (D50) → **D90** (reformulada como hipótese testável); Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
+**Atualização de 2026-11-24:** Q1 → opção (v), **D95**; item 6 (D50) → **D90** (reformulada como hipótese testável); Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
 
 ---
 
@@ -824,6 +830,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Papéis das séries:** subsídios completos (tamanhos nos grupos do P4, agregação, três distribuições); escolha adiada | D91 |
 | 2026-11-24 | **Papéis das séries decididos** (A e C): anual para CSD temporal; bruta para σ por estado e períodos; DFA com Q9. Q1 destravada | D92 |
 | 2026-11-24 | **Validação de D92 e subsídios para Q1:** D92 consistente; regra para anos faltantes e períodos próprios/publicados a confirmar; Q1 com a nova opção (v) | D93, D94 |
+| 2026-11-24 | **Q1: opção (v); períodos publicados; anos faltantes explicados, regra pendente** | D95 |
 
 ---
 

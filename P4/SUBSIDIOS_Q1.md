@@ -54,3 +54,24 @@ Fatos: o grupo `CYCLE`+Excellent que a Baum cobre **inclui o próprio HD 166620*
 - A recomendação já registrada (v6 §3.4): (ii) e (iv) não são exclusivas; HD 101501 é o objeto que melhor sobrevive às objeções publicadas. **Nova cautela de fato (D59):** a série de HD 101501 tem lacuna de 13.82 anos antes do retorno e só 6 pontos do HIRES; a janela densa pós-retorno tem cerca de 5.5 anos.
 
 Estado: **subsídios entregues; Q1 aberta (D94).**
+
+---
+
+## Adendo de 2026-11-24: interpolar anos faltantes? (como e para quê)
+**Pergunta do pesquisador:** "interpolar anos faltantes? (como e para quê?)". Explicação e subsídios, sem decidir. O que vem de fonte está marcado; o que é raciocínio meu está marcado como tal (grau C).
+
+**Para quê.** O CSD em janela mede o AR(1) (correlação entre pontos vizinhos), a variância e o τ de Kendall ao longo de janelas deslizantes (D20–D23). *Raciocínio (C):* com uma média por ano, "vizinho" significa "ano seguinte". Onde falta um ano, o par que cruza a lacuna liga anos separados por 2 ou mais, o que mistura escalas de tempo no AR(1) e faz o tamanho da janela, em pontos, deixar de ser o tamanho em anos. Fonte: Dakos et al. dizem que os métodos servem a séries irregulares e que a interpolação é necessária "only when there are too many missing values" (A4, Tabela 3, nota 1). Held & Kleinen e Livina & Lenton aplicam o AR(1) a séries Δt-agregadas, regulares (A7b item 3; `3.11-55`).
+
+**Quantas lacunas.** Nas 10 estrelas dos grupos do P4 há 39 lacunas de anos (`3.16-06`): **32 de 1 a 2 anos** e **7 de 3 a 13 anos** (HD 10700: 4; HD 182572: 3; HD 152391: 8; HD 166620: 6; HD 26965: 5; HD 4628: 10; HD 101501: 13). As 32 curtas se concentram em HD 182572 (9), HD 23249 (6) e HD 190360 (5). A tabela por estrela está em `inspecao/saidas/13_annual_runs.txt`.
+
+**Como, nas alternativas existentes** (nenhuma recomendada):
+| Alternativa | O que faz | Custo |
+|---|---|---|
+| **1. Não interpolar; janelas só dentro de sequências contínuas de anos** | cada janela cabe numa sequência de anos consecutivos | a maior sequência é 14 em HD 182572 e 19 em HD 190360, menor que a janela de 50 % (19 e 23): essas duas não têm janela de 50 % sem lacuna (`3.16-05`); com 25–75 % (D20) parte delas cabe |
+| **2. Interpolar só as lacunas curtas (1–2 anos) e marcar os pontos interpolados; não atravessar as longas (≥ 3 anos)** | recupera as 32 lacunas curtas; as 7 longas dividem a série | *Raciocínio (C):* o valor interpolado entre dois vizinhos é mais parecido com eles que um ano observado, o que tende a **aumentar** a autocorrelação: o artefato vai na mesma direção do sinal de CSD, e o teste de significância (D22, surrogates) deveria passar pela mesma interpolação para ser justo |
+| **3. Calcular o AR(1) só com pares de anos consecutivos, sem criar valores** | nenhuma interpolação; as janelas contêm lacunas, e os pares que as cruzam são descartados | menos pares por janela; a variância usa todos os pontos |
+| **4. Evitar o problema usando a série bruta em janelas de tempo** (papel de D92 só para σ e períodos; não é o decidido) | sem anos faltantes | tripletos noturnos e lacunas (D91); fora de D92 |
+
+**O que independe da escolha:** HD 166620 e HD 101501 têm lacunas longas (6 e 13 anos) que nenhuma das alternativas fecha; para essas, D46 já limita o teste temporal. A regra deve ser fixada **antes** de olhar o resultado do indicador em qualquer estrela (D04), e a mesma regra vale para os surrogates (D22).
+
+Estado: **explicação entregue; regra para anos faltantes pendente (D95).**

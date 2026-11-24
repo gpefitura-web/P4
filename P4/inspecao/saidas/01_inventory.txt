@@ -3,15 +3,15 @@
      22881  2e3a4d26fea3ef65  DECISOES_D41_D54.md
       2438  7d2ede7b4dd5adbe  LICOES_PENDENTES.md
      16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
-     11243  396ee3f40bef1619  P4_MEMORANDO_DECISOES_2026-11-14.md
-     89982  5b69fda6880c94fd  P4_RESEARCH_NOTEBOOK.md
+     11434  f05be57c8193b5d1  P4_MEMORANDO_DECISOES_2026-11-14.md
+     91890  9f801a0dbdd37028  P4_RESEARCH_NOTEBOOK.md
       9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
       3704  d32bc37210dba527  README_HANDOFF.md
       8822  fb8078df5a6c8ac6  SUBSIDIOS_D50.md
       6630  3fc215600782f5fc  SUBSIDIOS_JUNCAO_E_D46.md
       3790  22d29656125d49df  SUBSIDIOS_LAYOUT_KIT.md
      11778  da31972765c26742  SUBSIDIOS_PAPEIS_SERIES.md
-      7571  e93f3c717a1b6f15  SUBSIDIOS_Q1.md
+     10722  58cf95db9eda6c40  SUBSIDIOS_Q1.md
       5623  7dec55b51a2cd877  SUBSIDIOS_RECEITA_SIGMA_S.md
      23511  e588c7564cda16ab  audit/A10_luhn.md
      28797  43fea2295699f920  audit/A11_raridade.md
@@ -114,7 +114,7 @@
      22804  e106132858d9398a  paper_state_v4.md
       9525  5fc6d46e755fc2cc  paper_state_v5.md
      21181  aa76275ba875779c  paper_state_v6.md
-      7718  85f5c31da3074f98  paper_state_v7.md
+      7910  6da42a9cab4d6808  paper_state_v7.md
 
 ## Repository-root copies
 IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
@@ -187,6 +187,7 @@ inspecao/saidas/01_inventory.txt: ABSENT from package  <- cited in SUBSIDIOS_LAY
 inspecao/saidas/06_pdf_pages.txt: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 inspecao/saidas/11_dataverse_v2001*.txt: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 inspecao/saidas/13_*.txt: ABSENT from package  <- cited in SUBSIDIOS_Q1.md
+inspecao/saidas/13_annual_runs.txt: ABSENT from package  <- cited in SUBSIDIOS_Q1.md
 inspecao/saidas/13_series_roles.txt: ABSENT from package  <- cited in SUBSIDIOS_PAPEIS_SERIES.md
 inspecao/scripts/03d_luhn.py: ABSENT from package  <- cited in audit/A13_olah.md
 inspecao/scripts/05_olah_periods.py: ABSENT from package  <- cited in audit/A13_olah.md

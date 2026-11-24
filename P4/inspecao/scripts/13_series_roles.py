@@ -87,3 +87,12 @@ for grp, l in (("Flat", [h for h in FLAT5 if h in yrs]), ("CYCLE+Excellent", [h 
 write_out("13_annual_runs.txt", "\n".join(lines) + "\n")
 check("3.16-05", "stars (Flat, CYCLE+Excellent, HD 101501 with Table 1 rows) whose longest consecutive-year run is shorter than half of their seasons",
       "", f"{worse}/{len(lines) - 1}", "data/J_AJ_163_183_table1.tsv (sigma-flagged rows removed)", info=True)
+
+# ---- gap-length census for the interpolation question (D95) -------------------------------------
+allg = []
+for grp, l in (("Flat", [h for h in FLAT5 if h in yrs]), ("CYCLE+Excellent", [h for h in CTRL if h in yrs]), ("case", ["101501"])):
+    for h in l:
+        allg += run_info(yrs[h])[2]
+check("3.16-06", "missing-year gaps in the annual series of the 10 stars: total | of 1-2 years | of 3 years or more", "",
+      f"{len(allg)} | {sum(1 for g in allg if g <= 2)} | {sum(1 for g in allg if g >= 3)}",
+      "data/J_AJ_163_183_table1.tsv; saidas/13_annual_runs.txt", info=True)
