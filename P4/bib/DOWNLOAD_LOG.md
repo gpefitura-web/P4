@@ -54,3 +54,6 @@
 | CDS principal | responde; pasta `ftp/J/A+A/590/A133/` dá 404 (já registrado) |
 | **Conclusão** | **não há fonte pública alcançável com a série de 1995–2002 de HD 166620.** Resta o pedido a K. Oláh e W. Soon |
 
+## 2026-11-24 (noite, 2) — HK_Project_v2001_NSO baixado e comparado com Baum
+Os 35 arquivos `.mgd` e o `README.pdf` do Dataverse `10.7910/DVN/H85QPF` foram copiados sem alteração para `data/HK_Project_v2001_NSO/` (7,4 MB; `PROVENIENCIA.txt` ao lado). Comparação em `inspecao/scripts/11_dataverse_v2001.py` (`3.15-01` a `3.15-06`, saídas `11_dataverse_v2001*.txt`).
+

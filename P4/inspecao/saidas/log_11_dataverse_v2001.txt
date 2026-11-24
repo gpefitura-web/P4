@@ -1,0 +1,6 @@
+[PASS] 3.15-01: stars (files) in HK_Project_v2001_NSO | expected=35 obtained=35
+[PASS] 3.15-02: HD 166620 present in HK_Project_v2001_NSO | expected=no obtained=no
+[INFO] 3.15-03: v2001 stars also in Baum+2022 (59 stars) | expected= obtained=6
+[INFO] 3.15-04: Baum HKP rows of the common stars reproduced in v2001 (time within 0.002 yr, S within 5e-4) | expected= obtained=14233/14295
+[INFO] 3.15-05: common stars with v2001 rows later than Baum's last HKP epoch (by > 0 rows) | expected= obtained=0/6
+[INFO] 3.15-06: the six Baum-absent controls (I-12) present in v2001: 160346, 201091, 81809, 103095 yes; 16160, 32147 no | expected=4/6 obtained=4/6

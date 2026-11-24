@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D84)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D85)
 
 ---
 
@@ -630,6 +630,16 @@ As tabelas 2 e 3 de `J/ApJ/936/L23` baixadas do espelho NAO são idênticas às 
 ### D84 — Outras fontes públicas esgotadas: a série de HD 166620 em 1995–2002 só existe com Oláh e Soon
 **Data:** 2026-11-24 · **Autor:** pesquisador (opção 2: "tentar outras fontes públicas"), execução por Claude · **Base:** `bib/DOWNLOAD_LOG.md` (seção "noite") · **Status:** ativa · **Grau:** A (as ausências vistas) · **Complementa:** D58, D82, D83
 O Dataverse de Harvard tem o arquivo do HK Project de 2001 (`HK_Project_v2001_NSO`, 35 estrelas, até o fim de 2001), **sem HD 166620**, e o de 1995, que só chega a 1995. Os pacotes TeX de Luhn e de Oláh não trazem a série (um trecho de 5 linhas e figuras EPS). Digitalizar as figuras é proibido (regra 8). Nenhuma fonte pública alcançável tem os dados; as 119 linhas continuam grau C (D58). O caminho que resta é o pedido aos autores (rascunho `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado).
+
+---
+
+### D85 — HK_Project_v2001_NSO: dados públicos de Mount Wilson até 2001 para 29 estrelas que Baum não tem, entre elas quatro dos sete controles ausentes
+**Data:** 2026-11-24 · **Base:** `data/HK_Project_v2001_NSO/` (Dataverse `10.7910/DVN/H85QPF`; README: observações "through late 2001"), `3.15-01` a `3.15-06`, `inspecao/saidas/11_dataverse_v2001*.txt` · **Status:** ativa · **Grau:** A (a comparação) · **Complementa:** D41, D33, D36; **informa** Q1 (não a decide)
+Fatos:
+- O pacote tem 35 estrelas, **sem HD 166620** (`3.15-02`); seis delas estão no subconjunto de Baum (HD 10476, 143761, 146233, 152391, 182572, 185144). Para essas seis as linhas HKP de Baum são as mesmas do v2001: 14 233 de 14 295 coincidem (tempo a 0.002 ano, S a 5 × 10⁻⁴; as 62 restantes são de HD 10476, diferenças de calibração entre compilações, que o README estima em 1–2 %) e **nenhuma linha v2001 passa do último ponto HKP de Baum** (`3.15-04`, `3.15-05`). Ou seja, Baum já tinha o v2001 para elas; **não há extensão**.
+- Os outros 29 são estrelas que Baum não tem, com 33–35 anos (1966–2001), 1 459 a 4 819 observações cada e lacuna máxima de cerca de 1 ano (exceções: HD 129333, 4.97 anos; HD 158614, 3.90 anos; HD 203387 só desde 1982). Tabela em `saidas/11_dataverse_v2001_not_in_baum.txt`.
+- Dos **seis controles ausentes de Baum** (I-12; A9-F5), **quatro estão no v2001: HD 160346, 201091, 81809, 103095** (`3.15-06`); HD 16160 e 32147 não. Das cinco `Flat` limpas só HD 182572 está no v2001 (já em Baum); as `Flat` que o v2001 acrescenta são não limpas (HD 13421, 124570, 158614, 216385).
+Limites: o v2001 é um único instrumento e calibração (HKP-2 após 1977) e termina em 2001, **sem o HIRES**, de modo que não tem os 50 anos de Baum; não substitui nem altera o catálogo congelado nem as séries de Baum (D36, D41). Obrigação de agradecimento do README: citar "The HK_Project_v1995_NSO data derive from the Mount Wilson Observatory HK Project, which was supported by both public and private funds through the Carnegie Observatories, the Mount Wilson Institute, and the Harvard-Smithsonian Center for Astrophysics…" e designar os arquivos como "HK_Project_v2001_NSO". Nenhuma Q# é decidida; o subsídio para Q1 é que o desequilíbrio de presença entre `Flat` (4/5) e controles (6/13) pode cair para 10/13 se o v2001 entrar como camada ao lado, ao custo de um baseline de 35 anos sem HIRES.
 
 ---
 

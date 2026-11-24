@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,72,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,109,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
 1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,16,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,41,regex over all .md and the notebook,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,45,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D84 defined exactly once in the notebook,84,84,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D85 defined exactly once in the notebook,85,85,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D84 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D85 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 85,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 86,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -496,3 +496,9 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.14-03,max |S_NSO - S_Luhn(MW)| after sorting both by time,0,0,A10 §2.2 ('No offset applied'),PASS
 3.14-04,max |year_NSO - year_Luhn(MW)| after sorting (yr),0,0.002,"data/HK_Project_v1995_NSO_166620.mgd (doi:10.7910/DVN/ZRJ6NT, file 166620.mgd)",FAIL
 3.14-05,NSO observations after 1995.5 (the archive stops in mid-1995),0,0,README.pdf of doi:10.7910/DVN/ZRJ6NT,PASS
+3.15-01,stars (files) in HK_Project_v2001_NSO,35,35,bib/DOWNLOAD_LOG.md; README.pdf,PASS
+3.15-02,HD 166620 present in HK_Project_v2001_NSO,no,no,Dataverse file list 2026-11-24,PASS
+3.15-03,v2001 stars also in Baum+2022 (59 stars),,6,data/J_AJ_163_183_table1.tsv,INFO
+3.15-04,"Baum HKP rows of the common stars reproduced in v2001 (time within 0.002 yr, S within 5e-4)",,14233/14295,data/HK_Project_v2001_NSO vs data/J_AJ_163_183_table1.tsv,INFO
+3.15-05,common stars with v2001 rows later than Baum's last HKP epoch (by > 0 rows),,0/6,same,INFO
+3.15-06,"the six Baum-absent controls (I-12) present in v2001: 160346, 201091, 81809, 103095 yes; 16160, 32147 no",4/6,4/6,audit/ERRATA_2026-11-14.md E-I12; data/HK_Project_v2001_NSO,INFO

@@ -1,0 +1,5 @@
+HK_Project_v2001_NSO (Radick & Pevtsov, National Solar Observatory, 2016/2018)
+Harvard Dataverse, doi:10.7910/DVN/H85QPF, versao 1, publicada em 2018-10-19.
+Baixado em 2026-11-24 pelos endpoints publicos da API do Dataverse; 35 arquivos .mgd e README.pdf, copiados sem alteracao.
+Agradecimento exigido pelos autores (README.pdf, p. final): usar o texto "The HK_Project_v1995_NSO data derive from the Mount Wilson
+Observatory HK Project ..." e designar os arquivos de 2001 como "HK_Project_v2001_NSO".
