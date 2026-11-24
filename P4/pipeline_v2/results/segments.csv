@@ -1,0 +1,29 @@
+HD,grupo,fonte,seg_year0,L,n_filled,precisao,rodou,motivo,bv,bv_fonte,banda_Rphot,exploratorio
+3795,Var,Baum,1966,29,1.0,baixa,sim,,0.684,CLS V,DENTRO,sim
+4628,CYCLE_Excellent,Baum,1966,30,0.0,baixa,sim,,0.85,CLS V,EXTRAPOLADO (0.82-1.0),sim
+10476,CYCLE_Excellent,Baum,1966,36,0.0,baixa,sim,,0.801,CLS V,DENTRO,sim
+10700,Flat_limpa,Baum,1967,29,0.0,baixa,sim,,0.664,CLS V,DENTRO,sim
+22072,Var,Baum,,,,,nao,indicador_elegivel_D100 = nao (segmento MW < 24 anos): so descricao,,,,
+23249,Flat_limpa,Baum,1967,29,0.0,baixa,sim,,0.882,CLS V,EXTRAPOLADO (0.82-1.0),sim
+25998,Long,v2001,1966,36,0.0,baixa,sim,,0.46,B95,DENTRO,sim
+26965,CYCLE_Excellent,Baum,1967,29,0.0,baixa,sim,,0.762,CLS V,DENTRO,sim
+35296,Long,v2001,1966,36,0.0,baixa,sim,,0.53,B95,DENTRO,sim
+39587,Var,v2001,1966,36,0.0,baixa,sim,,0.59,B95,DENTRO,sim
+72905,Var,Baum,,,,,nao,indicador_elegivel_D100 = nao (segmento MW < 24 anos): so descricao,,,,
+75332,Var,v2001,1966,36,0.0,baixa,sim,,0.49,B95,DENTRO,sim
+101501,Var,Baum,1968,28,0.0,baixa,sim,,0.701,CLS V,DENTRO,sim
+103095,CYCLE_Excellent,v2001,1968,34,0.0,baixa,sim,,0.665,CLS V,DENTRO,sim
+115383,Var,v2001,1966,36,0.0,baixa,sim,,0.58,B95,DENTRO,sim
+115617,Var,Baum,,,,,nao,indicador_elegivel_D100 = nao (segmento MW < 24 anos): so descricao,,,,
+129333,Var,v2001,,,,,nao,indicador_elegivel_D100 = nao (segmento MW < 24 anos): so descricao,,,,
+131156A,Var,v2001,1967,35,0.0,baixa,sim,,0.76,B95,DENTRO,sim
+141004,Long,Baum,1966,30,1.0,baixa,sim,,0.592,CLS V,DENTRO,sim
+152391,CYCLE_Excellent,Baum,1966,36,0.0,baixa,sim,,0.725,CLS V,DENTRO,sim
+160346,CYCLE_Excellent,v2001,1966,36,0.0,baixa,sim,,0.96,B95,EXTRAPOLADO (0.82-1.0),sim
+166620,CYCLE_Excellent,Baum,1966,30,0.0,baixa,sim,,0.827,CLS V,EXTRAPOLADO (0.82-1.0),sim
+176095,Long,v2001,1966,36,1.0,baixa,sim,,0.46,B95,DENTRO,sim
+182572,Flat_limpa,Baum,1967,35,10.0,baixa,sim,,0.728,CLS V,DENTRO,sim
+190360,Flat_limpa,Baum,1967,28,5.0,baixa,sim,,0.725,CLS V,DENTRO,sim
+201091,CYCLE_Excellent,v2001,1967,35,0.0,baixa,sim,,1.153,CLS V,"EXTRAPOLADO (>1.0, incerteza ate 20 %)",sim
+217014,Var,Baum,1966,30,4.0,baixa,sim,,0.653,CLS V,DENTRO,sim
+(Sun),CYCLE_Excellent,Egeland2017_T4,1966,51,2.0,adequada,sim,,0.66,B95,DENTRO,sim
