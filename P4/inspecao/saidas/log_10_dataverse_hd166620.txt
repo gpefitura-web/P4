@@ -1,0 +1,5 @@
+[PASS] 3.14-01: rows in the NSO file for HD 166620 | expected=1654 obtained=1654
+[PASS] 3.14-02: NSO file: first and last decimal year (2 dec) | expected=1966.59-1995.42 obtained=1966.59-1995.42
+[PASS] 3.14-03: max |S_NSO - S_Luhn(MW)| after sorting both by time | expected=0 obtained=0
+[FAIL] 3.14-04: max |year_NSO - year_Luhn(MW)| after sorting (yr) | expected=0 obtained=0.002
+[PASS] 3.14-05: NSO observations after 1995.5 (the archive stops in mid-1995) | expected=0 obtained=0

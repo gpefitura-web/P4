@@ -1,5 +1,5 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,71,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,72,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
@@ -8,11 +8,11 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 1-07,distinct file names cited (in backticks) and absent from the package,,39,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D82 defined exactly once in the notebook,82,82,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D83 defined exactly once in the notebook,83,83,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D82 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D83 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 83,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 84,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -491,3 +491,8 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.13-02,secondary-column normalisations proposed,33,33,inspecao/scripts/03a_baliunas.py (3.1-15),PASS
 3.13-03,repairs with grade A | B,,40 | 3,consolidacao/rascunho_reparos_catalogo.csv,INFO
 3.13-04,frozen catalogue untouched (rows | columns),112 | 14,112 | 14,baliunas_table2_full.csv,PASS
+3.14-01,rows in the NSO file for HD 166620,1654,1654,Luhn MW rows (3.4-02),PASS
+3.14-02,NSO file: first and last decimal year (2 dec),1966.59-1995.42,1966.59-1995.42,Luhn MW range (3.4-07),PASS
+3.14-03,max |S_NSO - S_Luhn(MW)| after sorting both by time,0,0,A10 §2.2 ('No offset applied'),PASS
+3.14-04,max |year_NSO - year_Luhn(MW)| after sorting (yr),0,0.002,"data/HK_Project_v1995_NSO_166620.mgd (doi:10.7910/DVN/ZRJ6NT, file 166620.mgd)",FAIL
+3.14-05,NSO observations after 1995.5 (the archive stops in mid-1995),0,0,README.pdf of doi:10.7910/DVN/ZRJ6NT,PASS

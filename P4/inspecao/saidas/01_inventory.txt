@@ -4,7 +4,7 @@
       2438  7d2ede7b4dd5adbe  LICOES_PENDENTES.md
      16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
       9755  7256332eff8f65ea  P4_MEMORANDO_DECISOES_2026-11-14.md
-     73444  d04ae8e84ba2c717  P4_RESEARCH_NOTEBOOK.md
+     74057  bd28decceb0f035b  P4_RESEARCH_NOTEBOOK.md
       9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
       3704  d32bc37210dba527  README_HANDOFF.md
       6630  3fc215600782f5fc  SUBSIDIOS_JUNCAO_E_D46.md
@@ -36,7 +36,7 @@
     728410  306c02c85ee73cce  bib/Baum_2022_AJ_163_183.pdf
     612255  b081dfe7643049f2  bib/Baum_2022_arXiv2203.13376.pdf
     131721  45f98dc24448885f  bib/Brandenburg_1998_ApJL_498_L51.pdf
-      3383  13ceafdd7aa4df12  bib/DOWNLOAD_LOG.md
+      4004  c78a24e347eed9ed  bib/DOWNLOAD_LOG.md
    1054740  93ae7eb4a1ff4fbb  bib/Egeland_2017_arXiv1611.04540.pdf
     158959  1f9ad74156c15d0f  bib/Held_2004_GRL_31_L23207.pdf
    2392023  c7a60c343b939602  bib/Isaacson_2024_ApJS_274_35.pdf
@@ -55,6 +55,7 @@
       1744  66d6e1c28d55cdb5  consolidacao/PEDIDO_DADOS_OLAH_SOON.md
       5174  71bbeee15439391a  consolidacao/rascunho_reparos_catalogo.csv
     248406  6e2746d535d7d9e3  data/Egeland2017_table4_apjaa4e49t4_mrt.txt
+    133974  ab8df9bfdb8e0494  data/HK_Project_v1995_NSO_166620.mgd
      11651  4bbcc45644f0e8c7  data/J_163_183_table2.tsv
    2674524  7703efab4bdb8ac5  data/J_AJ_163_183_table1.tsv
      84234  f3d7f8b9a6a12756  data/J_ApJS_274_35_table2.tsv
@@ -69,7 +70,7 @@
      22804  e106132858d9398a  paper_state_v4.md
       9525  5fc6d46e755fc2cc  paper_state_v5.md
      21181  aa76275ba875779c  paper_state_v6.md
-      7762  9e908c0145f6f089  paper_state_v7.md
+      7762  6db17a15796bd9c6  paper_state_v7.md
 
 ## Repository-root copies
 IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
@@ -96,7 +97,7 @@ IDENTICAL  noyes1984_validade_cor.csv  <->  noyes1984_validade_cor.csv
 IDENTICAL  p4_pipeline.ipynb  <->  p4_pipeline.ipynb
 IDENTICAL  paper_state_v4.md  <->  paper_state_v4.md
 IDENTICAL  paper_state_v6.md  <->  paper_state_v6.md
-only in the package: CLAUDE.md, LICOES_PENDENTES.md, P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_LAYOUT_KIT.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_RECEITA_SIGMA_S.md, audit/A13_olah.md, audit/A14_korolik.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5b_peng_livina.md, audit/A7_theory.md, audit/A7b_held_kleinen.md, audit/A8_usoskin.md, audit/ERRATA_2026-11-14.md, bib/Baum_2022_AJ_163_183.pdf, bib/Baum_2022_arXiv2203.13376.pdf, bib/Brandenburg_1998_ApJL_498_L51.pdf, bib/DOWNLOAD_LOG.md, bib/Egeland_2017_arXiv1611.04540.pdf, bib/Held_2004_GRL_31_L23207.pdf, bib/Isaacson_2024_ApJS_274_35.pdf, bib/Isaacson_2025_AJ_170_181.pdf, bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf, bib/Korolik_2023_AJ_166.pdf, bib/LEIAME.txt, bib/Livina_2007_GRL_34_L03712.pdf, bib/Luhn_2022_ApJL_936_L23.pdf, bib/Luhn_2022_arXiv2207.00612.pdf, bib/MANIFEST.json, bib/Noyes1984.pdf, bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf, bib/Peng_1993_PRE_47_3730.pdf, bib/Shah_2018_ApJL_863_L26.pdf, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, consolidacao/rascunho_reparos_catalogo.csv, data/Egeland2017_table4_apjaa4e49t4_mrt.txt, historico/paper_state_v2.md, paper_state_v5.md, paper_state_v7.md
+only in the package: CLAUDE.md, LICOES_PENDENTES.md, P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_LAYOUT_KIT.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_RECEITA_SIGMA_S.md, audit/A13_olah.md, audit/A14_korolik.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5b_peng_livina.md, audit/A7_theory.md, audit/A7b_held_kleinen.md, audit/A8_usoskin.md, audit/ERRATA_2026-11-14.md, bib/Baum_2022_AJ_163_183.pdf, bib/Baum_2022_arXiv2203.13376.pdf, bib/Brandenburg_1998_ApJL_498_L51.pdf, bib/DOWNLOAD_LOG.md, bib/Egeland_2017_arXiv1611.04540.pdf, bib/Held_2004_GRL_31_L23207.pdf, bib/Isaacson_2024_ApJS_274_35.pdf, bib/Isaacson_2025_AJ_170_181.pdf, bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf, bib/Korolik_2023_AJ_166.pdf, bib/LEIAME.txt, bib/Livina_2007_GRL_34_L03712.pdf, bib/Luhn_2022_ApJL_936_L23.pdf, bib/Luhn_2022_arXiv2207.00612.pdf, bib/MANIFEST.json, bib/Noyes1984.pdf, bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf, bib/Peng_1993_PRE_47_3730.pdf, bib/Shah_2018_ApJL_863_L26.pdf, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, consolidacao/rascunho_reparos_catalogo.csv, data/Egeland2017_table4_apjaa4e49t4_mrt.txt, data/HK_Project_v1995_NSO_166620.mgd, historico/paper_state_v2.md, paper_state_v5.md, paper_state_v7.md
 PDFs in the repository root: Baliunas et al. 1995, ApJ 438, 269.pdf | Dakos et al. 2012, PLoS ONE 7, e41010.pdf | Egeland_2017_ApJ_835_25.pdf | Held & Kleinen 2004, GRL 31, L23207.pdf | Lockwood_2007_ApJS_171_260.pdf | Peng et al. 1994, Phys. Rev. E 49, 1685.pdf | Saar_1999_ApJ_524_295.pdf | Scheffer et al. 2009, Nature 461, 53.pdf | Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf
 
 ## File names cited in the documents and not found at the cited place

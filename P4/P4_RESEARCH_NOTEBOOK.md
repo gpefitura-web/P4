@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D82)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D83)
 
 ---
 
@@ -618,6 +618,12 @@ Nada disto decide D50, D24 ou Q9. D50 permanece como registrada; o item 6 do mem
 ### D82 — Os dados reais de Mount Wilson de HD 166620 (1995–2002) não estão em catálogo público alcançável
 **Data:** 2026-11-24 · **Base:** `bib/DOWNLOAD_LOG.md` (seção de 2026-11-24); pedido do pesquisador "verificar e baixar através de catálogos do VizieR" · **Status:** ativa · **Grau:** A (a ausência vista) / X (a existência dos dados) · **Complementa:** D58
 Resultado: os servidores do CDS não respondem deste ambiente; o espelho de Harvard tem `J/ApJ/936/L23` (a tabela de Luhn já em `data/`, com as 119 linhas digitalizadas) e **não tem** `J/A+A/590/A133` (Oláh+2016), nem sua `table1` (duas tentativas, REG-R8), nem `J/ApJ/438/269`; o TAP do espelho não responde. Não se achou nenhuma série de 1995–2002 de HD 166620 em catálogo. As 119 linhas continuam grau C (D58). Caminho que resta: pedir a série de 158 pontos a K. Oláh e W. Soon (rascunho `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado). A Figura 2 de Oláh não é digitalizada (regra 8). O Dataverse de Radick & Pevtsov não foi tentado.
+
+---
+
+### D83 — O espelho NAO do VizieR devolve a mesma tabela de Luhn: 119 linhas , sem a série de 158 pontos
+**Data:** 2026-11-24 · **Base:**  enviado pelo pesquisador (sha256 em ), comparado a  · **Status:** ativa · **Grau:** A · **Complementa:** D58, D82
+As tabelas 2 e 3 de  baixadas do espelho NAO são idênticas às já em  (1 885 linhas: 1 654 MW, 112 HIRES, **119 **; 1 278 APT). O VizieR, portanto, só tem o conjunto digitalizado; **os dados cedidos por Oláh e Soon (158 pontos) não estão no catálogo**. As 119 linhas seguem grau C (D58). O caminho que resta é o pedido aos autores (D82).
 
 ---
 
