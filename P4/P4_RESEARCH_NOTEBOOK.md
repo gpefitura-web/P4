@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D92)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D94)
 
 ---
 
@@ -685,6 +685,18 @@ O pesquisador escolheu **"A e C"**. As duas distribuições coincidem em tudo me
 
 ---
 
+### D93 — Validação de D92: consistente; duas lacunas a confirmar (anos faltantes; períodos próprios ou publicados)
+**Data:** 2026-11-24 · **Autor:** Claude (registro de fato, a pedido do pesquisador) · **Base:** `SUBSIDIOS_Q1.md` Parte 1, `3.16-01` a `3.16-05`, `13_annual_runs.txt` · **Status:** ativa · **Grau:** A · **Complementa:** D92
+A e C diferem só no DFA; D92 os reúne mantendo o DFA fora até Q9. Os números de D91 reproduzem e não há conflito com D24, D20–D23, D08 e D12. **Achado novo:** a série anual não é uma sequência contínua: em 2 das 10 estrelas dos grupos (HD 182572: sequência máxima 14 de 38 estações; HD 190360: 19 de 47) a maior sequência de anos consecutivos é menor que a janela de 50 %; HD 166620 tem lacunas de 1, 6, 2 e 1 ano e HD 101501 uma de 13. O CSD em janelas anuais **precisa de regra para anos faltantes**, ainda não decidida. **Ambiguidade em D92:** "períodos" (série bruta) pode ser periodogramas próprios ou os períodos publicados de D15/D42; **a confirmar pelo pesquisador**. Nada disto altera a escolha de D92.
+
+---
+
+### D94 — Q1: subsídios entregues, Q1 permanece aberta
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** D79, D92; `SUBSIDIOS_Q1.md` Parte 2 · **Status:** ativa · **Grau:** A (subsídios) · **Complementa:** D79
+Resposta do pesquisador: **"Subsídios para decidir Q1."** Entregue `SUBSIDIOS_Q1.md`: opções (i) a (iv) de v6 §3.4 e a nova (v) (Baum mais `HK_Project_v2001_NSO`, D85), os dados por grupo, as perguntas embutidas (binaridade I-06, D04/D11 I-13, o que a amostra entrega à hipótese de D90, anos faltantes) e a recomendação já registrada, repetida sem alteração. **Q1 permanece aberta; nenhuma opção escolhida.**
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -811,6 +823,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Item 6 decidido:** a resposta teórica de D50 vira hipótese testável | D90 |
 | 2026-11-24 | **Papéis das séries:** subsídios completos (tamanhos nos grupos do P4, agregação, três distribuições); escolha adiada | D91 |
 | 2026-11-24 | **Papéis das séries decididos** (A e C): anual para CSD temporal; bruta para σ por estado e períodos; DFA com Q9. Q1 destravada | D92 |
+| 2026-11-24 | **Validação de D92 e subsídios para Q1:** D92 consistente; regra para anos faltantes e períodos próprios/publicados a confirmar; Q1 com a nova opção (v) | D93, D94 |
 
 ---
 

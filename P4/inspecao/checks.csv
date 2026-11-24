@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,115,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,116,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
 1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,20,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,49,regex over all .md and the notebook,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,53,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D92 defined exactly once in the notebook,92,92,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D94 defined exactly once in the notebook,94,94,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D92 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D94 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 93,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 95,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -520,3 +520,4 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.16-02,stars in the Baum subset with >= 100 annual seasons (D24 floor),,0/59,baum2022_59stars.csv; D24,INFO
 3.16-03,five clean Flat present in the Baum subset,4/5,4/5,audit/ERRATA_2026-11-14.md E-I12,INFO
 3.16-04,CYCLE+Excellent controls present in the Baum subset,6/13,6/13,paper_state_v6.md §3.1,INFO
+3.16-05,"stars (Flat, CYCLE+Excellent, HD 101501 with Table 1 rows) whose longest consecutive-year run is shorter than half of their seasons",,2/10,data/J_AJ_163_183_table1.tsv (sigma-flagged rows removed),INFO

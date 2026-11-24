@@ -49,3 +49,41 @@ check("3.16-02", "stars in the Baum subset with >= 100 annual seasons (D24 floor
 check("3.16-03", "five clean Flat present in the Baum subset", "4/5", f"{sum(1 for h in FLAT5 if h in by)}/5",
       "audit/ERRATA_2026-11-14.md E-I12", info=True)
 check("3.16-04", "CYCLE+Excellent controls present in the Baum subset", "6/13", f"{len(CTRL)}/13", "paper_state_v6.md §3.1", info=True)
+
+# ---- consecutive-year structure of the annual series (feasibility of rolling windows, D92) ----------------
+from collections import defaultdict
+
+yrs = defaultdict(set)
+for ln in open(os.path.join(ROOT, "data", "J_AJ_163_183_table1.tsv"), encoding="utf-8"):
+    if ln.startswith("#") or ";" not in ln:
+        continue
+    p = [x.strip() for x in ln.rstrip("\n").split(";")]
+    if p[0].isdigit() and p[4] != "sigma":
+        yrs[p[0]].add(int(float(p[2])))
+
+
+def run_info(s):
+    s = sorted(s)
+    best = cur = 1
+    gaps = []
+    for a, b in zip(s, s[1:]):
+        if b == a + 1:
+            cur += 1
+        else:
+            gaps.append(b - a - 1)
+            cur = 1
+        best = max(best, cur)
+    return len(s), best, gaps
+
+
+lines = ["HD | group | annual seasons | longest run of consecutive years | missing-year gaps | half of seasons"]
+worse = 0
+for grp, l in (("Flat", [h for h in FLAT5 if h in yrs]), ("CYCLE+Excellent", [h for h in CTRL if h in yrs]), ("case", ["101501"])):
+    for h in l:
+        n, best, gaps = run_info(yrs[h])
+        lines.append(f"{h} | {grp} | {n} | {best} | {gaps} | {n // 2}")
+        if best < n // 2:
+            worse += 1
+write_out("13_annual_runs.txt", "\n".join(lines) + "\n")
+check("3.16-05", "stars (Flat, CYCLE+Excellent, HD 101501 with Table 1 rows) whose longest consecutive-year run is shorter than half of their seasons",
+      "", f"{worse}/{len(lines) - 1}", "data/J_AJ_163_183_table1.tsv (sigma-flagged rows removed)", info=True)

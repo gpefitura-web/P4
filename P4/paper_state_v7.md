@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D92) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D94) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -64,7 +64,7 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 **Respondidas em 2026-11-14 e 2026-11-24 (caderno §4d):** anual e bruta → **D68**, com os papéis em **D92** (anual para o CSD temporal; bruta para σ por estado e períodos; DFA só se Q9 for decidida a favor); Q8 → **D69** (S e R′_HK); piso de Q6 → **D75** (0.37–0.45 %); item 6 / D50 → **D90** (hipótese testável, depois de D74, D81, D87–D89); dados de Oláh e Soon → **D86** (seguir sem eles, grau C); incorporação → **D71**; Q2–Q7 → **D78** (abertas). A14 (Korolik) para Q11.
 
-**Pendentes, todas do pesquisador:** **Q1** (destravada por D92; subsídio novo em D85); o enunciado da hipótese de D90 (indicador, série anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas dos itens 4, 5, 7 e 10 (junção D72, D46 D73, receita de σ_S D70, layout D77); Q2–Q7, Q9, Q10 e Q11. Nenhuma Q# está fechada.
+**Pendentes, todas do pesquisador:** **Q1** (subsídios em `SUBSIDIOS_Q1.md`, D94); a confirmação de D93 (regra para anos faltantes; "períodos" próprios ou publicados); o enunciado da hipótese de D90 (indicador, série anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas dos itens 4, 5, 7 e 10 (junção D72, D46 D73, receita de σ_S D70, layout D77); Q2–Q7, Q9, Q10 e Q11. Nenhuma Q# está fechada.
 
 ## 6 · Estado dos arquivos
 

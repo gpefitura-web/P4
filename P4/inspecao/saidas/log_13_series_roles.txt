@@ -2,3 +2,4 @@
 [INFO] 3.16-02: stars in the Baum subset with >= 100 annual seasons (D24 floor) | expected= obtained=0/59
 [INFO] 3.16-03: five clean Flat present in the Baum subset | expected=4/5 obtained=4/5
 [INFO] 3.16-04: CYCLE+Excellent controls present in the Baum subset | expected=6/13 obtained=6/13
+[INFO] 3.16-05: stars (Flat, CYCLE+Excellent, HD 101501 with Table 1 rows) whose longest consecutive-year run is shorter than half of their seasons | expected= obtained=2/10

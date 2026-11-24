@@ -93,3 +93,19 @@ write_out("11_dataverse_v2001_not_in_baum.txt", "\n".join(out2) + "\n")
 absent = ["16160", "32147", "160346", "201091", "81809", "103095"]
 check("3.15-06", "the six Baum-absent controls (I-12) present in v2001: 160346, 201091, 81809, 103095 yes; 16160, 32147 no",
       "4/6", f"{sum(1 for h in absent if h in v)}/6", "audit/ERRATA_2026-11-14.md E-I12; data/HK_Project_v2001_NSO", info=True)
+
+# annual (calendar-year) structure of the v2001 stars that Baum does not have
+out3 = ["HD | distinct calendar years | longest consecutive run | missing-year gaps"]
+for h in ["160346", "201091", "81809", "103095", "13421", "124570", "158614", "216385"]:
+    ys = sorted({int(jd_to_year(jd)) for jd, s, i in v[h]})
+    best = cur = 1
+    gaps = []
+    for a, bb in zip(ys, ys[1:]):
+        if bb == a + 1:
+            cur += 1
+        else:
+            gaps.append(bb - a - 1)
+            cur = 1
+        best = max(best, cur)
+    out3.append(f"{h} | {len(ys)} | {best} | {gaps}")
+write_out("11_dataverse_v2001_runs.txt", "\n".join(out3) + "\n")

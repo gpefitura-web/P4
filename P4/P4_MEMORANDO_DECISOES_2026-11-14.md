@@ -90,3 +90,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 11 (2026-11-24):** papéis das séries → D92 ("A e C": anual para CSD temporal; bruta para σ por estado e períodos; DFA só se Q9 for decidida a favor). Q1 destravada.
 
+**Bloco 12 (2026-11-24):** D92 validado (D93); Q1 → D94 (subsídios em `SUBSIDIOS_Q1.md`); escolha pendente.
+

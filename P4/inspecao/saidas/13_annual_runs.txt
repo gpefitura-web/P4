@@ -1,0 +1,11 @@
+HD | group | annual seasons | longest run of consecutive years | missing-year gaps | half of seasons
+10700 | Flat | 49 | 29 | [4] | 24
+23249 | Flat | 48 | 29 | [1, 1, 1, 1, 1, 1] | 24
+182572 | Flat | 38 | 14 | [1, 2, 2, 2, 1, 1, 1, 1, 3, 1] | 19
+190360 | Flat | 47 | 19 | [2, 2, 1, 1, 1] | 23
+10476 | CYCLE+Excellent | 53 | 47 | [1] | 26
+152391 | CYCLE+Excellent | 43 | 36 | [8, 2, 2] | 21
+166620 | CYCLE+Excellent | 45 | 30 | [1, 6, 2, 1] | 22
+26965 | CYCLE+Excellent | 47 | 29 | [5, 1, 1] | 23
+4628 | CYCLE+Excellent | 43 | 30 | [10, 1] | 21
+101501 | case | 32 | 28 | [13, 2, 2, 1] | 16
