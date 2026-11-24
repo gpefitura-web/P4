@@ -17,7 +17,7 @@ def load_catalog(only_included=True):
     return df[df.status_amostra == "incluida"].reset_index(drop=True) if only_included else df
 
 
-def load_baum(drop_sigma=True):
+def load_baum(drop_sigma=True, rule="contains"):
     """Baum+2022 Table 1 (VizieR J/AJ/163/183). Columns: HD, S, t (decimal year), inst, flag."""
     rows = []
     with open(os.path.join(DATA, "J_AJ_163_183_table1.tsv"), encoding="utf-8") as fh:
@@ -34,7 +34,11 @@ def load_baum(drop_sigma=True):
             rows.append((p[0], float(p[1]), float(p[2]), p[3], p[4]))
     df = pd.DataFrame(rows, columns=["HD", "S", "t", "inst", "flag"])
     if drop_sigma:
-        df = df[~df.flag.str.contains("sigma")].reset_index(drop=True)
+        # rule "contains": drops 'sigma' and '1day/sigma' (N_obs_limpo, 61662 rows, step-1 check)
+        # rule "catalog": drops only flag == 'sigma' (61691 rows); this is the rule behind the frozen
+        # catalogue segment lengths (inspecao/scripts/17_recommendation_support.py). See ACHADOS #3.
+        bad = df.flag.str.contains("sigma") if rule == "contains" else (df.flag == "sigma")
+        df = df[~bad].reset_index(drop=True)
     df["era"] = np.where(df.inst.str.startswith("HKP"), "MW", "Keck")
     return df
 
@@ -84,6 +88,6 @@ def load_star(hd, cat_row=None):
 
 _cache = {}
 def _BAUM_CACHE():
-    return _cache.setdefault("b", load_baum())
+    return _cache.setdefault("b", load_baum(rule="catalog"))
 def _V_CACHE():
     return _cache.setdefault("v", load_v2001())
