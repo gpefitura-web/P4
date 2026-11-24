@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D89)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D90)
 
 ---
 
@@ -667,6 +667,12 @@ Bury, Bauch & Anand 2020 (J. R. Soc. Interface 17, 20200482; versão publicada, 
 
 ---
 
+### D90 — A resposta teórica de D50 é reformulada como hipótese testável (item 6)
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** memorando item 6; `SUBSIDIOS_D50.md`, A7, A7b, A7c, D87, D88, D89 · **Status:** ativa · **Grau:** decisão humana · **Substitui D50 no ponto da "resposta registrada"; complementa D50 no resto**
+Resposta do pesquisador: **"Reformular como hipótese testável."** Efeito sobre D50 (que não é editada): **continua valendo** a obrigação de citar na íntegra as duas frases da CLS VI (estocasticidade e transição "on order of years"); **deixa de valer** como resposta o argumento de que a biestabilidade forçada por ruído "ainda exibe CSD porque a barreira encolhe antes do salto". Em seu lugar, o manuscrito trata a biestabilidade como **hipótese do P4**, e declara: (i) que nenhuma das fontes teóricas e empíricas lidas (Scheffer, Boulton, Held & Kleinen, Kuehn 2011 e 2013, Boettiger+2013, Bury+2020) analisa o sentido ciclo limite → equilíbrio, de modo que a CSD na perda de um ciclo limite não tem precedente nelas; (ii) que o teste é a contribuição do P4; (iii) que o sinal esperado pode inverter conforme o indicador (A7c-F3) e que a Hopf supercrítica não é transição crítica para esta literatura (A7c-F2); (iv) as limitações de D46 (aproximação amostrada com 8 pontos) e de D58/D86 (as 119 linhas são grau C). **Em aberto, não decidido aqui:** o enunciado da hipótese (qual indicador, em qual série, com qual sinal esperado e o que a refuta), que depende de D68/D76 (papéis das séries), do Q10 (a escala da transição) e de Q9.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -687,7 +693,7 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 
 **Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**; junção → **D72** e D46 → **D73** (subsídios entregues, escolha adiada); D50 → **D74** (esperar Held & Kleinen); piso de Q6 → **D75** (0.37–0.45 %); papéis das séries → **D76** (subsídios) e A14 (Korolik); layout → **D77** (subsídios); Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). Q1–Q7, Q10 e Q11 seguem abertas.
 
-**Atualização de 2026-11-24:** Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
+**Atualização de 2026-11-24:** item 6 (D50) → **D90** (reformulada como hipótese testável); Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
 
 ---
 
@@ -733,7 +739,7 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
-**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão.
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
 
 ---
 
@@ -790,6 +796,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Três PDFs subidos (Held & Kleinen, Livina & Lenton, Peng+1993) validados e lidos; busca dos dados de HD 166620 no VizieR sem resultado.** A7b e A5b; item 6 do memorando de novo decidível | D81, D82 |
 | 2026-11-24 | **Busca de fontes sobre ciclo limite (item 6):** Kuehn 2011/2013 e Boettiger+2013 lidos; nenhuma trata ciclo → equilíbrio | D88 |
 | 2026-11-24 | **Bury+2020 recebido e lido** (único dado empírico com os dois lados de uma Hopf; não analisa o lado oscilatório) | D89 |
+| 2026-11-24 | **Item 6 decidido:** a resposta teórica de D50 vira hipótese testável | D90 |
 
 ---
 

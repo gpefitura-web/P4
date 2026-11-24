@@ -84,3 +84,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 8 (2026-11-24):** Bury+2020 enviado e lido (D89, adendo de A7c): analisa só a aproximação pelo lado do equilíbrio; a lacuna do lado do ciclo permanece. Item 6 segue pendente da sua escolha.
 
+**Bloco 9 (2026-11-24):** item 6 → D90: a resposta teórica de D50 é reformulada como hipótese testável. Pendente: o enunciado da hipótese (indicador, série, sinal esperado, refutação).
+
