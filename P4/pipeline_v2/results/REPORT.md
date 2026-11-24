@@ -184,3 +184,9 @@ Uma linha por estrela (segmento MW mais longo; Sol excluído por ser exploratór
 | s5 | ac1 | Var | CYCLE_Excellent | 0 | 1 | 0.2641 | 0.5572 | n.s. | 7 | 8 |
 | s5 | ac1 | Long | CYCLE_Excellent | 0 | 1 | 0.2177 | 0.5572 | n.s. | 4 | 8 |
 
+
+## 7. Par primário e Holm (D108; `group_primary.py` → `group_primary.csv`, `group_holm.csv`)
+
+Par primário (fixado em D108): Var ∪ Long > Flat_limpa, AR(1) do segmento MW mais longo, σ = 1, Mann–Whitney unilateral (greater): n = 11 e 4, U = 13, **p = 0.887**; medianas −0.372 e −0.291 (sem correção, par único).
+
+Holm sobre os 30 testes da seção 6 (família fixada antes do cálculo: 5 pares × [AC1 em 4 configurações + variância normalizada em 2]): nenhum com p_Holm < 0.05; 3 com p bruto < 0.05. Menores p ajustados: CYCLE_Excellent > Flat, variância normalizada, σ = 1: p = 0.0020, p_Holm = 0.061; sem remoção: p = 0.0081, p_Holm = 0.234; Long > Flat, variância normalizada, σ = 1: p = 0.0286, p_Holm = 0.800. Tabela completa em `results/group_holm.csv`.
