@@ -18,4 +18,6 @@ Formato do kit: o que aconteceu, a regra que teria evitado, onde a regra deve en
 | L12 | Texto com crases num heredoc sem aspas foi executado pelo shell e apagou trechos do log e de D83 | D83 | Heredoc sempre entre aspas (`<<'EOF'`) ao escrever Markdown com crases | `LICOES_AMBIENTE` |
 | L13 | Um arquivo de dados e um script foram adicionados ao repositório por fora do fluxo (id de checagem duplicado `3.14-xx`) | commit `0c7b853` | Antes de criar ids de checagem, listar os existentes; conferir `git status` antes de `git add -A` | processo |
 | L14 | O nome de um PDF baixado (Boettiger) estava errado e só foi visto ao ler a primeira página | A7c | Nomear o arquivo só depois de validar autores e título na página 1 (D63) | kit REG-R2 |
-
+| L15 | Dois critérios "pronto" de passos diferentes pediam regras diferentes para o mesmo flag de dados (`sigma` contra `1day/sigma`) e só a verificação do passo 2 mostrou | `pipeline_v2/ACHADOS.md` #3 | Ao escrever critérios de verificação, declarar a regra de filtro de cada contagem de referência | prompts de etapa |
+| L16 | Um módulo chamado `io.py` sombrearia a biblioteca padrão | `pipeline_v2/ACHADOS.md` #1 | Não nomear módulos com nomes da biblioteca padrão | prompts de etapa |
+| L17 | D22 define p = P(τ* ≤ τ), que não é a cauda usual de um teste de tendência crescente | `pipeline_v2/ACHADOS.md` #4 | Definir a cauda do p e a direção da hipótese na mesma decisão | caderno D22 (por nova D##) |

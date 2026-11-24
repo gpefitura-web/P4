@@ -12,3 +12,4 @@
 | 7. R′_HK (`rhk.py`) | PRONTO | `test_step7.py`: log R′_HK −4.959 / −4.948 / −4.764 e R_phot/R_HK 0.486 / 0.054 / 0.006 (3.7-12 a 3.7-14) |
 | 8. Execução única (`run_all.py`) | PRONTO | uma execução oficial; saídas em `results/` (seed 20261124) |
 | 9. Relatório de fatos (`report.py` → `results/REPORT.md`) | PRONTO | sem interpretação |
+| 10. Fecho | PRONTO | `paper_state_v8.md`, D105 no caderno, `LICOES_PENDENTES.md` (L15–L17), `ACHADOS.md` #7–10 |
