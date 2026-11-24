@@ -19,5 +19,5 @@
 1. ~~Linhas `1day/sigma` de Baum~~ — resolvido em D106: entram (HD 190360 segue elegível); a execução oficial já as incluía.
 2. Qual cauda do p aparece no texto: P(τ* ≤ τ) literal de D22 ou P(τ* ≥ τ) (#4).
 3. Correspondência dos grupos nos testes entre grupos e correção para múltiplas comparações (#7).
-4. `inspecao/run_all.sh` não foi rodado (#8).
+4. ~~`inspecao/run_all.sh`~~ — rodado uma vez após o fecho (ACHADOS #12); hashes congelados intactos.
 5. Figuras e manuscrito: não iniciados (fora do escopo desta etapa).

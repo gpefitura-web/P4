@@ -1,21 +1,21 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,130,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,166,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
 1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,24,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,78,regex over all .md and the notebook,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,65,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
 2a-01,decisions D01-D104 defined exactly once in the notebook,104,104,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D104 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D104 numbering,,"D105,D106,D45b",DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 102; ativa (como recomendação): 1; ativa (como recomendações): 1; ativa (rascunho aguardando assinatura): 1,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 104; ativa (como recomendação): 1; ativa (como recomendações): 1; ativa (rascunho aguardando assinatura): 1,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
-2a-08,decisions never cited outside the document that defines them,,"D100,D101,D102,D103,D104",regex,INFO
+2a-08,decisions never cited outside the document that defines them,,"D100,D101,D102,D103,D104,D105,D106",regex,INFO
 2a-09,D41-D54 present in P4_RESEARCH_NOTEBOOK.md (absent at hand-off; incorporated 2026-11-14),14,14,README_HANDOFF.md 'Pendencia de documentacao',PASS
 2a-13,D41-D54 header lines identical in notebook and DECISOES_D41_D54.md,14,14,P4_RESEARCH_NOTEBOOK.md §4c vs DECISOES_D41_D54.md,PASS
 2a-10,Q10 / Q11 present in notebook §5,yes/yes,yes/yes,README_HANDOFF.md 'Pendencia de documentacao',PASS
