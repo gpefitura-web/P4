@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D91)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D92)
 
 ---
 
@@ -679,6 +679,12 @@ Resposta do pesquisador: **"Subsídios para decidir os papéis das séries."** E
 
 ---
 
+### D92 — Papéis das séries: anual para o CSD temporal; bruta para σ por estado e períodos; o DFA fica com Q9
+**Data:** 2026-11-24 · **Autor:** pesquisador (resposta "Pode ser A e C?"); leitura de Claude, ver abaixo · **Base:** D68, D76, D90, D91; `SUBSIDIOS_PAPEIS_SERIES.md` (adendo 2) · **Status:** ativa · **Grau:** decisão humana · **Cumpre:** D68, D76 · **Destrava:** D79 (Q1)
+O pesquisador escolheu **"A e C"**. As duas distribuições coincidem em tudo menos no DFA, de modo que a leitura que as reúne é: (1) **série anual** (médias por estação, Δt-agregação) para as **tendências temporais** de indicadores de CSD (AR(1), variância, τ de Kendall em janelas deslizantes; D20–D23); (2) **série bruta** para a **comparação de variabilidade entre estados** (σ por estado, receita ainda pendente em D70) e para os **períodos** (periodogramas); (3) **DFA** (Q9): **continua fora, conforme D24 e a distribuição A**, e **só entra pela série bruta** (distribuição C) **se Q9 for decidida a favor**; Q9 permanece aberta e decidida à parte. **Se esta leitura do DFA não corresponde ao que o pesquisador queria, vale a correção por nova entrada.** Consequências, sem decisão nova: o teste temporal em HD 166620 (8 pontos, grau C) e em HD 101501 (lacuna de 13.82 anos) segue limitado por D46; as janelas anuais têm cerca de 23–24 pontos nos grupos do P4 (D91); a junção instrumental (D72) entra nas duas séries; a regra por métrica deve constar em Methods. **Q1 deixa de esperar os papéis** (D79) e pode ser tratada; o enunciado da hipótese de D90 passa a poder fixar indicador (anual), série e sinal esperado.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -745,7 +751,7 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
-**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
 
 ---
 
@@ -804,6 +810,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Bury+2020 recebido e lido** (único dado empírico com os dois lados de uma Hopf; não analisa o lado oscilatório) | D89 |
 | 2026-11-24 | **Item 6 decidido:** a resposta teórica de D50 vira hipótese testável | D90 |
 | 2026-11-24 | **Papéis das séries:** subsídios completos (tamanhos nos grupos do P4, agregação, três distribuições); escolha adiada | D91 |
+| 2026-11-24 | **Papéis das séries decididos** (A e C): anual para CSD temporal; bruta para σ por estado e períodos; DFA com Q9. Q1 destravada | D92 |
 
 ---
 
