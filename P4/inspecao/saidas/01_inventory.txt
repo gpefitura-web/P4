@@ -3,8 +3,8 @@
      22881  2e3a4d26fea3ef65  DECISOES_D41_D54.md
       2438  7d2ede7b4dd5adbe  LICOES_PENDENTES.md
      16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
-     12383  a6f90f3d484db900  P4_MEMORANDO_DECISOES_2026-11-14.md
-    107237  b0ce71ea1d0cad2a  P4_RESEARCH_NOTEBOOK.md
+     12492  903f6e2c5771929c  P4_MEMORANDO_DECISOES_2026-11-14.md
+    109206  8cc52e8be1f31b19  P4_RESEARCH_NOTEBOOK.md
       9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
       3704  d32bc37210dba527  README_HANDOFF.md
      16505  481f1954e8a9f8ca  RECOMENDACOES_PENDENTES.md
@@ -67,7 +67,11 @@
    5817686  f9fbd3ad238d3dce  bib/Rehfeld_2011_NPG_18_389.pdf
    7818081  e31d53df20c0df39  bib/SamplingRateCorrected_2022_PRE_105_024206.pdf
     627871  f7a4ed03310c3248  bib/Shah_2018_ApJL_863_L26.pdf
+      1077  a5b69e8fbabdf7a6  consolidacao/LEIAME.md
+      6363  01152f8db61c68c0  consolidacao/LISTA_FINAL_ESTRELAS_2026-11-24.md
+     10079  7b7d6ef2b5f18d26  consolidacao/P4_SOURCE_VALUES.md
       1811  43121b1b6798ec73  consolidacao/PEDIDO_DADOS_OLAH_SOON.md
+     17845  ab480cb3d2fae1cd  consolidacao/p4_star_catalog.csv
       5174  71bbeee15439391a  consolidacao/rascunho_reparos_catalogo.csv
     248406  6e2746d535d7d9e3  data/Egeland2017_table4_apjaa4e49t4_mrt.txt
     133974  ab8df9bfdb8e0494  data/HK_Project_v1995_NSO_166620.mgd
@@ -122,7 +126,7 @@
      22804  e106132858d9398a  paper_state_v4.md
       9525  5fc6d46e755fc2cc  paper_state_v5.md
      21181  aa76275ba875779c  paper_state_v6.md
-      7956  53d26bd6eb8cb87a  paper_state_v7.md
+      8029  f38e6c43f71e316e  paper_state_v7.md
 
 ## Repository-root copies
 IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
@@ -149,7 +153,7 @@ IDENTICAL  noyes1984_validade_cor.csv  <->  noyes1984_validade_cor.csv
 IDENTICAL  p4_pipeline.ipynb  <->  p4_pipeline.ipynb
 IDENTICAL  paper_state_v4.md  <->  paper_state_v4.md
 IDENTICAL  paper_state_v6.md  <->  paper_state_v6.md
-only in the package: CLAUDE.md, LICOES_PENDENTES.md, P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_D50.md, SUBSIDIOS_INTERPOLACAO.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_LAYOUT_KIT.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_Q1.md, SUBSIDIOS_Q2_Q11.md, SUBSIDIOS_RECEITA_SIGMA_S.md, SUBSIDIOS_SEGMENTO_MINIMO.md, audit/A13_olah.md, audit/A14_korolik.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5b_peng_livina.md, audit/A7_theory.md, audit/A7b_held_kleinen.md, audit/A7c_limit_cycle_sources.md, audit/A8_usoskin.md, audit/ERRATA_2026-11-14.md, bib/Baum_2022_AJ_163_183.pdf, bib/Baum_2022_arXiv2203.13376.pdf, bib/Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf, bib/Brandenburg_1998_ApJL_498_L51.pdf, bib/Bury_2020_JRSocInterface_17_20200482.pdf, bib/DOWNLOAD_LOG.md, bib/DataGaps_2025_arXiv2505.19034.pdf, bib/Egeland_2017_arXiv1611.04540.pdf, bib/Held_2004_GRL_31_L23207.pdf, bib/Inconclusive_2025_ESD_16_2035.pdf, bib/Isaacson_2024_ApJS_274_35.pdf, bib/Isaacson_2025_AJ_170_181.pdf, bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf, bib/Korolik_2023_AJ_166.pdf, bib/Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf, bib/Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf, bib/LEIAME.txt, bib/Livina_2007_GRL_34_L03712.pdf, bib/Luhn_2022_ApJL_936_L23.pdf, bib/Luhn_2022_arXiv2207.00612.pdf, bib/MANIFEST.json, bib/Noyes1984.pdf, bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf, bib/Peng_1993_PRE_47_3730.pdf, bib/Rehfeld_2011_NPG_18_389.pdf, bib/SamplingRateCorrected_2022_PRE_105_024206.pdf, bib/Shah_2018_ApJL_863_L26.pdf, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, consolidacao/rascunho_reparos_catalogo.csv, data/Egeland2017_table4_apjaa4e49t4_mrt.txt, data/HK_Project_v1995_NSO_166620.mgd, data/HK_Project_v2001_NSO/PROVENIENCIA.txt, data/HK_Project_v2001_NSO/README.pdf, data/HK_Project_v2001_NSO/hd001835.mgd, data/HK_Project_v2001_NSO/hd010476.mgd, data/HK_Project_v2001_NSO/hd013421.mgd, data/HK_Project_v2001_NSO/hd018256.mgd, data/HK_Project_v2001_NSO/hd025998.mgd, data/HK_Project_v2001_NSO/hd035296.mgd, data/HK_Project_v2001_NSO/hd039587.mgd, data/HK_Project_v2001_NSO/hd075332.mgd, data/HK_Project_v2001_NSO/hd076572.mgd, data/HK_Project_v2001_NSO/hd081809.mgd, data/HK_Project_v2001_NSO/hd082885.mgd, data/HK_Project_v2001_NSO/hd103095.mgd, data/HK_Project_v2001_NSO/hd114710.mgd, data/HK_Project_v2001_NSO/hd115383.mgd, data/HK_Project_v2001_NSO/hd115404.mgd, data/HK_Project_v2001_NSO/hd120136.mgd, data/HK_Project_v2001_NSO/hd124570.mgd, data/HK_Project_v2001_NSO/hd129333.mgd, data/HK_Project_v2001_NSO/hd131156a.mgd, data/HK_Project_v2001_NSO/hd143761.mgd, data/HK_Project_v2001_NSO/hd146233.mgd, data/HK_Project_v2001_NSO/hd149661.mgd, data/HK_Project_v2001_NSO/hd152391.mgd, data/HK_Project_v2001_NSO/hd157856.mgd, data/HK_Project_v2001_NSO/hd158614.mgd, data/HK_Project_v2001_NSO/hd160346.mgd, data/HK_Project_v2001_NSO/hd161239.mgd, data/HK_Project_v2001_NSO/hd176095.mgd, data/HK_Project_v2001_NSO/hd182572.mgd, data/HK_Project_v2001_NSO/hd185144.mgd, data/HK_Project_v2001_NSO/hd190007.mgd, data/HK_Project_v2001_NSO/hd201091.mgd, data/HK_Project_v2001_NSO/hd201092.mgd, data/HK_Project_v2001_NSO/hd203387.mgd, data/HK_Project_v2001_NSO/hd216385.mgd, historico/paper_state_v2.md, paper_state_v5.md, paper_state_v7.md
+only in the package: CLAUDE.md, LICOES_PENDENTES.md, P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, PROMPT_CLAUDE_CODE.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_D50.md, SUBSIDIOS_INTERPOLACAO.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_LAYOUT_KIT.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_Q1.md, SUBSIDIOS_Q2_Q11.md, SUBSIDIOS_RECEITA_SIGMA_S.md, SUBSIDIOS_SEGMENTO_MINIMO.md, audit/A13_olah.md, audit/A14_korolik.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5b_peng_livina.md, audit/A7_theory.md, audit/A7b_held_kleinen.md, audit/A7c_limit_cycle_sources.md, audit/A8_usoskin.md, audit/ERRATA_2026-11-14.md, bib/Baum_2022_AJ_163_183.pdf, bib/Baum_2022_arXiv2203.13376.pdf, bib/Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf, bib/Brandenburg_1998_ApJL_498_L51.pdf, bib/Bury_2020_JRSocInterface_17_20200482.pdf, bib/DOWNLOAD_LOG.md, bib/DataGaps_2025_arXiv2505.19034.pdf, bib/Egeland_2017_arXiv1611.04540.pdf, bib/Held_2004_GRL_31_L23207.pdf, bib/Inconclusive_2025_ESD_16_2035.pdf, bib/Isaacson_2024_ApJS_274_35.pdf, bib/Isaacson_2025_AJ_170_181.pdf, bib/Jarvinen_2025_AA_698_A93_arXiv2504.19670.pdf, bib/Korolik_2023_AJ_166.pdf, bib/Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf, bib/Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf, bib/LEIAME.txt, bib/Livina_2007_GRL_34_L03712.pdf, bib/Luhn_2022_ApJL_936_L23.pdf, bib/Luhn_2022_arXiv2207.00612.pdf, bib/MANIFEST.json, bib/Noyes1984.pdf, bib/Olah_2016_AA_590_A133_arXiv1604.06701.pdf, bib/Peng_1993_PRE_47_3730.pdf, bib/Rehfeld_2011_NPG_18_389.pdf, bib/SamplingRateCorrected_2022_PRE_105_024206.pdf, bib/Shah_2018_ApJL_863_L26.pdf, consolidacao/LEIAME.md, consolidacao/LISTA_FINAL_ESTRELAS_2026-11-24.md, consolidacao/P4_SOURCE_VALUES.md, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, consolidacao/p4_star_catalog.csv, consolidacao/rascunho_reparos_catalogo.csv, data/Egeland2017_table4_apjaa4e49t4_mrt.txt, data/HK_Project_v1995_NSO_166620.mgd, data/HK_Project_v2001_NSO/PROVENIENCIA.txt, data/HK_Project_v2001_NSO/README.pdf, data/HK_Project_v2001_NSO/hd001835.mgd, data/HK_Project_v2001_NSO/hd010476.mgd, data/HK_Project_v2001_NSO/hd013421.mgd, data/HK_Project_v2001_NSO/hd018256.mgd, data/HK_Project_v2001_NSO/hd025998.mgd, data/HK_Project_v2001_NSO/hd035296.mgd, data/HK_Project_v2001_NSO/hd039587.mgd, data/HK_Project_v2001_NSO/hd075332.mgd, data/HK_Project_v2001_NSO/hd076572.mgd, data/HK_Project_v2001_NSO/hd081809.mgd, data/HK_Project_v2001_NSO/hd082885.mgd, data/HK_Project_v2001_NSO/hd103095.mgd, data/HK_Project_v2001_NSO/hd114710.mgd, data/HK_Project_v2001_NSO/hd115383.mgd, data/HK_Project_v2001_NSO/hd115404.mgd, data/HK_Project_v2001_NSO/hd120136.mgd, data/HK_Project_v2001_NSO/hd124570.mgd, data/HK_Project_v2001_NSO/hd129333.mgd, data/HK_Project_v2001_NSO/hd131156a.mgd, data/HK_Project_v2001_NSO/hd143761.mgd, data/HK_Project_v2001_NSO/hd146233.mgd, data/HK_Project_v2001_NSO/hd149661.mgd, data/HK_Project_v2001_NSO/hd152391.mgd, data/HK_Project_v2001_NSO/hd157856.mgd, data/HK_Project_v2001_NSO/hd158614.mgd, data/HK_Project_v2001_NSO/hd160346.mgd, data/HK_Project_v2001_NSO/hd161239.mgd, data/HK_Project_v2001_NSO/hd176095.mgd, data/HK_Project_v2001_NSO/hd182572.mgd, data/HK_Project_v2001_NSO/hd185144.mgd, data/HK_Project_v2001_NSO/hd190007.mgd, data/HK_Project_v2001_NSO/hd201091.mgd, data/HK_Project_v2001_NSO/hd201092.mgd, data/HK_Project_v2001_NSO/hd203387.mgd, data/HK_Project_v2001_NSO/hd216385.mgd, historico/paper_state_v2.md, paper_state_v5.md, paper_state_v7.md
 PDFs in the repository root: Baliunas et al. 1995, ApJ 438, 269.pdf | Dakos et al. 2012, PLoS ONE 7, e41010.pdf | Egeland_2017_ApJ_835_25.pdf | Held & Kleinen 2004, GRL 31, L23207.pdf | Lockwood_2007_ApJS_171_260.pdf | Peng et al. 1994, Phys. Rev. E 49, 1685.pdf | Saar_1999_ApJ_524_295.pdf | Scheffer et al. 2009, Nature 461, 53.pdf | Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf
 
 ## File names cited in the documents and not found at the cited place
@@ -175,7 +179,6 @@ P4/P4_RESEARCH_NOTEBOOK.md: CITED PATH DIFFERS, file is at P4_RESEARCH_NOTEBOOK.
 P4/p4_pipeline.ipynb: CITED PATH DIFFERS, file is at p4_pipeline.ipynb  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 P4/paper_state_v4…v7.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 P4_DECISION_SUPPORT_6.1.md: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v5.md
-P4_SOURCE_VALUES.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md, paper_state_v7.md
 PAPER_STATE.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 PROMPT_PROXIMO_CHAT.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 SUBMISSION_STRATEGY_TIMELINE.md: ABSENT from package  <- cited in README_HANDOFF.md
@@ -194,7 +197,7 @@ extract_tsv.py: ABSENT from package  <- cited in audit/A1_baliunas.md
 finalize.py: ABSENT from package  <- cited in audit/A1_baliunas.md
 inspecao/NOTEBOOK_proposta_D41_D54.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 inspecao/RELATORIO_INSPECAO.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, audit/ERRATA_2026-11-14.md, paper_state_v7.md
-inspecao/checks.csv: ABSENT from package  <- cited in P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_D50.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_Q1.md, SUBSIDIOS_RECEITA_SIGMA_S.md, audit/ERRATA_2026-11-14.md, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, paper_state_v7.md
+inspecao/checks.csv: ABSENT from package  <- cited in P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_D50.md, SUBSIDIOS_JUNCAO_E_D46.md, SUBSIDIOS_PAPEIS_SERIES.md, SUBSIDIOS_Q1.md, SUBSIDIOS_RECEITA_SIGMA_S.md, audit/ERRATA_2026-11-14.md, consolidacao/P4_SOURCE_VALUES.md, consolidacao/PEDIDO_DADOS_OLAH_SOON.md, paper_state_v7.md
 inspecao/saidas/01_inventory.txt: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 inspecao/saidas/06_pdf_pages.txt: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 inspecao/saidas/11_dataverse_v2001*.txt: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
@@ -210,12 +213,12 @@ inspecao/scripts/06_pdf_quotes.py: ABSENT from package  <- cited in audit/A5b_pe
 inspecao/scripts/11_dataverse_v2001.py: ABSENT from package  <- cited in bib/DOWNLOAD_LOG.md
 inspecao/scripts/12_fetch_hopf_refs.py: ABSENT from package  <- cited in audit/A7c_limit_cycle_sources.md
 inspecao/scripts/15_gap_interpolation_test.py: ABSENT from package  <- cited in SUBSIDIOS_INTERPOLACAO.md
+inspecao/scripts/18_build_consolidation.py: ABSENT from package  <- cited in consolidacao/LEIAME.md, consolidacao/P4_SOURCE_VALUES.md
 kit.yml: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 kit/CLAUDE.md: CITED PATH DIFFERS, file is at CLAUDE.md  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 kit/docs/LAYOUT_REPO.md: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 kit/kit.yml: ABSENT from package  <- cited in SUBSIDIOS_LAYOUT_KIT.md
 merge_table2.py: ABSENT from package  <- cited in audit/A1_baliunas.md
-p4_star_catalog.csv: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_MEMORANDO_DECISOES_2026-11-14.md, P4_RESEARCH_NOTEBOOK.md, README_HANDOFF.md, RECOMENDACOES_PENDENTES.md, SUBSIDIOS_LAYOUT_KIT.md, audit/A6_saar.md, paper_state_v4.md, paper_state_v5.md, paper_state_v6.md, paper_state_v7.md
 paper_state.md: ABSENT from package  <- cited in P4_AUDIT_PROTOCOL.md, P4_RESEARCH_NOTEBOOK.md
 paper_state_v#.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 results/claude_report.md: ABSENT from package  <- cited in p4_pipeline.ipynb

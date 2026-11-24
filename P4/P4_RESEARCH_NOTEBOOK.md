@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D102)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D103)
 
 ---
 
@@ -762,6 +762,12 @@ Ficam decididos, nos termos de `RECOMENDACOES_PENDENTES.md`:
 
 ---
 
+### D103 — Consolidação preparada para assinatura (rascunho; não assinada)
+**Data:** 2026-11-24 · **Autor:** pesquisador (pedido "Sim, preparar a consolidação"), execução por Claude · **Base:** D102; `consolidacao/p4_star_catalog.csv`, `consolidacao/P4_SOURCE_VALUES.md`, `consolidacao/LISTA_FINAL_ESTRELAS_2026-11-24.md`, `3.20-01` a `3.20-10` · **Status:** ativa (rascunho aguardando assinatura) · **Grau:** A · **Cumpre:** o item "consolidação" de v6 §11; **não** é a assinatura
+Preparados três documentos, sem decisão nova de mérito (só regras já decididas: D13, D95, D98, D100, D102 R1 e R11). **`p4_star_catalog.csv`:** 112 linhas do catálogo congelado (inalterado; sha256 em `3.20-02`), com os reparos de D64, grupo (R1: cinco `Flat` limpas), fonte de série (Baum, v2001, Egeland para o Sol), segmentos de Mount Wilson e de Keck após D98 e situação na amostra. **Situação:** 28 estrelas incluídas (23 com segmento Mount Wilson ≥ 24 anos; o Sol por Egeland), 17 padrões excluídas (D13), HD 81809 e 219834A excluídas (R11), estrelas sem série (HD 43587 na `Flat`, 16160, 32147 e 219834B nos controles, entre outras). **`P4_SOURCE_VALUES.md`:** 48 valores de grau A ou B com fonte, página, check e D##; nenhum C ou X (`3.20-09`); o que é C ou X está no apêndice e não chega ao manuscrito. **`LISTA_FINAL_ESTRELAS_2026-11-24.md`:** lista datada **antes de qualquer indicador temporal** (R2), com o bloco de assinatura e quatro pontos a confirmar: se Var e Long entram como grupos de referência (D102 não o diz), HD 219834B sem série, o Sol por Egeland e o critério de elegibilidade do indicador. **A consolidação NÃO está assinada:** exige a assinatura e a aprovação escrita do pesquisador (REG-01) antes da reconstrução do pipeline (passada única); o **pipeline permanece congelado**.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -897,6 +903,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Tamanho mínimo de segmento decidido:** 24 anos (aceita D99) | D100 |
 | 2026-11-24 | **Recomendações para todos os itens pendentes** (16, não são decisões) | D101 |
 | 2026-11-24 | **Aceitas as recomendações R1–R16:** Q1 a Q11 decididas; aguarda aprovação escrita para a consolidação (REG-01) | D102 |
+| 2026-11-24 | **Consolidação preparada (rascunho): catálogo, valores e lista final; aguarda assinatura** | D103 |
 
 ---
 

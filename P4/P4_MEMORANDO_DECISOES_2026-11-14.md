@@ -106,3 +106,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 19 (2026-11-24):** aceitas as recomendações R1–R16 → D102. Todos os itens do memorando estão respondidos. Próximo: consolidação, com aprovação escrita (REG-01).
 
+**Bloco 20 (2026-11-24):** consolidação preparada para assinatura (D103): `consolidacao/`. Não assinada.
+

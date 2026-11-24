@@ -1,0 +1,10 @@
+[PASS] 3.20-01: rows of p4_star_catalog.csv | expected=112 obtained=112
+[INFO] 3.20-02: frozen catalogue unchanged (sha256 first 16) | expected=recorded obtained=9ab820d56eae8724
+[PASS] 3.20-03: five clean Flat by R1 (D13 + B95 Appendix B) | expected=10700,23249,43587,182572,190360 obtained=10700,23249,43587,182572,190360
+[INFO] 3.20-04: catalogue rows carrying a repair note (6 tentative periods, 219834A, 76572 and 33 secondary normalisations; some overlap) | expected= obtained=39
+[PASS] 3.20-05: secondary normalisations applied | expected=33 obtained=33
+[PASS] 3.20-06: included stars without any series source | expected=0 obtained=0
+[INFO] 3.20-07: included stars | with an indicator-eligible MW segment >= 24 yr (D100) | expected= obtained=28 | 23
+[PASS] 3.20-08: excluded: D13 standards | R11 binaries | expected=17 | 2 obtained=17 | 2
+[PASS] 3.20-09: entries of P4_SOURCE_VALUES.md (sections 1-6) graded C or X | expected=0 obtained=0
+[INFO] 3.20-10: entries of P4_SOURCE_VALUES.md (sections 1-6) | expected= obtained=48

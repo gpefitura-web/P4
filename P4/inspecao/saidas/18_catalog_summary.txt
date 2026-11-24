@@ -1,0 +1,16 @@
+grupo_P4 | status_amostra | n
+CYCLE_Excellent | excluida | 1
+CYCLE_Excellent | incluida | 9
+CYCLE_Excellent | sem_serie | 3
+Flat_limpa | incluida | 4
+Flat_limpa | sem_serie | 1
+Long | excluida | 7
+Long | incluida | 4
+Long | sem_serie | 5
+Var | incluida | 11
+Var | sem_serie | 18
+fora_dos_grupos | excluida | 11
+fora_dos_grupos | fora_dos_grupos | 38
+
+sha256 frozen baliunas_table2_full.csv: 9ab820d56eae87245e442a92f5a4e25777f051197cd6e37bac544df20c3575af
+sha256 p4_star_catalog.csv: ab480cb3d2fae1cd2bc053d45636b816e169c09ef1d58e189c525d2b5bf962ed
