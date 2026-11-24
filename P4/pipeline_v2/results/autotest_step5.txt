@@ -1,0 +1,3 @@
+Step 5 self-test (test_step5.py), run once, seed 5050: 600 null AR(1) series (c=0.5, L=30, 3 interpolated points), 1000 ARMA surrogates each.
+engine statsmodels; AIC orders chosen: (1,0) 186, (0,1) 132, (2,2) 80, (0,2) 63, (0,0) 42, (2,1) 41, (1,2) 22, (2,0) 16, (1,1) 18
+rejection p_upper<0.05: 0.032 ; p_D22<0.05: 0.042 ; required in [0.03, 0.07] -> PASS
