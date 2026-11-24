@@ -11,3 +11,4 @@
 | 6. H1 (`state_comparison.py`) | PRONTO | `test_step6.py`: σ_S conta A 0.0027/0.0054/0.0019, B 0.0028/0.0048/0.0015; F-test p = 8.80e-6 (bruto), 8.68e-3 (corrigido A) |
 | 7. R′_HK (`rhk.py`) | PRONTO | `test_step7.py`: log R′_HK −4.959 / −4.948 / −4.764 e R_phot/R_HK 0.486 / 0.054 / 0.006 (3.7-12 a 3.7-14) |
 | 8. Execução única (`run_all.py`) | PRONTO | uma execução oficial; saídas em `results/` (seed 20261124) |
+| 9. Relatório de fatos (`report.py` → `results/REPORT.md`) | PRONTO | sem interpretação |
