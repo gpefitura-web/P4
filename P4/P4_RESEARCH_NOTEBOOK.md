@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D97)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D98)
 
 ---
 
@@ -715,6 +715,12 @@ Entregue `SUBSIDIOS_Q2_Q11.md` (fatos com fonte, alternativas e dependências en
 
 ---
 
+### D98 — Anos faltantes: interpolar só lacunas curtas (opção 2)
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** D96; `SUBSIDIOS_INTERPOLACAO.md` (§4, alternativa 2), `3.16-05`, `3.16-06`, `3.17-02`, `3.17-03` · **Status:** ativa · **Grau:** decisão humana · **Cumpre:** D93 (regra para anos faltantes) · **Complementa:** D92
+Resposta do pesquisador: **"Opção 2 (interpolar só lacunas curtas) para anos faltantes."** Regra, tal como descrita na alternativa 2 dos subsídios e **fixada antes de olhar o indicador em qualquer estrela** (D04): (1) na série **anual** do CSD temporal (D92), **lacunas de 1 a 2 anos são preenchidas por interpolação linear** entre os dois anos vizinhos; (2) **lacunas de 3 anos ou mais não são interpoladas**: nenhuma janela deslizante as atravessa, e a série se divide em segmentos; (3) **todo ponto interpolado é marcado** e o número de pontos interpolados por janela é reportado; (4) os **surrogates ARMA de D22 passam pela mesma regra**, com as mesmas posições de lacuna, para que o teste de significância seja justo; (5) vale só para a série anual do CSD temporal, não para σ por estado nem para os períodos publicados (D92, D95). Ressalvas registradas, sem decisão nova: o teste sintético (D96) mostra que esta regra fica próxima do caso sem lacunas na mediana por compensação entre dois viés, e que nas estrelas de lacuna longa nenhum método recupera o resultado (HD 101501, 166620 e 4628 ficam em segmentos); Liu et al. e Rehfeld+2011 advertem contra a interpolação linear, e o estimador de núcleo gaussiano (alternativa 4) não foi adotado; a regra deve constar em Methods. Das 39 lacunas das 10 estrelas, 32 (1–2 anos) são preenchidas e 7 (3–13 anos) dividem a série (`3.16-06`). **Consequência prática:** HD 23249, 190360 e 10476 só têm lacunas de 1–2 anos e ficam como uma série única depois da interpolação; HD 10700 (lacuna de 4 anos), 182572 (3), 152391 (8), 166620 (6), 26965 (5), 4628 (10) e 101501 (13) são divididas em segmentos nas lacunas de 3 anos ou mais (`3.16-06`; tabela em `13_annual_runs.txt`). A janela de 50 % de D20 passa a ser relativa ao segmento, e **o tamanho mínimo de segmento para uma janela é pergunta em aberto**, não decidida.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -781,7 +787,7 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
-**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D98 (2026-11-24):** declarar a regra de anos faltantes (interpolação linear só de lacunas de 1–2 anos, pontos marcados, segmentos em lacunas ≥ 3 anos, surrogates com a mesma regra). **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
 
 ---
 
@@ -844,6 +850,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Validação de D92 e subsídios para Q1:** D92 consistente; regra para anos faltantes e períodos próprios/publicados a confirmar; Q1 com a nova opção (v) | D93, D94 |
 | 2026-11-24 | **Q1: opção (v); períodos publicados; anos faltantes explicados, regra pendente** | D95 |
 | 2026-11-24 | **Anos faltantes: teste sintético, justificativa física e referências; subsídios para Q2–Q11** | D96, D97 |
+| 2026-11-24 | **Anos faltantes decididos:** interpolar só lacunas curtas (1–2 anos) | D98 |
 
 ---
 
