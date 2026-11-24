@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D103)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D104)
 
 ---
 
@@ -768,6 +768,12 @@ Preparados três documentos, sem decisão nova de mérito (só regras já decidi
 
 ---
 
+### D104 — Consolidação aprovada por escrito; reconstrução do pipeline autorizada, em conversa nova
+**Data:** 2026-11-24 · **Autor:** pesquisador ("Aprovo os quatro pontos, pode reconstruir o pipeline") · **Base:** D103; `consolidacao/APROVACAO_2026-11-24.md` (hashes da referência congelada) · **Status:** ativa · **Grau:** decisão humana · **Cumpre:** REG-01 para a etapa de consolidação
+Aprovados os quatro pontos da lista final: (1) **Var e Long entram** como grupos de referência (11 Var e 4 Long incluídas); (2) **HD 219834B** fica sem série; (3) o **Sol entra por Egeland**, exploratório; (4) o indicador temporal só roda em estrelas com **segmento Mount Wilson de 24 anos ou mais**. A consolidação (`p4_star_catalog.csv`, `P4_SOURCE_VALUES.md`, `LISTA_FINAL_ESTRELAS_2026-11-24.md`) passa a ser a **referência congelada**, com os hashes em `APROVACAO_2026-11-24.md`. **A reconstrução do pipeline (passada única) é autorizada.** Sobre onde fazê-la, o pesquisador perguntou; a recomendação de Claude é **fazer em conversa nova**, com o handoff `PROMPT_PROXIMO_CHAT.md` (10 passos, regras antiloop, critérios de pronto), por: o contexto desta conversa é muito longo e foi resumido várias vezes; a etapa é de código com testes e pede contexto limpo; o Kit prevê uma conversa por etapa com handoff; o estado está inteiro no caderno, em `paper_state_v7.md` e na consolidação. O pipeline antigo `p4_pipeline.ipynb` não é editado.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -904,6 +910,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Recomendações para todos os itens pendentes** (16, não são decisões) | D101 |
 | 2026-11-24 | **Aceitas as recomendações R1–R16:** Q1 a Q11 decididas; aguarda aprovação escrita para a consolidação (REG-01) | D102 |
 | 2026-11-24 | **Consolidação preparada (rascunho): catálogo, valores e lista final; aguarda assinatura** | D103 |
+| 2026-11-24 | **Consolidação aprovada; pipeline autorizado a reconstruir (conversa nova, com handoff)** | D104 |
 
 ---
 

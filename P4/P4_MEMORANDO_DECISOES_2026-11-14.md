@@ -108,3 +108,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 20 (2026-11-24):** consolidação preparada para assinatura (D103): `consolidacao/`. Não assinada.
 
+**Bloco 21 (2026-11-24):** consolidação aprovada (D104); reconstrução do pipeline autorizada, recomendada em conversa nova (`PROMPT_PROXIMO_CHAT.md`).
+

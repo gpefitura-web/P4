@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D103) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D104) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -64,7 +64,7 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 **Q1 a Q11 estão decididas** (D68–D102): anual para o CSD temporal e bruta para σ por estado, com períodos publicados (D92, D95); Q1 opção (v) (D95) com a regra de binaridade (R1) e a exceção declarada de D04/D11 (R2); Q2 B95 principal (R8); Q3 varredura de σ com σ = 1 ano padrão (R9); Q4 confundidor declarado (R10); Q5 exclui HD 81809 e 219834A (R11); Q6 limiar com piso 0.37–0.45 % e precisão de B95 (D75, R12); Q7 subgrupo declarado, com e sem (R13); Q8 S e R′_HK (D69); Q9 DFA fora (R14); Q10 parte da hipótese (R15); Q11 confundidor para HD 10700 (R16). Anos faltantes: interpolar só lacunas de 1–2 anos (D98); segmento mínimo de 24 anos (D100). Hipótese de D90: H1 confirmatória e H2 exploratória (R3). σ_S: conta A (R4). Junção: descontinuidade (R5). D46 aceita (R6). Layout mantido (R7). Dados de Oláh e Soon: sem eles, grau C (D86). Incorporação ao caderno: D71.
 
-**Próximo passo (REG-01):** a **consolidação foi preparada como rascunho (D103)** em `consolidacao/` (`p4_star_catalog.csv`, `P4_SOURCE_VALUES.md`, `LISTA_FINAL_ESTRELAS_2026-11-24.md`) e **aguarda a assinatura e a aprovação escrita do pesquisador**, com quatro pontos a confirmar na lista. O pipeline permanece congelado até lá; nada foi assinado.
+**Próximo passo:** a consolidação foi **aprovada por escrito** (D104; `consolidacao/APROVACAO_2026-11-24.md`) e é a referência congelada. A **reconstrução do pipeline** (10 passos, regras antiloop) está descrita em `PROMPT_PROXIMO_CHAT.md` e é recomendada **em conversa nova**. O pipeline antigo permanece intocado.
 
 ## 6 · Estado dos arquivos
 
