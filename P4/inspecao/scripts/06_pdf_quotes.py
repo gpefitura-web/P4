@@ -45,6 +45,7 @@ PDF = {
     "kuehn11": os.path.join(ROOT, "bib", "Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf"),
     "kuehn13": os.path.join(ROOT, "bib", "Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf"),
     "boett": os.path.join(ROOT, "bib", "Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf"),
+    "bury": os.path.join(ROOT, "bib", "Bury_2020_JRSocInterface_17_20200482.pdf"),
 }
 T = {k: text(v) for k, v in PDF.items()}
 
@@ -160,6 +161,14 @@ Q = [
      "boett", r"not all systems that show regime shifts exhibit critical slowing down, or vice versa", True),
     ("3.11-70", "Boettiger+2013: a positive indication for some systems is a negative indication in others",
      "boett", r"a positive indication for some systems is a negative indication in others", True),
+    ("3.11-71", "Bury+2020: spectral reddening does not occur prior to critical transitions with an oscillatory component",
+     "bury", r"spectral reddening, which does not occur prior to critical transitions with an oscillatory component", True),
+    ("3.11-72", "Bury+2020: all local bifurcations are accompanied by critical slowing down and cannot be told apart by conventional EWS",
+     "bury", r"These local bifurcations are all accompanied by critical slowing down", True),
+    ("3.11-73", "Bury+2020: chemostat data, preceding both Hopf bifurcations Smax shows an upward trend",
+     "bury", r"Preceding both Hopf bifurcations, the spectral EWS provide a characteristic indication of a Hopf bifurcation", True),
+    ("3.11-74", "Bury+2020: supercritical Hopf = smooth reversible transition to small oscillations; subcritical = critical irreversible transition",
+     "bury", r"supercritical Hopf yields a smooth, reversible transition to small oscillations", True),
     ("3.11-50", "Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges",
      "held", r"decay rate .{0,4} for perturbations of the equilibrium vanishes and the variability of the related mode diverges", True),
     ("3.11-51", "Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz)",

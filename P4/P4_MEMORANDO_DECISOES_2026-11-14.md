@@ -82,3 +82,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 7 (2026-11-24):** item 6 (D50) → buscada fonte sobre ciclo limite (D88, A7c): três lidas, nenhuma trata o sentido ciclo → equilíbrio. O item continua pendente da sua escolha, agora com a lacuna confirmada em três linhas de fontes.
 
+**Bloco 8 (2026-11-24):** Bury+2020 enviado e lido (D89, adendo de A7c): analisa só a aproximação pelo lado do equilíbrio; a lacuna do lado do ciclo permanece. Item 6 segue pendente da sua escolha.
+

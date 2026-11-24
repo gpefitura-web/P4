@@ -55,6 +55,10 @@
 [PASS] 3.11-68: Boettiger+2013: subcritical Hopf = transition from stable equilibrium to stable cycle, with critical slowing down | expected=yes obtained=yes
 [PASS] 3.11-69: Boettiger+2013: not all regime shifts show critical slowing down, or vice versa | expected=yes obtained=yes
 [PASS] 3.11-70: Boettiger+2013: a positive indication for some systems is a negative indication in others | expected=yes obtained=yes
+[PASS] 3.11-71: Bury+2020: spectral reddening does not occur prior to critical transitions with an oscillatory component | expected=yes obtained=yes
+[PASS] 3.11-72: Bury+2020: all local bifurcations are accompanied by critical slowing down and cannot be told apart by conventional EWS | expected=yes obtained=yes
+[PASS] 3.11-73: Bury+2020: chemostat data, preceding both Hopf bifurcations Smax shows an upward trend | expected=yes obtained=yes
+[PASS] 3.11-74: Bury+2020: supercritical Hopf = smooth reversible transition to small oscillations; subcritical = critical irreversible transition | expected=yes obtained=yes
 [PASS] 3.11-50: Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges | expected=yes obtained=yes
 [PASS] 3.11-51: Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz) | expected=yes obtained=yes
 [PASS] 3.11-52: Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation | expected=yes obtained=yes

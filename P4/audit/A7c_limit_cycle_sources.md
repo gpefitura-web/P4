@@ -50,3 +50,29 @@ O que foi encontrado é teoria de pontos fixos que se tornam instáveis. Nenhuma
 | Sinal precursor do lado do ciclo | **X** — nenhuma fonte lida | o pesquisador sobe Bury+2020 (DOI acima); ou aceita declarar como lacuna |
 | Resto de Kuehn 2011/2013 e Boettiger | não lidos por inteiro | ler as seções de Hopf com demonstração se forem citadas |
 | Versões publicadas | só manuscritos | citar a versão publicada na bibliografia |
+
+---
+
+## Adendo de 2026-11-24: Bury et al. 2020 (enviado pelo pesquisador)
+
+| | |
+|---|---|
+| **Arquivo** | `bib/Bury_2020_JRSocInterface_17_20200482.pdf` (10 pp.; versão publicada; título, autores T. M. Bury, C. T. Bauch e M. Anand, e DOI `10.1098/rsif.2020.0482` conferidos na p. 1; sha256 em `bib/MANIFEST.json`) |
+| **Páginas lidas** | resumo, introdução, §2.4 (aplicação empírica), Figura 5 (renderizada e vista) e discussão (pp. 1, 2, 4, 5, 7, 8); **não lidas por inteiro:** a derivação analítica (§2.1–2.3) |
+| **Citações** | `3.11-71` a `3.11-74` |
+
+| # | Afirmação | Local | Grau |
+|---|---|---|---|
+| 8 | "conventional EWS … may fail to distinguish the onset of oscillations (e.g. Hopf bifurcation) from a transition to a distant attractor (e.g. Fold bifurcation)"; os EWS espectrais baseados em "spectral reddening" não funcionam antes de transições com componente oscilatória | p. 1, resumo (`3.11-71`) | **A** |
+| 9 | Transcrítica, Hopf e fold "are all accompanied by critical slowing down and so cannot be distinguished by the conventional critical slowing down methodology" | p. 2 (`3.11-72`) | A |
+| 10 | Aplicação a um quimióstato presa–predador com **dois** pontos de Hopf (H1, H2) ao variar a taxa de diluição; "Preceding both Hopf bifurcations … Smax shows an upward trend, and w_Hopf is the significant AIC weight"; "Unlike for H2, variance and Smax do fluctuate prior to H1" | p. 5, §2.4 (`3.11-73`) | **A** |
+| 11 | O espectro permite estimar o período das oscilações antes da bifurcação (≈ 19 dias, H1) | p. 5 | A |
+| 12 | Limitação declarada: os EWS espectrais só separam oscilatório de não oscilatório; Hopf supercrítica e subcrítica "give rise to the same spectral EWS" mas a supercrítica "yields a smooth, reversible transition to small oscillations" (`3.11-74`); distinguir exige termos não lineares, "which this study has assumed to be negligible" | p. 8 | A |
+| 13 | Os dados empíricos exigem ambiente controlado, parâmetro fixo por série e perturbações grandes; o autor pede teste em dados naturais de alta resolução com condições variáveis | p. 7 | A |
+
+**Leitura da Figura 5 (qualitativa, grau C, não analisada pelos autores).** Figura 5a mostra a região oscilatória (H1 a H2) com taxa de diluição crescente. Nas curvas de variância, S_max e autocorrelação (5b, 5c), os valores **crescem** ao se aproximar de H1 e de H2 **pelo lado do equilíbrio**: para H2, os pontos à direita (equilíbrio) têm valores baixos e sobem ao se aproximar de H2. Do lado **oscilatório** de H2 (diluição de cerca de 0.7 a 1.17) as curvas de S_max e de autocorrelação de lag 1 caem ao se aproximar de H2. A leitura é de tendência visual numa figura, sem uso de valores (regra 8); os autores não discutem este trecho. O texto diz "Preceding both Hopf bifurcations" no sentido do lado do equilíbrio.
+
+**A7c-F5 · o dado empírico que mais se aproxima do sentido do P4 existe e vai na direção oposta à do CSD. `A` (texto) / `C` (leitura da figura)**
+A única observação de bifurcação de Hopf com os dois lados num experimento é o quimióstato de Bury: aproximando-se de H2 pelo lado oscilatório, as medidas parecem **diminuir**, não aumentar (leitura visual, grau C), e os autores só analisam a aproximação pelo lado do equilíbrio (item 10). Isto é consistente com A7c-F3 (o indicador pode inverter), mas **não** é teste do P4: é um experimento controlado com parâmetro fixo por série (item 13), de população e não de dínamo, e H2 aqui não é demonstrada supercrítica nem subcrítica.
+
+**A7c-F4 atualizada:** a fonte direta para a perda de um ciclo limite estelar continua não achada (X), mas agora há **uma fonte com os dois sentidos num dado real**, que não os analisa. A sugestão do próprio artigo (item 13) é testar em dados naturais de alta resolução com condições variáveis.

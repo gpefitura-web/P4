@@ -37,6 +37,15 @@
   "validacao": "padrão de título /Time Evolution of the Magnetic Activity Cycle Period/ nas páginas 1-2",
   "versao": "published"
  },
+ "Bury_2020_JRSocInterface_17_20200482.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 1338664,
+  "doi": "10.1098/rsif.2020.0482",
+  "sha256": "807623df22cf94dfaece2b325548a744144d3abf84cb71f66375ad3b2af017e5",
+  "url": "upload do pesquisador",
+  "validacao": "título, autores e DOI na p. 1 (J. R. Soc. Interface 17: 20200482)",
+  "versao": "published"
+ },
  "Egeland_2017_arXiv1611.04540.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 1054740,
