@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D104)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-24 (fecho da conversa de inspeção, resolução e decisões; D55–D104; consolidação aprovada)
 
 ---
 
@@ -941,6 +941,7 @@ Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/chec
 | Lag-1 ACF vulnerável a ruído, agregação necessária; três observações por noite no HK Project | Livina & Lenton 2007; README do HK Project (Radick & Pevtsov) | 3, 1 | 3.11-75, 3.11-76 | A |
 | Interpolação linear suaviza e enviesa; um valor faltante tira dois pontos do AC1 e um da variância; memória superestimada com interpolação; série irregular analisada sem interpolar; interpolação usada em Oláh e Egeland | Liu et al. (arXiv 2505.19034); Rehfeld+2011 NPG 18, 389; ESD 16, 2035 (2025); Oláh+2016; Egeland+2017 | 4, 7–8, 1–2, 4, 2 e 5, 5 | 3.11-77 a 3.11-84 | A |
 
+**Atualização de 2026-11-24 (fecho):** além do que está acima, Claude escreveu e executou `inspecao/scripts/11` a `18` (comparações, testes sintéticos, consolidação), as auditorias A7b, A7c, A5b e A14 e as recomendações R1–R16; as limitações declaradas são as de cada arquivo (leituras parciais em A7c e A8; Braun+2022 baixado e não lido; simulações sintéticas sem ciclo nem ruído de medida). Toda decisão de mérito foi do pesquisador.
 ---
 
 ## 11 · Uso de IA no processo (REG-IA)
