@@ -39,6 +39,9 @@ PDF = {
     "usoskin": os.path.join(REPO, "Usoskin et al. 2017, Living Rev. Sol. Phys. 14, 3.pdf"),
     "egeland": os.path.join(REPO, "Egeland_2017_ApJ_835_25.pdf"),
     "dakos": os.path.join(REPO, "Dakos et al. 2012, PLoS ONE 7, e41010.pdf"),
+    "held": os.path.join(ROOT, "bib", "Held_2004_GRL_31_L23207.pdf"),
+    "livina": os.path.join(ROOT, "bib", "Livina_2007_GRL_34_L03712.pdf"),
+    "peng93": os.path.join(ROOT, "bib", "Peng_1993_PRE_47_3730.pdf"),
 }
 T = {k: text(v) for k, v in PDF.items()}
 
@@ -138,6 +141,32 @@ Q = [
      r"analyzed 29 stars with periodic cycles", True),
     ("3.11-49", "Baum arXiv draft: same '14 stars were given new classifications'", "baum_ax",
      r"14 stars were given new classifications", True),
+    ("3.11-50", "Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges",
+     "held", r"decay rate .{0,4} for perturbations of the equilibrium vanishes and the variability of the related mode diverges", True),
+    ("3.11-51", "Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz)",
+     "held", r"oscillatory modes do not play a major role in CLIMBER2", True),
+    ("3.11-52", "Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation",
+     "held", r"the system may not be as close to a bifurcation such that our unimodal approximation was justified", True),
+    ("3.11-53", "Held & Kleinen 2004: minimum series length from the error of the decay rate (Tmin)",
+     "held", r"typical length of a time series needs to be such that our method becomes applicable", True),
+    ("3.11-54", "Livina & Lenton 2007: conventional degenerate fingerprinting not applicable to short series",
+     "livina", r"conventional degenerate fingerprinting is not applicable due to the short length of the series", True),
+    ("3.11-55", "Livina & Lenton 2007: ACF window of 10% of the series length",
+     "livina", r"A window length equal to 10% of the length of the series is an appropriate choice", True),
+    ("3.11-56", "Livina & Lenton 2007: DFA record should be at least of order a thousand points",
+     "livina", r"the record should be at least of order a thousand points", True),
+    ("3.11-57", "Livina & Lenton 2007: DFA exponent tends to 1.5 (random walk) as c tends to 1",
+     "livina", r"corresponds to a random walk state of the system", True),
+    ("3.11-58", "Livina & Lenton 2007: Greenland series has only 1586 points, unevenly spaced, DFA windows of 500",
+     "livina", r"only 1586 points.{0,200}sliding windows of length 500.{0,60}unevenly spaced", True),
+    ("3.11-59", "Peng+1993: fluctuation of the exponent inversely proportional to the square root of the number of independent samples",
+     "peng93", r"inversely proportional to the square root of the number of independent samples", True),
+    ("3.11-60", "Peng+1993: Fig. 3 solid line has slope 1/2, the value predicted by Eq. (7)",
+     "peng93", r"solid line has slope 1/2, the value predicted by Eq\. \(7\)", True),
+    ("3.11-61", "Peng+1993: DNA-walk method intrinsically more accurate due to reduced noise",
+     "peng93", r"intrinsically more accurate due to reduced noise", True),
+    ("3.11-62", "Peng+1993: control sequence of the same length N = 25759 as the DNA example",
+     "peng93", r"N = 25759", True),
 ]
 for cid, desc, k, rx, want in Q:
     got = bool(re.search(rx, T[k], re.I | re.S))

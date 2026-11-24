@@ -38,6 +38,15 @@
   "validacao": "padrão de título /S-index of the Sun/ nas páginas 1-2",
   "versao": "manuscript (arXiv:1611.04540)"
  },
+ "Held_2004_GRL_31_L23207.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 158959,
+  "doi": "10.1029/2004GL020972",
+  "sha256": "1f9ad74156c15d0f471ae6471d594a20ceffedee005b207108b915101a58e42a",
+  "url": "upload do pesquisador",
+  "validacao": "Detection of climate system bifurcations by degenerate fingerprinting (título e DOI na p. 1)",
+  "versao": "published"
+ },
  "Isaacson_2024_ApJS_274_35.pdf": {
   "baixado_em": "2026-11-14 (inventariado; enviado antes)",
   "bytes": 2392023,
@@ -73,6 +82,15 @@
   "sha256": "00d44d503ef4a7a919a0ccc52318c64baec9bdf5b7a93b49370000d61211ea27",
   "url": "https://iopscience.iop.org/article/10.3847/1538-3881/ace906/pdf",
   "validacao": "padrão de título /Pole-on Solar Analog/ nas páginas 1-2",
+  "versao": "published"
+ },
+ "Livina_2007_GRL_34_L03712.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 600954,
+  "doi": "10.1029/2006GL028672",
+  "sha256": "a0c1d5d6587b4fbeed42a3abd80a94f21021dcd34b739fa7bdd4a27283b2a6ed",
+  "url": "upload do pesquisador",
+  "validacao": "A modified method for detecting incipient bifurcations in a dynamical system (título e DOI na p. 1)",
   "versao": "published"
  },
  "Luhn_2022_ApJL_936_L23.pdf": {
@@ -111,6 +129,15 @@
   "url": "upload do pesquisador",
   "validacao": "enviado pelo pesquisador; DOI da versão publicada conferido no Crossref",
   "versao": "manuscript (arXiv:1604.06701)"
+ },
+ "Peng_1993_PRE_47_3730.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 232620,
+  "doi": "10.1103/PhysRevE.47.3730",
+  "sha256": "ac8ed281fb8ac76aee33595e18baaf2e6d158b96bbd7feef619d447f0548bcec",
+  "url": "upload do pesquisador",
+  "validacao": "Finite-size effects on long-range correlations: Implications for analyzing DNA sequences (título e volume 47, pp. 3730-3733 conferidos na p. 1 e no Crossref)",
+  "versao": "published"
  },
  "Shah_2018_ApJL_863_L26.pdf": {
   "baixado_em": "2026-11-14",

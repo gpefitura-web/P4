@@ -73,3 +73,5 @@
 Cada resposta será registrada como `D68` em diante, com data, autor "pesquisador" e a base (o número do item acima). Nada neste memorando altera uma decisão ou recomendação já registrada.
 
 **Bloco 3 (2026-11-14):** papéis das séries → D76 (subsídios: `SUBSIDIOS_PAPEIS_SERIES.md`, escolha adiada); item 10 → D77 (subsídios: `SUBSIDIOS_LAYOUT_KIT.md`); item 9 → D78 (Q2–Q7 abertas; Q11 com A14); item 2 / Q1 → D79 (espera os papéis).
+
+**Bloco 4 (2026-11-24):** o item 6 (D50) voltou a ser decidível: Held & Kleinen foi lido (D81, `audit/A7b_held_kleinen.md`). Subsídio novo: o artigo trata o decaimento de um ponto fixo e deixa os modos oscilatórios de fora ("could be easily included by a 2D ansatz", p. 2); nenhuma fonte teórica lida dá sinal precursor para a perda de um ciclo limite. Alternativas do item 6: manter como extensão por analogia declarada; reformular como hipótese. **Aguarda a escolha do pesquisador.**

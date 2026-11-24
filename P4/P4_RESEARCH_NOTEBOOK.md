@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D80)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D82)
 
 ---
 
@@ -605,6 +605,22 @@ D66 diz "Protocolo §10 atualizado". **Isso não é verdade**: o protocolo é ar
 
 ---
 
+### D81 — Held & Kleinen 2004, Livina & Lenton 2007 e Peng+1993 validados, lidos e auditados (A7b, A5b)
+**Data:** 2026-11-24 · **Base:** `audit/A7b_held_kleinen.md`, `audit/A5b_peng_livina.md`, `3.11-50` a `3.11-62`, `bib/MANIFEST.json` · **Status:** ativa · **Grau:** A (citações) · **Complementa:** D50, D24, D26, D63; **cumpre a condição de D74**
+Os três PDFs subidos pelo pesquisador em 2026-11-24 têm título, DOI e volume conferidos na página 1 (Peng também no Crossref). Fatos, com página do PDF:
+- **Held & Kleinen** (pp. 1–4): em qualquer bifurcação o menor decaimento κ se anula e a variabilidade do modo diverge (p. 1); o modelo é AR(1) unidimensional, com c = exp(κΔt) obtido da autocorrelação de lag 1 após remover tendência linear (p. 2); **"oscillatory modes do not play a major role … could be easily included by a 2D ansatz" (p. 2)**, sem tratamento; erro δκ ≈ √(2κ/T) (p. 3); três obstáculos em dados reais, entre eles "the system may not be as close to a bifurcation" (p. 4). **Nenhuma das três fontes teóricas lidas (Scheffer, Boulton, Held & Kleinen) dá sinal precursor para a perda de um ciclo limite** (A7b-F1).
+- **Livina & Lenton** (pp. 1–4): a calibração DFA → c (α = 1.5 como c → 1) está no §2.4 (p. 3), é empírica, ajustada em AR(1) de 20 000 pontos; "the record should be at least of order a thousand points" (p. 3); janela de ACF de 10 % da série (p. 2); série da Groenlândia, 1586 pontos não equidistantes, janelas de 500 (p. 4). **Fecha o X de A5 §6 sobre o reescalonamento.**
+- **Peng+1993** (pp. 1–4): o desvio-padrão do expoente de uma sequência de comprimento finito cai com √N e **não depende da amplitude do ruído**; "inversely proportional to the square root of the number of independent samples" (p. 2); inclinação 1/2 na Fig. 3 (p. 3); o estimador é o da caminhada de DNA, anterior ao DFA. **Fecha o X de A5 §6 sobre o viés de comprimento finito.** Continua X: `H = (β+1)/2`.
+Nada disto decide D50, D24 ou Q9. D50 permanece como registrada; o item 6 do memorando volta a ser decidível pelo pesquisador (D74 pedia esperar este artigo). A7 e A5 não são editadas.
+
+---
+
+### D82 — Os dados reais de Mount Wilson de HD 166620 (1995–2002) não estão em catálogo público alcançável
+**Data:** 2026-11-24 · **Base:** `bib/DOWNLOAD_LOG.md` (seção de 2026-11-24); pedido do pesquisador "verificar e baixar através de catálogos do VizieR" · **Status:** ativa · **Grau:** A (a ausência vista) / X (a existência dos dados) · **Complementa:** D58
+Resultado: os servidores do CDS não respondem deste ambiente; o espelho de Harvard tem `J/ApJ/936/L23` (a tabela de Luhn já em `data/`, com as 119 linhas digitalizadas) e **não tem** `J/A+A/590/A133` (Oláh+2016), nem sua `table1` (duas tentativas, REG-R8), nem `J/ApJ/438/269`; o TAP do espelho não responde. Não se achou nenhuma série de 1995–2002 de HD 166620 em catálogo. As 119 linhas continuam grau C (D58). Caminho que resta: pedir a série de 158 pontos a K. Oláh e W. Soon (rascunho `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado). A Figura 2 de Oláh não é digitalizada (regra 8). O Dataverse de Radick & Pevtsov não foi tentado.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -625,6 +641,8 @@ Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta ób
 
 **Atualização de 2026-11-14 (respostas do pesquisador ao memorando):** Q8 → **D69** (S e R′_HK, ambos); decisão-raiz anual × bruta → **D68** (ambas, papéis por definir; Q9 segue aberta); receita de σ_S → **D70** (subsídios entregues, escolha adiada); I-18 → **D71**; junção → **D72** e D46 → **D73** (subsídios entregues, escolha adiada); D50 → **D74** (esperar Held & Kleinen); piso de Q6 → **D75** (0.37–0.45 %); papéis das séries → **D76** (subsídios) e A14 (Korolik); layout → **D77** (subsídios); Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). Q1–Q7, Q10 e Q11 seguem abertas.
 
+**Atualização de 2026-11-24:** Held & Kleinen, Livina & Lenton e Peng+1993 lidos → **D81** (D74 cumprida na condição; o item 6 do memorando volta a ser decidível); dados de HD 166620 em 1995–2002 não achados em catálogo → **D82**.
+
 ---
 
 ## 6 · Itens de ação e bloqueios (atualizado em 2026-11-14)
@@ -634,12 +652,12 @@ Ambiente testado em 2026-11-14 (REG-08): respondem Crossref, arXiv, IOP (downloa
 | Item | Estado | Necessário para |
 |---|---|---|
 | **Tabela 4 de Egeland+2017** | **resolvida** (D65): `data/Egeland2017_table4_apjaa4e49t4_mrt.txt`, 6 349 linhas, 1966–2016 | D18 |
-| **Held & Kleinen 2004**, GRL 31, L23207, DOI 10.1029/2004GL020972 | **pendente — o pesquisador sobe o PDF** (o arquivo que tinha esse nome era Boulton+2014, D63) | A7, D50, Q10 |
-| Livina & Lenton 2007, GRL 34, L03712, DOI 10.1029/2006GL028672 | pendente — o pesquisador sobe o PDF (reescalonamento do DFA) | A5, Q9 |
-| Peng et al. 1993, Phys. Rev. E 47, 3730, DOI 10.1103/PhysRevE.47.3730 | pendente — o pesquisador sobe o PDF (viés de comprimento finito do DFA) | A5, Q9 |
+| **Held & Kleinen 2004** (10.1029/2004GL020972) | **resolvido em 2026-11-24** (D81): `bib/Held_2004_GRL_31_L23207.pdf` (o arquivo da raiz com este nome continua sendo Boulton+2014, D63) | A7, D50, Q10 |
+| Livina & Lenton 2007 (10.1029/2006GL028672) | **resolvido em 2026-11-24** (D81): `bib/Livina_2007_GRL_34_L03712.pdf` | A5, Q9 |
+| Peng et al. 1993 (10.1103/PhysRevE.47.3730) | **resolvido em 2026-11-24** (D81): `bib/Peng_1993_PRE_47_3730.pdf` | A5, Q9 |
 | Järvinen & Strassmeier 2025, versão publicada, DOI 10.1051/0004-6361/202554111 | opcional — há o manuscrito do arXiv | citação final |
 | Oláh+2016, versão publicada, DOI 10.1051/0004-6361/201628479 | opcional — há o manuscrito do arXiv | citação final |
-| Dados reais de Mount Wilson de HD 166620 em 1995–2002 (Oláh e Soon) | pendente — grau C até lá (D58) | D46 |
+| Dados reais de Mount Wilson de HD 166620 em 1995–2002 (Oláh e Soon) | **não estão no VizieR/espelho de Harvard** (D82); só pedindo aos autores (rascunho em `consolidacao/`); grau C até lá (D58) | D46 |
 | Harvard Dataverse: Radick & Pevtsov (10.7910/DVN/ZRJ6NT, 10.7910/DVN/H85QPF); Pevtsov 2016 (10.7910/DVN/VF5BMO) | não testados; opcional | offsets de Baum (D44); contexto de D18 |
 | Série S solar NSO | dispensada pela D65 (Tabela 4) | — |
 
@@ -722,6 +740,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-14 | **Respostas do pesquisador ao memorando (bloco 1):** anual e bruta, ambas; S e R′_HK, ambos; subsídios para a receita de σ_S; incorporação aprovada. Q1–Q7, Q10, Q11 e os itens 2, 4, 5, 6, 8, 9, 10 do memorando seguem pendentes | D68–D71 |
 | 2026-11-14 | **Respostas do pesquisador (bloco 2):** subsídios para junção e D46; D50 espera Held & Kleinen; piso de Q6 citado como 0.37–0.45 % | D72–D75 |
 | 2026-11-14 | **Respostas do pesquisador (bloco 3):** papéis das séries e layout pedem subsídios; Korolik auditada (A14) para Q11; Q2–Q7 abertas; Q1 espera os papéis | D76–D79 |
+| 2026-11-24 | **Três PDFs subidos (Held & Kleinen, Livina & Lenton, Peng+1993) validados e lidos; busca dos dados de HD 166620 no VizieR sem resultado.** A7b e A5b; item 6 do memorando de novo decidível | D81, D82 |
 
 ---
 
@@ -746,6 +765,7 @@ Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/chec
 | 119 observações digitalizadas da Figura 2 de Oláh+2016; versão publicada 158 | Luhn+2022 (arXiv 2207.00612; ApJL 936, L23) | 2, 3, 5 | 3.11-42 a 3.11-47 | A |
 | Dados de Baum no arXiv × publicada: sem divergência numérica | Baum+2022 (arXiv 2203.13376) | 1, 8 | 3.11-48, 3.11-49 | A |
 | Períodos de Oláh (Tabela 1) × B95, Baum, Saar | Oláh+2016 (arXiv) | Tabela 1 | 3.10-01 a 3.10-08 | A |
+| Calibração DFA → c; ordem de mil pontos para o DFA; viés de comprimento finito cai com √N; ausência de modos oscilatórios em Held & Kleinen | Livina & Lenton 2007 GRL 34, L03712; Peng+1993 PRE 47, 3730; Held & Kleinen 2004 GRL 31, L23207 | 3, 3, 2 | 3.11-50 a 3.11-62 | A |
 
 ---
 

@@ -47,3 +47,8 @@
 4. Como tratar as lacunas (mediana 7.17 anos) na série bruta?
 
 Estado: **papéis com subsídios entregues; escolha pendente (D76).**
+
+## Adendo de 2026-11-24 (Livina & Lenton, Peng+1993; D81)
+- **DFA:** Livina & Lenton pedem "at least of order a thousand points" e "several hundred points per window" (p. 3; `3.11-56`); a mediana bruta do subconjunto Baum é 698 (`3.3-01`) e a anual 27 (`3.3-05`). A série da Groenlândia deles é irregular (1586 pontos, janelas de 500; p. 4, `3.11-58`). A calibração DFA → c do §2.4 foi ajustada em AR(1) regular de 20 000 pontos (p. 3).
+- **Incerteza de expoentes:** a flutuação do expoente de uma sequência finita cai com √N e não depende da amplitude do ruído (Peng+1993, pp. 2–3; `3.11-59`, `3.11-60`). Peng+1993 usa o estimador da caminhada de DNA, não o DFA.
+- **CSD em janelas:** Livina usa janela de ACF de 10 % da série (p. 2; `3.11-55`), contra 50 % de D20; Held & Kleinen estimam κ com erro √(2κ/T) (p. 3; `3.11-53`), que pede muitos tempos de decaimento (A7b-F2).

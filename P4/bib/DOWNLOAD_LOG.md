@@ -24,3 +24,18 @@
 | MANUAL | subir pelo pesquisador | Peng et al. 1993, Phys. Rev. E 47, 3730, DOI 10.1103/PhysRevE.47.3730 |
 | MANUAL | subir pelo pesquisador | Jarvinen & Strassmeier 2025, A&A 698, A93 (published version), DOI 10.1051/0004-6361/202554111 |
 | MANUAL | subir pelo pesquisador | Olah et al. 2016, A&A 590, A133 (published version), DOI 10.1051/0004-6361/201628479 |
+
+## 2026-11-24 — uploads do pesquisador e busca dos dados de HD 166620 (1995–2002) no VizieR
+
+| Item | Resultado | Arquivo / detalhe |
+|---|---|---|
+| Held & Kleinen 2004 | **recebido do pesquisador**; título e DOI conferidos na p. 1 | `Held_2004_GRL_31_L23207.pdf` |
+| Livina & Lenton 2007 | **recebido do pesquisador**; título e DOI conferidos na p. 1 | `Livina_2007_GRL_34_L03712.pdf` |
+| Peng+1993 | **recebido do pesquisador**; título, volume e páginas conferidos na p. 1 e no Crossref | `Peng_1993_PRE_47_3730.pdf` |
+| VizieR (CDS) `vizier.cds.unistra.fr`, `tapvizier`, `cdsarc` | sem resposta deste ambiente (código 000) | não contornado |
+| VizieR (espelho de Harvard) `J/ApJ/936/L23` | existe; é a tabela já em `data/` (as 119 linhas `new_MW` digitalizadas) | sem dado novo |
+| VizieR (Harvard) `J/A+A/590/A133` (Oláh+2016), duas tentativas, mais `.../table1` | "Table or Catalog not found" (uma resposta intermédia foi "database not currently reachable"); nenhuma busca por referência ou palavra-chave achou catálogo de séries de Mount Wilson | **não há catálogo de Oláh+2016 no VizieR, até onde este espelho mostra** |
+| VizieR (Harvard) `J/ApJ/438/269` (Baliunas) | "Table or Catalog not found" | série de HD 166620 depois de 1995 não aparece |
+| TAP do espelho | sem resposta (404) | |
+| Dataverse (Radick & Pevtsov) | não tentado nesta rodada | opcional |
+| **Conclusão** | **a série de 158 pontos não está em catálogo público alcançável**; resta pedi-la aos autores (rascunho: `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`) | |

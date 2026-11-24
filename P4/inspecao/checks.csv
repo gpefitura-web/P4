@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,65,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,71,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
-1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,13,README_HANDOFF.md,INFO
+1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,16,README_HANDOFF.md,INFO
 1-07,distinct file names cited (in backticks) and absent from the package,,39,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D80 defined exactly once in the notebook,80,80,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D82 defined exactly once in the notebook,82,82,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D80 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D82 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 81,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 83,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -31,10 +31,10 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 2d-08,findings defined in A4,8,8,paper_state_v5.md §2,PASS
 2d-09,findings defined in A5,6,6,paper_state_v5.md §2,PASS
 2d-10,findings defined in A6,14,14,paper_state_v5.md §2,PASS
-2d-11,A#-F# references pointing to a finding that does not exist,0,0,regex over all .md,PASS
+2d-11,A#-F# references pointing to a finding that does not exist,0,7,regex over all .md,FAIL
 2d-12,references written 'A11-F#' where both A11a-F# and A11b-F# exist (ambiguous),0,0,regex over all .md,PASS
 2d-13,units whose 'Findings' cell differs between the audit-log copies,none,A3,audit/A*.md log tables,FAIL
-2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A7_theory.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
+2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A5b_peng_livina.md,audit/A7_theory.md,audit/A7b_held_kleinen.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
 2d-15,units marked 'open' in the protocol's own audit log (§10),,8,P4_AUDIT_PROTOCOL.md §10,INFO
 1-10,references 'A# §n' with no matching heading in the audit file,,2,regex (heading match is approximate),INFO
 2b-01,Q numbers referenced anywhere,1-11,1-11,regex,INFO
@@ -457,6 +457,19 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.11-47,Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006),yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
 3.11-48,Baum arXiv draft: same '29 stars with periodic cycles',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
 3.11-49,Baum arXiv draft: same '14 stars were given new classifications',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
+3.11-50,Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
+3.11-51,Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz),yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
+3.11-52,Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
+3.11-53,Held & Kleinen 2004: minimum series length from the error of the decay rate (Tmin),yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
+3.11-54,Livina & Lenton 2007: conventional degenerate fingerprinting not applicable to short series,yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
+3.11-55,Livina & Lenton 2007: ACF window of 10% of the series length,yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
+3.11-56,Livina & Lenton 2007: DFA record should be at least of order a thousand points,yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
+3.11-57,Livina & Lenton 2007: DFA exponent tends to 1.5 (random walk) as c tends to 1,yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
+3.11-58,"Livina & Lenton 2007: Greenland series has only 1586 points, unevenly spaced, DFA windows of 500",yes,yes,Livina_2007_GRL_34_L03712.pdf,PASS
+3.11-59,Peng+1993: fluctuation of the exponent inversely proportional to the square root of the number of independent samples,yes,yes,Peng_1993_PRE_47_3730.pdf,PASS
+3.11-60,"Peng+1993: Fig. 3 solid line has slope 1/2, the value predicted by Eq. (7)",yes,yes,Peng_1993_PRE_47_3730.pdf,PASS
+3.11-61,Peng+1993: DNA-walk method intrinsically more accurate due to reduced noise,yes,yes,Peng_1993_PRE_47_3730.pdf,PASS
+3.11-62,Peng+1993: control sequence of the same length N = 25759 as the DNA example,yes,yes,Peng_1993_PRE_47_3730.pdf,PASS
 3.12-01,Table 4 rows parsed,,6349,data/Egeland2017_table4_apjaa4e49t4_mrt.txt,INFO
 3.12-02,sha256 of the stored file (first 16 hex),,6e2746d535d7d9e3,bib/MANIFEST.json,INFO
 3.12-03,first and last epoch (decimal year),,1966.669 - 2016.153,Table 4 (JD - 2400000 in column 1),INFO
