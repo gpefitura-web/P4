@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D83) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D84) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -55,7 +55,7 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 ## 4 · Bloqueios (ver caderno §6)
 
 - **Held & Kleinen 2004, Livina & Lenton 2007 e Peng+1993** foram subidos em 2026-11-24 e lidos (D81, A7b, A5b); o bloqueio saiu.
-- **Dados reais de Mount Wilson de HD 166620, 1995–2002** (Oláh e Soon): não estão no VizieR (D82); só pedindo aos autores (rascunho em `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado). Até lá as 119 linhas são grau C.
+- **Dados reais de Mount Wilson de HD 166620, 1995–2002** (Oláh e Soon): não estão no VizieR (D82, D83) nem no Dataverse ou nos pacotes de arXiv (D84); só pedindo aos autores (rascunho em `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado). Até lá as 119 linhas são grau C.
 - **Opcionais:** versões publicadas de Järvinen & Strassmeier e Oláh; Dataverse.
 - **Grau X que permanece:** incerteza dos offsets de Baum (D44); períodos de B95 relidos só uma vez (D64); A8 sem §3 e §5 de Usoskin; Vaquero+2011, Miyahara+2004, Nagaya+2012 não auditados.
 - **Contradições abertas** (protocolo, regra 4): A9-F2 (HD 185144); 0.45 % contra a tabela da CLS V; 158 contra 119 resolvida como fato (D58), sem decisão sobre o uso.

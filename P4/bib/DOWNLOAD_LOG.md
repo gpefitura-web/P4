@@ -43,3 +43,14 @@
 ## 2026-11-24 (tarde) — nova tentativa e arquivo do espelho NAO enviado pelo pesquisador
 - CDS principal (`vizier.cds.unistra.fr`, `cdsarc`) responde (200), mas as consultas `asu-tsv` voltam vazias e a pasta `ftp/J/A+A/590/A133/` dá **404**; Harvard oscila ("not found" / "database not reachable"); o espelho NAO (`vizier.nao.ac.jp`) dá 503 pelo proxy deste ambiente.
 - O pesquisador baixou do espelho NAO `J/ApJ/936/L23/table2` e `table3` (`asu1.tsv`, sha256 `b349558474adedf9…`, 3 215 linhas, consulta de 2026-11-24 11:24). **Conferido linha a linha contra `data/J_ApJ_936_L23_table2.tsv`: idêntico** (1 885 linhas: 1 654 `MW`, 112 `HIRES`, **119 `new_MW`**); a tabela 3 tem as mesmas 1 278 linhas `APT`. **Nenhuma linha nova, nenhuma série de 158 pontos.** O arquivo não foi copiado para `data/` (duplicata).
+
+## 2026-11-24 (noite) — outras fontes públicas para HD 166620, 1995–2002 (opção 2 do pesquisador)
+| Fonte | Resultado |
+|---|---|
+| Harvard Dataverse, `doi:10.7910/DVN/H85QPF` (HK_Project_v2001_NSO, 2018) | existe e responde. Descrição: 35 estrelas (as de Lockwood+2007 e mais algumas), observações "through late 2001". Lista de 35 arquivos `.mgd` **sem `hd166620`** (nem `hd010700`) → não serve para HD 166620 |
+| Harvard Dataverse, `doi:10.7910/DVN/ZRJ6NT` (HK_Project_v1995_NSO, zip de 10 MB + README) | existe; é a versão de 1995 (a que Baum e Korolik usam); cobre HD 166620 só até 1995, sem o trecho 1995–2002. Não baixado (nada a acrescentar às 1 654 linhas `MW` já idênticas entre Luhn e Baum) |
+| arXiv:2207.00612 (fonte TeX de Luhn) | `activity_table.tex` é um trecho de 5 linhas (`\vdots`); sem dados do trecho 1995–2002 |
+| arXiv:1604.06701 (fonte TeX de Oláh+2016) | só figuras EPS (por exemplo `166620j_STFT_co.eps`); sem tabela de dados. Extrair valores das figuras é digitalização (regra 8): **não feito** |
+| CDS principal | responde; pasta `ftp/J/A+A/590/A133/` dá 404 (já registrado) |
+| **Conclusão** | **não há fonte pública alcançável com a série de 1995–2002 de HD 166620.** Resta o pedido a K. Oláh e W. Soon |
+

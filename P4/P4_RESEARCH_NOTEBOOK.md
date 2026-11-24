@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D83)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D84)
 
 ---
 
@@ -624,6 +624,12 @@ Resultado: os servidores do CDS não respondem deste ambiente; o espelho de Harv
 ### D83 — O espelho NAO do VizieR devolve a mesma tabela de Luhn: 119 linhas `new_MW`, sem a série de 158 pontos
 **Data:** 2026-11-24 · **Base:** `asu1.tsv` enviado pelo pesquisador (sha256 em `bib/DOWNLOAD_LOG.md`), comparado a `data/J_ApJ_936_L23_table2.tsv` · **Status:** ativa · **Grau:** A · **Complementa:** D58, D82
 As tabelas 2 e 3 de `J/ApJ/936/L23` baixadas do espelho NAO são idênticas às já em `data/` (1 885 linhas: 1 654 MW, 112 HIRES, **119 `new_MW`**; 1 278 APT). O VizieR, portanto, só tem o conjunto digitalizado; **os dados cedidos por Oláh e Soon (158 pontos) não estão no catálogo**. As 119 linhas seguem grau C (D58). O caminho que resta é o pedido aos autores (D82).
+
+---
+
+### D84 — Outras fontes públicas esgotadas: a série de HD 166620 em 1995–2002 só existe com Oláh e Soon
+**Data:** 2026-11-24 · **Autor:** pesquisador (opção 2: "tentar outras fontes públicas"), execução por Claude · **Base:** `bib/DOWNLOAD_LOG.md` (seção "noite") · **Status:** ativa · **Grau:** A (as ausências vistas) · **Complementa:** D58, D82, D83
+O Dataverse de Harvard tem o arquivo do HK Project de 2001 (`HK_Project_v2001_NSO`, 35 estrelas, até o fim de 2001), **sem HD 166620**, e o de 1995, que só chega a 1995. Os pacotes TeX de Luhn e de Oláh não trazem a série (um trecho de 5 linhas e figuras EPS). Digitalizar as figuras é proibido (regra 8). Nenhuma fonte pública alcançável tem os dados; as 119 linhas continuam grau C (D58). O caminho que resta é o pedido aos autores (rascunho `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`, não enviado).
 
 ---
 

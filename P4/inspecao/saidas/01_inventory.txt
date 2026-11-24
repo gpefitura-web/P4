@@ -4,7 +4,7 @@
       2438  7d2ede7b4dd5adbe  LICOES_PENDENTES.md
      16896  2f6fc9e6fdee0d13  P4_AUDIT_PROTOCOL.md
       9755  7256332eff8f65ea  P4_MEMORANDO_DECISOES_2026-11-14.md
-     74057  bd28decceb0f035b  P4_RESEARCH_NOTEBOOK.md
+     75048  9ecefaa75aa3d25a  P4_RESEARCH_NOTEBOOK.md
       9150  d349c6c438f8d763  PROMPT_CLAUDE_CODE.md
       3704  d32bc37210dba527  README_HANDOFF.md
       6630  3fc215600782f5fc  SUBSIDIOS_JUNCAO_E_D46.md
@@ -36,7 +36,7 @@
     728410  306c02c85ee73cce  bib/Baum_2022_AJ_163_183.pdf
     612255  b081dfe7643049f2  bib/Baum_2022_arXiv2203.13376.pdf
     131721  45f98dc24448885f  bib/Brandenburg_1998_ApJL_498_L51.pdf
-      4004  c78a24e347eed9ed  bib/DOWNLOAD_LOG.md
+      5486  dd9050b54bb39653  bib/DOWNLOAD_LOG.md
    1054740  93ae7eb4a1ff4fbb  bib/Egeland_2017_arXiv1611.04540.pdf
     158959  1f9ad74156c15d0f  bib/Held_2004_GRL_31_L23207.pdf
    2392023  c7a60c343b939602  bib/Isaacson_2024_ApJS_274_35.pdf
@@ -70,7 +70,7 @@
      22804  e106132858d9398a  paper_state_v4.md
       9525  5fc6d46e755fc2cc  paper_state_v5.md
      21181  aa76275ba875779c  paper_state_v6.md
-      7762  6db17a15796bd9c6  paper_state_v7.md
+      7814  a7ae944a5c49d277  paper_state_v7.md
 
 ## Repository-root copies
 IDENTICAL  DECISOES_D41_D54.md  <->  DECISOES_D41_D54.md
@@ -120,6 +120,8 @@ SUBMISSION_STRATEGY_TIMELINE.md: ABSENT from package  <- cited in README_HANDOFF
 SUBSIDIOS_*.md: ABSENT from package  <- cited in paper_state_v7.md
 UNIVERSAL_PAPER_CONTEXT.md: ABSENT from package  <- cited in README_HANDOFF.md, paper_state_v4.md
 aa28479-16.pdf: ABSENT from package  <- cited in audit/A10_luhn.md
+activity_table.tex: ABSENT from package  <- cited in bib/DOWNLOAD_LOG.md
+asu1.tsv: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, bib/DOWNLOAD_LOG.md
 audit/*.csv: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md, audit/ERRATA_2026-11-14.md
 audit/A#_*.md: ABSENT from package  <- cited in P4_RESEARCH_NOTEBOOK.md
 audit/baliunas_table2_full.csv: CITED PATH DIFFERS, file is at baliunas_table2_full.csv  <- cited in P4_AUDIT_PROTOCOL.md, audit/A1_baliunas.md, audit/A2_lockwood.md, audit/A3_egeland.md, audit/A4_dakos.md, audit/A5_peng.md, audit/A6_saar.md, audit/ERRATA_2026-11-14.md, paper_state_v4.md

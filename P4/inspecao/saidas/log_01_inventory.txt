@@ -4,14 +4,14 @@
 [PASS] 1-04: VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md | expected=7 obtained=7
 [PASS] 1-05: PDFs in the repository root | expected=9 obtained=9
 [INFO] 1-06: PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6) | expected=0 obtained=16
-[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=39
+[INFO] 1-07: distinct file names cited (in backticks) and absent from the package | expected= obtained=41
 [PASS] 1-08: files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent | expected=4 obtained=4
 [PASS] 1-09: bib/aa28479-16.pdf (Olah+2016) anywhere in the clone | expected=absent obtained=absent
-[PASS] 2a-01: decisions D01-D83 defined exactly once in the notebook | expected=83 obtained=83
+[PASS] 2a-01: decisions D01-D84 defined exactly once in the notebook | expected=84 obtained=84
 [PASS] 2a-02: decisions defined more than once or missing | expected=none obtained=none
-[INFO] 2a-03: decision headers outside D01-D83 numbering | expected= obtained=D45b
+[INFO] 2a-03: decision headers outside D01-D84 numbering | expected= obtained=D45b
 [PASS] 2a-04: decisions without a 'Status' field | expected=none obtained=none
-[INFO] 2a-05: status values in use | expected= obtained=ativa: 84
+[INFO] 2a-05: status values in use | expected= obtained=ativa: 85
 [INFO] 2a-06: decisions whose header line carries no 'Grau' field | expected= obtained=36
 [PASS] 2a-07: D## referenced anywhere but not defined | expected=none obtained=none
 [INFO] 2a-08: decisions never cited outside the document that defines them | expected= obtained=none
