@@ -1,6 +1,6 @@
 # Rascunho de pedido de dados (NÃO ENVIADO)
 
-**Estado:** rascunho para o pesquisador revisar e enviar, se quiser. Nada foi enviado por Claude. Sem dados pessoais do pesquisador: o nome e a afiliação ficam a preencher.
+**Estado: ARQUIVADO em 2026-11-24 (D86: o pesquisador decidiu seguir sem esses dados, grau C).** Rascunho mantido caso a decisão mude. Nada foi enviado por Claude. Sem dados pessoais do pesquisador: o nome e a afiliação ficam a preencher.
 
 **Destinatários possíveis:** K. Oláh (autora de Oláh et al. 2016, A&A 590, A133) e W. Soon (coautor de Luhn et al. 2022, ApJL 936, L23). Endereços não verificados aqui; obter nos artigos.
 

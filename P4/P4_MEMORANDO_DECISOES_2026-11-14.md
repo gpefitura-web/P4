@@ -75,3 +75,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 **Bloco 3 (2026-11-14):** papéis das séries → D76 (subsídios: `SUBSIDIOS_PAPEIS_SERIES.md`, escolha adiada); item 10 → D77 (subsídios: `SUBSIDIOS_LAYOUT_KIT.md`); item 9 → D78 (Q2–Q7 abertas; Q11 com A14); item 2 / Q1 → D79 (espera os papéis).
 
 **Bloco 4 (2026-11-24):** o item 6 (D50) voltou a ser decidível: Held & Kleinen foi lido (D81, `audit/A7b_held_kleinen.md`). Subsídio novo: o artigo trata o decaimento de um ponto fixo e deixa os modos oscilatórios de fora ("could be easily included by a 2D ansatz", p. 2); nenhuma fonte teórica lida dá sinal precursor para a perda de um ciclo limite. Alternativas do item 6: manter como extensão por analogia declarada; reformular como hipótese. **Aguarda a escolha do pesquisador.**
+
+**Bloco 5 (2026-11-24):** dados de Oláh e Soon → D86 (seguir sem eles, grau C; pedido não enviado). O HK_Project_v2001_NSO (D85) é subsídio novo para Q1: quatro dos seis controles ausentes de Baum (HD 160346, 201091, 81809, 103095) têm 35 anos de Mount Wilson até 2001 nele.
