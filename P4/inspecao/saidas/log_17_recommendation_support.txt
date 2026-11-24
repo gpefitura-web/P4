@@ -1,0 +1,5 @@
+[PASS] 3.19-01: Flat/Flat? non-standard (D13 alone) minus the 12 stars of B95 Appendix B (audit/A1_baliunas.md §2.5) | expected=10700,23249,43587,182572,190360 obtained=10700,23249,43587,182572,190360
+[INFO] 3.19-02: of the 10 stars: with a single-era (Mount Wilson) segment >= 24 years | with a Keck-era segment >= 24 years | expected= obtained=10/10 | 3/10
+[INFO] 3.19-03: residual lag-1 AC at L = 54: none | sigma 1 | 2 | 3 | 5 years | fitted cycle P=10 (true) | fitted cycle P=12 (20 % off); reference 0.44 | expected= obtained=+0.73 | +0.05 | +0.57 | +0.69 | +0.73 | +0.38 | +0.73
+[INFO] 3.19-04: rolling tau mean under the null at L = 54: none | sigma 1 | 2 | 3 | 5 | harm10 | harm12 | expected= obtained=-0.01 | -0.02 | +0.01 | +0.04 | +0.05 | -0.01 | -0.02
+[INFO] 3.19-05: AUC(trend > null) at L = 54 by detrending: none | sigma 1 | 2 | 3 | 5 | harm10 | harm12 | expected= obtained=0.62 | 0.59 | 0.60 | 0.60 | 0.61 | 0.63 | 0.61

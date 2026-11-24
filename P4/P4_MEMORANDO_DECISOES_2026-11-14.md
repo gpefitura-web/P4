@@ -102,3 +102,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 17 (2026-11-24):** tamanho mínimo de segmento → D100 (24 anos, aceita D99).
 
+**Bloco 18 (2026-11-24):** recomendações para todos os pendentes → D101 (`RECOMENDACOES_PENDENTES.md`); nenhuma é decisão.
+

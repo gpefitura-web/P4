@@ -1,0 +1,38 @@
+(2) segments (years) by instrument era after D98: HD | Mount Wilson (HKP-1/2) | Keck (HIRES-1/2)
+10700 | [29] | [20]
+23249 | [29] | [24]
+182572 | [35] | [16, 5]
+190360 | [28] | [25]
+10476 | [36] | [24]
+152391 | [36] | [4, 11]
+166620 | [30] | [1, 17]
+26965 | [29] | [20]
+4628 | [30] | [14]
+101501 | [28] | [9]
+
+(3) DETRENDING: x = 3*SD(noise)*sin(2 pi t/10) + AR(1) noise (c = 0.5); residual = x - Gaussian smooth(x, sigma).
+500 simulations; reference = AR(1) of the true noise. L = 30 and 54 years; rolling window 50 %
+L | sigma (yr) | mean residual AC1 | reference AC1 | rolling tau mean (null) | tau SD
+30 | none | +0.73 | +0.39 | -0.03 | 0.34
+30 | 1 | +0.02 | +0.39 | +0.00 | 0.49
+30 | 2 | +0.52 | +0.39 | -0.01 | 0.43
+30 | 3 | +0.66 | +0.39 | -0.00 | 0.36
+30 | 5 | +0.71 | +0.39 | +0.02 | 0.35
+30 | harm10 | +0.26 | +0.39 | +0.01 | 0.43
+30 | harm12 | +0.56 | +0.39 | +0.03 | 0.28
+54 | none | +0.73 | +0.44 | -0.01 | 0.36
+54 | 1 | +0.05 | +0.44 | -0.02 | 0.49
+54 | 2 | +0.57 | +0.44 | +0.01 | 0.46
+54 | 3 | +0.69 | +0.44 | +0.04 | 0.42
+54 | 5 | +0.73 | +0.44 | +0.05 | 0.38
+54 | harm10 | +0.38 | +0.44 | -0.01 | 0.50
+54 | harm12 | +0.73 | +0.44 | -0.02 | 0.31
+
+(3b) POWER at L = 54: AUC(trend > null) of the rolling tau, by detrending (500 simulations each)
+none | AUC 0.62
+1 | AUC 0.59
+2 | AUC 0.60
+3 | AUC 0.60
+5 | AUC 0.61
+harm10 | AUC 0.63
+harm12 | AUC 0.61

@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D100)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D101)
 
 ---
 
@@ -733,6 +733,12 @@ Resposta do pesquisador: **"Seguir recomendações."** Fica decidido, tal como e
 
 ---
 
+### D101 — Recomendações para todos os itens pendentes entregues (não são decisões)
+**Data:** 2026-11-24 · **Autor:** Claude (recomendações, a pedido do pesquisador: "Recomendações para todos") · **Base:** `RECOMENDACOES_PENDENTES.md`, `3.19-01` a `3.19-05`, `17_recommendation_support.txt` · **Status:** ativa (como recomendações) · **Grau:** A (os números); as recomendações são juízo de Claude · **Complementa:** D97, D99
+Entregues 16 recomendações (R1 a R16) com base quantitativa e qualitativa, risco e alternativa: regra de binaridade das cinco `Flat` (D13 mais os 12 do Apêndice B de B95 reproduz exatamente as cinco; `3.19-01`); D04/D11 (manter e declarar a exceção; lista datada antes de qualquer indicador); enunciado da hipótese de D90 (H1 de estados, confirmatória; H2 de CSD temporal, exploratória, n = 1); receita de σ_S (conta A principal); junção (descontinuidade; era Mount Wilson tem segmento ≥ 24 anos em 10 de 10 estrelas e a era Keck em 3 de 10; `3.19-02`); D46 (aceitar com ressalva de grau C); layout (manter até a consolidação); Q2, Q3 (a gaussiana de 1 ano remove o ciclo e a memória, AC1 0.05 contra 0.44; o ciclo ajustado falha com período 20 % errado; `3.19-03` a `3.19-05`), Q4, Q5, Q6, Q7, Q9, Q10 e Q11. **Nenhuma foi aceita ainda: cada uma continua em aberto até o pesquisador aceitar, mudar ou rejeitar.**
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -865,6 +871,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Anos faltantes decididos:** interpolar só lacunas curtas (1–2 anos) | D98 |
 | 2026-11-24 | **Recomendação do tamanho mínimo de segmento** (24 anos; não é decisão) | D99 |
 | 2026-11-24 | **Tamanho mínimo de segmento decidido:** 24 anos (aceita D99) | D100 |
+| 2026-11-24 | **Recomendações para todos os itens pendentes** (16, não são decisões) | D101 |
 
 ---
 

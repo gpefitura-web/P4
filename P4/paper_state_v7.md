@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D100) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D101) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -65,6 +65,8 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 **Respondidas em 2026-11-14 e 2026-11-24 (caderno §4d):** anual e bruta → **D68**, com os papéis em **D92** (anual para o CSD temporal; bruta para σ por estado e períodos; DFA só se Q9 for decidida a favor); Q8 → **D69** (S e R′_HK); piso de Q6 → **D75** (0.37–0.45 %); item 6 / D50 → **D90** (hipótese testável, depois de D74, D81, D87–D89); dados de Oláh e Soon → **D86** (seguir sem eles, grau C); incorporação → **D71**; Q2–Q7 → **D78** (abertas). A14 (Korolik) para Q11.
 
 **Q1 respondida quanto à composição (D95): opção (v)**, Baum mais `HK_Project_v2001_NSO` ao lado; períodos = publicados (D15, D42).
+
+**Recomendações de Claude para todos os pendentes: `RECOMENDACOES_PENDENTES.md` (D101), aguardando aceite item a item.**
 
 **Pendentes, todas do pesquisador:** **regra de anos faltantes decidida (D98):** interpolar só lacunas de 1–2 anos; **tamanho mínimo de segmento decidido: 24 anos (D100, aceita D99)**; as sub-perguntas de Q1 (regra de binaridade das cinco `Flat`, I-06; D04/D11, I-13; o que a amostra entrega à hipótese de D90); o enunciado da hipótese de D90 (indicador anual, sinal esperado, refutação), que depende de Q10 e Q9; as escolhas adiadas de junção (D72), D46 (D73), receita de σ_S (D70) e layout (D77); Q2–Q7, Q9, Q10 e Q11 (subsídios em `SUBSIDIOS_Q2_Q11.md`, D97). Nenhuma outra Q# está fechada.
 
