@@ -1,0 +1,6 @@
+[INFO] 3.18-01: segments of the 10 stars with length >= 12 years | stars with at least one such segment | expected= obtained=14 | 10/10
+[INFO] 3.18-02: segments of the 10 stars with length >= 20 years | stars with at least one such segment | expected= obtained=12 | 10/10
+[INFO] 3.18-03: segments of the 10 stars with length >= 24 years | stars with at least one such segment | expected= obtained=10 | 10/10
+[INFO] 3.18-04: segments of the 10 stars with length >= 30 years | stars with at least one such segment | expected= obtained=7 | 7/10
+[INFO] 3.18-05: AUC(trend > null) of the rolling Kendall tau at L = 20 | 30 | 50 | expected= obtained=0.57 | 0.60 | 0.67
+[INFO] 3.18-06: SD of the lag-1 estimate at w = 10 | 12 | 24 (c = 0.5) | expected= obtained=0.268 | 0.249 | 0.184

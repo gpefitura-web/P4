@@ -132,13 +132,13 @@ for name in ("P4_RESEARCH_NOTEBOOK.md",):
         blk = docs[name][m.end(): m.end() + 600]
         st = re.search(r"\*\*Status:\*\*\s*([^·\n]+)", blk)
         defs[m.group(1)].append((name, st.group(1).strip() if st else "NO STATUS"))
-allD = [f"D{i:02d}" for i in range(1, 99)]
-check("2a-01", "decisions D01-D98 defined exactly once in the notebook", 98,
+allD = [f"D{i:02d}" for i in range(1, 100)]
+check("2a-01", "decisions D01-D99 defined exactly once in the notebook", 99,
       sum(1 for d in allD if len(defs.get(d, [])) == 1), "notebook + DECISOES_D41_D54.md")
 check("2a-02", "decisions defined more than once or missing", "none",
       ",".join(d for d in allD if len(defs.get(d, [])) != 1) or "none",
       "notebook + DECISOES_D41_D54.md")
-check("2a-03", "decision headers outside D01-D98 numbering", "",
+check("2a-03", "decision headers outside D01-D99 numbering", "",
       ",".join(sorted(set(defs) - set(allD))) or "none", "DECISOES_D41_D54.md", info=True)
 nostat = [d for d, v in defs.items() if any(s == "NO STATUS" for _, s in v)]
 check("2a-04", "decisions without a 'Status' field", "none", ",".join(nostat) or "none",

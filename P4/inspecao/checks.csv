@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,122,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,123,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
 1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,24,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,56,regex over all .md and the notebook,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,59,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D98 defined exactly once in the notebook,98,98,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D99 defined exactly once in the notebook,99,99,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D98 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D99 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 99,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 99; ativa (como recomendação): 1,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -536,3 +536,9 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.17-02-c0.7,"median bias of the whole-series lag-1 estimate, c = 0.7: oracle | naive | pairs | lin_short | lin_all",,-0.065 | -0.098 | -0.079 | -0.053 | -0.021,saidas/15_gap_interpolation_test.txt,INFO
 3.17-03-null,median over stars of mean Kendall tau of the rolling lag-1 estimate (null): oracle | naive | pairs | lin_short | lin_all,,+0.02 | -0.14 | -0.03 | +0.00 | +0.18,saidas/15_gap_interpolation_test.txt,INFO
 3.17-03-trend,median over stars of mean Kendall tau of the rolling lag-1 estimate (trend): oracle | naive | pairs | lin_short | lin_all,,+0.28 | +0.17 | +0.22 | +0.27 | +0.39,saidas/15_gap_interpolation_test.txt,INFO
+3.18-01,segments of the 10 stars with length >= 12 years | stars with at least one such segment,,14 | 10/10,saidas/16_min_segment.txt,INFO
+3.18-02,segments of the 10 stars with length >= 20 years | stars with at least one such segment,,12 | 10/10,saidas/16_min_segment.txt,INFO
+3.18-03,segments of the 10 stars with length >= 24 years | stars with at least one such segment,,10 | 10/10,saidas/16_min_segment.txt,INFO
+3.18-04,segments of the 10 stars with length >= 30 years | stars with at least one such segment,,7 | 7/10,saidas/16_min_segment.txt,INFO
+3.18-05,AUC(trend > null) of the rolling Kendall tau at L = 20 | 30 | 50,,0.57 | 0.60 | 0.67,saidas/16_min_segment.txt,INFO
+3.18-06,SD of the lag-1 estimate at w = 10 | 12 | 24 (c = 0.5),,0.268 | 0.249 | 0.184,saidas/16_min_segment.txt,INFO

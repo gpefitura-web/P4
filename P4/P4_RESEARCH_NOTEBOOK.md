@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D98)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D99)
 
 ---
 
@@ -721,6 +721,12 @@ Resposta do pesquisador: **"Opção 2 (interpolar só lacunas curtas) para anos 
 
 ---
 
+### D99 — Recomendação para o tamanho mínimo de segmento (não é decisão; aguarda aceite)
+**Data:** 2026-11-24 · **Autor:** Claude (recomendação, a pedido do pesquisador) · **Base:** `SUBSIDIOS_SEGMENTO_MINIMO.md`, `3.18-01` a `3.18-06`, `3.11-41`, `3.11-53`, `3.11-59`, `3.11-60`, `3.11-78`, `3.11-79` · **Status:** ativa (como recomendação) · **Grau:** A (simulação e fórmula) · **Complementa:** D98
+Recomendação: **segmento de pelo menos 24 anos** após D98, janela de 50 % com pelo menos 12 pontos e 13 janelas; segmentos menores recebem só descrição, sem τ; segmentos de 24–39 anos rotulados "precisão baixa" e exploratórios, ≥ 40 anos "precisão adequada"; p do τ sempre por surrogates com as mesmas lacunas (D22, D98); declarar em Methods o poder baixo do teste anual. Base: o desvio-padrão do AR(1) em janela de 12 pontos é 0.25, em acordo com a fórmula de Held & Kleinen (p. 3), e em 20 pontos é 0.20; o AUC de tendência contra nulo vai de 0.52 (L = 10) a 0.67 (L = 50), **sem joelho e nunca bom**, de modo que o piso não garante poder; com 24 anos todas as 10 estrelas mantêm um segmento (10 segmentos), com 30 perdem-se 3 estrelas e com 40, 6. **Nada é decidido:** o tamanho mínimo continua em aberto até o pesquisador aceitar, alterar (20 ou 40 anos, ou sem piso) ou rejeitar.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -851,6 +857,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Q1: opção (v); períodos publicados; anos faltantes explicados, regra pendente** | D95 |
 | 2026-11-24 | **Anos faltantes: teste sintético, justificativa física e referências; subsídios para Q2–Q11** | D96, D97 |
 | 2026-11-24 | **Anos faltantes decididos:** interpolar só lacunas curtas (1–2 anos) | D98 |
+| 2026-11-24 | **Recomendação do tamanho mínimo de segmento** (24 anos; não é decisão) | D99 |
 
 ---
 

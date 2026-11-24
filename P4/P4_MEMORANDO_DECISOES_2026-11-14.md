@@ -98,3 +98,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 15 (2026-11-24):** anos faltantes → D98 (opção 2: interpolar só lacunas de 1–2 anos). "Seguir recomendação": não há recomendação registrada para os demais itens pendentes (só a de Q1, v6 §3.4, já usada); nenhum deles foi decidido.
 
+**Bloco 16 (2026-11-24):** tamanho mínimo de segmento → D99 (recomendação de 24 anos, não decisão; `SUBSIDIOS_SEGMENTO_MINIMO.md`).
+
