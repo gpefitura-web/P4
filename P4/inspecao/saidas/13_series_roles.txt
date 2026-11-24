@@ -1,0 +1,5 @@
+five clean Flat (Baum has 4 of 5): n=4/5 | raw median 1795 (min 1337, max 2520) | annual seasons median 48 (min 39, max 49) | raw>=1000: 4 | annual>=100: 0 | half-record window (annual): 24 points | largest gap median 3.68 yr
+CYCLE+Excellent controls in Baum: n=6/6 | raw median 1822 (min 1340, max 3870) | annual seasons median 46 (min 43, max 53) | raw>=1000: 6 | annual>=100: 0 | half-record window (annual): 23 points | largest gap median 6.83 yr
+all 59 Baum stars: n=59/59 | raw median 698 (min 43, max 4627) | annual seasons median 27 (min 9, max 54) | raw>=1000: 22 | annual>=100: 0 | half-record window (annual): 14 points | largest gap median 7.17 yr
+HD 166620: raw 1762, annual seasons 45, HKP-1 107, HKP-2 1547, HIRES-1 9, HIRES-2 103, largest gap 6.908 yr, t 1966.593-2020.185
+HD 101501: raw 2217, annual seasons 32, HKP-1 193, HKP-2 2040, HIRES-1 0, HIRES-2 6, largest gap 13.82 yr, t 1968.113-2017.138

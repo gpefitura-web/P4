@@ -52,3 +52,51 @@ Estado: **papéis com subsídios entregues; escolha pendente (D76).**
 - **DFA:** Livina & Lenton pedem "at least of order a thousand points" e "several hundred points per window" (p. 3; `3.11-56`); a mediana bruta do subconjunto Baum é 698 (`3.3-01`) e a anual 27 (`3.3-05`). A série da Groenlândia deles é irregular (1586 pontos, janelas de 500; p. 4, `3.11-58`). A calibração DFA → c do §2.4 foi ajustada em AR(1) regular de 20 000 pontos (p. 3).
 - **Incerteza de expoentes:** a flutuação do expoente de uma sequência finita cai com √N e não depende da amplitude do ruído (Peng+1993, pp. 2–3; `3.11-59`, `3.11-60`). Peng+1993 usa o estimador da caminhada de DNA, não o DFA.
 - **CSD em janelas:** Livina usa janela de ACF de 10 % da série (p. 2; `3.11-55`), contra 50 % de D20; Held & Kleinen estimam κ com erro √(2κ/T) (p. 3; `3.11-53`), que pede muitos tempos de decaimento (A7b-F2).
+
+## Adendo de 2026-11-24 (2): subsídios para decidir os papéis, à luz de D90, D86, D85 e D81
+**Pedido do pesquisador:** "Subsídios para decidir os papéis das séries." Não escolhe e não recomenda. Números de `inspecao/saidas/13_series_roles.txt` (`3.16-01` a `3.16-04`, script `13_series_roles.py`) e das fontes com página.
+
+### 1. Os tamanhos, nos grupos do P4 (e não na mediana das 59)
+| Conjunto (subconjunto de Baum) | Estrelas | Observações brutas (mediana; mín.–máx.) | Estações anuais (mediana; mín.–máx.) | Janela de 50 % em estações | Maior lacuna (mediana) |
+|---|---|---|---|---|---|
+| `Flat` limpas (5; Baum tem 4) | 4 | 1 795 (1 337–2 520) | 48 (39–49) | 24 | 3.68 anos |
+| Controles `CYCLE`+Excellent (13; Baum tem 6) | 6 | 1 822 (1 340–3 870) | 46 (43–53) | 23 | 6.83 anos |
+| Todas as 59 de Baum | 59 | 698 (43–4 627) | 27 (9–54) | 14 | 7.17 anos |
+| HD 166620 | 1 | 1 762 | 45 | 22 | 6.91 anos |
+| HD 101501 | 1 | 2 217 | 32 | 16 | 13.82 anos |
+
+**Correção do quadro anterior:** os 27 anuais e 698 brutos eram a mediana das 59; nos grupos do P4 as séries são maiores (cerca de 46–48 estações; 1 800 observações). Nenhuma estrela tem 100 estações anuais (`3.16-02`: 0 de 59); 22 de 59 têm ≥ 1 000 observações brutas (`3.16-01`), incluindo as quatro `Flat` e os seis controles presentes.
+
+### 2. O que as fontes dizem sobre agregar ou não
+| Fato | Fonte | Efeito |
+|---|---|---|
+| A autocorrelação de lag 1 "is related to the shortest time scale and is more vulnerable to the influence of noise", "therefore the aggregation of the series is required" | Livina & Lenton p. 3 (`3.11-75`) | favorece agregar antes de AR(1) |
+| Δt-agregação (soma em janelas disjuntas) "eliminates weather noise"; Δt escolhido com Δt ≫ 1/κᵢ (modos menores) e 1/κ ≫ Δt | Livina p. 2, Held & Kleinen p. 2 (A7b item 3) | o passo anual é uma Δt-agregação; a escolha de Δt é do método |
+| Depois de ~1980 há tipicamente **três observações por estrela por noite**, em sequência rápida | README do HK Project, p. 1 (`3.11-76`) | na série bruta, o lag mais curto é dominado por observações da mesma noite |
+| O DFA pede "at least of order a thousand points" e várias centenas por janela | Livina p. 3 (`3.11-56`) | 22 estrelas da amostra de 59, e todas as presentes dos dois grupos, passam; a série é irregular |
+| Janela de ACF de 10 % da série em Livina; 25–75 % em Dakos (D20) | Livina p. 2 (`3.11-55`); Dakos p. 17 (`3.11-41`) | com 46–48 estações, 10 % = cerca de 5 pontos; 25 % = cerca de 12; 50 % = cerca de 24 |
+| A flutuação do expoente cai com √N, independentemente da amplitude do ruído | Peng+1993 pp. 2–3 (`3.11-59`, `3.11-60`) | mais pontos reduzem a incerteza, mas só se forem independentes |
+| CSD exige muitos tempos de decaimento (δκ ≈ √(2κ/T)) | Held & Kleinen p. 3 (`3.11-53`) | o tempo de decaimento estelar não é conhecido (Q10) |
+
+### 3. O que a hipótese de D90 pede de cada série (sem definir a hipótese)
+| Parte do teste | Quantidade necessária | Anual | Bruta |
+|---|---|---|---|
+| Tendência temporal de um indicador (AR(1), variância, τ) antes da transição | uma janela deslizante com muitos pontos; passo Δt ≫ tempos de modos rápidos | 39–49 estações nos grupos; janela de 50 % ≈ 23–24 pontos; HD 166620 tem 8 pontos na aproximação, grau C (D46, D86), HD 101501 tem 16 de janela e lacuna de 13.8 anos | milhares de pontos, mas lag mais curto dominado por tripletos noturnos e lacunas de até 3.7 a 6.8 anos (mediana por grupo) |
+| Comparação de variabilidade entre estados (Luhn §3.1) | σ por estado | a variante "por estação" (D57, conta B) | a conta A (σ do intervalo, D57) |
+| DFA (Q9) | mil pontos ou mais, série regular | abaixo do piso de D24 | acima do piso de Livina em 22 de 59; irregular, Livina testou séries irregulares só com janelas de 500 pontos e sem calibração própria |
+| Índice (D69: S e R′_HK) | por observação, com B−V (D52) | média anual do índice, perde a distinção por observação | R′_HK por observação; faixa de validade de D53 vale para os dois |
+
+### 4. Três distribuições possíveis (nenhuma recomendada)
+| Distribuição | O que dá | O que custa |
+|---|---|---|
+| **A.** Anual para as tendências temporais; bruta só para σ por estado e períodos | segue Δt-agregação de Livina e Held & Kleinen; janelas de 23–24 pontos | N ≈ 40–49 limita D20 (10–37 pontos na faixa 25–75 %); HD 166620 e HD 101501 ficam fora do teste temporal (D46, lacuna); DFA continua fora (D24) |
+| **B.** Bruta para tudo (janelas em tempo) | uso total dos dados; DFA possível em 22 estrelas | exige método para lacunas e para os tripletos noturnos; calibração de Livina não testada em irregular; reabre D24 e Q9 |
+| **C.** Anual para CSD; bruta para σ por estado e DFA, com Q9 decidida à parte | combina A e B por métrica; é o que "ambas com papéis distintos" (D68) descreve em termos gerais | exige declarar a regra por métrica e tratar de forma separada o DFA em Methods; mais texto |
+
+### 5. Pontos independentes da escolha
+- A junção HKP-2 → HIRES-2 (D44, D72) entra nas duas séries.
+- As 119 linhas `new_MW` (D58, D86) não entram como valor em nenhuma.
+- O `HK_Project_v2001_NSO` (D85) é bruto e termina em 2001; se entrasse como camada ao lado, fica no mesmo regime.
+- A decisão dos papéis fixa D68/D76 e destrava Q1 (D79), o enunciado da hipótese de D90 e as escolhas adiadas de σ_S (D70), D46 (D73) e junção (D72).
+
+Estado: **papéis com subsídios completos; escolha pendente (D91).**

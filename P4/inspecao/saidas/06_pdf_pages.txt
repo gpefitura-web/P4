@@ -58,6 +58,8 @@ id | pdf | PDF pages where the pattern is found (page 1 = first page of the file
 3.11-72 | Bury_2020_JRSocInterface_17_20200482.pdf | [2]
 3.11-73 | Bury_2020_JRSocInterface_17_20200482.pdf | [5]
 3.11-74 | Bury_2020_JRSocInterface_17_20200482.pdf | [8]
+3.11-75 | Livina_2007_GRL_34_L03712.pdf | [3]
+3.11-76 | README.pdf | [1]
 3.11-50 | Held_2004_GRL_31_L23207.pdf | [1]
 3.11-51 | Held_2004_GRL_31_L23207.pdf | [2]
 3.11-52 | Held_2004_GRL_31_L23207.pdf | [4]

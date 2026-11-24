@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D90)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D91)
 
 ---
 
@@ -673,6 +673,12 @@ Resposta do pesquisador: **"Reformular como hipótese testável."** Efeito sobre
 
 ---
 
+### D91 — Papéis das séries (D76): subsídios completos entregues, escolha adiada
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** D68, D76, D90; `SUBSIDIOS_PAPEIS_SERIES.md` (adendo 2), `3.16-01` a `3.16-04`, `3.11-75`, `3.11-76` · **Status:** ativa · **Grau:** A (subsídios) · **Complementa:** D76
+Resposta do pesquisador: **"Subsídios para decidir os papéis das séries."** Entregue o adendo com os tamanhos **nos grupos do P4** (cinco `Flat` e controles: cerca de 46–48 estações anuais e 1 800 observações; as medianas de 27 e 698 eram das 59 estrelas), o que as fontes dizem sobre agregar (Livina p. 3; README do HK Project, três observações por noite), o que a hipótese de D90 pede de cada série e três distribuições possíveis (A, B, C) sem recomendação. Nenhum papel atribuído.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -797,6 +803,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Busca de fontes sobre ciclo limite (item 6):** Kuehn 2011/2013 e Boettiger+2013 lidos; nenhuma trata ciclo → equilíbrio | D88 |
 | 2026-11-24 | **Bury+2020 recebido e lido** (único dado empírico com os dois lados de uma Hopf; não analisa o lado oscilatório) | D89 |
 | 2026-11-24 | **Item 6 decidido:** a resposta teórica de D50 vira hipótese testável | D90 |
+| 2026-11-24 | **Papéis das séries:** subsídios completos (tamanhos nos grupos do P4, agregação, três distribuições); escolha adiada | D91 |
 
 ---
 
@@ -824,6 +831,7 @@ Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/chec
 | Calibração DFA → c; ordem de mil pontos para o DFA; viés de comprimento finito cai com √N; ausência de modos oscilatórios em Held & Kleinen | Livina & Lenton 2007 GRL 34, L03712; Peng+1993 PRE 47, 3730; Held & Kleinen 2004 GRL 31, L23207 | 3, 3, 2 | 3.11-50 a 3.11-62 | A |
 | Hopf só é transição crítica se subcrítica; aproximação analisada pelo lado estável; variância cresce como O(1/y) e covariância tende a zero; sinal pode não existir ou inverter | Kuehn 2011 Physica D 240, 1020; Kuehn 2013 J. Nonlinear Sci. 23, 457; Boettiger+2013 Theor. Ecol. 6, 255 | 8, 32, 5 | 3.11-63 a 3.11-70 | A |
 | Sem reddening espectral antes de transições oscilatórias; todos os locais têm CSD; quimióstato com dois Hopf, Smax sobe antes de ambos; Hopf supercrítica reversível | Bury et al. 2020 J. R. Soc. Interface 17, 20200482 | 1, 2, 5, 8 | 3.11-71 a 3.11-74 | A |
+| Lag-1 ACF vulnerável a ruído, agregação necessária; três observações por noite no HK Project | Livina & Lenton 2007; README do HK Project (Radick & Pevtsov) | 3, 1 | 3.11-75, 3.11-76 | A |
 
 ---
 

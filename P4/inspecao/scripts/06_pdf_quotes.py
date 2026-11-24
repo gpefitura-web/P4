@@ -46,6 +46,7 @@ PDF = {
     "kuehn13": os.path.join(ROOT, "bib", "Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf"),
     "boett": os.path.join(ROOT, "bib", "Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf"),
     "bury": os.path.join(ROOT, "bib", "Bury_2020_JRSocInterface_17_20200482.pdf"),
+    "dvreadme": os.path.join(ROOT, "data", "HK_Project_v2001_NSO", "README.pdf"),
 }
 T = {k: text(v) for k, v in PDF.items()}
 
@@ -169,6 +170,10 @@ Q = [
      "bury", r"Preceding both Hopf bifurcations, the spectral EWS provide a characteristic indication of a Hopf bifurcation", True),
     ("3.11-74", "Bury+2020: supercritical Hopf = smooth reversible transition to small oscillations; subcritical = critical irreversible transition",
      "bury", r"supercritical Hopf yields a smooth, reversible transition to small oscillations", True),
+    ("3.11-75", "Livina & Lenton 2007: lag-1 ACF is tied to the shortest time scale, vulnerable to noise, so aggregation is required",
+     "livina", r"conventional ACF lag-1 correlations are related to the shortest time scale and are more vulnerable to the influence of noise", True),
+    ("3.11-76", "HK Project README: after about 1980 typically three observations per star each night in rapid succession",
+     "dvreadme", r"typically three observations made per star each night, in rapid succession", True),
     ("3.11-50", "Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges",
      "held", r"decay rate .{0,4} for perturbations of the equilibrium vanishes and the variability of the related mode diverges", True),
     ("3.11-51", "Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz)",

@@ -86,3 +86,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 9 (2026-11-24):** item 6 → D90: a resposta teórica de D50 é reformulada como hipótese testável. Pendente: o enunciado da hipótese (indicador, série, sinal esperado, refutação).
 
+**Bloco 10 (2026-11-24):** papéis das séries → D91 (subsídios completos em `SUBSIDIOS_PAPEIS_SERIES.md`, adendo 2: A, B ou C); escolha pendente.
+
