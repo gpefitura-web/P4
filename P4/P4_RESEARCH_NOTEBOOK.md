@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D99)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D100)
 
 ---
 
@@ -727,6 +727,12 @@ Recomendação: **segmento de pelo menos 24 anos** após D98, janela de 50 % com
 
 ---
 
+### D100 — Tamanho mínimo de segmento: aceita a recomendação de D99 (24 anos)
+**Data:** 2026-11-24 · **Autor:** pesquisador (resposta "Seguir recomendações") · **Base:** D99; `SUBSIDIOS_SEGMENTO_MINIMO.md`, `3.18-01` a `3.18-06` · **Status:** ativa · **Grau:** decisão humana · **Cumpre:** D98 (pergunta do tamanho mínimo de segmento) · **Complementa:** D92
+Resposta do pesquisador: **"Seguir recomendações."** Fica decidido, tal como em D99: (1) o indicador temporal (AR(1), variância, τ de Kendall) só é calculado em **segmentos de pelo menos 24 anos** depois de D98, com janela de 50 % de pelo menos 12 pontos e 13 janelas; (2) **segmentos menores recebem só descrição**, sem τ; (3) segmentos de **24–39 anos** são rotulados "precisão baixa" e seus resultados são **exploratórios**; **≥ 40 anos**, "precisão adequada"; (4) o **p do τ vem sempre de surrogates ARMA** com as mesmas posições de lacuna e a mesma interpolação (D22, D98), nunca de um limiar fixo; (5) **Methods declara** que o poder do teste em série anual é baixo (AUC de 0.52 a 0.67 nas simulações), de modo que um resultado nulo não refuta a hipótese de D90. Nas 10 estrelas dos grupos do P4 isto mantém 10 segmentos (um por estrela pelo menos) e deixa sem indicador os segmentos de 5, 9, 11, 14, 17 e 20 anos. **Nota:** "recomendações" no plural foi lido como a de D99, a única recomendação nova desta rodada; as demais pendentes não têm recomendação registrada e **não foram decididas**.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -793,7 +799,7 @@ submissão, não um detalhe.
 D08 (média anual, N≈26), D12 (N uniforme por construção — dizer explicitamente), D20–D23
 (parâmetros e significância), D24–D26 (DFA), D30 (componente de 44 anos), e a ressalva de Q6.
 
-**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D98 (2026-11-24):** declarar a regra de anos faltantes (interpolação linear só de lacunas de 1–2 anos, pontos marcados, segmentos em lacunas ≥ 3 anos, surrogates com a mesma regra). **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
+**Obrigações de Methods adicionadas em 2026-11-14** (já fixadas pelas decisões ativas; nenhuma escolha nova): D44 (a junção 2001→2004 é uma descontinuidade declarada; nenhuma janela a atravessa sem decisão registrada; incerteza dos offsets de Baum é grau X), D45 e D57 (a receita de σ_S deve ser descrita exatamente como executada), D46 (8 médias anuais comparam estados e não alimentam janela deslizante), D58 (as 119 linhas `new_MW` são digitalizadas, grau C), D49 e D59 (HD 101501: citar Baum §4.1 inteiro e a cobertura), D50 (estocasticidade e transição rápida citadas e respondidas), D51 (inclinação), D52–D53 e D61 (receita S → R′_HK, faixa de validade, escopo de Noyes), D60 (a CLS VI analisa 91 estrelas por faixa de massa). Limitação de D46 a constar na Discussão. **D100 (2026-11-24):** segmentos de pelo menos 24 anos, rótulos de precisão, p por surrogates e declaração do poder baixo. **D98 (2026-11-24):** declarar a regra de anos faltantes (interpolação linear só de lacunas de 1–2 anos, pontos marcados, segmentos em lacunas ≥ 3 anos, surrogates com a mesma regra). **D92 (2026-11-24):** declarar a regra por métrica: anual para o CSD temporal, bruta para σ por estado e períodos, DFA só se Q9 for decidida a favor. **D90 (2026-11-24):** a Discussão apresenta a biestabilidade como hipótese testável e não como resposta a D50; declarar a ausência de precedente para ciclo limite nas fontes lidas e a possível inversão do sinal.
 
 ---
 
@@ -858,6 +864,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-24 | **Anos faltantes: teste sintético, justificativa física e referências; subsídios para Q2–Q11** | D96, D97 |
 | 2026-11-24 | **Anos faltantes decididos:** interpolar só lacunas curtas (1–2 anos) | D98 |
 | 2026-11-24 | **Recomendação do tamanho mínimo de segmento** (24 anos; não é decisão) | D99 |
+| 2026-11-24 | **Tamanho mínimo de segmento decidido:** 24 anos (aceita D99) | D100 |
 
 ---
 

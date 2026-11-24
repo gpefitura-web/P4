@@ -100,3 +100,5 @@ Cada resposta será registrada como `D68` em diante, com data, autor "pesquisado
 
 **Bloco 16 (2026-11-24):** tamanho mínimo de segmento → D99 (recomendação de 24 anos, não decisão; `SUBSIDIOS_SEGMENTO_MINIMO.md`).
 
+**Bloco 17 (2026-11-24):** tamanho mínimo de segmento → D100 (24 anos, aceita D99).
+
