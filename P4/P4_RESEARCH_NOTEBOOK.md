@@ -621,9 +621,9 @@ Resultado: os servidores do CDS não respondem deste ambiente; o espelho de Harv
 
 ---
 
-### D83 — O espelho NAO do VizieR devolve a mesma tabela de Luhn: 119 linhas , sem a série de 158 pontos
-**Data:** 2026-11-24 · **Base:**  enviado pelo pesquisador (sha256 em ), comparado a  · **Status:** ativa · **Grau:** A · **Complementa:** D58, D82
-As tabelas 2 e 3 de  baixadas do espelho NAO são idênticas às já em  (1 885 linhas: 1 654 MW, 112 HIRES, **119 **; 1 278 APT). O VizieR, portanto, só tem o conjunto digitalizado; **os dados cedidos por Oláh e Soon (158 pontos) não estão no catálogo**. As 119 linhas seguem grau C (D58). O caminho que resta é o pedido aos autores (D82).
+### D83 — O espelho NAO do VizieR devolve a mesma tabela de Luhn: 119 linhas `new_MW`, sem a série de 158 pontos
+**Data:** 2026-11-24 · **Base:** `asu1.tsv` enviado pelo pesquisador (sha256 em `bib/DOWNLOAD_LOG.md`), comparado a `data/J_ApJ_936_L23_table2.tsv` · **Status:** ativa · **Grau:** A · **Complementa:** D58, D82
+As tabelas 2 e 3 de `J/ApJ/936/L23` baixadas do espelho NAO são idênticas às já em `data/` (1 885 linhas: 1 654 MW, 112 HIRES, **119 `new_MW`**; 1 278 APT). O VizieR, portanto, só tem o conjunto digitalizado; **os dados cedidos por Oláh e Soon (158 pontos) não estão no catálogo**. As 119 linhas seguem grau C (D58). O caminho que resta é o pedido aos autores (D82).
 
 ---
 

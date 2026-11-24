@@ -41,6 +41,5 @@
 | **Conclusão** | **a série de 158 pontos não está em catálogo público alcançável**; resta pedi-la aos autores (rascunho: `consolidacao/PEDIDO_DADOS_OLAH_SOON.md`) | |
 
 ## 2026-11-24 (tarde) — nova tentativa e arquivo do espelho NAO enviado pelo pesquisador
-- CDS principal (, ) responde (200), mas as consultas  voltam vazias e a pasta  dá **404**; Harvard oscila ("not found" / "database not reachable"); o espelho NAO () dá 503 pelo proxy deste ambiente.
-- O pesquisador baixou do espelho NAO  e  (, sha256 , 3 215 linhas, consulta de 2026-11-24 11:24). **Conferido linha a linha contra : idêntico** (1 885 linhas: 1 654 , 112 , **119 **); a tabela 3 tem as mesmas 1 278 linhas . **Nenhuma linha nova, nenhuma série de 158 pontos.** O arquivo não foi copiado para  (duplicata).
-
+- CDS principal (`vizier.cds.unistra.fr`, `cdsarc`) responde (200), mas as consultas `asu-tsv` voltam vazias e a pasta `ftp/J/A+A/590/A133/` dá **404**; Harvard oscila ("not found" / "database not reachable"); o espelho NAO (`vizier.nao.ac.jp`) dá 503 pelo proxy deste ambiente.
+- O pesquisador baixou do espelho NAO `J/ApJ/936/L23/table2` e `table3` (`asu1.tsv`, sha256 `b349558474adedf9…`, 3 215 linhas, consulta de 2026-11-24 11:24). **Conferido linha a linha contra `data/J_ApJ_936_L23_table2.tsv`: idêntico** (1 885 linhas: 1 654 `MW`, 112 `HIRES`, **119 `new_MW`**); a tabela 3 tem as mesmas 1 278 linhas `APT`. **Nenhuma linha nova, nenhuma série de 158 pontos.** O arquivo não foi copiado para `data/` (duplicata).
