@@ -18,6 +18,15 @@
   "validacao": "padrão de título /Five Decades of Chromospheric Activity/ nas páginas 1-2",
   "versao": "manuscript (arXiv:2203.13376)"
  },
+ "Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 436003,
+  "doi": "10.1007/s12080-013-0192-6",
+  "sha256": "d4e48a6830a1cb91a6c22ca99f160c145179e4cb59435c68a8ef86c03b3b77cb",
+  "url": "https://arxiv.org/pdf/1305.6700",
+  "validacao": "padrão de título /charted and uncharted/ nas páginas 1-2 (autores: Boettiger, Ross & Hastings; o nome inicial \"Dakos\" estava errado e foi corrigido)",
+  "versao": "manuscript (arXiv:1305.6700)"
+ },
  "Brandenburg_1998_ApJL_498_L51.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 131721,
@@ -83,6 +92,24 @@
   "url": "https://iopscience.iop.org/article/10.3847/1538-3881/ace906/pdf",
   "validacao": "padrão de título /Pole-on Solar Analog/ nas páginas 1-2",
   "versao": "published"
+ },
+ "Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 754039,
+  "doi": "10.1016/j.physd.2011.02.012",
+  "sha256": "99f7fcee83e95e9e3d7283bac8882df84ceb3893d94915873542ed03f526ad1f",
+  "url": "https://arxiv.org/pdf/1101.2899",
+  "validacao": "padrão de título /critical transitions/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:1101.2899)"
+ },
+ "Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf": {
+  "baixado_em": "2026-11-24",
+  "bytes": 1682400,
+  "doi": "10.1007/s00332-012-9158-x",
+  "sha256": "4c28bf5761336c71ef5e743b5e7bb2d685ec7c7b33934924ab029d0d6d1f5967",
+  "url": "https://arxiv.org/pdf/1101.2908",
+  "validacao": "padrão de título /Normal Forms, Variance/ nas páginas 1-2",
+  "versao": "manuscript (arXiv:1101.2908)"
  },
  "Livina_2007_GRL_34_L03712.pdf": {
   "baixado_em": "2026-11-24",

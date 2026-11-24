@@ -57,3 +57,13 @@
 ## 2026-11-24 (noite, 2) — HK_Project_v2001_NSO baixado e comparado com Baum
 Os 35 arquivos `.mgd` e o `README.pdf` do Dataverse `10.7910/DVN/H85QPF` foram copiados sem alteração para `data/HK_Project_v2001_NSO/` (7,4 MB; `PROVENIENCIA.txt` ao lado). Comparação em `inspecao/scripts/11_dataverse_v2001.py` (`3.15-01` a `3.15-06`, saídas `11_dataverse_v2001*.txt`).
 
+
+## 2026-11-24 — fontes sobre sinais precursores em Hopf/ciclo limite (pedido do pesquisador)
+| Item | Resultado | URL / arquivo |
+|---|---|---|
+| kuehn2011 | ok (tentativa 1) | https://arxiv.org/pdf/1101.2899 |
+| kuehn2013 | ok (tentativa 1) | https://arxiv.org/pdf/1101.2908 |
+| bury2020 | falhou na tentativa 1 (HTTP 200) | https://pmc.ncbi.nlm.nih.gov/articles/PMC7536046/pdf/ |
+| bury2020 | falhou na tentativa 2 (HTTP 200) | https://pmc.ncbi.nlm.nih.gov/articles/PMC7536046/pdf/ |
+| MANUAL | subir pelo pesquisador | bury2020, DOI 10.1098/rsif.2020.0482 |
+| boettiger2013 | ok (tentativa 1) | https://arxiv.org/pdf/1305.6700 |

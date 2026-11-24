@@ -47,6 +47,14 @@
 [PASS] 3.11-47: Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006) | expected=yes obtained=yes
 [PASS] 3.11-48: Baum arXiv draft: same '29 stars with periodic cycles' | expected=yes obtained=yes
 [PASS] 3.11-49: Baum arXiv draft: same '14 stars were given new classifications' | expected=yes obtained=yes
+[PASS] 3.11-63: Kuehn 2011 Prop. 2.6: Hopf is a critical transition only if subcritical (l1 > 0); supercritical is not | expected=yes obtained=yes
+[PASS] 3.11-64: Kuehn 2011: analysis of stochastic Hopf bifurcation much more complicated than one-dimensional ones | expected=yes obtained=yes
+[PASS] 3.11-65: Kuehn 2011: equilibrium is stable for y < 0 and loses stability at y = 0 (fast-subsystem Hopf, approach from the stable side) | expected=yes obtained=yes
+[PASS] 3.11-66: Kuehn 2013 Thm 5.2 discussion: Hopf variance of the coordinates increases as O(1/y) approaching the bifurcation | expected=yes obtained=yes
+[PASS] 3.11-67: Kuehn 2013: with equal diffusion the covariance tends to zero as the Hopf bifurcation is approached | expected=yes obtained=yes
+[PASS] 3.11-68: Boettiger+2013: subcritical Hopf = transition from stable equilibrium to stable cycle, with critical slowing down | expected=yes obtained=yes
+[PASS] 3.11-69: Boettiger+2013: not all regime shifts show critical slowing down, or vice versa | expected=yes obtained=yes
+[PASS] 3.11-70: Boettiger+2013: a positive indication for some systems is a negative indication in others | expected=yes obtained=yes
 [PASS] 3.11-50: Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges | expected=yes obtained=yes
 [PASS] 3.11-51: Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz) | expected=yes obtained=yes
 [PASS] 3.11-52: Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation | expected=yes obtained=yes

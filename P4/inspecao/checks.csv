@@ -1,18 +1,18 @@
 id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
-1-01,files in the package (inspecao/ excluded),,110,inventory,INFO
+1-01,files in the package (inspecao/ excluded),,114,inventory,INFO
 1-02,package files with a byte-identical copy in the repository root,,24,sha256,INFO
 1-03,package files whose repository-root copy differs,0,0,sha256,PASS
 1-04,VizieR TSVs in data/ matched to the ':' names of README_HANDOFF.md,7,7,README_HANDOFF.md 'Nomes dos TSVs',PASS
 1-05,PDFs in the repository root,9,9,P4_AUDIT_PROTOCOL.md §2 ('Nine PDFs'),PASS
-1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,16,README_HANDOFF.md,INFO
-1-07,distinct file names cited (in backticks) and absent from the package,,45,regex over all .md and the notebook,INFO
+1-06,"PDFs in bib/ (README_HANDOFF.md: none at hand-off; PDFs were added to bib/ during the inspection, see RELATORIO_INSPECAO.md §6)",0,19,README_HANDOFF.md,INFO
+1-07,distinct file names cited (in backticks) and absent from the package,,47,regex over all .md and the notebook,INFO
 1-08,"files listed as missing at hand-off (minus A7/A8, executed since) confirmed absent",4,4,README_HANDOFF.md 'O que ficou de fora',PASS
 1-09,bib/aa28479-16.pdf (Olah+2016) anywhere in the clone,absent,absent,README_HANDOFF.md; audit/A10_luhn.md §6 says 'Esta em bib/ e disponivel',PASS
-2a-01,decisions D01-D87 defined exactly once in the notebook,87,87,notebook + DECISOES_D41_D54.md,PASS
+2a-01,decisions D01-D88 defined exactly once in the notebook,88,88,notebook + DECISOES_D41_D54.md,PASS
 2a-02,decisions defined more than once or missing,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-03,decision headers outside D01-D87 numbering,,D45b,DECISOES_D41_D54.md,INFO
+2a-03,decision headers outside D01-D88 numbering,,D45b,DECISOES_D41_D54.md,INFO
 2a-04,decisions without a 'Status' field,none,none,notebook + DECISOES_D41_D54.md,PASS
-2a-05,status values in use,,ativa: 88,notebook + DECISOES_D41_D54.md,INFO
+2a-05,status values in use,,ativa: 89,notebook + DECISOES_D41_D54.md,INFO
 2a-06,decisions whose header line carries no 'Grau' field,,36,notebook + DECISOES_D41_D54.md,INFO
 2a-07,D## referenced anywhere but not defined,none,none,regex over all .md and the notebook,PASS
 2a-08,decisions never cited outside the document that defines them,,none,regex,INFO
@@ -34,7 +34,7 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 2d-11,A#-F# references pointing to a finding that does not exist,0,7,regex over all .md,FAIL
 2d-12,references written 'A11-F#' where both A11a-F# and A11b-F# exist (ambiguous),0,0,regex over all .md,PASS
 2d-13,units whose 'Findings' cell differs between the audit-log copies,none,A3,audit/A*.md log tables,FAIL
-2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A5b_peng_livina.md,audit/A7_theory.md,audit/A7b_held_kleinen.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
+2d-14,audit files that carry no audit-log table,,"audit/A10_luhn.md,audit/A11_raridade.md,audit/A12_noyes.md,audit/A13_olah.md,audit/A14_korolik.md,audit/A5b_peng_livina.md,audit/A7_theory.md,audit/A7b_held_kleinen.md,audit/A7c_limit_cycle_sources.md,audit/A8_usoskin.md,audit/A9_baum.md,audit/ERRATA_2026-11-14.md",P4_AUDIT_PROTOCOL.md §6 ('ends by updating the audit log'),INFO
 2d-15,units marked 'open' in the protocol's own audit log (§10),,8,P4_AUDIT_PROTOCOL.md §10,INFO
 1-10,references 'A# §n' with no matching heading in the audit file,,2,regex (heading match is approximate),INFO
 2b-01,Q numbers referenced anywhere,1-11,1-11,regex,INFO
@@ -457,6 +457,14 @@ id,descricao,valor_esperado,valor_obtido,fonte_do_esperado,resultado
 3.11-47,Luhn arXiv draft: second minimum S_HK = 0.1724 +- 0.0058 (published rounds to 0.172 +- 0.006),yes,yes,Luhn_2022_arXiv2207.00612.pdf,PASS
 3.11-48,Baum arXiv draft: same '29 stars with periodic cycles',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
 3.11-49,Baum arXiv draft: same '14 stars were given new classifications',yes,yes,Baum_2022_arXiv2203.13376.pdf,PASS
+3.11-63,Kuehn 2011 Prop. 2.6: Hopf is a critical transition only if subcritical (l1 > 0); supercritical is not,yes,yes,Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf,PASS
+3.11-64,Kuehn 2011: analysis of stochastic Hopf bifurcation much more complicated than one-dimensional ones,yes,yes,Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf,PASS
+3.11-65,"Kuehn 2011: equilibrium is stable for y < 0 and loses stability at y = 0 (fast-subsystem Hopf, approach from the stable side)",yes,yes,Kuehn_2011_PhysD_240_1020_arXiv1101.2899.pdf,PASS
+3.11-66,Kuehn 2013 Thm 5.2 discussion: Hopf variance of the coordinates increases as O(1/y) approaching the bifurcation,yes,yes,Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf,PASS
+3.11-67,Kuehn 2013: with equal diffusion the covariance tends to zero as the Hopf bifurcation is approached,yes,yes,Kuehn_2013_JNonlinSci_23_457_arXiv1101.2908.pdf,PASS
+3.11-68,"Boettiger+2013: subcritical Hopf = transition from stable equilibrium to stable cycle, with critical slowing down",yes,yes,Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf,PASS
+3.11-69,"Boettiger+2013: not all regime shifts show critical slowing down, or vice versa",yes,yes,Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf,PASS
+3.11-70,Boettiger+2013: a positive indication for some systems is a negative indication in others,yes,yes,Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf,PASS
 3.11-50,Held & Kleinen 2004: decay rate vanishes at any bifurcation and the variability of the mode diverges,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
 3.11-51,Held & Kleinen 2004: oscillatory modes assumed not to play a major role (1D AR(1) ansatz),yes,yes,Held_2004_GRL_31_L23207.pdf,PASS
 3.11-52,Held & Kleinen 2004: first obstacle - the system may not be as close to a bifurcation,yes,yes,Held_2004_GRL_31_L23207.pdf,PASS

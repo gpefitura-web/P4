@@ -54,3 +54,7 @@ D50 (grau A para as citações) manda citar na íntegra duas frases da CLS VI: "
 - A recomendação "HD 101501 como discriminante de *aged out*" (D49) é independente de D50.
 
 Estado: **subsídios entregues; escolha pendente (D87).**
+
+## Adendo de 2026-11-24 (busca "ciclo limite", A7c, D88)
+Três fontes novas foram lidas (`audit/A7c_limit_cycle_sources.md`). Para o elo (c): Kuehn 2011 diz que a Hopf supercrítica "is not critical" (p. 8; `3.11-63`) e que a análise estocástica da Hopf é "much more complicated" que a unidimensional (p. 32; `3.11-64`); Kuehn 2013 analisa a aproximação pelo lado estável, com variância crescendo como O(1/y) e covariância tendendo a zero com difusão igual (p. 32; `3.11-66`, `3.11-67`); Boettiger+2013 diz que na Hopf subcrítica os dois lados do limiar podem ser indistinguíveis sob ruído (p. 5; `3.11-68`) e que um indício positivo num sistema é negativo noutro (p. 1; `3.11-70`). **Nenhuma trata o sentido ciclo → equilíbrio**; (c) segue sem fonte direta. Efeito nas alternativas: a de "buscar fonte" está cumprida sem achado; Bury+2020 (não obtida) pode ainda ser subida.
+

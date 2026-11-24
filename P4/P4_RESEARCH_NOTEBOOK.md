@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D87)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D88)
 
 ---
 
@@ -655,6 +655,12 @@ Resposta do pesquisador: **"Subsídios para decidir."** Entregue `SUBSIDIOS_D50.
 
 ---
 
+### D88 — Busca de fontes sobre ciclo limite (item 6): três lidas, nenhuma trata o sentido ciclo → equilíbrio
+**Data:** 2026-11-24 · **Autor:** pesquisador (pedido: "buscar fonte sobre ciclo limite antes"), execução por Claude · **Base:** `audit/A7c_limit_cycle_sources.md`, `3.11-63` a `3.11-70`, `bib/MANIFEST.json` · **Status:** ativa · **Grau:** A (citações) / X (a fonte direta) · **Complementa:** D50, D87, D81
+Foram lidas Kuehn 2011, Kuehn 2013 e Boettiger+2013 (manuscritos do arXiv; leitura parcial declarada em A7c). Fatos, com página: a Hopf é "transição crítica" só se subcrítica, e a supercrítica "is not critical" (Kuehn 2011, p. 8); a aproximação analisada é pelo lado em que o equilíbrio é estável (p. 8), com variância crescendo como O(1/y) e covariância que tende a zero com difusão igual (Kuehn 2013, p. 32); na Hopf subcrítica há CSD, mas a transição é gradual e os dois lados do limiar "may be indistinguishable" sob ruído (Boettiger, p. 5); "a positive indication for some systems is a negative indication in others" (p. 1). **Nenhuma das três analisa o sentido ciclo → equilíbrio**; a fonte direta para a perda de um ciclo limite continua não achada (X). Bury+2020 (DOI `10.1098/rsif.2020.0482`) não foi obtida e pode ser subida pelo pesquisador. D50 permanece como registrada; o item 6 segue pendente.
+
+---
+
 ## 5 · Questões abertas — exigem decisão humana
 
 Numeradas `Q#`. Cada uma tem subsídios já levantados; nenhuma tem resposta óbvia.
@@ -691,6 +697,7 @@ Ambiente testado em 2026-11-14 (REG-08): respondem Crossref, arXiv, IOP (downloa
 | Peng et al. 1993 (10.1103/PhysRevE.47.3730) | **resolvido em 2026-11-24** (D81): `bib/Peng_1993_PRE_47_3730.pdf` | A5, Q9 |
 | Järvinen & Strassmeier 2025, versão publicada, DOI 10.1051/0004-6361/202554111 | opcional — há o manuscrito do arXiv | citação final |
 | Oláh+2016, versão publicada, DOI 10.1051/0004-6361/201628479 | opcional — há o manuscrito do arXiv | citação final |
+| Bury et al. 2020, J. R. Soc. Interface 17, 20200482, DOI 10.1098/rsif.2020.0482 | opcional — o PMC devolveu HTML; o pesquisador pode subir o PDF (EWS espectrais em Hopf e fold) | item 6 / D50 |
 | Dados reais de Mount Wilson de HD 166620 em 1995–2002 (Oláh e Soon) | **não estão em fonte pública** (D82–D85); **decidido seguir sem eles, grau C (D86)**; o pedido aos autores não será enviado | D46 |
 | Harvard Dataverse: Radick & Pevtsov (10.7910/DVN/ZRJ6NT, 10.7910/DVN/H85QPF); Pevtsov 2016 (10.7910/DVN/VF5BMO) | não testados; opcional | offsets de Baum (D44); contexto de D18 |
 | Série S solar NSO | dispensada pela D65 (Tabela 4) | — |
@@ -775,6 +782,7 @@ reaparecer em nenhuma versão do manuscrito.
 | 2026-11-14 | **Respostas do pesquisador (bloco 2):** subsídios para junção e D46; D50 espera Held & Kleinen; piso de Q6 citado como 0.37–0.45 % | D72–D75 |
 | 2026-11-14 | **Respostas do pesquisador (bloco 3):** papéis das séries e layout pedem subsídios; Korolik auditada (A14) para Q11; Q2–Q7 abertas; Q1 espera os papéis | D76–D79 |
 | 2026-11-24 | **Três PDFs subidos (Held & Kleinen, Livina & Lenton, Peng+1993) validados e lidos; busca dos dados de HD 166620 no VizieR sem resultado.** A7b e A5b; item 6 do memorando de novo decidível | D81, D82 |
+| 2026-11-24 | **Busca de fontes sobre ciclo limite (item 6):** Kuehn 2011/2013 e Boettiger+2013 lidos; nenhuma trata ciclo → equilíbrio | D88 |
 
 ---
 
@@ -800,6 +808,7 @@ Página = página do arquivo PDF (1 = primeira). Id = checagem em `inspecao/chec
 | Dados de Baum no arXiv × publicada: sem divergência numérica | Baum+2022 (arXiv 2203.13376) | 1, 8 | 3.11-48, 3.11-49 | A |
 | Períodos de Oláh (Tabela 1) × B95, Baum, Saar | Oláh+2016 (arXiv) | Tabela 1 | 3.10-01 a 3.10-08 | A |
 | Calibração DFA → c; ordem de mil pontos para o DFA; viés de comprimento finito cai com √N; ausência de modos oscilatórios em Held & Kleinen | Livina & Lenton 2007 GRL 34, L03712; Peng+1993 PRE 47, 3730; Held & Kleinen 2004 GRL 31, L23207 | 3, 3, 2 | 3.11-50 a 3.11-62 | A |
+| Hopf só é transição crítica se subcrítica; aproximação analisada pelo lado estável; variância cresce como O(1/y) e covariância tende a zero; sinal pode não existir ou inverter | Kuehn 2011 Physica D 240, 1020; Kuehn 2013 J. Nonlinear Sci. 23, 457; Boettiger+2013 Theor. Ecol. 6, 255 | 8, 32, 5 | 3.11-63 a 3.11-70 | A |
 
 ---
 

@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D87) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D88) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
