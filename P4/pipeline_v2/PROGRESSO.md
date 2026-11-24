@@ -8,3 +8,4 @@
 | 3. Indicadores (`indicators.py`) | PRONTO | `test_step3.py`: SD do AR(1) 0.249 (w=12), 0.181 (w=24) ≈ √((1−c²)/w) |
 | 4. Remoção de tendência (`detrend.py`) | PRONTO | `test_step4.py`: reproduz 17 (3) exatamente (L=30 e 54; none, σ=1,3,5) |
 | 5. Surrogates (`surrogates.py`) | PRONTO | autoteste: taxa de rejeição 3.2 % (p_upper) e 4.2 % (p_D22), na faixa 3–7 % (`results/autotest_step5.txt`) |
+| 6. H1 (`state_comparison.py`) | PRONTO | `test_step6.py`: σ_S conta A 0.0027/0.0054/0.0019, B 0.0028/0.0048/0.0015; F-test p = 8.80e-6 (bruto), 8.68e-3 (corrigido A) |
