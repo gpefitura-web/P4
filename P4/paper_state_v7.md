@@ -2,7 +2,7 @@
 
 **Paper P4 — *Critical Slowing Down Near Stellar Activity Minima***
 **Estado em:** 2026-11-14, fecho da inspeção e da resolução do que não depende de mérito
-**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D86) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
+**Substitui:** `paper_state_v6.md` (que permanece como registro) · **Memória longa:** `P4_RESEARCH_NOTEBOOK.md` (agora com D01–D87) · **Relatório:** `inspecao/RELATORIO_INSPECAO.md`
 
 ---
 
@@ -64,7 +64,7 @@ Todas **abertas** e todas do pesquisador. "Estado" é o do caderno §5; a coluna
 
 **Respondidas em 2026-11-14 (caderno §4d):** item 1 → **D68** (anual e bruta; papéis: **D76**, subsídios em `SUBSIDIOS_PAPEIS_SERIES.md`); item 3 / Q8 → **D69** (S e R′_HK); itens 4 e 5 → **D72**, **D73** (subsídios em `SUBSIDIOS_JUNCAO_E_D46.md`); item 6 → **D74** (esperar Held & Kleinen); item 7 → **D70** (subsídios em `SUBSIDIOS_RECEITA_SIGMA_S.md`); item 8 → **D75** (piso 0.37–0.45 %); item 10 → **D77** (subsídios em `SUBSIDIOS_LAYOUT_KIT.md`); item 11 → **D71**; Q2–Q7 → **D78** (abertas); Q1 → **D79** (espera os papéis). A14 (Korolik) executada para Q11.
 
-**Pendentes, todas do pesquisador:** a distribuição dos papéis das séries (D76) e, depois dela, Q1; as escolhas adiadas dos itens 4, 5, 7 e 10 (D72, D73, D70, D77); o item 6 (resposta teórica de D50), **de novo decidível** depois de D81 (A7b: nenhuma fonte teórica lida dá sinal precursor para perda de ciclo limite); Q2–Q7 e Q11. Nenhuma Q# está fechada.
+**Pendentes, todas do pesquisador:** a distribuição dos papéis das séries (D76) e, depois dela, Q1; as escolhas adiadas dos itens 4, 5, 7 e 10 (D72, D73, D70, D77); o item 6 (resposta teórica de D50; subsídios em `SUBSIDIOS_D50.md`, D87), **decidível** depois de D81 (A7b: nenhuma fonte teórica lida dá sinal precursor para perda de ciclo limite); Q2–Q7 e Q11. Nenhuma Q# está fechada.
 
 ## 6 · Estado dos arquivos
 

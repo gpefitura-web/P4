@@ -1,7 +1,7 @@
 # P4 — Caderno de Notas de Pesquisa
 
 **Paper:** Critical Slowing Down Near Stellar Activity Minima
-**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D86)
+**Aberto em:** 2026-07-28 (início da fase de auditoria) · **Última entrada:** 2026-11-14 (inspeção, resolução e primeiras decisões; D55–D87)
 
 ---
 
@@ -646,6 +646,12 @@ Limites: o v2001 é um único instrumento e calibração (HKP-2 após 1977) e te
 ### D86 — Seguir sem os dados de Oláh e Soon; as 119 linhas `new_MW` ficam grau C
 **Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** D58, D82, D83, D84, D85; pergunta "é mesmo necessário pedir os dados à Oláh?" · **Status:** ativa · **Grau:** decisão humana · **Complementa:** D58, D46
 Resposta do pesquisador: **"Seguir sem os dados de Oláh, mantendo grau C."** Consequências registradas, sem decisão nova de mérito: (i) o pedido a Oláh e Soon **não será enviado** (o rascunho em `consolidacao/PEDIDO_DADOS_OLAH_SOON.md` fica arquivado); (ii) as 119 linhas `new_MW` de HD 166620 (1995–2002) permanecem **grau C** (D58) e, pela regra 8 do CLAUDE.md e pelo protocolo §4, não chegam ao manuscrito como valor; qualquer uso (por exemplo, as oito médias anuais ou a lacuna de 2.82 anos) é análise de sensibilidade declarada como digitalizada; (iii) o que não depende delas segue válido: σ_S dos três estados, as médias de S_HK e o F-test de Luhn (A13-F3); (iv) a frase "a aproximação à transição está amostrada" (D46) não pode ser afirmada com grau A. D46 e a receita de σ_S (D70) continuam pendentes.
+
+---
+
+### D87 — Resposta teórica de D50 (item 6): subsídios entregues, escolha adiada
+**Data:** 2026-11-24 · **Autor:** pesquisador · **Base:** memorando item 6; D50, D74, D81; `audit/A7b_held_kleinen.md` · **Status:** ativa · **Grau:** A (subsídios)
+Resposta do pesquisador: **"Subsídios para decidir."** Entregue `SUBSIDIOS_D50.md` (elo a elo: biestabilidade, CSD antes do salto, perda de ciclo limite; quatro alternativas e o que cada uma exige no manuscrito). Nenhuma alternativa escolhida; D50 permanece como registrada.
 
 ---
 
