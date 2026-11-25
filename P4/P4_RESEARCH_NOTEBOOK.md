@@ -804,6 +804,10 @@ As figuras passam a ser coloridas (paleta de três cores validada para daltonism
 **Data:** 2026-11-25 · **Autor:** pesquisador ("Ajustar o manuscrito para New Astronomy") · **Base:** `RECOMENDACAO_REVISTA.md`, `SUBSIDIOS_REVISTA.md`, `COMPARACAO_REVISTAS_SEM_TAXA.md` · **Status:** ativa · **Grau:** decisão humana
 O alvo é a New Astronomy (Elsevier, híbrida). Isto **escolhe uma revista diferente da primeira recomendação** (Solar Physics, que ficou como alternativa). O manuscrito passa ao formato `elsarticle` (`preprint,12pt`), com moldura Elsevier (título, autor, afiliação, resumo, palavras-chave), seções de declarações (CRediT, conflito de interesses, financiamento, disponibilidade de dados, IA, agradecimentos) e `elsarticle-num`. Ficha da revista em `kit/revistas/new-astronomy/ficha.md`, com o que não foi confirmado. Nenhum resultado foi alterado. O título continua o mesmo, à espera de sua decisão.
 
+### D113 — Versão final do manuscrito fechada (para leitura final no Overleaf)
+**Data:** 2026-11-25 · **Autor:** pesquisador ("Apenas verifique tudo e feche a versão final. Deixe a declaração de IA para fazermos manual no overleaf") executado por Claude · **Base:** D105–D112 · **Status:** ativa · **Grau:** decisão humana e registro de verificação
+Verificado e fechado: testes dos passos 1–7 (todos passam), blocos gerados de `main.tex` reproduzidos idênticos a partir de `pipeline_v2/results/` (que não foi alterado desde a execução única de D105), números do texto conferidos contra os resultados, dez citações e dez entradas do BibTeX em correspondência, figuras com uma só fonte incorporada (Courier Prime), referência congelada com os cinco hashes de `APROVACAO_2026-11-24.md` intactos, nenhum nome de ferramenta de IA nos arquivos de `manuscrito/`. Título em uso: redação do autor. A **declaração de IA fica para o autor escrever no Overleaf** (marcador no texto). Pacote para o Overleaf: `manuscrito_overleaf.zip`. Pendências do autor em `MANUSCRITO_PENDENCIAS.md`.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana

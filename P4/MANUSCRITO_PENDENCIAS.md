@@ -52,3 +52,9 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
   4. **Declaração de IA:** só falta o nome e a versão da ferramenta, `[name and version of the AI tool...]` (deixei em branco porque identificar o modelo em arquivo do repositório não deve ser feito por mim, e a regra do Kit pede que a declaração seja sua). A frase "o autor revisou e editou" é uma afirmação sua.
   5. **Dados:** o repositório `github.com/gpefitura-web/P4` precisa estar público (ou ser trocado por DOI do Zenodo) na submissão.
 - Agradecimentos: texto exigido pelos autores do HK Project (README dos dados v2001, com o nome HK_Project_v2001_NSO) e o agradecimento padrão do VizieR com o DOI (conferido no DataCite). Acrescente o que quiser (instituição, colegas).
+
+## VERSÃO FINAL FECHADA (2026-11-25, D113)
+- **Pacote para o Overleaf:** `P4/manuscrito_overleaf.zip` (`main.tex`, `references.bib`, `figures/figure1-3.pdf` e `.eps`). Classe `elsarticle` (já existe no Overleaf), compilar `main.tex` com pdfLaTeX e BibTeX. 15 páginas no formato de revisão.
+- **Declaração de IA:** deixada para você no Overleaf (a seção existe, com o marcador "[To be written by the author in Overleaf.]").
+- **Ainda é seu, antes de submeter:** e-mail do autor correspondente (linha `\ead` comentada no `frontmatter`); confirmar financiamento, conflito de interesses e CRediT; repositório público ou DOI do Zenodo; regras da New Astronomy (`kit/revistas/new-astronomy/ficha.md`) e lista de elegíveis do acordo CAPES–Elsevier; texto alternativo das figuras; título final (em uso o seu: "…S-index of Sun-like stars").
+- Para regerar números, tabela e figuras e recompilar: `PYTHON=<python> bash P4/manuscrito/build.sh`; os blocos entre `%%% BEGIN/END GENERATED` do `main.tex` são regravados e o resto do texto não.
