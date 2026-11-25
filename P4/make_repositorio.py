@@ -226,8 +226,74 @@ The HK_Project_v2001_NSO data derive from the Mount Wilson Observatory HK Projec
 Carnegie Observatories, the Mount Wilson Institute, and the Harvard-Smithsonian Center for Astrophysics starting in 1966 and continuing for over 36 years.
 These data are the result of the dedicated work of O. Wilson, A. Vaughan, G. Preston, D. Duncan, S. Baliunas, and many others (`data/HK_Project_v2001_NSO/README.pdf`).
 This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France (doi:10.26093/cds/vizier).
-The terms of use of each original source apply. Code license: [to be chosen by the author].
+
+## License
+- **Code, derived results and figures produced by it:** MIT License (`LICENSE`), copyright 2026 Airton M. S. Borin Junior.
+- **Input data (`data/`, `consolidacao/`):** not covered by the MIT License. Copied unaltered from the sources cited above; the terms of use of each original source apply (the acknowledgement required by the HK Project authors is reproduced above).
+- **Fonts (`pipeline_v2/fonts/`):** Courier Prime, SIL Open Font License 1.1 (`pipeline_v2/fonts/OFL.txt`).
+- **Manuscript sources (`manuscrito/`):** included only so that the numbers, table and figures can be rebuilt; the text is the author's, and the published version will be under the journal's terms.
+
+## How to cite
+See `CITATION.cff`. Cite the archived version by its DOI (Zenodo) and the article.
 ''')
+
+
+YEAR, HOLDER = "2026", "Airton M. S. Borin Junior"
+open(os.path.join(OUT, "LICENSE"), "w").write(f"""MIT License
+
+Copyright (c) {YEAR} {HOLDER}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+""")
+ABSTRACT = ("Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article "
+            "on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. "
+            "Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT.")
+open(os.path.join(OUT, "CITATION.cff"), "w").write(f"""cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars"
+version: 1.0.0
+date-released: 2026-11-25
+license: MIT
+authors:
+  - family-names: "Borin Junior"
+    given-names: "Airton M. S."
+    affiliation: "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"
+abstract: "{ABSTRACT}"
+keywords:
+  - critical slowing down
+  - early-warning signals
+  - stellar activity cycles
+  - chromospheric activity
+  - S index
+  - Maunder minimum
+repository-code: "https://github.com/gpefitura-web/P4"
+# doi: "10.5281/zenodo.XXXXXXX"   (add the DOI reserved on Zenodo)
+""")
+import json
+json.dump({"title": "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars",
+           "upload_type": "software", "access_right": "open", "license": "mit", "language": "eng", "version": "1.0.0",
+           "publication_date": "2026-11-25",
+           "creators": [{"name": "Borin Junior, Airton M. S.", "affiliation": "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"}],
+           "description": ABSTRACT + " Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; Egeland et al. 2017; HK_Project_v2001_NSO), "
+                          "reference outputs, figures and manuscript sources, with a sha256 manifest.",
+           "keywords": ["critical slowing down", "early-warning signals", "stellar activity cycles", "chromospheric activity", "S index", "Maunder minimum"]},
+          open(os.path.join(OUT, ".zenodo.json"), "w"), indent=2, ensure_ascii=False)
 
 # manifest, last
 files = []
@@ -240,3 +306,12 @@ with open(os.path.join(OUT, "MANIFEST.sha256"), "w") as fh:
     for p in sorted(files):
         fh.write(f"{sha(os.path.join(OUT, p))}  {p}\n")
 print(len(files), "files in", OUT, sum(os.path.getsize(os.path.join(OUT, p)) for p in files) // 1024, "KB")
+
+import zipfile
+ZIP = os.path.join(ROOT, "repositorio_zenodo_v1.0.0.zip")
+with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as z:
+    for p in sorted(files + ["MANIFEST.sha256"]):
+        zi = zipfile.ZipInfo(os.path.join("p4-repositorio-v1.0.0", p), date_time=(2026, 11, 25, 0, 0, 0))
+        zi.compress_type = zipfile.ZIP_DEFLATED; zi.external_attr = 0o644 << 16
+        z.writestr(zi, open(os.path.join(OUT, p), "rb").read())
+print("zip for Zenodo:", os.path.basename(ZIP), os.path.getsize(ZIP) // 1024, "KB, sha256", sha(ZIP))

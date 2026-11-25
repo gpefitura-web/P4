@@ -75,3 +75,7 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 - Se mudar qualquer fonte (código, dados, texto), rode `python3 P4/make_repositorio.py` e depois `bash repositorio/reproduce.sh` numa cópia limpa antes de enviar.
 - **Antes de tornar público (Opção C da New Astronomy):** (1) licença do código, marcada "[to be chosen by the author]" no README; (2) termos de uso de cada fonte de dados (cópias sem alteração; o agradecimento exigido pelos autores do HK Project está no README); (3) DOI do depósito (por exemplo, Zenodo) para a seção de dados do manuscrito.
 - Figura 2 dividida em duas (HD 166620, Sol); pendência 6 da conferência com o guia resolvida. Figuras agora numeradas 1 a 4; o `manuscrito_overleaf.zip` foi atualizado.
+
+## Licença e Zenodo (2026-11-25, D116)
+- **MIT** escolhida e aplicada ao código, às saídas e às figuras (`repositorio/LICENSE`); `CITATION.cff` e `.zenodo.json` criados; pacote `repositorio_zenodo_v1.0.0.zip` pronto.
+- **Falta, e é seu:** publicar no Zenodo (roteiro e riscos em `ZENODO_DEPOSITO.md`), pôr o DOI na seção de dados do manuscrito e na bibliografia, e decidir sobre a cópia da Tabela 4 de Egeland et al. (direitos reservados no artigo original).

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars"
+version: 1.0.0
+date-released: 2026-11-25
+license: MIT
+authors:
+  - family-names: "Borin Junior"
+    given-names: "Airton M. S."
+    affiliation: "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"
+abstract: "Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT."
+keywords:
+  - critical slowing down
+  - early-warning signals
+  - stellar activity cycles
+  - chromospheric activity
+  - S index
+  - Maunder minimum
+repository-code: "https://github.com/gpefitura-web/P4"
+# doi: "10.5281/zenodo.XXXXXXX"   (add the DOI reserved on Zenodo)
