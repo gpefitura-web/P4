@@ -58,46 +58,46 @@ ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0085); ax.set_ylabel("sigma of S")
 ax.legend(frameon=False, loc="upper right", fontsize=10)
 save(fig, "Figure_1")
 
-# ---- Figure 2: annual series and rolling AR(1): HD 166620 and the Sun ---------------------------------------
+# ---- Figures 2 and 3: annual series and rolling AR(1), one file per series (HD 166620; the Sun) -------------------
 from matplotlib.ticker import MultipleLocator
 from matplotlib.lines import Line2D
-cols = [("166620", 30), ("(Sun)", 51)]
-fig, axs = plt.subplots(2, 2, figsize=(7.2, 5.2), gridspec_kw={"width_ratios": [30, 51]})
-for col, hd in enumerate(("166620", "(Sun)")):
+for hd, fname, title, ytick, xtick in (("166620", "Figure_2", "HD 166620 (Mount Wilson)", 0.02, 5),
+                                       ("(Sun)", "Figure_3", "Sun (Egeland 2017)", 0.005, 10)):
     row = cat[cat.HD == hd].iloc[0]
-    obs = p4io.load_star(hd, row)
     sun = hd == "(Sun)"
-    a = annual.annual_means(obs, None if sun else "MW")
-    sg = max(annual.segments(a), key=lambda s: len(s["years"]))
+    a_ = annual.annual_means(p4io.load_star(hd, row), None if sun else "MW")
+    sg = max(annual.segments(a_), key=lambda s_: len(s_["years"]))
     yrs, S, filled = sg["years"], sg["S"], sg["filled"]
-    ax = axs[0, col]
+    fig, axs = plt.subplots(2, 1, figsize=(5.2, 5.4))
+    ax = axs[0]
     ax.plot(yrs, S, "-", color=BLUE, lw=1.4, zorder=2)
     ax.plot(yrs, S - dt.residual(S, 1), "--", color=ORANGE, lw=2.0, dashes=(4, 2), zorder=3)
-    ax.plot(yrs[filled], S[filled], "o", mfc="white", mec=INK, ms=5, mew=1.2, ls="", zorder=4)
-    ax.set_title("Sun (Egeland 2017)" if sun else "HD 166620 (Mount Wilson)", fontsize=12)
-    ax.set_xlabel("year")
-    ax = axs[1, col]
+    if filled.any():
+        ax.plot(yrs[filled], S[filled], "o", mfc="white", mec=INK, ms=5, mew=1.2, ls="", zorder=4)
+    ax.set_ylabel("annual mean S"); ax.set_xlabel("year")
+    ax.yaxis.set_major_locator(MultipleLocator(ytick))
+    if not sun:
+        ax.set_ylim(0.165, 0.235)
+    ax = axs[1]
+    w = ind.window_size(len(S), 0.5)
     for cfg, ls, cl, dsh in ((None, "-", BLUE, None), (1, "--", ORANGE, (4, 2))):
-        r = dt.residual(S, cfg); w = ind.window_size(len(S), 0.5)
-        roll = ind.rolling(r, 0.5)
+        roll = ind.rolling(dt.residual(S, cfg), 0.5)
         kw = {"dashes": dsh} if dsh else {}
         ax.plot(yrs[w - 1:], roll, ls, color=cl, lw=2.0, **kw)
-    ax.axhline(0, color=GRAY, lw=0.6); ax.set_xlabel("year at window end"); ax.set_ylim(-1.05, 1.05)
-    for ax_ in (axs[0, col], axs[1, col]):
-        ax_.xaxis.set_major_locator(MultipleLocator(10))
-    ax = axs[0, col]; ax.yaxis.set_major_locator(MultipleLocator(0.005 if sun else 0.02))
-axs[0, 0].set_ylabel("annual mean S"); axs[1, 0].set_ylabel("lag-1 AC")
-axs[0, 0].set_ylim(0.165, 0.235)
-fig.align_ylabels(axs[:, 0])
-handles = [Line2D([], [], color=BLUE, lw=2.0, label="original series"),
-           Line2D([], [], color=ORANGE, lw=2.0, dashes=(4, 2), label="sigma = 1 yr: smooth (top), residual (bottom)"),
-           Line2D([], [], color=INK, marker="o", mfc="white", ls="", ms=5, label="interpolated year")]
-fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.0), ncol=3, frameon=False, fontsize=9.5,
-           handlelength=2.2, columnspacing=1.2)
-fig.tight_layout(rect=(0, 0, 1, 0.93))
-save(fig, "Figure_2")
+    ax.axhline(0, color=GRAY, lw=0.6); ax.set_xlabel("year at window end"); ax.set_ylabel("lag-1 AC"); ax.set_ylim(-1.05, 1.05); ax.yaxis.set_major_locator(MultipleLocator(0.5))
+    for ax_ in axs:
+        ax_.xaxis.set_major_locator(MultipleLocator(xtick))
+    fig.align_ylabels(axs)
+    handles = [Line2D([], [], color=BLUE, lw=2.0, label="original series"),
+               Line2D([], [], color=ORANGE, lw=2.0, dashes=(4, 2), label="sigma = 1 yr: smooth (top), residual (bottom)")]
+    if filled.any():
+        handles.append(Line2D([], [], color=INK, marker="o", mfc="white", ls="", ms=5, label="interpolated year"))
+    axs[0].set_title(title, fontsize=12)
+    fig.tight_layout(rect=(0, 0.14 if sun else 0.11, 1, 1))
+    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.0), ncol=1, frameon=False, fontsize=9.5, handlelength=2.2)
+    save(fig, fname)
 
-# ---- Figure 3: tau per star, AR(1), window 50 % ---------------------------------------------------------------
+# ---- Figure 4: tau per star, AR(1), window 50 % ---------------------------------------------------------------
 d = res[(res.series == "S") & (res.frac == 0.5) & (res["stat"] == "ac1") & (res.config.isin(["none", "s1"]))]
 order = ["Flat_limpa", "CYCLE_Excellent", "Var", "Long"]
 lab = {"Flat_limpa": "Flat", "CYCLE_Excellent": "Cycle", "Var": "Var", "Long": "Long"}
@@ -128,7 +128,7 @@ handles = [Line2D([], [], marker="o", color=BLUE, ls="", ms=6, label="original s
            Line2D([], [], marker="D", color=ORANGE, ls="", ms=5.5, label="sigma = 1 yr residual"),
            Line2D([], [], marker=STAR, color=INK, ls="", ms=9, mew=1.3, label="p < 0.05")]
 ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.30), ncol=3, fontsize=10.5)
-save(fig, "Figure_3")
+save(fig, "Figure_4")
 open(os.path.join(OUT, "README.txt"), "w").write(f"Figures from pipeline_v2/make_figures.py. Font used: {FONT} (OFL; files and licence in pipeline_v2/fonts).\n"
                                                     "Super Mongo style, colour (D111). No figure number or caption inside the files. EPS and PDF.\n")
 print("figures written; font", FONT)

@@ -253,7 +253,7 @@ Sun$^{b}$ & Sun & 1966--2016 & 51 & 2 & 0.66 & +0.26 & 0.321 & +0.25 & 0.272 & 0
 
 Table~\ref{tab:seg} lists the \NSegments{} segments. With a window of 50\,\%, \NSigHalf{} of the \NCellsHalf{} combinations of segment, indicator and configuration have $\tau > 0$ and $p < 0.05$: HD~23249 for the original series ($\tau = +0.75$, $p = 0.032$) and HD~217014 for the $\sigma = 1$ residual ($\tau = +0.18$, $p = 0.026$), both for the lag-1 autocorrelation. No segment reaches three of four configurations for the lag-1 autocorrelation (maximum \MaxConcAR) or for the variance (maximum \MaxConcVar). Across all five window lengths, the largest number of concordant configurations in one segment is \MaxConcSweep{} of 20; we computed no null reference for this count.
 
-For HD~166620 ($L = $ \HDHL{} years, Mount Wilson era, which ends before the transition) the window is \WinHD{} years. The lag-1 autocorrelation has $\tau = $ \HDHTauNone{} ($p = $ \HDHPNone) for the original series and $\tau = $ \HDHTauSOne{} ($p = $ \HDHPSOne) for the $\sigma = 1$ residual (Fig.~\ref{fig:roll}); the variance has $\tau = $ \HDHVarTauNone{} ($p = $ \HDHVarPNone) and $\tau = $ \HDHVarTauSOne{} ($p = $ \HDHVarPSOne). For the Sun (window \WinSun{} years) the lag-1 autocorrelation has $\tau = $ \SunTauNone{} ($p = $ \SunPNone) and $\tau = $ \SunTauSOne{} ($p = $ \SunPSOne).
+For HD~166620 ($L = $ \HDHL{} years, Mount Wilson era, which ends before the transition) the window is \WinHD{} years. The lag-1 autocorrelation has $\tau = $ \HDHTauNone{} ($p = $ \HDHPNone) for the original series and $\tau = $ \HDHTauSOne{} ($p = $ \HDHPSOne) for the $\sigma = 1$ residual (Fig.~\ref{fig:roll}); the variance has $\tau = $ \HDHVarTauNone{} ($p = $ \HDHVarPNone) and $\tau = $ \HDHVarTauSOne{} ($p = $ \HDHVarPSOne). For the Sun (window \WinSun{} years; Fig.~\ref{fig:sun}) the lag-1 autocorrelation has $\tau = $ \SunTauNone{} ($p = $ \SunPNone) and $\tau = $ \SunTauSOne{} ($p = $ \SunPSOne).
 
 Over the \NSegments{} segments, $\tau$ of the lag-1 autocorrelation is positive for the $\sigma = 1$ residual in \NTauPosARSOne{} and $\tau$ of the variance in \NTauPosVarSOne{} (Fig.~\ref{fig:tau}). Across the \NStarsMetric{} stars, the lag-1 autocorrelation of the whole longest segment has a median of \MedACNone{} for the original series (above 0.5 in \NACNoneHigh{} stars) and \MedACSOne{} for the $\sigma = 1$ residual.
 
@@ -271,13 +271,19 @@ The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \Pr
 \end{figure}
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/Figure_2}
-\caption{Annual series and rolling lag-1 autocorrelation. Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed) for HD~166620 (Mount Wilson era) and the Sun (composite series of Egeland et al.; exploratory). Open circles mark interpolated years: none for HD~166620, two for the Sun. The two panels have different vertical ranges. Bottom: rolling lag-1 autocorrelation (AC) in a window of 50\,\% of the segment (\WinHD{} years for HD~166620, \WinSun{} for the Sun), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The horizontal axes share one scale in years.}
+\includegraphics[width=0.75\textwidth]{figures/Figure_2}
+\caption{Annual series and rolling lag-1 autocorrelation of HD~166620. Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed), Mount Wilson era; there are no interpolated years. Bottom: rolling lag-1 autocorrelation (AC) in a window of 50\,\% of the segment (\WinHD{} years), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed).}
 \label{fig:roll}
 \end{figure}
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/Figure_3}
+\includegraphics[width=0.75\textwidth]{figures/Figure_3}
+\caption{Annual series and rolling lag-1 autocorrelation of the Sun (composite series of Egeland et al.; exploratory). Same layout as Fig.~\ref{fig:roll}. Open circles mark the two interpolated years; the window is \WinSun{} years. The vertical range of the top panel differs from that of Fig.~\ref{fig:roll}.}
+\label{fig:sun}
+\end{figure}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_4}
 \caption{Trend of the rolling autocorrelation by star. Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). The Sun's two markers nearly coincide.}
 \label{fig:tau}
 \end{figure}
