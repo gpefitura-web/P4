@@ -21,3 +21,10 @@ Formato do kit: o que aconteceu, a regra que teria evitado, onde a regra deve en
 | L15 | Dois critérios "pronto" de passos diferentes pediam regras diferentes para o mesmo flag de dados (`sigma` contra `1day/sigma`) e só a verificação do passo 2 mostrou | `pipeline_v2/ACHADOS.md` #3 | Ao escrever critérios de verificação, declarar a regra de filtro de cada contagem de referência | prompts de etapa |
 | L16 | Um módulo chamado `io.py` sombrearia a biblioteca padrão | `pipeline_v2/ACHADOS.md` #1 | Não nomear módulos com nomes da biblioteca padrão | prompts de etapa |
 | L17 | D22 define p = P(τ* ≤ τ), que não é a cauda usual de um teste de tendência crescente | `pipeline_v2/ACHADOS.md` #4 | Definir a cauda do p e a direção da hipótese na mesma decisão | caderno D22 (por nova D##) |
+| L18 | A saída de referência de um teste foi transcrita à mão e, por isso, não era reproduzível pelo próprio script | prova em pasta limpa, 1ª rodada (D115) | Toda saída citada no manuscrito é gravada pelo script, nunca digitada; a prova em pasta limpa pega a diferença | `repositorio/` |
+| L19 | O comparador da prova tratava célula vazia como diferente de célula vazia | idem | Testar o verificador contra um caso conhecido antes de confiar no veredito | `verify_reproduction.py` |
+| L20 | Resultados do manuscrito dependiam de arquivos fora do pacote (simulação de poder na pasta da inspeção) | D115 | Todo arquivo lido por um script do pacote está no pacote ou é baixado com hash | `make_repositorio.py` |
+| L21 | Uma cópia de dados de terceiros (Tabela 4 de Egeland, "All rights reserved") quase foi para o depósito público | D117 | Antes de copiar qualquer dado de terceiros para um depósito, checar os termos; preferir download com hash | `ZENODO_DEPOSITO.md` |
+| L22 | Revisores leram um PDF compilado antes da última edição | revisão de leitura | Recompilar antes de qualquer leitura final e conferir a data do PDF contra o fonte | `build.sh` |
+| L23 | Números digitados no texto sobreviveram às macros (contagens e probabilidades) | `RASTREABILIDADE_PENDENTE.md` | Varredura de literais numéricos fora dos blocos gerados como parte da prova | próximo chat |
+
