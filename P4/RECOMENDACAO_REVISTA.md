@@ -71,3 +71,8 @@ Você escolhe a revista (e, se quiser, uma segunda de reserva). Registro como D#
 - [A&A: Subscribe to Open em 2026](https://www.aanda.org/news/3189-astronomy-astrophysics-to-remain-open-access-in-2026-under-subscribe-to-open)
 - [MNRAS no DOAJ](https://doaj.org/toc/1365-2966)
 - Programa: `kit/programas/stellar-activity-29/SUBMISSION_STRATEGY_TIMELINE.md`, linhas 96 e 198
+
+## Recomendação final (2026-11-25, após as comparações com e sem taxa)
+**Alvo: Solar Physics (Springer), com consulta prévia ao editor sobre o escopo; reserva: New Astronomy (Elsevier); terceira: Astrophysics and Space Science (Springer).** Regra de decisão: se o editor de Solar Physics responder que um artigo estelar com série solar está no escopo, submeter lá; se disser que não, ou não responder em duas semanas, submeter à New Astronomy.
+Por quê: (1) os ativos do artigo são a série solar de Egeland, a motivação do Mínimo de Maunder e a comparação do Sol com estrelas, que interessam à comunidade de Solar Physics; (2) a revista é híbrida, com custo zero por assinatura ou pelo acordo CAPES, se o IFTM participar; (3) o risco é só de escopo, e a consulta custa um e-mail. A New Astronomy tem escopo mais seguro e mesmo custo, mas leitores menos ligados ao tema.
+Ajustes de enquadramento para Solar Physics (não feitos, aguardam sua decisão): título e resumo citando o Sol; Introdução e Discussão com mais peso no Mínimo de Maunder e na previsibilidade de grandes mínimos solares.
