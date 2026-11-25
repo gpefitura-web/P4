@@ -79,3 +79,8 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 ## Licença e Zenodo (2026-11-25, D116)
 - **MIT** escolhida e aplicada ao código, às saídas e às figuras (`repositorio/LICENSE`); `CITATION.cff` e `.zenodo.json` criados; pacote `repositorio_zenodo_v1.0.0.zip` pronto.
 - **Falta, e é seu:** publicar no Zenodo (roteiro e riscos em `ZENODO_DEPOSITO.md`), pôr o DOI na seção de dados do manuscrito e na bibliografia, e decidir sobre a cópia da Tabela 4 de Egeland et al. (direitos reservados no artigo original).
+
+## Tabela 4 de Egeland fora do pacote; prova refeita (2026-11-25, D117)
+- `repositorio/` e o zip do Zenodo **não contêm mais a Tabela 4**; `fetch_egeland_table4.py` a baixa e confere o sha256. Prova em pasta limpa refeita: **`REPRODUCTION OK`** (resultados numericamente iguais; texto, tabela e as oito figuras idênticos byte a byte).
+- Novo sha256 do zip: `b77db449155e17acbfd04cc7494f0bf8cee39891622a412cbcf082b17db7e8b0` (95 arquivos mais o manifesto). Quem reproduz precisa de rede uma vez (ou `--from` com cópia local).
+- Pendente, seu: a seção de dados do manuscrito pode dizer que a série solar é baixada de Egeland et al. (já está citada); decidir se acrescenta isso em uma frase.
