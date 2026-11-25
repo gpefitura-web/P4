@@ -158,7 +158,7 @@ def compare():
     for p in TABULAR:
         a, b = pd.read_csv(os.path.join(HERE, p), dtype={"HD": str}), pd.read_csv(os.path.join(SNAP, p), dtype={"HD": str})
         good = list(a.columns) == list(b.columns) and a.shape == b.shape and all(
-            np.allclose(a[c], b[c], rtol=1e-9, atol=1e-12, equal_nan=True) if a[c].dtype.kind in "fi" else (a[c].astype(str) == b[c].astype(str)).all()
+            np.allclose(a[c], b[c], rtol=1e-9, atol=1e-12, equal_nan=True) if a[c].dtype.kind in "fi" else (a[c].fillna("").astype(str) == b[c].fillna("").astype(str)).all()
             for c in a.columns)
         rows.append((p, "numerically equal" if good else "DIFFERENT")); ok &= good
     for p in JSONS:
