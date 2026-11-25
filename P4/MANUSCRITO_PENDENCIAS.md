@@ -69,3 +69,9 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 5. **Declaração de IA** (você escreve no Overleaf). O guia dá o modelo e a dispensa para verificadores de gramática, ortografia e referências. As figuras são gráficos derivados dos dados por código reprodutível, o que o guia permite.
 6. Figura 2 reúne quatro painéis num arquivo; o guia desaconselha combinar imagens, com exceção das feitas para comparação. Se o editor pedir, separo em dois arquivos.
 7. Opcional: consulta prévia ao editor-chefe sobre o escopo (o guia convida a isso).
+
+## Pasta para o repositório (2026-11-25, D115)
+- **`P4/repositorio/`** é a pasta a enviar: 92 arquivos, 11 MB, `README.md` com o mapa manuscrito → código → saída, `reproduce.sh` (cerca de 6 minutos), `MANIFEST.sha256`. Verificada em cópia limpa fora do projeto: `REPRODUCTION OK` (resultados numericamente iguais; texto, tabela e as oito figuras idênticos byte a byte).
+- Se mudar qualquer fonte (código, dados, texto), rode `python3 P4/make_repositorio.py` e depois `bash repositorio/reproduce.sh` numa cópia limpa antes de enviar.
+- **Antes de tornar público (Opção C da New Astronomy):** (1) licença do código, marcada "[to be chosen by the author]" no README; (2) termos de uso de cada fonte de dados (cópias sem alteração; o agradecimento exigido pelos autores do HK Project está no README); (3) DOI do depósito (por exemplo, Zenodo) para a seção de dados do manuscrito.
+- Figura 2 dividida em duas (HD 166620, Sol); pendência 6 da conferência com o guia resolvida. Figuras agora numeradas 1 a 4; o `manuscrito_overleaf.zip` foi atualizado.
