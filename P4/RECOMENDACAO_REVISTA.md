@@ -1,39 +1,70 @@
-# Recomendação de revista para o P4 (2026-11-25)
+# Recomendação de revista para o P4, ampliada (2026-11-25)
 
-**É recomendação, não decisão** (regra 5 do CLAUDE.md). Nenhuma D## registra a revista. Preços e regras abaixo vêm de buscas na web feitas hoje (fontes no fim); o que não foi confirmado está marcado. Confira no formulário da revista antes de submeter (kit, `SUBMISSAO.md`).
+**É recomendação, não decisão** (regra 5 do CLAUDE.md). Nenhuma D## registra a revista. Preços e regras vêm de buscas na web de hoje (fontes no fim); o que não foi confirmado está marcado "não confirmado". Confira no formulário da revista antes de submeter (kit, `SUBMISSAO.md`).
 
-## O que o artigo é
-Teste de indicadores de desaceleração crítica (AR(1), variância, τ de Kendall com surrogates) em séries anuais de S-index de Mount Wilson de 23 estrelas e do Sol, com comparação entre os estados de HD 166620. Resultado principal: variabilidade menor no grande mínimo (H1) e **nenhum sinal consistente nos indicadores temporais** (H2 não suportado, poder baixo). Artigo de método e de resultado nulo, com dado público, de ~7 a 12 páginas. Público natural: física estelar e solar (atividade cromosférica) e, em segundo plano, quem usa sinais precursores.
+**Escopo desta versão:** revistas de quatro editoras, IOP, Elsevier, Wiley e Springer, com a restrição de que as três últimas sejam cobertas pelos acordos da CAPES. A versão anterior (Solar Physics, A&A, ApJ, MNRAS, Chaos) está resumida no fim.
 
-## Candidatas
+## O que as buscas mostraram sobre os acordos da CAPES
+| Editora | Acordo | Cobre | Não cobre | Para conferir |
+|---|---|---|---|---|
+| **Springer Nature** | Três anos, 1/1/2026 a 31/12/2028; autor correspondente de instituição participante | APC de periódicos **híbridos** elegíveis (mais de 1 730) | Marca Nature; custos extras, como figuras coloridas e material suplementar | A revista está na lista de elegíveis? O IFTM participa? |
+| **Elsevier** | Ler e publicar; artigos **aceitos** entre 1/1/2026 e 31/12/2028 | APC de periódicos **híbridos** da lista da Elsevier | Revistas de acesso aberto integral | Lista de elegíveis na página do acordo; instituições participantes |
+| **Wiley** | Em vigor, regras atualizadas em 2026 | APC em 1 296 periódicos **híbridos**; 434 instituições; autor correspondente com ORCID | Revistas de acesso aberto integral (gold) | O IFTM está entre as 434? |
+| **IOP** | **Não encontrei acordo com a CAPES.** | — | — | Perguntar à biblioteca; não presumir |
 
-| Revista | Encaixe | Custo (verificado hoje) | Pontos a conferir |
-|---|---|---|---|
-| **Solar Physics** (Springer) | Escopo cobre toda a física solar, e a página da revista inclui trabalhos estelares e solar-terrestres. É a escolha do plano original do programa (`SUBMISSION_STRATEGY_TIMELINE.md`, P4 → Solar Physics). Público leitor de Egeland, Baliunas e Maunder. | Modelo híbrido (assinatura gratuita; acesso aberto com APC). **Preço e modelo da revista não apareceram nas buscas.** O acordo CAPES–Springer Nature (2026–2028) cobre a APC de periódicos híbridos elegíveis para autor correspondente de instituição participante; **custos extras, como figuras coloridas, não entram.** | (1) *Solar Physics* consta na lista de elegíveis do acordo? (2) O IFTM é instituição participante? (3) cobrança de figuras coloridas na versão impressa |
-| **Astronomy & Astrophysics** | Boa audiência de atividade estelar e de séries de longo prazo. | Acesso aberto por Subscribe to Open, mantido em 2026. Autores de países patrocinadores não pagam; os demais pagam "page charges" modestas. Há política nova sobre extensão de artigo (2025). | O Brasil está entre os países patrocinadores? Valor da page charge. Limite de páginas da nova política |
-| **ApJ** (AAS) | Maior visibilidade em astrofísica estelar; Baum, Luhn e Isaacson publicaram em AAS. | Acesso aberto total. Tabela de 2026: até 30 "quanta" US$ 1 425, 31–50 US$ 3 162, 51–100 US$ 5 581. O ApJ Letters tem tabela própria. Há pedido de apoio, de 5 a 100 %, decidido pelo editor-chefe. | Quantos "quanta" o artigo tem (três figuras e duas tabelas; contagem só no envio). O acordo CAPES não cobre a AAS (não verificado) |
-| **MNRAS** (OUP) | Aceita estelar e solar. | Acesso aberto total; APC de cerca de £ 2 310 a £ 2 356 por fontes secundárias que divergem. | Valor oficial; sem acordo conhecido |
-| **Chaos** (AIP) | Encaixe do método (sinais precursores, séries temporais), mas o público astrofísico é pequeno e a revista pede mais ênfase no método. | Não encontrado. | Só vale se o artigo for reescrito como artigo de método |
+Em todos os casos o acordo vale para o **autor correspondente** e só para periódico **híbrido**. Revista de acesso aberto integral, mesmo da mesma editora, fica de fora.
+
+## Candidatas por editora
+| Editora | Revista | Encaixe com o P4 | Modelo e custo (verificado hoje) | Dentro do acordo CAPES? |
+|---|---|---|---|---|
+| **Springer** | **Solar Physics** | A própria revista diz que publica estelar "quando os resultados têm relação direta com a compreensão do Sol". O P4 tem série solar (Egeland) e compara estrelas ao Sol, mas o foco é estelar: é preciso enquadrar o artigo como solar-estelar | Híbrida. APC não encontrado | Provável (híbrida); **conferir a lista** |
+| **Springer** | Astrophysics and Space Science | Escopo amplo (astronomia e astrofísica inteira). Atividade estelar não é citada, mas cabe em astrofísica geral | Híbrida, CC BY; sem taxa por página na assinatura; APC pode vir de acordo transformativo | Provável; **conferir a lista** |
+| **Wiley** | **Astronomische Nachrichten** | Astrofísica observacional e teórica, mais sistema solar e física solar. Boa área; revista pequena | Híbrida (modelo "Online Open"). APC divergente entre fontes (uma cita € 2 350 para acesso aberto, sem confirmação) | Provável; **conferir a lista** |
+| **Wiley** | JGR: Space Physics (AGU) | Física espacial e heliosférica; estelar não faz parte do escopo | Híbrida; APC não encontrado | Provável, mas o encaixe é fraco |
+| **Wiley** | Space Weather (AGU) | Tema de clima espacial; fora do assunto | **Acesso aberto integral**, APC até US$ 2 890 | **Não** (gold) |
+| **Elsevier** | Advances in Space Research (COSPAR) | Escopo cobre atividade solar e astrofísica estelar | Fontes divergem: uma lista "aberta" com APC de US$ 2 780, outra "híbrida". Conferir | Só se for híbrida |
+| **Elsevier** | Journal of Atmospheric and Solar-Terrestrial Physics | Atmosfera da Terra e ambiente espacial; estelar não faz parte | APC não encontrado | Conferir |
+| **Elsevier** | Chaos, Solitons & Fractals | Encaixe de método (séries temporais, sinais precursores); público astrofísico pequeno | Híbrida. A irmã *CSF: X* é acesso aberto integral | A principal, sim, se estiver na lista; a *X*, não |
+| **IOP** | **ApJ, AJ, ApJ Letters** (AAS, publicadas com a IOP) | Maior público de astrofísica estelar; Baum, Luhn e Isaacson publicaram aqui | **Acesso aberto integral.** Tabela de 2026 do ApJ/AJ: até 30 "quanta" US$ 1 425; 31–50, US$ 3 162; 51–100, US$ 5 581. O ApJ Letters tem tabela própria. Há pedido de apoio de 5 a 100 % | **Não** (sem acordo encontrado; acesso aberto integral) |
 
 ## Recomendação
-1. **Solar Physics como primeira escolha**, por três razões: já era o plano do programa, o escopo cobre atividade estelar e solar, e é onde o custo pode ser zero via CAPES. **Antes de decidir**, confirmar os itens (1) a (3) da tabela, porque a recomendação cai se *Solar Physics* não estiver na lista do acordo.
-2. **A&A como segunda escolha**, se o Brasil estiver entre os países patrocinadores: acesso aberto sem APC e público de atividade estelar mais amplo.
-3. **ApJ** só se você quiser a visibilidade e aceitar o custo ou pedir apoio; é a mais cara para este artigo.
-4. Evitar MNRAS e Chaos por custo e por encaixe, respectivamente.
+Com a restrição de custo zero via CAPES, a ordem é esta.
+1. **Solar Physics (Springer).** Já era o plano do programa, tem acesso a leitores de atividade solar e é híbrida. Condições: estar na lista de elegíveis e o artigo ser enquadrado como solar-estelar (a série solar e a pergunta sobre o Mínimo de Maunder entram na Introdução e na Discussão). **Risco de encaixe:** se o editor considerar o artigo estelar demais, a recusa vem por escopo, não por qualidade.
+2. **Astrophysics and Space Science (Springer).** Mesmo acordo e mesma conta; escopo mais amplo, então o risco de recusa por escopo é menor. Menos leitores de atividade estelar.
+3. **Astronomische Nachrichten (Wiley).** Astrofísica mais física solar, híbrida. Revista pequena; só depois de conferir a lista da Wiley e o IFTM.
+4. **Advances in Space Research (Elsevier)**, apenas se a revista for híbrida e estiver na lista; cobre atividade solar e astrofísica.
+5. Fora dos acordos: **ApJ (IOP/AAS)**, se a visibilidade valer a taxa ou o pedido de apoio, e **A&A**, que é gratuita para autores de países patrocinadores (conferir se o Brasil está entre eles).
+
+Evitar JGR: Space Physics, Space Weather, JASTP e *CSF: X* por encaixe ou por modelo; Chaos, Solitons & Fractals só se o artigo for reescrito como artigo de método.
+
+## O que verificar antes de escolher (uma consulta à biblioteca resolve quase tudo)
+1. O IFTM é instituição participante dos acordos Springer Nature, Elsevier e Wiley?
+2. Solar Physics, Astrophysics and Space Science e Astronomische Nachrichten constam nas listas de elegíveis?
+3. Cobrança de figuras coloridas na versão impressa (a Springer diz que o acordo não cobre custos extras).
+4. A página de escopo de Solar Physics: um artigo estelar com série solar é aceito? (um e-mail ao editor-chefe antes da submissão resolve).
 
 ## O que muda no manuscrito conforme a escolha
-- Template e classe: Springer (Solar Physics), `aa.cls` (A&A) ou AASTeX (ApJ). Hoje o `main.tex` é neutro.
-- Figuras coloridas: sem problema online nas três; confira cobrança de cor na versão impressa da Springer.
-- Resumo, limite de páginas e estilo bibliográfico: ver a ficha da revista em `kit/revistas/<revista>/ficha.md` (ainda não criada para estas três; só existe a da EPL).
-- Larguras de figura: ApJ 3,5 / 5,0 / 7,0 pol.; as demais, ver ficha.
+- **Template:** Springer (classe `sn-jnl` ou a de Solar Physics), Wiley (classe da revista) ou Elsevier (`elsarticle`). Hoje o `main.tex` é neutro.
+- **Figuras:** cor sem problema online; confira cobrança de cor na versão impressa da Springer e da Elsevier.
+- **Resumo, limite de páginas e referências:** ver a ficha da revista em `kit/revistas/<revista>/ficha.md` (só existe a da EPL; crio a da escolhida).
+
+## Resumo das candidatas anteriores
+A&A (Subscribe to Open mantido em 2026, gratuita para autores de países patrocinadores; política nova de extensão), MNRAS (acesso aberto integral, APC em torno de £ 2 310 a £ 2 356 em fontes secundárias divergentes), Chaos (AIP; APC não encontrado).
 
 ## Próximo passo
-Você escolhe a revista. Registro como D## e preencho `kit/revistas/<revista>/ficha.md`, troco o template e ajusto resumo, referências e figuras.
+Você escolhe a revista (e, se quiser, uma segunda de reserva). Registro como D##, preencho `kit/revistas/<revista>/ficha.md`, troco o template e ajusto resumo, referências, figuras e declarações.
 
 ## Fontes consultadas (2026-11-25)
-- [Solar Physics, página da revista](https://rd.springer.com/journal/11207) e [diretrizes de submissão](https://springer.com/journal/11207/submission-guidelines)
-- [Acordo transformativo CAPES–Springer Nature](https://www.springernature.com/br/open-science/oa-agreements/brazil/capes)
-- [A&A: Subscribe to Open em 2026](https://www.aanda.org/news/3189-astronomy-astrophysics-to-remain-open-access-in-2026-under-subscribe-to-open) e [perguntas sobre S2O](https://www.aanda.org/subscribe-to-open-faqs)
+- [Acordo CAPES–Elsevier](https://www.elsevier.com/open-access/agreements/capes)
+- [Acordo CAPES–Springer Nature](https://www.springernature.com/br/open-science/oa-agreements/brazil/capes)
+- [CAPES–Wiley: FAQ da Wiley](https://authorservices.wiley.com/asset/WILEY-CAPES%20FAQs.pdf), [página da UFRGS](https://www.ufrgs.br/propur/capes-assina-novo-acordo-para-publicacao-de-artigos-em-acesso-aberto-parceria-com-a-editora-wiley-tambem-permite-consulta-a-mais-de-mil-periodicos/) e [reportagem da Pesquisa FAPESP](https://revistapesquisa.fapesp.br/capes-amplia-acordos-com-editoras-e-autores-brasileiros-poderao-publicar-sem-custo-em-milhares-de-periodicos/)
+- [Solar Physics, página da revista](https://rd.springer.com/journal/11207) e [escopo](https://link.springer.com/journal/11207/aims-and-scope)
+- [Astrophysics and Space Science: escopo](https://link.springer.com/journal/10509/aims-and-scope) e [modelos de publicação](https://www.springer.com/journal/10509/updates/19686716)
+- [Astronomische Nachrichten no registro do MPDL](https://oapublishing.mpdl.mpg.de/journals/Record/Wiley-ASNA) e [AIP Potsdam](https://www.aip.de/en/infrastructure/library/publizieren/publishing/transformative-contracts-and-publication-agreements/)
+- [AGU: taxas de publicação](https://www.agu.org/publications/authors/journals/publication-fees) e [Space Weather no DOAJ](https://doaj.org/toc/1542-7390)
+- [Advances in Space Research (COSPAR)](https://cosparhq.cnes.fr/?p=309) e [lista de revistas Elsevier de astronomia e espaço](https://www.elsevier.com/subject/space-research-astronomy-and-astrophysics/journals)
+- [Chaos, Solitons & Fractals X (Elsevier)](https://shop.elsevier.com/journals/chaos-solitons-and-fractals-x/2590-0544)
 - [AAS: taxas de publicação](https://journals.aas.org/article-charges-and-copyright)
+- [A&A: Subscribe to Open em 2026](https://www.aanda.org/news/3189-astronomy-astrophysics-to-remain-open-access-in-2026-under-subscribe-to-open)
 - [MNRAS no DOAJ](https://doaj.org/toc/1365-2966)
-- Programa (`kit/programas/stellar-activity-29/SUBMISSION_STRATEGY_TIMELINE.md`, linhas 96 e 198)
+- Programa: `kit/programas/stellar-activity-29/SUBMISSION_STRATEGY_TIMELINE.md`, linhas 96 e 198
