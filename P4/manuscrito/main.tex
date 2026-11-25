@@ -6,6 +6,7 @@
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx,amsmath,booktabs}
+\usepackage{url}
 \DeclareGraphicsExtensions{.pdf,.png}
 \journal{New Astronomy}
 
@@ -121,8 +122,8 @@
 
 \begin{document}
 \begin{frontmatter}
-% Provisional title (alternatives in SUGESTOES_TITULO.md):
-\title{Testing early-warning indicators of critical slowing down in Mount Wilson S-index series of Sun-like stars}
+% Provisional title, author's wording (alternatives in SUGESTOES_TITULO.md):
+\title{Testing critical slowing down in Mount Wilson S-index of Sun-like stars}
 \author[iftm]{Airton M. S. Borin Junior\corref{cor1}}
 % \ead{corresponding author e-mail, to be added by the author}
 \cortext[cor1]{Corresponding author}
@@ -186,7 +187,7 @@ Fixed before the stellar run: the sample and groups, the segment rule, windows, 
 
 \subsection{Software}
 
-Python with NumPy, pandas, SciPy and statsmodels; the pipeline, the seeds (base \SeedBase) and the single official run are in the repository.
+Python with NumPy, pandas, SciPy, statsmodels and Matplotlib; the pipeline, the seeds (base \SeedBase) and the single official run are in the repository.
 
 \section{Results}
 
@@ -307,24 +308,25 @@ The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \Pr
 \item A decisive test needs a series that runs through a transition, a power curve at the real segment lengths with a cycle present, and an analysis of the loss of a limit cycle, for which we know of no predicted sign.
 \end{enumerate}
 
-% Declarations required by Elsevier: to be written by the author (the AI-use statement is the author's decision and wording).
+% Declarations required by Elsevier. The statements on funding and competing interests are the standard wording and must be
+% confirmed by the author; the AI-use statement lacks only the name and version of the tool, to be inserted by the author.
 \section*{CRediT authorship contribution statement}
-[To be completed by the author.]
+\textbf{Airton M. S. Borin Junior:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review \& editing, Visualization.
 
 \section*{Declaration of competing interest}
-[To be completed by the author.]
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
 
 \section*{Funding}
-[To be completed by the author.]
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 \section*{Data availability}
-Series are from the public sources cited in the Methods; the processed results and the code are in the project repository (link to be added at publication).
+The series come from public sources cited in the Methods: the HK\_Project\_v2001\_NSO files (Harvard Dataverse, doi:10.7910/DVN/H85QPF), the VizieR tables of Baum et al., Luhn et al.\ and Isaacson et al., and the solar series of Egeland et al. The code, the processed results, the log of analysis decisions and the sources of this manuscript are in the repository \url{https://github.com/gpefitura-web/P4}, to be archived with a persistent identifier at publication.
 
 \section*{Declaration of generative AI and AI-assisted technologies in the writing process}
-[To be decided and written by the author.]
+During the preparation of this work the author used [name and version of the AI tool, to be inserted by the author] to assist in writing and revising the analysis code, producing the figures, drafting and editing the text, retrieving and formatting bibliographic metadata, and running independent review passes over the manuscript. All analysis decisions were taken by the author and are recorded in a dated decision log. After using this tool, the author reviewed and edited the content as needed and takes full responsibility for the content of the publication.
 
 \section*{Acknowledgements}
-[To be completed by the author.]
+The HK\_Project\_v2001\_NSO data derive from the Mount Wilson Observatory HK Project, which was supported by both public and private funds through the Carnegie Observatories, the Mount Wilson Institute, and the Harvard-Smithsonian Center for Astrophysics starting in 1966 and continuing for over 36 years. These data are the result of the dedicated work of O. Wilson, A. Vaughan, G. Preston, D. Duncan, S. Baliunas, and many others. This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France (doi:10.26093/cds/vizier).
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}

@@ -41,3 +41,14 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 ## Atualização de 2026-11-25 (BibTeX e título)
 - `references.bib` refeito a partir do **Crossref** (o ADS exige token pessoal de API, que não existe aqui), com autores completos, DOI, volume e páginas; cada registro conferido contra a primeira página do PDF do projeto. Títulos protegidos com chaves para o estilo numerado não os passar para minúsculas. Resolvido: autores de Baliunas e Isaacson e DOI de Noyes. Se quiser as chaves do ADS (bibcode), forneça um token de API do ADS.
 - Título provisório trocado para a versão 2 (sem "null").
+
+## Atualização de 2026-11-25 (declarações finais e título)
+- Título em uso, redação sua: "Testing critical slowing down in Mount Wilson S-index of Sun-like stars" (observação sobre "series" em `SUGESTOES_TITULO.md`).
+- Declarações preenchidas em `main.tex`: CRediT (autor único, todos os papéis), conflito de interesses, financiamento, disponibilidade de dados (com o repositório), declaração de IA e agradecimentos.
+- **Confirmar antes de submeter (são afirmações suas, não fatos que o projeto prove):**
+  1. **Financiamento:** usei o texto padrão da Elsevier "sem apoio específico". Se houve bolsa, CNPq, CAPES, FAPEMIG ou IFTM, troque.
+  2. **Conflito de interesses:** texto padrão "nenhum conhecido".
+  3. **CRediT:** todos os papéis listados para o autor único; ajuste se quiser.
+  4. **Declaração de IA:** só falta o nome e a versão da ferramenta, `[name and version of the AI tool...]` (deixei em branco porque identificar o modelo em arquivo do repositório não deve ser feito por mim, e a regra do Kit pede que a declaração seja sua). A frase "o autor revisou e editou" é uma afirmação sua.
+  5. **Dados:** o repositório `github.com/gpefitura-web/P4` precisa estar público (ou ser trocado por DOI do Zenodo) na submissão.
+- Agradecimentos: texto exigido pelos autores do HK Project (README dos dados v2001, com o nome HK_Project_v2001_NSO) e o agradecimento padrão do VizieR com o DOI (conferido no DataCite). Acrescente o que quiser (instituição, colegas).
