@@ -104,7 +104,7 @@ for P, n in ((10, "Ten"), (12, "Twelve"), (16, "Sixteen")):
 ng = ran[ran.HD != "(Sun)"].grupo.value_counts()
 for g, n in (("Flat_limpa", "Flat"), ("CYCLE_Excellent", "Cycle"), ("Var", "Var"), ("Long", "Long")):
     put(f"NGroup{n}", int(ng.get(g, 0)))
-txt16 = open(os.path.join(os.path.dirname(os.path.dirname(HERE)), "P4", "inspecao", "saidas", "16_min_segment.txt") if False else os.path.join(os.path.dirname(HERE), "inspecao", "saidas", "16_min_segment.txt")).read()
+txt16 = open(os.path.join(R, "power_simulation.txt")).read()
 for Lx, n in ((24, "TwentyFour"), (30, "Thirty"), (40, "Forty")):
     mm = _re.search(rf"^{Lx} \| \d+ \| \d+ \| [^|]+\| [^|]+\| [^|]+\| ([0-9.]+) \|", txt16, _re.M)
     put(f"AUC{n}", float(mm.group(1)), "{:.2f}")

@@ -184,9 +184,9 @@ Uma linha por estrela (segmento MW mais longo; Sol excluído por ser exploratór
 | s5 | ac1 | Var | CYCLE_Excellent | 0 | 1 | 0.2641 | 0.5572 | n.s. | 7 | 8 |
 | s5 | ac1 | Long | CYCLE_Excellent | 0 | 1 | 0.2177 | 0.5572 | n.s. | 4 | 8 |
 
-
-## 7. Par primário e Holm (D108; `group_primary.py` → `group_primary.csv`, `group_holm.csv`)
+## 7. Par primário e Holm (D108, D109; `group_primary.py` → `group_primary.csv`, `group_holm.csv`)
 
 Par primário (fixado em D108): Var ∪ Long > Flat_limpa, AR(1) do segmento MW mais longo, σ = 1, Mann–Whitney unilateral (greater): n = 11 e 4, U = 13, **p = 0.887**; medianas −0.372 e −0.291 (sem correção, par único).
 
-Holm por bloco métrica × configuração, 5 pares por bloco (D109; o par primário fica fora): 2 dos 30 testes com p_Holm < 0.05, ambos CYCLE_Excellent > Flat na variância normalizada (σ = 1: p = 0.0020, p_Holm = 0.0101; sem remoção: p = 0.0081, p_Holm = 0.0404); Long > Flat, variância normalizada, σ = 1: p = 0.0286, p_Holm = 0.114. Tabela completa em `results/group_holm.csv` (`p_holm` = D109; `p_holm_30` = família de 30 testes do primeiro cálculo, superada).
+Holm por bloco métrica × configuração, 5 pares por bloco (D109; o par primário fica fora): 2 dos 30 testes com p_Holm < 0.05; p bruto < 0.05 em 3. CYCLE_Excellent > Flat na variância normalizada (σ = 1: p = 0.0020, p_Holm = 0.0101; sem remoção: p = 0.0081, p_Holm = 0.0404); Long > Flat, variância normalizada, σ = 1: p = 0.0286, p_Holm = 0.114. Holm sobre os 30 testes juntos (`p_holm_30`): 0 abaixo de 0.05. Tabela completa em `results/group_holm.csv`.
+

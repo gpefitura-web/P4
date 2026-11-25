@@ -25,3 +25,8 @@ up, lo = rej_up / NREP, rej_lo / NREP
 print(f"engine {out['engine']}; orders chosen {orders}; time {time.time()-t0:.0f}s")
 print(f"rejection p_upper<0.05: {up:.3f}; p_D22<0.05: {lo:.3f}; required in [0.03, 0.07]")
 print("ALL OK" if 0.03 <= up <= 0.07 and 0.03 <= lo <= 0.07 else "SOME FAIL")
+os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), "results"), exist_ok=True)
+with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "results", "autotest_step5.txt"), "w") as fh:
+    fh.write(f"Step 5 self-test (test_step5.py), seed 5050: {NREP} null AR(1) series (c=0.5, L={L}, 3 interpolated points), {NS} ARMA surrogates each.\n"
+             f"engine {out['engine']}; AIC orders chosen: {sorted(orders.items(), key=lambda kv: -kv[1])}\n"
+             f"rejection p_upper<0.05: {up:.3f} ; p_D22<0.05: {lo:.3f} ; required in [0.03, 0.07] -> {'PASS' if 0.03 <= up <= 0.07 and 0.03 <= lo <= 0.07 else 'FAIL'}\n")

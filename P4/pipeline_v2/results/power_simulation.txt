@@ -1,0 +1,6 @@
+Discrimination null (c = 0.5) vs trend (c 0.3 -> 0.7) by Kendall tau of the rolling lag-1 estimate,
+window = 50 % of the segment length L (min 5 points), 600 simulations per cell
+L | window | n windows | tau null mean | tau null SD | tau trend mean | AUC(trend > null) | share trend tau >= 0.5 | share null tau >= 0.5
+24 | 12 | 13 | +0.01 | 0.46 | +0.16 | 0.59 | 0.28 | 0.18
+30 | 15 | 16 | +0.01 | 0.46 | +0.16 | 0.60 | 0.30 | 0.18
+40 | 20 | 21 | +0.01 | 0.47 | +0.22 | 0.63 | 0.34 | 0.18

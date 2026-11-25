@@ -78,5 +78,16 @@ for cfg in ("none", "s1", "s3", "s5"):
                        ("Var", "CYCLE_Excellent"), ("Long", "CYCLE_Excellent")):
             t = mw_test(d, g1, g2, metric); t["config"] = cfg; tests.append(t)
 L += [md(pd.DataFrame(tests)[["config", "metric", "g1", "g2", "U", "p", "med1", "med2", "sig", "n1", "n2"]], "{:.4g}"), ""]
+# ---- 7. primary pair and Holm (group_primary.py output) --------------------------------------------------------------
+pr = pd.read_csv(os.path.join(R, "group_primary.csv")).iloc[0]
+ho = pd.read_csv(os.path.join(R, "group_holm.csv"))
+def row(cfg, metric, g1, g2):
+    return ho[(ho.config == cfg) & (ho.metric == metric) & (ho.g1 == g1) & (ho.g2 == g2)].iloc[0]
+c1, c0, l1 = row("s1", "var_norm", "CYCLE_Excellent", "Flat_limpa"), row("none", "var_norm", "CYCLE_Excellent", "Flat_limpa"), row("s1", "var_norm", "Long", "Flat_limpa")
+L += ["## 7. Par primário e Holm (D108, D109; `group_primary.py` → `group_primary.csv`, `group_holm.csv`)", "",
+      f"Par primário (fixado em D108): Var ∪ Long > Flat_limpa, AR(1) do segmento MW mais longo, σ = 1, Mann–Whitney unilateral (greater): n = {int(pr.n1)} e {int(pr.n2)}, U = {pr.U:.0f}, **p = {pr.p:.3f}**; medianas {pr.med1:.3f} e {pr.med2:.3f} (sem correção, par único).".replace("-", "−"), "",
+      f"Holm por bloco métrica × configuração, 5 pares por bloco (D109; o par primário fica fora): {int((ho.p_holm < 0.05).sum())} dos {len(ho)} testes com p_Holm < 0.05; p bruto < 0.05 em {int((ho.p < 0.05).sum())}. "
+      f"CYCLE_Excellent > Flat na variância normalizada (σ = 1: p = {c1.p:.4f}, p_Holm = {c1.p_holm:.4f}; sem remoção: p = {c0.p:.4f}, p_Holm = {c0.p_holm:.4f}); "
+      f"Long > Flat, variância normalizada, σ = 1: p = {l1.p:.4f}, p_Holm = {l1.p_holm:.3f}. Holm sobre os {len(ho)} testes juntos (`p_holm_30`): {int((ho.p_holm_30 < 0.05).sum())} abaixo de 0.05. Tabela completa em `results/group_holm.csv`.", ""]
 open(os.path.join(R, "REPORT.md"), "w").write("\n".join(L) + "\n")
 print("report written")

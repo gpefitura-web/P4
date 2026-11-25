@@ -1,10 +1,11 @@
-"""Figures 1-3 of the manuscript, in colour (D111), from pipeline_v2/results and the pipeline modules.
+"""Figures 1-4 of the manuscript, in colour (D111), from pipeline_v2/results and the pipeline modules.
 Palette: first three slots of the reference palette of the dataviz skill (blue, orange, aqua), validated with its
 validate_palette.js for all pairs, light surface (PASS; contrast WARN for orange and aqua -> every series also has its own
-marker or line style and a legend). Colour roles are fixed across figures: blue = original series (no removal),
+marker or line style and a legend). Colour roles are fixed across figures: blue = original series (original series),
 orange = sigma = 1 year residual/smooth, aqua = account B, neutral gray = reference/raw. Ticks inward on 4 sides, no grid.
 Usage: python -I make_figures.py"""
 import os, sys, json
+os.environ.setdefault("SOURCE_DATE_EPOCH", "0")   # deterministic PDF/EPS metadata, so that the figure files are reproducible byte for byte
 import numpy as np, pandas as pd
 import matplotlib as mpl
 mpl.use("Agg")

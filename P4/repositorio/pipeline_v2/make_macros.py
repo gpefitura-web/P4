@@ -1,0 +1,116 @@
+"""Rewrites the marked macro block of manuscrito/main.tex from pipeline_v2/results (REG-MAC: no number typed in the text).
+Usage: python -I make_macros.py"""
+import os, re, json
+import numpy as np, pandas as pd
+
+HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(HERE, "results")
+OUT = os.path.join(os.path.dirname(HERE), "manuscrito", "main.tex")   # macros live in a marked block of main.tex
+res = pd.read_csv(os.path.join(R, "star_results.csv"), dtype={"HD": str})
+seg = pd.read_csv(os.path.join(R, "segments.csv"), dtype={"HD": str})
+h1 = json.load(open(os.path.join(R, "h1.json")))
+prim = pd.read_csv(os.path.join(R, "group_primary.csv")).iloc[0]
+hol = pd.read_csv(os.path.join(R, "group_holm.csv"))
+auto = open(os.path.join(R, "autotest_step5.txt")).read()
+M = {}
+STATN = {"ac1": "AR", "var": "Var"}
+
+
+def put(name, val, fmt="{}"):
+    t = fmt.format(val)
+    M[name] = ("\\textminus{}" + t[1:]) if t.startswith("-") else t
+
+
+ran = seg[seg.rodou == "sim"]
+put("NSegments", len(ran)); put("NStarsRun", int((ran.HD != "(Sun)").sum()))
+put("NNotRun", int((seg.rodou == "nao").drop_duplicates().sum() and (seg[seg.rodou == "nao"].HD.nunique())))
+put("NLow", int((ran.precisao == "baixa").sum())); put("NSunYears", int(ran[ran.HD == "(Sun)"].L.iloc[0]))
+put("NSurr", 1000); put("SeedBase", "20261124")
+put("NConfigs", 4); put("NFracs", 5)
+put("LMin", int(ran.L.min())); put("LMax", int(ran[ran.HD != "(Sun)"].L.max()))
+# H1
+for k, tag in (("min1", "MinOne"), ("min2", "MinTwo"), ("grand", "Grand")):
+    s = h1["states"][k]
+    put(f"HOneN{tag}", s["n"]); put(f"HOneMean{tag}", s["mean"], "{:.4f}")
+    put(f"HOneRaw{tag}", s["sigma_raw"], "{:.4f}"); put(f"HOneSigA{tag}", s["sigma_A"], "{:.4f}"); put(f"HOneSigB{tag}", s["sigma_B"], "{:.4f}")
+f = h1["F_min1_vs_grand"]
+def sci(x):
+    m, e = f"{x:.0e}".split("e"); return f"{m}\\times10^{{{int(e)}}}"
+put("HOnePRaw", "$" + sci(f["raw"]["p_two"]) + "$"); put("HOnePCorrA", "$" + sci(f["corrected_A"]["p_two"]) + "$")
+put("HOnePCorrB", "$" + sci(f["corrected_B"]["p_two"]) + "$")
+put("HOneFRaw", f["raw"]["F"], "{:.2f}"); put("HOneFCorrA", f["corrected_A"]["F"], "{:.2f}")
+# concordance and counts at 50 %
+m5 = res[(res.series == "S") & (res.frac == 0.5)]
+sig = m5.assign(c=(m5.tau > 0) & (m5.p_upper < 0.05))
+put("NCellsHalf", len(m5.groupby(["HD", "seg_year0", "stat", "config"])))
+put("NSigHalf", int(sig.c.sum()))
+for stat in ("ac1", "var"):
+    conc = sig[sig["stat"] == stat].groupby(["HD", "seg_year0"]).c.sum()
+    put(f"MaxConc{STATN[stat]}", int(conc.max())); put(f"NConcThree{STATN[stat]}", int((conc >= 3).sum()))
+    pos = m5[(m5["stat"] == stat) & (m5.config == "s1")]
+    put(f"NTauPos{STATN[stat]}SOne", int((pos.tau > 0).sum()))
+allc = res[res.series == "S"]
+sa = allc.assign(c=(allc.tau > 0) & (allc.p_upper < 0.05)).groupby(["HD", "seg_year0", "stat"]).c.sum()
+put("MaxConcSweep", int(sa.max()))
+f2 = h1["F_min2_vs_grand"]
+assert f2["raw"]["p_two"] < 1e-3 and f2["corrected_A"]["p_two"] < 1e-3
+put("HOnePTwoBound", "$<10^{-3}$")
+# fixed design constants quoted from P4_SOURCE_VALUES.md (V01, V06, V08, V10): source counts, not results
+for k, v in (("NCatalog", 112), ("NBaumStars", 59), ("NVTwoStars", 35)):
+    put(k, v)
+# HD 166620 (H2) and the Sun
+for hd, tag in (("166620", "HDH"), ("(Sun)", "Sun")):
+    d = m5[(m5.HD == hd) & (m5["stat"] == "ac1")].set_index("config")
+    for cfg, ct in (("none", "None"), ("s1", "SOne")):
+        put(f"{tag}Tau{ct}", d.loc[cfg, "tau"], "{:.2f}"); put(f"{tag}P{ct}", d.loc[cfg, "p_upper"], "{:.2f}")
+put("HDHL", int(seg[seg.HD == "166620"].L.iloc[0]))
+dv = m5[(m5.HD == "166620") & (m5["stat"] == "var")].set_index("config")
+put("HDHVarTauSOne", dv.loc["s1", "tau"], "{:.2f}"); put("HDHVarPSOne", dv.loc["s1", "p_upper"], "{:.2f}")
+put("HDHVarTauNone", dv.loc["none", "tau"], "{:.2f}"); put("HDHVarPNone", dv.loc["none", "p_upper"], "{:.2f}")
+seg_ok = seg[seg.rodou == "sim"].set_index("HD")
+put("WinHD", int(round(0.5 * seg_ok.loc["166620", "L"]))); put("WinSun", int(round(0.5 * seg_ok.loc["(Sun)", "L"])))
+put("NFigTests", int(len(m5[(m5["stat"] == "ac1") & m5.config.isin(["none", "s1"])])))
+met = pd.read_csv(os.path.join(R, "star_metrics.csv"), dtype={"HD": str})
+best = met.sort_values("L", ascending=False).drop_duplicates(["HD", "config"])
+best = best[best.HD != "(Sun)"]
+put("MedACNone", best[best.config == "none"].ac1.median(), "{:.2f}"); put("MedACSOne", best[best.config == "s1"].ac1.median(), "{:.2f}")
+put("NACNoneHigh", int((best[best.config == "none"].ac1 > 0.5).sum())); put("NStarsMetric", int((best.config == "none").sum()))
+# R'HK identity
+pv = res.pivot_table(index=["HD", "seg_year0", "config", "frac", "stat"], columns="series", values="tau")
+put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.0f}"); put("RHKNCompare", len(pv))
+# group tests
+put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.0f}")
+put("PrimMedVL", prim.med1, "{:.2f}"); put("PrimMedFlat", prim.med2, "{:.2f}")
+put("NHolmTests", len(hol)); put("NHolmSig", int((hol.p_holm < 0.05).sum())); put("NRawSig", int((hol.p < 0.05).sum()))
+for cfg, tag in (("s1", "SOne"), ("none", "None")):
+    r = hol[(hol.config == cfg) & (hol.metric == "var_norm") & (hol.g1 == "CYCLE_Excellent") & (hol.g2 == "Flat_limpa")].iloc[0]
+    put(f"CycFlatP{tag}", r.p, "{:.4f}"); put(f"CycFlatHolm{tag}", r.p_holm, "{:.4f}")
+# autotest
+a = re.search(r"p_upper<0.05: ([0-9.]+) ; p_D22<0.05: ([0-9.]+)", auto)
+put("AutoUp", 100 * float(a.group(1)), "{:.1f}"); put("AutoLo", 100 * float(a.group(2)), "{:.1f}")
+# ---- additions after the independent reviews --------------------------------------------------------------
+import math, re as _re
+rm = pd.read_csv(os.path.join(R, "star_results.csv"), dtype={"HD": str})
+pv2 = rm[rm.frac == 0.5].pivot_table(index=["HD", "seg_year0", "config", "stat"], columns="series", values="p_upper")
+put("RHKMaxPDiff", float(np.abs(pv2.RHK - pv2.S).max()), "{:.2f}")
+mr = rm[(rm.series == "RHK") & (rm.frac == 0.5)]
+put("NSigHalfRHK", int(((mr.tau > 0) & (mr.p_upper < 0.05)).sum()))
+put("NHolmSigThirty", int((hol.p_holm_30 < 0.05).sum()))
+for cfg, tag in (("s1", "SOne"), ("none", "None")):
+    r = hol[(hol.config == cfg) & (hol.metric == "var_norm") & (hol.g1 == "CYCLE_Excellent") & (hol.g2 == "Flat_limpa")].iloc[0]
+    put(f"CycFlatHolmThirty{tag}", r.p_holm_30, "{:.2f}")
+put("MinPCycleFlat", 1 / math.comb(12, 4), "{:.4f}"); put("MinPFourFour", 1 / math.comb(8, 4), "{:.3f}")
+for P, n in ((10, "Ten"), (12, "Twelve"), (16, "Sixteen")):
+    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.0f}")
+ng = ran[ran.HD != "(Sun)"].grupo.value_counts()
+for g, n in (("Flat_limpa", "Flat"), ("CYCLE_Excellent", "Cycle"), ("Var", "Var"), ("Long", "Long")):
+    put(f"NGroup{n}", int(ng.get(g, 0)))
+txt16 = open(os.path.join(R, "power_simulation.txt")).read()
+for Lx, n in ((24, "TwentyFour"), (30, "Thirty"), (40, "Forty")):
+    mm = _re.search(rf"^{Lx} \| \d+ \| \d+ \| [^|]+\| [^|]+\| [^|]+\| ([0-9.]+) \|", txt16, _re.M)
+    put(f"AUC{n}", float(mm.group(1)), "{:.2f}")
+block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
+src = open(OUT, encoding="utf-8").read()
+beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"
+i = src.index(beg); i = src.index("\n", i) + 1; j = src.index(end)
+open(OUT, "w", encoding="utf-8").write(src[:i] + block + "\n" + src[j:])
+print(len(M), "macros written into the marked block of", OUT)
