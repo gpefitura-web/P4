@@ -12,6 +12,7 @@ TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.c
 JSONS = [RES + "h1.json"]
 EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md")] + ["manuscrito/main.tex"] + \
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
+FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
 
 
@@ -33,10 +34,17 @@ def manifest():
         dirs[:] = [x for x in dirs if x not in ("_published", "__pycache__")]
         for f in files:
             p = os.path.relpath(os.path.join(d, f), HERE)
+            if p == FETCHED:
+                continue
             if p != "MANIFEST.sha256" and not p.endswith((".aux", ".log", ".bbl", ".blg", ".out")) and p != "manuscrito/main.pdf":
                 present.add(p)
     bad = [p for p in listed if p not in present or sha(os.path.join(HERE, p)) != listed[p]]
     extra = sorted(present - set(listed))
+    if os.path.exists(os.path.join(HERE, FETCHED)):
+        okf = sha(os.path.join(HERE, FETCHED)) == FETCHED_SHA
+        print("downloaded Egeland Table 4:", "hash OK" if okf else "HASH MISMATCH")
+        if not okf:
+            sys.exit(1)
     print(f"manifest: {len(listed)} files listed; changed or missing: {bad or 'none'}; not listed: {extra or 'none'}")
     sys.exit(1 if bad or extra else 0)
 

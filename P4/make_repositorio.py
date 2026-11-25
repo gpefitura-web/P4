@@ -20,12 +20,12 @@ def cp(src, dst=None):
 
 # input data and the frozen catalogue
 cp("consolidacao/p4_star_catalog.csv")
-for f in ("J_AJ_163_183_table1.tsv", "J_ApJ_936_L23_table2.tsv", "Egeland2017_table4_apjaa4e49t4_mrt.txt"):
+for f in ("J_AJ_163_183_table1.tsv", "J_ApJ_936_L23_table2.tsv"):
     cp(f"data/{f}")
 for f in sorted(glob.glob(os.path.join(ROOT, "data/HK_Project_v2001_NSO/*"))):
     cp(os.path.relpath(f, ROOT))
 # code, tests, fonts
-for f in ("p4io", "annual", "indicators", "detrend", "surrogates", "state_comparison", "rhk", "run_all", "group_primary",
+for f in ("fetch_egeland_table4", "p4io", "annual", "indicators", "detrend", "surrogates", "state_comparison", "rhk", "run_all", "group_primary",
           "report", "make_macros", "make_tables", "make_figures", "power_simulation",
           "test_step1", "test_step2", "test_step3", "test_step4", "test_step5", "test_step6", "test_step7"):
     cp(f"pipeline_v2/{f}.py")
@@ -52,8 +52,7 @@ def sha(path):
 
 data_rows = "\n".join(f"| `{os.path.relpath(p, OUT)}` | `{sha(p)[:16]}…` |" for p in
                       [os.path.join(OUT, "consolidacao/p4_star_catalog.csv"), os.path.join(OUT, "data/J_AJ_163_183_table1.tsv"),
-                       os.path.join(OUT, "data/J_ApJ_936_L23_table2.tsv"),
-                       os.path.join(OUT, "data/Egeland2017_table4_apjaa4e49t4_mrt.txt")])
+                       os.path.join(OUT, "data/J_ApJ_936_L23_table2.tsv")])
 
 open(os.path.join(OUT, "requirements.txt"), "w").write("numpy==2.5.5\npandas==3.1.1\nscipy==1.18.1\nstatsmodels==0.15.0\nmatplotlib==3.11.2\npython-docx==1.2.0\n")
 
@@ -64,6 +63,7 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 PY="${PYTHON:-python3}"
 export SOURCE_DATE_EPOCH=0
+"$PY" -I pipeline_v2/fetch_egeland_table4.py       # Table 4 of Egeland et al. is downloaded, not redistributed (needs network; or: --from FILE)
 "$PY" -I verify_reproduction.py --manifest        # the folder is exactly the published one
 "$PY" -I verify_reproduction.py --snapshot        # keep the published outputs in _published/ and clear them
 cd pipeline_v2
@@ -99,6 +99,7 @@ TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.c
 JSONS = [RES + "h1.json"]
 EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md")] + ["manuscrito/main.tex"] + \\
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
+FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
 
 
@@ -120,10 +121,17 @@ def manifest():
         dirs[:] = [x for x in dirs if x not in ("_published", "__pycache__")]
         for f in files:
             p = os.path.relpath(os.path.join(d, f), HERE)
+            if p == FETCHED:
+                continue
             if p != "MANIFEST.sha256" and not p.endswith((".aux", ".log", ".bbl", ".blg", ".out")) and p != "manuscrito/main.pdf":
                 present.add(p)
     bad = [p for p in listed if p not in present or sha(os.path.join(HERE, p)) != listed[p]]
     extra = sorted(present - set(listed))
+    if os.path.exists(os.path.join(HERE, FETCHED)):
+        okf = sha(os.path.join(HERE, FETCHED)) == FETCHED_SHA
+        print("downloaded Egeland Table 4:", "hash OK" if okf else "HASH MISMATCH")
+        if not okf:
+            sys.exit(1)
     print(f"manifest: {len(listed)} files listed; changed or missing: {bad or 'none'}; not listed: {extra or 'none'}")
     sys.exit(1 if bad or extra else 0)
 
@@ -194,7 +202,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Egeland et al. Table 4, HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF) |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
 | `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
 | `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
 
@@ -216,7 +224,13 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
 Tables and JSON are compared numerically (relative tolerance 1e-9): the ARMA fits depend on the `statsmodels` version, so use the pinned versions.
 
-## Input data (frozen hashes, first 16 hex digits)
+## Table 4 of Egeland et al. (2017): downloaded, not redistributed
+The calibrated solar S-index series (machine-readable Table 4 of the article) is fetched by `reproduce.sh` from the journal's public server
+(`https://content.cld.iop.org/journals/0004-637X/835/1/25/revision1/apjaa4e49t4_mrt.txt`) and checked against
+sha256 `6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548` (6349 rows, 1966-2016). Without network access, download it by other means and run
+`python pipeline_v2/fetch_egeland_table4.py --from <file>`. The Sun row of Table 2, Figure 3 and the solar numbers need this file; the rest does not.
+
+## Input data shipped here (frozen hashes, first 16 hex digits)
 | File | sha256 |
 |---|---|
 {data_rows}
@@ -229,7 +243,7 @@ This research has made use of the VizieR catalogue access tool, CDS, Strasbourg,
 
 ## License
 - **Code, derived results and figures produced by it:** MIT License (`LICENSE`), copyright 2026 Airton M. S. Borin Junior.
-- **Input data (`data/`, `consolidacao/`):** not covered by the MIT License. Copied unaltered from the sources cited above; the terms of use of each original source apply (the acknowledgement required by the HK Project authors is reproduced above).
+- **Input data (`data/`, `consolidacao/`):** not covered by the MIT License. Copied unaltered from the sources cited above; the terms of use of each original source apply (the acknowledgement required by the HK Project authors is reproduced above). Table 4 of Egeland et al. is not redistributed.
 - **Fonts (`pipeline_v2/fonts/`):** Courier Prime, SIL Open Font License 1.1 (`pipeline_v2/fonts/OFL.txt`).
 - **Manuscript sources (`manuscrito/`):** included only so that the numbers, table and figures can be rebuilt; the text is the author's, and the published version will be under the journal's terms.
 
@@ -263,7 +277,7 @@ SOFTWARE.
 """)
 ABSTRACT = ("Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article "
             "on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. "
-            "Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT.")
+            "Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017).")
 open(os.path.join(OUT, "CITATION.cff"), "w").write(f"""cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
 title: "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars"
@@ -290,7 +304,7 @@ json.dump({"title": "Reproduction package: testing critical slowing down in Moun
            "upload_type": "software", "access_right": "open", "license": "mit", "language": "eng", "version": "1.0.0",
            "publication_date": "2026-11-25",
            "creators": [{"name": "Borin Junior, Airton M. S.", "affiliation": "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"}],
-           "description": ABSTRACT + " Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; Egeland et al. 2017; HK_Project_v2001_NSO), "
+           "description": ABSTRACT + " Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; HK_Project_v2001_NSO; the solar table of Egeland et al. 2017 is downloaded at run time, not redistributed), "
                           "reference outputs, figures and manuscript sources, with a sha256 manifest.",
            "keywords": ["critical slowing down", "early-warning signals", "stellar activity cycles", "chromospheric activity", "S index", "Maunder minimum"]},
           open(os.path.join(OUT, ".zenodo.json"), "w"), indent=2, ensure_ascii=False)

@@ -16,7 +16,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Egeland et al. Table 4, HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF) |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
 | `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
 | `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
 
@@ -38,13 +38,18 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
 Tables and JSON are compared numerically (relative tolerance 1e-9): the ARMA fits depend on the `statsmodels` version, so use the pinned versions.
 
-## Input data (frozen hashes, first 16 hex digits)
+## Table 4 of Egeland et al. (2017): downloaded, not redistributed
+The calibrated solar S-index series (machine-readable Table 4 of the article) is fetched by `reproduce.sh` from the journal's public server
+(`https://content.cld.iop.org/journals/0004-637X/835/1/25/revision1/apjaa4e49t4_mrt.txt`) and checked against
+sha256 `6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548` (6349 rows, 1966-2016). Without network access, download it by other means and run
+`python pipeline_v2/fetch_egeland_table4.py --from <file>`. The Sun row of Table 2, Figure 3 and the solar numbers need this file; the rest does not.
+
+## Input data shipped here (frozen hashes, first 16 hex digits)
 | File | sha256 |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | `ab480cb3d2fae1cd…` |
 | `data/J_AJ_163_183_table1.tsv` | `7703efab4bdb8ac5…` |
 | `data/J_ApJ_936_L23_table2.tsv` | `b48502d68daa55be…` |
-| `data/Egeland2017_table4_apjaa4e49t4_mrt.txt` | `6e2746d535d7d9e3…` |
 
 ## Acknowledgements and terms of the data
 The HK_Project_v2001_NSO data derive from the Mount Wilson Observatory HK Project, which was supported by both public and private funds through the
@@ -54,7 +59,7 @@ This research has made use of the VizieR catalogue access tool, CDS, Strasbourg,
 
 ## License
 - **Code, derived results and figures produced by it:** MIT License (`LICENSE`), copyright 2026 Airton M. S. Borin Junior.
-- **Input data (`data/`, `consolidacao/`):** not covered by the MIT License. Copied unaltered from the sources cited above; the terms of use of each original source apply (the acknowledgement required by the HK Project authors is reproduced above).
+- **Input data (`data/`, `consolidacao/`):** not covered by the MIT License. Copied unaltered from the sources cited above; the terms of use of each original source apply (the acknowledgement required by the HK Project authors is reproduced above). Table 4 of Egeland et al. is not redistributed.
 - **Fonts (`pipeline_v2/fonts/`):** Courier Prime, SIL Open Font License 1.1 (`pipeline_v2/fonts/OFL.txt`).
 - **Manuscript sources (`manuscrito/`):** included only so that the numbers, table and figures can be rebuilt; the text is the author's, and the published version will be under the journal's terms.
 

@@ -64,7 +64,10 @@ def load_v2001():
 def load_egeland():
     """Egeland+2017 Table 4: JD-2400000, original S, calibrated S, instrument."""
     rows = []
-    with open(os.path.join(DATA, "Egeland2017_table4_apjaa4e49t4_mrt.txt"), encoding="utf-8") as fh:
+    path = os.path.join(DATA, "Egeland2017_table4_apjaa4e49t4_mrt.txt")
+    if not os.path.exists(path):
+        raise FileNotFoundError(path + " is not redistributed in the reproduction package: run pipeline_v2/fetch_egeland_table4.py")
+    with open(path, encoding="utf-8") as fh:
         for ln in fh:
             f = ln.split()
             if len(f) == 4 and f[0].replace(".", "").isdigit() and f[3].startswith(("MWO", "NSO", "SSS")):

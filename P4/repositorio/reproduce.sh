@@ -5,6 +5,7 @@ set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 PY="${PYTHON:-python3}"
 export SOURCE_DATE_EPOCH=0
+"$PY" -I pipeline_v2/fetch_egeland_table4.py       # Table 4 of Egeland et al. is downloaded, not redistributed (needs network; or: --from FILE)
 "$PY" -I verify_reproduction.py --manifest        # the folder is exactly the published one
 "$PY" -I verify_reproduction.py --snapshot        # keep the published outputs in _published/ and clear them
 cd pipeline_v2

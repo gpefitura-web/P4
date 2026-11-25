@@ -8,7 +8,7 @@ authors:
   - family-names: "Borin Junior"
     given-names: "Airton M. S."
     affiliation: "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"
-abstract: "Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT."
+abstract: "Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017)."
 keywords:
   - critical slowing down
   - early-warning signals
