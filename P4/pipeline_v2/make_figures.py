@@ -56,7 +56,7 @@ ax.set_xticks(x); ax.set_xticklabels([f"min 1\n1971-75\nN={h1['min1']['n']}", f"
                                         f"grand min\n2004 on\nN={h1['grand']['n']}"])
 ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0085); ax.set_ylabel("sigma of S")
 ax.legend(frameon=False, loc="upper right", fontsize=10)
-save(fig, "figure1")
+save(fig, "Figure_1")
 
 # ---- Figure 2: annual series and rolling AR(1): HD 166620 and the Sun ---------------------------------------
 from matplotlib.ticker import MultipleLocator
@@ -95,7 +95,7 @@ handles = [Line2D([], [], color=BLUE, lw=2.0, label="original series"),
 fig.legend(handles=handles, loc="upper center", bbox_to_anchor=(0.5, 1.0), ncol=3, frameon=False, fontsize=9.5,
            handlelength=2.2, columnspacing=1.2)
 fig.tight_layout(rect=(0, 0, 1, 0.93))
-save(fig, "figure2")
+save(fig, "Figure_2")
 
 # ---- Figure 3: tau per star, AR(1), window 50 % ---------------------------------------------------------------
 d = res[(res.series == "S") & (res.frac == 0.5) & (res["stat"] == "ac1") & (res.config.isin(["none", "s1"]))]
@@ -128,7 +128,7 @@ handles = [Line2D([], [], marker="o", color=BLUE, ls="", ms=6, label="original s
            Line2D([], [], marker="D", color=ORANGE, ls="", ms=5.5, label="sigma = 1 yr residual"),
            Line2D([], [], marker=STAR, color=INK, ls="", ms=9, mew=1.3, label="p < 0.05")]
 ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.30), ncol=3, fontsize=10.5)
-save(fig, "figure3")
+save(fig, "Figure_3")
 open(os.path.join(OUT, "README.txt"), "w").write(f"Figures from pipeline_v2/make_figures.py. Font used: {FONT} (OFL; files and licence in pipeline_v2/fonts).\n"
                                                     "Super Mongo style, colour (D111). No figure number or caption inside the files. EPS and PDF.\n")
 print("figures written; font", FONT)

@@ -58,3 +58,14 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 - **Declaração de IA:** deixada para você no Overleaf (a seção existe, com o marcador "[To be written by the author in Overleaf.]").
 - **Ainda é seu, antes de submeter:** e-mail do autor correspondente (linha `\ead` comentada no `frontmatter`); confirmar financiamento, conflito de interesses e CRediT; repositório público ou DOI do Zenodo; regras da New Astronomy (`kit/revistas/new-astronomy/ficha.md`) e lista de elegíveis do acordo CAPES–Elsevier; texto alternativo das figuras; título final (em uso o seu: "…S-index of Sun-like stars").
 - Para regerar números, tabela e figuras e recompilar: `PYTHON=<python> bash P4/manuscrito/build.sh`; os blocos entre `%%% BEGIN/END GENERATED` do `main.tex` são regravados e o resto do texto não.
+
+## Conferência com o guia da New Astronomy (2026-11-25, D114)
+Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highlights em `highlights.docx` e `highlights.tex` (4 itens, 67 a 73 caracteres), notas da tabela abaixo dela, figuras `Figure_N`, legendas com título, seção de IA com o título exato do guia, referência `[dataset]` do HK Project, estilo de referência (qualquer estilo consistente; o da revista entra na prova).
+**Exigências do guia que dependem de você:**
+1. **Endereço postal** da afiliação e **e-mail** do autor correspondente (campos com marcador na página de título).
+2. **Dados de pesquisa, Opção C:** depositar dados processados e código num repositório (Zenodo, por exemplo) e informar o link na submissão; a seção de dados tem o marcador para o DOI.
+3. **Ferramenta de declarações da Elsevier** (conflito de interesses), com o `.docx` anexado.
+4. **Enviar `highlights.docx` como arquivo separado** na submissão.
+5. **Declaração de IA** (você escreve no Overleaf). O guia dá o modelo e a dispensa para verificadores de gramática, ortografia e referências. As figuras são gráficos derivados dos dados por código reprodutível, o que o guia permite.
+6. Figura 2 reúne quatro painéis num arquivo; o guia desaconselha combinar imagens, com exceção das feitas para comparação. Se o editor pedir, separo em dois arquivos.
+7. Opcional: consulta prévia ao editor-chefe sobre o escopo (o guia convida a isso).

@@ -127,20 +127,14 @@
 \author[iftm]{Airton M. S. Borin Junior\corref{cor1}}
 % \ead{corresponding author e-mail, to be added by the author}
 \cortext[cor1]{Corresponding author}
-\affiliation[iftm]{organization={Instituto Federal do Tri\^angulo Mineiro (IFTM)}, city={Uberaba}, country={Brazil}}
+\affiliation[iftm]{organization={Instituto Federal do Tri\^angulo Mineiro (IFTM)}, addressline={[street and number, to be added by the author]}, city={Uberaba}, postcode={[postal code]}, state={MG}, country={Brazil}}
 \begin{abstract}
-Some Sun-like stars lose their activity cycle, as the Sun did in the Maunder minimum. If such a loss behaves like a critical transition, the lag-1 autocorrelation and the variance of the activity record should rise beforehand. We test this on annual means of the Mount Wilson Ca\,\textsc{ii} H and K index (S) for \NStarsRun{} stars and for a composite solar record, in segments of \LMin{} to \NSunYears{} years. Rolling-window indicators are computed for the original series and three detrended versions, and tested against \NSurr{} surrogates from autoregressive moving-average (ARMA) models that reproduce the gaps and interpolation of the data. HD~166620, a candidate for entering a grand minimum, has lower S-index variability in the grand minimum than in two earlier cycle minima (H1, confirmatory, using intervals already published). No segment shows a consistent rise in the temporal indicators (H2). The Mount Wilson record of HD~166620 ends before its transition, so H2 could not be tested as designed, and the other segments are a null scan of series with no known transition. The surrogate test has nominal size (\AutoUp\,\% and \AutoLo\,\% rejection for the upper and lower tail at a nominal 5\,\%) but little power at these lengths. Two group differences in normalized variance survive a Holm multiple-test correction within blocks, but not over all tests; we attribute them to cycle amplitude, which we did not test.
+Some Sun-like stars lose their activity cycle, as the Sun did in the Maunder minimum. If such a loss behaves like a critical transition, the lag-1 autocorrelation and the variance of the activity record should rise beforehand. We test this on annual means of the Mount Wilson Ca\,\textsc{ii} H and K index (S) for \NStarsRun{} stars and for a composite solar record, in segments of \LMin{} to \NSunYears{} years. Rolling-window indicators are computed for the original series and three detrended versions, and tested against \NSurr{} surrogates from autoregressive moving-average (ARMA) models that reproduce the gaps and interpolation of the data. HD~166620, a candidate for entering a grand minimum, has lower S-index variability in the grand minimum than in two earlier cycle minima (H1, confirmatory, using intervals already published). No segment shows a consistent rise in the temporal indicators (H2, exploratory). The Mount Wilson record of HD~166620 ends before its transition, so H2 could not be tested as designed, and the other segments are a null scan of series with no known transition. The surrogate test has nominal size (\AutoUp\,\% and \AutoLo\,\% rejection for the upper and lower tail at a nominal 5\,\%) but little power at these lengths. Two group differences in normalized variance survive a Holm multiple-test correction within blocks, but not over all tests; we attribute them to cycle amplitude, which we did not test.
 \end{abstract}
 \begin{keyword}
-critical slowing down \sep early-warning signals \sep stellar activity cycles \sep Ca\,\textsc{ii} H and K \sep S index \sep Maunder minimum
+critical slowing down \sep early-warning signals \sep stellar activity cycles \sep chromospheric activity \sep S index \sep Maunder minimum
 \end{keyword}
-% Highlights: Elsevier journals often ask for them; whether New Astronomy does is not confirmed. Uncomment if required.
-% \begin{highlights}
-% \item Variability of HD 166620 is lower in its grand minimum than in cycle minima
-% \item No segment shows a consistent rise in lag-1 autocorrelation or variance
-% \item The test has nominal size but low power at 24 to 40 years
-% \item The HD 166620 record ends before the transition: the analysis is a null scan
-% \end{highlights}
+% Highlights are required by New Astronomy as a separate editable file (highlights.docx / highlights.tex), 3 to 5 bullets of at most 85 characters.
 \end{frontmatter}
 
 \section{Introduction}
@@ -157,7 +151,7 @@ We declared two hypotheses before computing any indicator on a real star. H1 (co
 
 \subsection{Sample and series}
 
-The catalog is the frozen version of the star table in Baliunas et al.\ \cite{baliunas1995} (their Table~2, \NCatalog{} stars). Its classes are Flat (S-index scatter below about 1--1.5\,\% of the mean), Cycle (a cycle period with a false-alarm class; we use the ``excellent'' ones), Var (variable without a periodic signal) and Long (variability on timescales longer than 25 years). Series come from three sources: the \NBaumStars{} stars of Baum et al.\ \cite{baum2022} (their Table~1; points flagged as outliers are removed, points flagged both as one-day and outlier are kept), the \NVTwoStars{} stars of the HK Project v2001 files, and the calibrated solar S index of Egeland et al.\ \cite{egeland2017} (their Table~4, 1966--2016, a composite of several instruments). Calibration stars, two binaries and stars with no series in any source were excluded before any indicator was computed. Our binarity rule leaves five clean Flat stars, of which four have a series. The stars analyzed are \NGroupFlat{} Flat, \NGroupCycle{} Cycle, \NGroupVar{} Var and \NGroupLong{} Long, plus the Sun, which is treated as exploratory.
+The catalog is the frozen version of the star table in Baliunas et al.\ \cite{baliunas1995} (their Table~2, \NCatalog{} stars). Its classes are Flat (S-index scatter below about 1--1.5\,\% of the mean), Cycle (a cycle period with a false-alarm class; we use the ``excellent'' ones), Var (variable without a periodic signal) and Long (variability on timescales longer than 25 years). Series come from three sources: the \NBaumStars{} stars of Baum et al.\ \cite{baum2022} (their Table~1; points flagged as outliers are removed, points flagged both as one-day and outlier are kept), the \NVTwoStars{} stars of the HK Project v2001 files \cite{radick2018}, and the calibrated solar S index of Egeland et al.\ \cite{egeland2017} (their Table~4, 1966--2016, a composite of several instruments). Calibration stars, two binaries and stars with no series in any source were excluded before any indicator was computed. Our binarity rule leaves five clean Flat stars, of which four have a series. The stars analyzed are \NGroupFlat{} Flat, \NGroupCycle{} Cycle, \NGroupVar{} Var and \NGroupLong{} Long, plus the Sun, which is treated as exploratory.
 
 For the temporal indicators each star is reduced to annual means of S, the mean of all observations in a calendar year. Only the Mount Wilson era is used, so no segment crosses the change to Keck; the change between the two Mount Wilson photometers inside that era is not corrected, and the solar composite combines five instruments as calibrated by Egeland et al. Gaps of one or two missing years are filled by linear interpolation and the filled points are marked; gaps of three or more years split the series into segments. Indicators are computed only in segments of at least \MinSeg{} years, so that a window of 50\,\% has at least 12 points and 13 windows. Segments of \MinSeg--\LowMax{} years are labeled low precision and their results exploratory; segments of \AdeqMin{} years or more are labeled adequate. Such a segment exists in \NStarsRun{} stars (\LMin--\LMax{} years) and in the Sun (\NSunYears{} years); \NNotRun{} further stars have a Mount Wilson segment shorter than \MinSeg{} years and receive a description only.
 
@@ -252,7 +246,8 @@ Sun$^{b}$ & Sun & 1966--2016 & 51 & 2 & 0.66 & +0.26 & 0.321 & +0.25 & 0.272 & 0
 \hline
 \end{tabular}
 %%% END GENERATED TABLE
-\caption{Segments analyzed. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance (the other two configurations are not shown). $^{a}$ $B\!-\!V$ outside 0.44--0.82. $^{b}$ Composite of several instruments; exploratory.}
+\par\smallskip\noindent\parbox{\textwidth}{\footnotesize $^{a}$ $B\!-\!V$ outside 0.44--0.82. $^{b}$ Composite of several instruments; exploratory.}
+\caption{Segments analyzed. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance (the other two configurations are not shown).}
 \label{tab:seg}
 \end{table}
 
@@ -270,20 +265,20 @@ The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \Pr
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.6\textwidth]{figures/figure1}
-\caption{Variability $\sigma$ of the S index of HD~166620 in three states (data of Luhn et al.). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (method A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (method B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
+\includegraphics[width=0.6\textwidth]{figures/Figure_1}
+\caption{Variability of HD~166620 by state. Standard deviation $\sigma$ of the S index in three states (data of Luhn et al.). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (method A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (method B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
 \label{fig:h1}
 \end{figure}
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/figure2}
-\caption{Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed) for HD~166620 (Mount Wilson era) and the Sun (composite series of Egeland et al.; exploratory). Open circles mark interpolated years: none for HD~166620, two for the Sun. The two panels have different vertical ranges. Bottom: rolling lag-1 autocorrelation (AC) in a window of 50\,\% of the segment (\WinHD{} years for HD~166620, \WinSun{} for the Sun), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The horizontal axes share one scale in years.}
+\includegraphics[width=\textwidth]{figures/Figure_2}
+\caption{Annual series and rolling lag-1 autocorrelation. Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed) for HD~166620 (Mount Wilson era) and the Sun (composite series of Egeland et al.; exploratory). Open circles mark interpolated years: none for HD~166620, two for the Sun. The two panels have different vertical ranges. Bottom: rolling lag-1 autocorrelation (AC) in a window of 50\,\% of the segment (\WinHD{} years for HD~166620, \WinSun{} for the Sun), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The horizontal axes share one scale in years.}
 \label{fig:roll}
 \end{figure}
 \begin{figure}[t]
 \centering
-\includegraphics[width=\textwidth]{figures/figure3}
-\caption{Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). The Sun's two markers nearly coincide.}
+\includegraphics[width=\textwidth]{figures/Figure_3}
+\caption{Trend of the rolling autocorrelation by star. Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). The Sun's two markers nearly coincide.}
 \label{fig:tau}
 \end{figure}
 
@@ -320,9 +315,9 @@ The author declares no known competing financial interests or personal relations
 This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
 
 \section*{Data availability}
-The series come from public sources cited in the Methods: the HK\_\allowbreak Project\_\allowbreak v2001\_\allowbreak NSO files (Harvard Dataverse, doi:10.7910/DVN/H85QPF), the VizieR tables of Baum et al., Luhn et al.\ and Isaacson et al., and the solar series of Egeland et al. The code, the processed results, the log of analysis decisions and the sources of this manuscript are in the repository \url{https://github.com/gpefitura-web/P4}, to be archived with a persistent identifier at publication.
+The series come from public sources cited in the Methods: the HK\_\allowbreak Project\_\allowbreak v2001\_\allowbreak NSO files \cite{radick2018}, the VizieR tables of Baum et al., Luhn et al.\ and Isaacson et al., and the solar series of Egeland et al. The code, the processed results, the log of analysis decisions and the sources of this manuscript are deposited at [repository and DOI, to be added by the author before submission], and also in \url{https://github.com/gpefitura-web/P4}.
 
-\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
 [To be written by the author in Overleaf.]
 
 \section*{Acknowledgements}

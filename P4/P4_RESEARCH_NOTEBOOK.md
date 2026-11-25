@@ -808,6 +808,10 @@ O alvo é a New Astronomy (Elsevier, híbrida). Isto **escolhe uma revista difer
 **Data:** 2026-11-25 · **Autor:** pesquisador ("Apenas verifique tudo e feche a versão final. Deixe a declaração de IA para fazermos manual no overleaf") executado por Claude · **Base:** D105–D112 · **Status:** ativa · **Grau:** decisão humana e registro de verificação
 Verificado e fechado: testes dos passos 1–7 (todos passam), blocos gerados de `main.tex` reproduzidos idênticos a partir de `pipeline_v2/results/` (que não foi alterado desde a execução única de D105), números do texto conferidos contra os resultados, dez citações e dez entradas do BibTeX em correspondência, figuras com uma só fonte incorporada (Courier Prime), referência congelada com os cinco hashes de `APROVACAO_2026-11-24.md` intactos, nenhum nome de ferramenta de IA nos arquivos de `manuscrito/`. Título em uso: redação do autor. A **declaração de IA fica para o autor escrever no Overleaf** (marcador no texto). Pacote para o Overleaf: `manuscrito_overleaf.zip`. Pendências do autor em `MANUSCRITO_PENDENCIAS.md`.
 
+### D114 — Manuscrito conferido contra o guia para autores da New Astronomy
+**Data:** 2026-11-25 · **Autor:** Claude, a pedido do pesquisador (que enviou o guia) · **Base:** guia impresso em 2026-11-11 (`kit/revistas/new-astronomy/ficha.md`) · **Status:** ativa · **Grau:** registro de verificação
+Ajustes: palavras-chave dentro de 1 a 7 e sem "and"; resumo com 226 palavras e H2 definido; highlights (obrigatórios, 3 a 5 itens de até 85 caracteres) em arquivo separado (`highlights.docx`, `highlights.tex`); afiliação com campos de endereço postal; notas da Tabela 2 abaixo do corpo da tabela; figuras renomeadas `Figure_1` a `Figure_3` e legendas com título curto; seção de IA com o título exato do guia (texto fica para o autor); referência `[dataset]` do HK_Project_v2001_NSO (autores e DOI conferidos no DataCite); seção de dados com espaço para o depósito. **Opção C de dados:** o guia exige depósito em repositório com link na submissão; isso é pendência do autor. Nenhum resultado foi alterado.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana
