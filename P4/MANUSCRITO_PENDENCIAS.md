@@ -84,3 +84,7 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 - `repositorio/` e o zip do Zenodo **não contêm mais a Tabela 4**; `fetch_egeland_table4.py` a baixa e confere o sha256. Prova em pasta limpa refeita: **`REPRODUCTION OK`** (resultados numericamente iguais; texto, tabela e as oito figuras idênticos byte a byte).
 - Novo sha256 do zip: `b77db449155e17acbfd04cc7494f0bf8cee39891622a412cbcf082b17db7e8b0` (95 arquivos mais o manifesto). Quem reproduz precisa de rede uma vez (ou `--from` com cópia local).
 - Pendente, seu: a seção de dados do manuscrito pode dizer que a série solar é baixada de Egeland et al. (já está citada); decidir se acrescenta isso em uma frase.
+
+## Rastreabilidade das contagens e constantes (2026-11-25, D119)
+- Contagens e probabilidades antes digitadas viraram macros; `check_manuscript_constants.py` (no `reproduce.sh`) confronta as constantes de projeto do texto com o código; `test_step1.py` liga 112, Flat limpas, calibração e binárias ao catálogo. Duas correções de texto: janelas de 14 a 26 pontos (não 12 a 26) e comparação R'HK em 28 a 51 pontos (não 28 a 36). Detalhe e o que resta em `RASTREABILIDADE_PENDENTE.md`.
+- Pacote e zips refeitos; prova em pasta limpa registrada na D119.

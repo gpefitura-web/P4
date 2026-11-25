@@ -27,4 +27,4 @@ Formato do kit: o que aconteceu, a regra que teria evitado, onde a regra deve en
 | L21 | Uma cópia de dados de terceiros (Tabela 4 de Egeland, "All rights reserved") quase foi para o depósito público | D117 | Antes de copiar qualquer dado de terceiros para um depósito, checar os termos; preferir download com hash | `ZENODO_DEPOSITO.md` |
 | L22 | Revisores leram um PDF compilado antes da última edição | revisão de leitura | Recompilar antes de qualquer leitura final e conferir a data do PDF contra o fonte | `build.sh` |
 | L23 | Números digitados no texto sobreviveram às macros (contagens e probabilidades) | `RASTREABILIDADE_PENDENTE.md` | Varredura de literais numéricos fora dos blocos gerados como parte da prova | próximo chat |
-
+| L24 | Contagens digitadas à mão estavam erradas em dois pontos (janelas "12 a 26" eram 14 a 26; "28 a 36 pontos" omitia o Sol) | macros de D119 | Gerar a contagem do dado antes de escrever a frase; deixar um verificador confrontar o texto com o código | `check_manuscript_constants.py` |

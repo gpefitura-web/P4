@@ -26,7 +26,7 @@ for f in sorted(glob.glob(os.path.join(ROOT, "data/HK_Project_v2001_NSO/*"))):
     cp(os.path.relpath(f, ROOT))
 # code, tests, fonts
 for f in ("fetch_egeland_table4", "p4io", "annual", "indicators", "detrend", "surrogates", "state_comparison", "rhk", "run_all", "group_primary",
-          "report", "make_macros", "make_tables", "make_figures", "power_simulation",
+          "report", "check_manuscript_constants", "make_macros", "make_tables", "make_figures", "power_simulation",
           "test_step1", "test_step2", "test_step3", "test_step4", "test_step5", "test_step6", "test_step7"):
     cp(f"pipeline_v2/{f}.py")
 for f in ("CourierPrime-Regular.ttf", "CourierPrime-Bold.ttf", "CourierPrime-Italic.ttf", "OFL.txt"):
@@ -54,7 +54,7 @@ data_rows = "\n".join(f"| `{os.path.relpath(p, OUT)}` | `{sha(p)[:16]}…` |" fo
                       [os.path.join(OUT, "consolidacao/p4_star_catalog.csv"), os.path.join(OUT, "data/J_AJ_163_183_table1.tsv"),
                        os.path.join(OUT, "data/J_ApJ_936_L23_table2.tsv")])
 
-open(os.path.join(OUT, "requirements.txt"), "w").write("numpy==2.5.5\npandas==3.1.1\nscipy==1.18.1\nstatsmodels==0.15.0\nmatplotlib==3.11.2\npython-docx==1.2.0\n")
+open(os.path.join(OUT, "requirements.txt"), "w").write("numpy==2.5.5\npandas==3.1.1\nscipy==1.18.1\nstatsmodels==0.15.0\nmatplotlib==3.11.2\nfonttools==4.68.0\npython-docx==1.2.0\n")
 
 open(os.path.join(OUT, "reproduce.sh"), "w").write('''#!/usr/bin/env bash
 # Reproduces every number, table and figure of the manuscript from the input data and compares them with the published outputs.
@@ -76,6 +76,7 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
 "$PY" -I make_figures.py
+"$PY" -I check_manuscript_constants.py | tail -1   # design constants written in main.tex vs the code
 cd ..
 "$PY" -I verify_reproduction.py --compare
 if command -v pdflatex >/dev/null; then
@@ -217,6 +218,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | R'_HK (Sect. 3.3) | `rhk.py`, `run_all.py` | `results/star_results.csv` (series `RHK`) |
 | Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
+| Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
 | Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
 | Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
 | Facts report | `report.py` | `results/REPORT.md` |
