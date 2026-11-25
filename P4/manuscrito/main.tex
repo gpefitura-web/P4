@@ -1,11 +1,14 @@
-% Neutral draft layout. The journal is not chosen yet (open item); replace this file with the journal module's main.tex.
-\documentclass[11pt]{article}
+% Manuscript for New Astronomy (Elsevier), class elsarticle (review format).
+% The text, the constants, the abstract and the two generated blocks (macros, Table 2) are all in this file; only
+% figures/ and references.bib are separate. Blocks between %%% BEGIN/END GENERATED markers are rewritten by build.sh.
+\documentclass[preprint,12pt]{elsarticle}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[utf8]{inputenc}
-\usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx,amsmath,booktabs}
 \DeclareGraphicsExtensions{.pdf,.png}
+\journal{New Astronomy}
+
 %%% BEGIN GENERATED MACROS (pipeline_v2/make_macros.py; do not edit between the markers)
 \newcommand{\NSegments}{24}
 \newcommand{\NStarsRun}{23}
@@ -116,14 +119,28 @@
 \newcommand{\SizeLo}{3}         % accepted range of the size check, percent, fixed before the run
 \newcommand{\SizeHi}{7}
 
-\title{Critical slowing down near stellar activity minima: a test on Mount Wilson S-index series}
-\author{Draft; author block to be completed by the author}
-\date{}
 \begin{document}
-\maketitle
+\begin{frontmatter}
+\title{Critical slowing down near stellar activity minima: a test on Mount Wilson S-index series}
+\author[iftm]{Airton M. S. Borin Junior\corref{cor1}}
+% \ead{corresponding author e-mail, to be added by the author}
+\cortext[cor1]{Corresponding author}
+\affiliation[iftm]{organization={Instituto Federal do Tri\^angulo Mineiro (IFTM)}, city={Uberaba}, country={Brazil}}
 \begin{abstract}
 Some Sun-like stars lose their activity cycle, as the Sun did in the Maunder minimum. If such a loss behaves like a critical transition, the lag-1 autocorrelation and the variance of the activity record should rise beforehand. We test this on annual means of the Mount Wilson Ca\,\textsc{ii} H and K index (S) for \NStarsRun{} stars and for a composite solar record, in segments of \LMin{} to \NSunYears{} years. Rolling-window indicators are computed for the original series and three detrended versions, and tested against \NSurr{} ARMA surrogates that reproduce the gaps and interpolation of the data. HD~166620, a candidate for entering a grand minimum, has lower S-index variability in the minimum than in two earlier cycle minima (H1, confirmatory, using intervals already published). No segment shows a consistent rise in the temporal indicators (H2). The Mount Wilson record of HD~166620 ends before its transition, so H2 could not be tested as designed, and the other segments are a null scan of series with no known transition. The surrogate test has nominal size (\AutoUp\,\% and \AutoLo\,\% at a nominal 5\,\%) but little power at these lengths. Two group differences in normalized variance survive Holm correction within blocks, but not over all tests; we attribute them to cycle amplitude, which we did not test.
 \end{abstract}
+\begin{keyword}
+critical slowing down \sep early-warning signals \sep stellar activity cycles \sep Ca\,\textsc{ii} H and K \sep S index \sep Maunder minimum
+\end{keyword}
+% Highlights: Elsevier journals often ask for them; whether New Astronomy does is not confirmed. Uncomment if required.
+% \begin{highlights}
+% \item Variability of HD 166620 is lower in its grand minimum than in cycle minima
+% \item No segment shows a consistent rise in lag-1 autocorrelation or variance
+% \item The test has nominal size but low power at 24 to 40 years
+% \item The HD 166620 record ends before the transition: the analysis is a null scan
+% \end{highlights}
+\end{frontmatter}
+
 \section{Introduction}
 
 Stars of roughly solar type show chromospheric activity that is cyclic in some, irregular in others and nearly constant in a few \cite{baliunas1995}. The Sun itself went through the Maunder minimum, when the cycle was strongly suppressed \cite{usoskin2017}. We ask whether a star about to lose its cycle gives a warning.
@@ -180,7 +197,7 @@ On synthetic AR(1) series with no trend, the test rejected at the 5\,\% level in
 
 Table~\ref{tab:h1} gives the three states. The mean S is lower in the grand minimum (\HOneMeanGrand) than in minimum~1 (\HOneMeanMinOne), a difference we did not test. The variability $\sigma_S$ (method A) falls from \HOneSigAMinOne{} in minimum~1 to \HOneSigAGrand{} in the grand minimum; minimum~2 has the largest value, \HOneSigAMinTwo{} (Fig.~\ref{fig:h1}). Method B gives the same ordering (\HOneSigBMinOne, \HOneSigBMinTwo, \HOneSigBGrand). The $F$ test of minimum~1 against the grand minimum gives $p = $ \HOnePRaw{} with the raw variances and $p = $ \HOnePCorrA{} with the corrected ones (method A), and $p = $ \HOnePCorrB{} with method B; minimum~2 against the grand minimum gives \HOnePTwoBound{} in every version. The $p$ values are reported to one significant figure because the test treats clustered, autocorrelated observations as independent.
 
-\begin{table}[h]
+\begin{table}[t]
 \centering
 \begin{tabular}{lrrrrr}
 \hline
@@ -199,7 +216,7 @@ Grand minimum (2004--) & \HOneNGrand & \HOneMeanGrand & \HOneRawGrand & \HOneSig
 \label{sec:temporal}
 
 \begin{table}[p]
-\centering\small
+\centering\footnotesize\setlength{\tabcolsep}{3pt}
 %%% BEGIN GENERATED TABLE (pipeline_v2/make_tables.py; do not edit between the markers)
 \begin{tabular}{llrrrrrrrrr}
 \hline
@@ -249,19 +266,19 @@ Converting S to $R'_{\rm HK}$ leaves $\tau$ unchanged in all \RHKNCompare{} comp
 
 The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \PrimN$ and \PrimNFlat{} stars, $U = \PrimU$, $p = \PrimP$; the medians of the lag-1 autocorrelation are \PrimMedVL{} and \PrimMedFlat. Of the \NHolmTests{} remaining tests, \NRawSig{} have an uncorrected $p < 0.05$. With Holm within blocks, \NHolmSig{} remain below 0.05, both Cycle against Flat in the normalized variance: with $\sigma = 1$, $p = $ \CycFlatPSOne{} and $p_{\rm Holm} = $ \CycFlatHolmSOne; for the original series, $p = $ \CycFlatPNone{} and $p_{\rm Holm} = $ \CycFlatHolmNone. With Holm over all \NHolmTests{} tests, \NHolmSigThirty{} remain (the same two comparisons give \CycFlatHolmThirtySOne{} and \CycFlatHolmThirtyNone).
 
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/figure1}
 \caption{Variability $\sigma$ of the S index of HD~166620 in three states (data of Luhn et al.). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (method A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (method B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
 \label{fig:h1}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/figure2}
 \caption{Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed) for HD~166620 (Mount Wilson era) and the Sun (composite series of Egeland et al.; exploratory). Open circles mark interpolated years: none for HD~166620, two for the Sun. The two panels have different vertical ranges. Bottom: rolling lag-1 autocorrelation in a window of 50\,\% of the segment (\WinHD{} years for HD~166620, \WinSun{} for the Sun), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The horizontal axes share one scale in years.}
 \label{fig:roll}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/figure3}
 \caption{Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). The Sun's two markers nearly coincide.}
@@ -289,11 +306,25 @@ The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \Pr
 \item A decisive test needs a series that runs through a transition, a power curve at the real segment lengths with a cycle present, and an analysis of the loss of a limit cycle, for which we know of no predicted sign.
 \end{enumerate}
 
-% Author's declarations (conflicts of interest, funding, data and code availability, acknowledgements, AI-use statement):
-% to be written by the author. Data and code: the repository with the pipeline and the results.
+% Declarations required by Elsevier: to be written by the author (the AI-use statement is the author's decision and wording).
+\section*{CRediT authorship contribution statement}
+[To be completed by the author.]
+
+\section*{Declaration of competing interest}
+[To be completed by the author.]
+
+\section*{Funding}
+[To be completed by the author.]
+
 \section*{Data availability}
 Series are from the public sources cited in the Methods; the processed results and the code are in the project repository (link to be added at publication).
 
-\bibliographystyle{plain}
+\section*{Declaration of generative AI and AI-assisted technologies in the writing process}
+[To be decided and written by the author.]
+
+\section*{Acknowledgements}
+[To be completed by the author.]
+
+\bibliographystyle{elsarticle-num}
 \bibliography{references}
 \end{document}

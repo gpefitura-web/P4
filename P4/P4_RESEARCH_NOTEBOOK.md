@@ -800,6 +800,10 @@ Criados `manuscrito/` (layout neutro, inglês; macros, tabela e figuras geradas 
 **Data:** 2026-11-25 · **Autor:** pesquisador ("Vamos tornar as figuras coloridas"; "Use a fonte Courier Prime. Estilo Supermongo"; "Faça todas as revisões necessárias") executado por Claude · **Base:** D110, `REVISOES_INDEPENDENTES.md` · **Status:** ativa · **Grau:** decisão humana (estilo) e registro de execução
 As figuras passam a ser coloridas (paleta de três cores validada para daltonismo, papéis fixos entre figuras), no estilo Super Mongo do Kit (Courier Prime incorporada, uma só fonte, ticks para dentro nos quatro lados, sem grade, sem letras gregas), o que **substitui a regra de preto e branco do Kit para este artigo**. A fonte (OFL) está em `pipeline_v2/fonts/`. Seis revisões independentes (três de figuras, três de texto) foram feitas e aplicadas conforme `REVISOES_INDEPENDENTES.md`. O texto passou a declarar que H2 não era testável como projetado e a relatar as duas famílias de Holm. Nenhum resultado computado foi alterado. A revista continua sem escolha (`RECOMENDACAO_REVISTA.md`).
 
+### D112 — Revista-alvo: New Astronomy (Elsevier)
+**Data:** 2026-11-25 · **Autor:** pesquisador ("Ajustar o manuscrito para New Astronomy") · **Base:** `RECOMENDACAO_REVISTA.md`, `SUBSIDIOS_REVISTA.md`, `COMPARACAO_REVISTAS_SEM_TAXA.md` · **Status:** ativa · **Grau:** decisão humana
+O alvo é a New Astronomy (Elsevier, híbrida). Isto **escolhe uma revista diferente da primeira recomendação** (Solar Physics, que ficou como alternativa). O manuscrito passa ao formato `elsarticle` (`preprint,12pt`), com moldura Elsevier (título, autor, afiliação, resumo, palavras-chave), seções de declarações (CRediT, conflito de interesses, financiamento, disponibilidade de dados, IA, agradecimentos) e `elsarticle-num`. Ficha da revista em `kit/revistas/new-astronomy/ficha.md`, com o que não foi confirmado. Nenhum resultado foi alterado. O título continua o mesmo, à espera de sua decisão.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana

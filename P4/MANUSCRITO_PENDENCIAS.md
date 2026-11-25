@@ -25,3 +25,10 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 - `manuscrito/main.tex` agora contém **todo o manuscrito** (resumo, seções, tabelas, legendas, constantes de projeto). Só as figuras (`figures/`) e `references.bib` são arquivos separados, como exige o LaTeX.
 - Os números continuam vindo de macros, mas as definições ficam em um bloco marcado dentro do próprio `main.tex` (`%%% BEGIN/END GENERATED MACROS`) e a Tabela 2 em outro (`%%% BEGIN/END GENERATED TABLE`). `build.sh` regrava esses dois blocos a partir de `pipeline_v2/results/`; **edite o texto à vontade fora dos blocos marcados**. Os arquivos `sec_*.tex`, `results_macros.tex`, `results_extra.tex` e `tab_segments.tex` foram removidos.
 - Subsídios para a escolha da revista (inclui New Astronomy): `SUBSIDIOS_REVISTA.md`.
+
+## Atualização de 2026-11-25 (formato New Astronomy, D112)
+- `main.tex` agora usa `elsarticle` (`preprint,12pt`, `\journal{New Astronomy}`) com `frontmatter` e `elsarticle-num`. Compila em 13 páginas (formato de revisão em coluna única). Autor e afiliação preenchidos (IFTM, Uberaba; confira a grafia da afiliação); **e-mail do autor correspondente em branco**, para você inserir.
+- Seções de declarações criadas com marcadores "[To be completed by the author.]": CRediT, conflito de interesses, financiamento, agradecimentos, e a declaração de uso de IA (decisão e redação suas).
+- Highlights escritos e **comentados** no `frontmatter`; descomente se o guia da revista pedir.
+- **Não confirmado** (o guia da New Astronomy não foi achado nas buscas): limite do resumo e de páginas, número de palavras-chave, estilo de referência (numerado, em uso, ou autor-ano; trocar por `elsarticle-harv`), resumo gráfico, exigência de highlights. Lista em `kit/revistas/new-astronomy/ficha.md`.
+- Ainda abertos: título, biblioteca do IFTM (lista de elegíveis do acordo CAPES–Elsevier e participação), BibTeX com autores truncados (Baliunas, Isaacson), texto alternativo das figuras.
