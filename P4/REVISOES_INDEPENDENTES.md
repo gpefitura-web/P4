@@ -33,3 +33,7 @@ Seis revisores independentes (agentes sem contexto prévio, só leitura): três 
 ## Sugestões de título (sua decisão)
 1. "A null scan for critical slowing down in Mount Wilson S-index series"
 2. "Looking for critical slowing down before the loss of a stellar activity cycle: a null result from Mount Wilson series"
+
+## Rodada de revisão de leitura (2026-11-25, formato New Astronomy)
+Um revisor independente leu o PDF compilado de ponta a ponta. Aplicado: títulos de parágrafo sem ponto duplo, "23 segmentos" (e não 24) na Discussão, conclusão 2 sem a afirmação "só detectaria tendência forte" (o texto agora diz "pouco poder contra a elevação modesta simulada"), tabelas dos artigos citados escritas como "their Table N" para não colidir com as tabelas deste, hipótese H2 igual na Introdução e nos Métodos, 30 testes de Holm explicados (5 pares × 6 blocos), variância normalizada definida, AIC, AC e HD definidos, F-test do método B descrito, linha do Sol rotulada "Sun", legenda da Tabela 2, abstract com "grand minimum" e "Holm multiple-test correction", ortografia americana ("catalog"). Verificado por mim: o p do F-test bruto (F = 2.95, 43 e 102 graus de liberdade, p bilateral 8.8e-6) reproduz o valor publicado. Não aplicado: DOI de Noyes et al. (não há DOI nos arquivos do projeto; completar do ADS).
+Título provisório em uso: "A null scan for critical slowing down in Mount Wilson S-index series of Sun-like stars" (alternativas em `SUGESTOES_TITULO.md`).

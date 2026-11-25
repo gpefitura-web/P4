@@ -32,3 +32,8 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 - Highlights escritos e **comentados** no `frontmatter`; descomente se o guia da revista pedir.
 - **Não confirmado** (o guia da New Astronomy não foi achado nas buscas): limite do resumo e de páginas, número de palavras-chave, estilo de referência (numerado, em uso, ou autor-ano; trocar por `elsarticle-harv`), resumo gráfico, exigência de highlights. Lista em `kit/revistas/new-astronomy/ficha.md`.
 - Ainda abertos: título, biblioteca do IFTM (lista de elegíveis do acordo CAPES–Elsevier e participação), BibTeX com autores truncados (Baliunas, Isaacson), texto alternativo das figuras.
+
+## Estado em 2026-11-25 (após a revisão de leitura)
+- Texto revisado e compilado (14 páginas em formato de revisão da New Astronomy), título provisório em uso (`SUGESTOES_TITULO.md`).
+- **Falta, e é seu:** e-mail do autor correspondente; CRediT, conflito de interesses, financiamento, agradecimentos e declaração de uso de IA (marcadores no texto); link do repositório na seção de dados; confirmação das regras da revista (`kit/revistas/new-astronomy/ficha.md`); lista de elegíveis do acordo CAPES–Elsevier; título definitivo.
+- **Falta, técnico:** BibTeX com autores completos de Baliunas e Isaacson e DOI de Noyes (do ADS); texto alternativo das figuras.

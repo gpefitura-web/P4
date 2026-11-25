@@ -8,7 +8,7 @@ res = pd.read_csv(os.path.join(R, "star_results.csv"), dtype={"HD": str})
 ran = seg[seg.rodou == "sim"].copy()
 lab = {"Flat_limpa": "Flat", "CYCLE_Excellent": "Cycle", "Var": "Var", "Long": "Long"}
 order = {"Flat_limpa": 0, "CYCLE_Excellent": 1, "Var": 2, "Long": 3}
-ran["o"] = ran.grupo.map(order).fillna(4); ran["hn"] = ran.HD.str.extract(r"(\d+)").astype(float).fillna(0)
+ran["o"] = ran.grupo.map(order).fillna(4); ran.loc[ran.HD == "(Sun)", "o"] = 4; ran["hn"] = ran.HD.str.extract(r"(\d+)").astype(float).fillna(0)
 ran = ran.sort_values(["o", "hn"])
 m = res[(res.series == "S") & (res.frac == 0.5)]
 rows = []
@@ -19,9 +19,10 @@ for _, r in ran.iterrows():
     def tp(c):
         return f"{ar.loc[c, 'tau']:+.2f}".replace("-", "$-$") + f" & {ar.loc[c, 'p_upper']:.3f}"
     hd = r.HD.replace("(Sun)", "Sun$^{b}$")
+    glab = "Sun" if r.HD == "(Sun)" else lab.get(r.grupo, r.grupo)
     dag = "" if str(r.banda_Rphot).startswith("DENTRO") else "$^{a}$"
     y0 = int(r.seg_year0)
-    rows.append(f"{hd} & {lab.get(r.grupo, r.grupo)} & {y0}--{y0 + int(r.L) - 1} & {int(r.L)} & {int(r.n_filled)} & {r.bv:.2f}{dag} & {tp('none')} & {tp('s1')} & {conc(d[d['stat'] == 'ac1'])}/{conc(d[d['stat'] == 'var'])} \\\\")
+    rows.append(f"{hd} & {glab} & {y0}--{y0 + int(r.L) - 1} & {int(r.L)} & {int(r.n_filled)} & {r.bv:.2f}{dag} & {tp('none')} & {tp('s1')} & {conc(d[d['stat'] == 'ac1'])}/{conc(d[d['stat'] == 'var'])} \\\\")
 hdr = ("\\begin{tabular}{llrrrrrrrrr}\n\\hline\nHD & Group & Years & $L$ & Interp. & $B\\!-\\!V$ & $\\tau$ & $p$ & $\\tau$ & $p$ & Conc. \\\\\n"
        " & & & & & & \\multicolumn{2}{c}{original series} & \\multicolumn{2}{c}{$\\sigma = 1$ yr} & AR/Var \\\\\n\\hline\n")
 block = hdr + "\n".join(rows) + "\n\\hline\n\\end{tabular}"
