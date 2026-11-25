@@ -40,19 +40,19 @@ The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \Pr
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.55\textwidth]{figures/figure1}
-\caption{$\sigma_S$ of HD~166620 in the three states: raw interval value, corrected account A and account B.}
+\includegraphics[width=0.6\textwidth]{figures/figure1}
+\caption{Variability $\sigma$ of the S index of HD~166620 in three states (Luhn et al.\ data). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (account A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (account B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
 \label{fig:h1}
 \end{figure}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/figure2}
-\caption{Annual S (top) and rolling lag-1 autocorrelation with a window of 50\,\% of the segment (bottom) for HD~166620 and the Sun, without removal (solid) and after a Gaussian smooth with $\sigma = 1$ year (dashed).}
+\caption{Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed) for HD~166620 (Mount Wilson era) and the Sun (composite series of Egeland et al.; exploratory). Open circles mark interpolated years: none for HD~166620, two for the Sun. The two panels have different vertical ranges. Bottom: rolling lag-1 autocorrelation in a window of 50\,\% of the segment (\WinHD{} years for HD~166620, \WinSun{} for the Sun), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The horizontal axes share one scale in years.}
 \label{fig:roll}
 \end{figure}
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{figures/figure3}
-\caption{Kendall $\tau$ of the rolling lag-1 autocorrelation for each segment, by group; asterisks mark $p < 0.05$ against the surrogates.}
+\caption{Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). The Sun's two markers nearly coincide.}
 \label{fig:tau}
 \end{figure}
