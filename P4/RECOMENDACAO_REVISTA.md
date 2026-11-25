@@ -1,6 +1,6 @@
 # Recomendação de revista para o P4, ampliada (2026-11-25)
 
-**Veja também `SUBSIDIOS_REVISTA.md`** (quadro de decisão com pesos seus, onde a literatura próxima foi publicada, perguntas à biblioteca e ao editor, e a New Astronomy).
+**Veja também `COMPARACAO_REVISTAS_SEM_TAXA.md` (AN, New Astronomy, RAA, ASR, RMxAA, Acta Astronomica e outras, sem taxa) e `SUBSIDIOS_REVISTA.md`** (quadro de decisão com pesos seus, onde a literatura próxima foi publicada, perguntas à biblioteca e ao editor, e a New Astronomy).
 
 **É recomendação, não decisão** (regra 5 do CLAUDE.md). Nenhuma D## registra a revista. Preços e regras vêm de buscas na web de hoje (fontes no fim); o que não foi confirmado está marcado "não confirmado". Confira no formulário da revista antes de submeter (kit, `SUBMISSAO.md`).
 
