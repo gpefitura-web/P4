@@ -1,8 +1,12 @@
 \section{Results}
 
+\subsection{Size and power of the surrogate test}
+
+On synthetic AR(1) series with no trend, the test rejected at the 5\,\% level in \AutoUp\,\% of the series with the upper-tail $p$ and in \AutoLo\,\% with the lower-tail $p$, inside the accepted range; it is slightly conservative. In the earlier power simulation, the AUC of $\tau$ for a rising coefficient against a constant one was \AUCTwentyFour{} for segments of 24 years, \AUCThirty{} for 30 and \AUCForty{} for 40 (1 would be perfect discrimination, 0.5 none). At the lengths used here the indicator therefore separates a rising autocorrelation from a stationary one only weakly, even without a cycle in the series.
+
 \subsection{H1: variability of HD~166620 by state}
 
-Table~\ref{tab:h1} gives the three states. The mean S falls from \HOneMeanMinOne{} in minimum~1 to \HOneMeanGrand{} in the grand minimum, and $\sigma_S$ (account A) from \HOneSigAMinOne{} to \HOneSigAGrand{}; minimum~2 has the largest, \HOneSigAMinTwo{} (Fig.~\ref{fig:h1}). The $F$ test of minimum~1 against the grand minimum gives $p = $ \HOnePRaw{} with the raw variances and $p = $ \HOnePCorrA{} with the corrected ones (account A); with account B the corrected value is $p = $ \HOnePCorrB{}. Minimum~2 against the grand minimum gives $p = $ \HOnePTwoRaw{} (raw) and $p = $ \HOnePTwoCorrA{} (corrected, account A).
+Table~\ref{tab:h1} gives the three states. The mean S is lower in the grand minimum (\HOneMeanGrand) than in minimum~1 (\HOneMeanMinOne), a difference we did not test. The variability $\sigma_S$ (method A) falls from \HOneSigAMinOne{} in minimum~1 to \HOneSigAGrand{} in the grand minimum; minimum~2 has the largest value, \HOneSigAMinTwo{} (Fig.~\ref{fig:h1}). Method B gives the same ordering (\HOneSigBMinOne, \HOneSigBMinTwo, \HOneSigBGrand). The $F$ test of minimum~1 against the grand minimum gives $p = $ \HOnePRaw{} with the raw variances and $p = $ \HOnePCorrA{} with the corrected ones (method A), and $p = $ \HOnePCorrB{} with method B; minimum~2 against the grand minimum gives \HOnePTwoBound{} in every version. The $p$ values are reported to one significant figure because the test treats clustered, autocorrelated observations as independent.
 
 \begin{table}[h]
 \centering
@@ -15,33 +19,36 @@ Minimum 2 (1987--91) & \HOneNMinTwo & \HOneMeanMinTwo & \HOneRawMinTwo & \HOneSi
 Grand minimum (2004--) & \HOneNGrand & \HOneMeanGrand & \HOneRawGrand & \HOneSigAGrand & \HOneSigBGrand \\
 \hline
 \end{tabular}
-\caption{HD~166620 by state: number of points, mean S, raw standard deviation of the interval, and $\sigma_S$ with the instrumental noise removed in quadrature, accounts A and B.}
+\caption{HD~166620 by state: number of observations, mean S, raw standard deviation of the interval, and $\sigma_S$ with the instrumental noise removed in quadrature, methods A and B.}
 \label{tab:h1}
 \end{table}
 
 \subsection{Temporal indicators}
+\label{sec:temporal}
 
 \begin{table}[p]
 \centering\small
 \input{tab_segments}
-\caption{Segments with an indicator. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance.}
+\caption{Segments with an indicator. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance (the other two configurations are not shown). $^{a}$ $B\!-\!V$ outside 0.44--0.82. $^{b}$ Composite of several instruments; exploratory.}
 \label{tab:seg}
 \end{table}
 
-Table~\ref{tab:seg} lists the \NSegments{} segments. With a window of 50\,\%, \NSigHalf{} of the \NCellsHalf{} combinations of segment, indicator and configuration have $\tau > 0$ and $p < 0.05$. No segment reaches three of four configurations for the lag-1 autocorrelation (maximum \MaxConcAR) or for the variance (maximum \MaxConcVar). Across all window lengths, the largest number of concordant configurations in one segment is \MaxConcSweep{} of 20. With the $\sigma = 1$ year residual, $\tau$ is positive in \NTauPosARSOne{} of \NSegments{} segments for the lag-1 autocorrelation and in \NTauPosVarSOne{} for the variance (Fig.~\ref{fig:tau}).
+Table~\ref{tab:seg} lists the \NSegments{} segments. With a window of 50\,\%, \NSigHalf{} of the \NCellsHalf{} combinations of segment, indicator and configuration have $\tau > 0$ and $p < 0.05$: HD~23249 for the original series ($\tau = +0.75$, $p = 0.032$) and HD~217014 for the $\sigma = 1$ residual ($\tau = +0.18$, $p = 0.026$), both for the lag-1 autocorrelation. No segment reaches three of four configurations for the lag-1 autocorrelation (maximum \MaxConcAR) or for the variance (maximum \MaxConcVar). Across all five window lengths, the largest number of concordant configurations in one segment is \MaxConcSweep{} of 20; we computed no null reference for this count.
 
-For HD~166620 ($L = $ \HDHL{} years, Mount Wilson era, which ends before the transition), the lag-1 autocorrelation has $\tau = $ \HDHTauNone{} ($p = $ \HDHPNone) without removal and $\tau = $ \HDHTauSOne{} ($p = $ \HDHPSOne) for the $\sigma = 1$ year residual (Fig.~\ref{fig:roll}); the variance has $\tau = $ \HDHVarTauNone{} ($p = $ \HDHVarPNone) and $\tau = $ \HDHVarTauSOne{} ($p = $ \HDHVarPSOne), respectively. For the Sun, the values are $\tau = $ \SunTauNone{} ($p = $ \SunPNone) and $\tau = $ \SunTauSOne{} ($p = $ \SunPSOne).
+For HD~166620 ($L = $ \HDHL{} years, Mount Wilson era, which ends before the transition) the window is \WinHD{} years. The lag-1 autocorrelation has $\tau = $ \HDHTauNone{} ($p = $ \HDHPNone) for the original series and $\tau = $ \HDHTauSOne{} ($p = $ \HDHPSOne) for the $\sigma = 1$ residual (Fig.~\ref{fig:roll}); the variance has $\tau = $ \HDHVarTauNone{} ($p = $ \HDHVarPNone) and $\tau = $ \HDHVarTauSOne{} ($p = $ \HDHVarPSOne). For the Sun (window \WinSun{} years) the lag-1 autocorrelation has $\tau = $ \SunTauNone{} ($p = $ \SunPNone) and $\tau = $ \SunTauSOne{} ($p = $ \SunPSOne).
 
-Converting S to $R'_{\rm HK}$ changes nothing in these indicators: the conversion is linear in S for a given $B\!-\!V$, and the largest difference in $\tau$ over \RHKNCompare{} comparisons is \RHKMaxDiff.
+Over the \NSegments{} segments, $\tau$ of the lag-1 autocorrelation is positive for the $\sigma = 1$ residual in \NTauPosARSOne{} and $\tau$ of the variance in \NTauPosVarSOne{} (Fig.~\ref{fig:tau}). Across the \NStarsMetric{} stars, the lag-1 autocorrelation of the whole longest segment has a median of \MedACNone{} for the original series (above 0.5 in \NACNoneHigh{} stars) and \MedACSOne{} for the $\sigma = 1$ residual.
+
+Converting S to $R'_{\rm HK}$ leaves $\tau$ unchanged in all \RHKNCompare{} comparisons (largest difference \RHKMaxDiff). The surrogate $p$ values do not carry over as closely: for the same segment and configuration at a window of 50\,\%, the $p$ of the two runs differ by up to \RHKMaxPDiff{}, and \NSigHalfRHK{} cells instead of \NSigHalf{} fall below 0.05. Each run fits its own ARMA model and draws its own surrogates, so this spread measures how unstable the fit is on 28 to 36 points.
 
 \subsection{Group comparisons}
 
-The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \PrimN$ and \PrimNFlat{} stars, $U = \PrimU$, $p = \PrimP$; the medians of the lag-1 autocorrelation are \PrimMedVL{} and \PrimMedFlat. Of the \NHolmTests{} remaining tests, \NRawSig{} have an uncorrected $p < 0.05$ and \NHolmSig{} remain below 0.05 after Holm within blocks. Both are Cycle against Flat in the normalised variance: with $\sigma = 1$, $p = $ \CycFlatPSOne{} and $p_{\rm Holm} = $ \CycFlatHolmSOne; without removal, $p = $ \CycFlatPNone{} and $p_{\rm Holm} = $ \CycFlatHolmNone.
+The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \PrimN$ and \PrimNFlat{} stars, $U = \PrimU$, $p = \PrimP$; the medians of the lag-1 autocorrelation are \PrimMedVL{} and \PrimMedFlat. Of the \NHolmTests{} remaining tests, \NRawSig{} have an uncorrected $p < 0.05$. With Holm within blocks, \NHolmSig{} remain below 0.05, both Cycle against Flat in the normalized variance: with $\sigma = 1$, $p = $ \CycFlatPSOne{} and $p_{\rm Holm} = $ \CycFlatHolmSOne; for the original series, $p = $ \CycFlatPNone{} and $p_{\rm Holm} = $ \CycFlatHolmNone. With Holm over all \NHolmTests{} tests, \NHolmSigThirty{} remain (the same two comparisons give \CycFlatHolmThirtySOne{} and \CycFlatHolmThirtyNone).
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.6\textwidth]{figures/figure1}
-\caption{Variability $\sigma$ of the S index of HD~166620 in three states (Luhn et al.\ data). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (account A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (account B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
+\caption{Variability $\sigma$ of the S index of HD~166620 in three states (data of Luhn et al.). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (method A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (method B): mean over seasons of the same corrected value. No uncertainties are shown; the corresponding $F$ tests are in the text.}
 \label{fig:h1}
 \end{figure}
 \begin{figure}[h]

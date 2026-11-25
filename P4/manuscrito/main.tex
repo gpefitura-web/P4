@@ -1,18 +1,20 @@
 % Neutral draft layout. The journal is not chosen yet (open item); replace this file with the journal module's main.tex.
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage[utf8]{inputenc}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage{graphicx,amsmath,booktabs}
 \DeclareGraphicsExtensions{.pdf,.png}
 \input{results_macros}
+\input{results_extra}
 \title{Critical slowing down near stellar activity minima: a test on Mount Wilson S-index series}
 \author{Draft; author block to be completed by the author}
 \date{}
 \begin{document}
 \maketitle
 \begin{abstract}
-Critical slowing down predicts that a system approaching a loss of stability recovers more slowly from perturbations, so the lag-1 autocorrelation and the variance of its time series should rise. We ask whether stars that lose their activity cycle show such a precursor. We use annual means of the Mount Wilson S index of \NStarsRun{} Sun-like stars and of the Sun, in segments of \LMin{} to \NSunYears{} years, and compute rolling-window indicators in four detrending configurations, with significance from \NSurr{} ARMA surrogates that share the gaps and interpolation of the data. For HD~166620, which entered a grand minimum, the variability of the S index in the minimum is lower than in the two earlier cycle minima. The temporal indicators show no consistent rise: no segment is flagged in three of four configurations, and the surrogate test, checked on synthetic null series, has low power for segments of this length. The result is therefore not a refutation of critical slowing down before the loss of a cycle. Group differences that survive correction for multiple tests reflect the cycle amplitude.
+Some Sun-like stars lose their activity cycle, as the Sun did in the Maunder minimum. If such a loss behaves like a critical transition, the lag-1 autocorrelation and the variance of the activity record should rise beforehand. We test this on annual means of the Mount Wilson Ca\,\textsc{ii} H and K index (S) for \NStarsRun{} stars and for a composite solar record, in segments of \LMin{} to \NSunYears{} years. Rolling-window indicators are computed for the original series and three detrended versions, and tested against \NSurr{} ARMA surrogates that reproduce the gaps and interpolation of the data. HD~166620, a candidate for entering a grand minimum, has lower S-index variability in the minimum than in two earlier cycle minima (H1, confirmatory, using intervals already published). No segment shows a consistent rise in the temporal indicators (H2). The Mount Wilson record of HD~166620 ends before its transition, so H2 could not be tested as designed, and the other segments are a null scan of series with no known transition. The surrogate test has nominal size (\AutoUp\,\% and \AutoLo\,\% at a nominal 5\,\%) but little power at these lengths. Two group differences in normalized variance survive Holm correction within blocks, but not over all tests; we attribute them to cycle amplitude, which we did not test.
 \end{abstract}
 \input{sec_intro}
 \input{sec_methods}

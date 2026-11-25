@@ -17,11 +17,12 @@ for _, r in ran.iterrows():
     ar = d[d["stat"] == "ac1"].set_index("config"); vr = d[d["stat"] == "var"]
     conc = lambda x: int(((x.tau > 0) & (x.p_upper < 0.05)).sum())
     def tp(c):
-        return f"{ar.loc[c, 'tau']:+.2f} & {ar.loc[c, 'p_upper']:.3f}"
-    hd = r.HD.replace("(Sun)", "Sun")
+        return f"{ar.loc[c, 'tau']:+.2f}".replace("-", "$-$") + f" & {ar.loc[c, 'p_upper']:.3f}"
+    hd = r.HD.replace("(Sun)", "Sun$^{b}$")
+    dag = "" if str(r.banda_Rphot).startswith("DENTRO") else "$^{a}$"
     y0 = int(r.seg_year0)
-    rows.append(f"{hd} & {lab.get(r.grupo, r.grupo)} & {y0}--{y0 + int(r.L) - 1} & {int(r.L)} & {int(r.n_filled)} & {r.bv:.2f} & {tp('none')} & {tp('s1')} & {conc(d[d['stat'] == 'ac1'])}/{conc(d[d['stat'] == 'var'])} \\\\")
+    rows.append(f"{hd} & {lab.get(r.grupo, r.grupo)} & {y0}--{y0 + int(r.L) - 1} & {int(r.L)} & {int(r.n_filled)} & {r.bv:.2f}{dag} & {tp('none')} & {tp('s1')} & {conc(d[d['stat'] == 'ac1'])}/{conc(d[d['stat'] == 'var'])} \\\\")
 hdr = ("\\begin{tabular}{llrrrrrrrrr}\n\\hline\nHD & Group & Years & $L$ & Interp. & $B\\!-\\!V$ & $\\tau$ & $p$ & $\\tau$ & $p$ & Conc. \\\\\n"
-       " & & & & & & \\multicolumn{2}{c}{no removal} & \\multicolumn{2}{c}{$\\sigma = 1$ yr} & AR/Var \\\\\n\\hline\n")
+       " & & & & & & \\multicolumn{2}{c}{original series} & \\multicolumn{2}{c}{$\\sigma = 1$ yr} & AR/Var \\\\\n\\hline\n")
 open(OUT, "w", encoding="utf-8").write(hdr + "\n".join(rows) + "\n\\hline\n\\end{tabular}\n")
 print(len(rows), "rows ->", OUT)

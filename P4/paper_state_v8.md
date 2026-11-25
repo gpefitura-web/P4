@@ -23,3 +23,4 @@
 5. Figuras e manuscrito: não iniciados (fora do escopo desta etapa).
 - Verificação final e recomendações: `RECOMENDACOES_POS_PIPELINE.md`.
 - Etapa de figuras e manuscrito iniciada (D110): `manuscrito/`, `MANUSCRITO_PENDENCIAS.md`.
+- Figuras em cor e revisões independentes (D111): `REVISOES_INDEPENDENTES.md`, `RECOMENDACAO_REVISTA.md`.

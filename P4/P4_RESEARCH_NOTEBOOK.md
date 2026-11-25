@@ -796,6 +796,10 @@ Holm aplicado dentro de cada bloco métrica × configuração (5 pares por bloco
 **Data:** 2026-11-25 · **Autor:** pesquisador ("Iniciar a etapa de figuras e manuscrito") executado por Claude · **Base:** D105–D109, `pipeline_v2/results/` · **Status:** ativa · **Grau:** registro de execução
 Criados `manuscrito/` (layout neutro, inglês; macros, tabela e figuras geradas por `pipeline_v2/make_macros.py`, `make_tables.py`, `make_figures.py`; `build.sh`), três figuras em preto e branco (EPS e PDF) e o texto de todas as seções, com resumo vazio. Nada de resultado foi digitado à mão; nenhuma decisão anterior foi alterada. Pendências (revista, declarações finais, BibTeX completo, fonte das figuras) em `MANUSCRITO_PENDENCIAS.md`.
 
+### D111 — Figuras em cor, Courier Prime, revisões independentes e revisão do rascunho
+**Data:** 2026-11-25 · **Autor:** pesquisador ("Vamos tornar as figuras coloridas"; "Use a fonte Courier Prime. Estilo Supermongo"; "Faça todas as revisões necessárias") executado por Claude · **Base:** D110, `REVISOES_INDEPENDENTES.md` · **Status:** ativa · **Grau:** decisão humana (estilo) e registro de execução
+As figuras passam a ser coloridas (paleta de três cores validada para daltonismo, papéis fixos entre figuras), no estilo Super Mongo do Kit (Courier Prime incorporada, uma só fonte, ticks para dentro nos quatro lados, sem grade, sem letras gregas), o que **substitui a regra de preto e branco do Kit para este artigo**. A fonte (OFL) está em `pipeline_v2/fonts/`. Seis revisões independentes (três de figuras, três de texto) foram feitas e aplicadas conforme `REVISOES_INDEPENDENTES.md`. O texto passou a declarar que H2 não era testável como projetado e a relatar as duas famílias de Holm. Nenhum resultado computado foi alterado. A revista continua sem escolha (`RECOMENDACAO_REVISTA.md`).
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana
