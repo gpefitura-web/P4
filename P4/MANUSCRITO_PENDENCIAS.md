@@ -20,3 +20,8 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 - BibTeX preenchido a partir da primeira página dos PDFs do projeto; as listas de autores de Baliunas e Isaacson estão truncadas com "and others" e a de Baliunas não tem DOI. Completar do ADS.
 - Decisões suas ainda abertas: **revista** (`RECOMENDACAO_REVISTA.md`), **título** (sugestões em `REVISOES_INDEPENDENTES.md`), declarações finais (conflitos, financiamento, agradecimentos, uso de IA), bloco de autores, link do repositório.
 - Fora do escopo desta rodada (análise nova): curva de poder com ciclo injetado, sensibilidade à interpolação, taxa nula da regra de 3 de 4, bootstrap em blocos para H1.
+
+## Atualização de 2026-11-25 (main.tex único)
+- `manuscrito/main.tex` agora contém **todo o manuscrito** (resumo, seções, tabelas, legendas, constantes de projeto). Só as figuras (`figures/`) e `references.bib` são arquivos separados, como exige o LaTeX.
+- Os números continuam vindo de macros, mas as definições ficam em um bloco marcado dentro do próprio `main.tex` (`%%% BEGIN/END GENERATED MACROS`) e a Tabela 2 em outro (`%%% BEGIN/END GENERATED TABLE`). `build.sh` regrava esses dois blocos a partir de `pipeline_v2/results/`; **edite o texto à vontade fora dos blocos marcados**. Os arquivos `sec_*.tex`, `results_macros.tex`, `results_extra.tex` e `tab_segments.tex` foram removidos.
+- Subsídios para a escolha da revista (inclui New Astronomy): `SUBSIDIOS_REVISTA.md`.

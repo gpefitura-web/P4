@@ -1,5 +1,7 @@
 # Recomendação de revista para o P4, ampliada (2026-11-25)
 
+**Veja também `SUBSIDIOS_REVISTA.md`** (quadro de decisão com pesos seus, onde a literatura próxima foi publicada, perguntas à biblioteca e ao editor, e a New Astronomy).
+
 **É recomendação, não decisão** (regra 5 do CLAUDE.md). Nenhuma D## registra a revista. Preços e regras vêm de buscas na web de hoje (fontes no fim); o que não foi confirmado está marcado "não confirmado". Confira no formulário da revista antes de submeter (kit, `SUBMISSAO.md`).
 
 **Escopo desta versão:** revistas de quatro editoras, IOP, Elsevier, Wiley e Springer, com a restrição de que as três últimas sejam cobertas pelos acordos da CAPES. A versão anterior (Solar Physics, A&A, ApJ, MNRAS, Chaos) está resumida no fim.
@@ -23,6 +25,7 @@ Em todos os casos o acordo vale para o **autor correspondente** e só para peri�
 | **Wiley** | JGR: Space Physics (AGU) | Física espacial e heliosférica; estelar não faz parte do escopo | Híbrida; APC não encontrado | Provável, mas o encaixe é fraco |
 | **Wiley** | Space Weather (AGU) | Tema de clima espacial; fora do assunto | **Acesso aberto integral**, APC até US$ 2 890 | **Não** (gold) |
 | **Elsevier** | Advances in Space Research (COSPAR) | Escopo cobre atividade solar e astrofísica estelar | Fontes divergem: uma lista "aberta" com APC de US$ 2 780, outra "híbrida". Conferir | Só se for híbrida |
+| **Elsevier** | **New Astronomy** | Astronomia inteira, do sistema solar à cosmologia; exclui física sem teste observacional (o P4 é observacional). Sem artigo de S-index localizado na busca | Híbrida, CC BY; APC US$ 2 900 (página da Elsevier) | Provável (híbrida); **conferir a lista** |
 | **Elsevier** | Journal of Atmospheric and Solar-Terrestrial Physics | Atmosfera da Terra e ambiente espacial; estelar não faz parte | APC não encontrado | Conferir |
 | **Elsevier** | Chaos, Solitons & Fractals | Encaixe de método (séries temporais, sinais precursores); público astrofísico pequeno | Híbrida. A irmã *CSF: X* é acesso aberto integral | A principal, sim, se estiver na lista; a *X*, não |
 | **IOP** | **ApJ, AJ, ApJ Letters** (AAS, publicadas com a IOP) | Maior público de astrofísica estelar; Baum, Luhn e Isaacson publicaram aqui | **Acesso aberto integral.** Tabela de 2026 do ApJ/AJ: até 30 "quanta" US$ 1 425; 31–50, US$ 3 162; 51–100, US$ 5 581. O ApJ Letters tem tabela própria. Há pedido de apoio de 5 a 100 % | **Não** (sem acordo encontrado; acesso aberto integral) |
@@ -32,7 +35,7 @@ Com a restrição de custo zero via CAPES, a ordem é esta.
 1. **Solar Physics (Springer).** Já era o plano do programa, tem acesso a leitores de atividade solar e é híbrida. Condições: estar na lista de elegíveis e o artigo ser enquadrado como solar-estelar (a série solar e a pergunta sobre o Mínimo de Maunder entram na Introdução e na Discussão). **Risco de encaixe:** se o editor considerar o artigo estelar demais, a recusa vem por escopo, não por qualidade.
 2. **Astrophysics and Space Science (Springer).** Mesmo acordo e mesma conta; escopo mais amplo, então o risco de recusa por escopo é menor. Menos leitores de atividade estelar.
 3. **Astronomische Nachrichten (Wiley).** Astrofísica mais física solar, híbrida. Revista pequena; só depois de conferir a lista da Wiley e o IFTM.
-4. **Advances in Space Research (Elsevier)**, apenas se a revista for híbrida e estiver na lista; cobre atividade solar e astrofísica.
+4. **New Astronomy (Elsevier)**, escopo amplo, híbrida, provável no acordo; reserva natural de Solar Physics. Depois, **Advances in Space Research (Elsevier)**, apenas se a revista for híbrida e estiver na lista; cobre atividade solar e astrofísica.
 5. Fora dos acordos: **ApJ (IOP/AAS)**, se a visibilidade valer a taxa ou o pedido de apoio, e **A&A**, que é gratuita para autores de países patrocinadores (conferir se o Brasil está entre eles).
 
 Evitar JGR: Space Physics, Space Weather, JASTP e *CSF: X* por encaixe ou por modelo; Chaos, Solitons & Fractals só se o artigo for reescrito como artigo de método.

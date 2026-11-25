@@ -1,8 +1,8 @@
-"""Writes manuscrito/tab_segments.tex from pipeline_v2/results (generated table; no hand-typed numbers)."""
+"""Rewrites the marked table block of manuscrito/main.tex from pipeline_v2/results (generated table; no hand-typed numbers)."""
 import os
 import numpy as np, pandas as pd
 HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(HERE, "results")
-OUT = os.path.join(os.path.dirname(HERE), "manuscrito", "tab_segments.tex")
+OUT = os.path.join(os.path.dirname(HERE), "manuscrito", "main.tex")   # table lives in a marked block of main.tex
 seg = pd.read_csv(os.path.join(R, "segments.csv"), dtype={"HD": str})
 res = pd.read_csv(os.path.join(R, "star_results.csv"), dtype={"HD": str})
 ran = seg[seg.rodou == "sim"].copy()
@@ -24,5 +24,9 @@ for _, r in ran.iterrows():
     rows.append(f"{hd} & {lab.get(r.grupo, r.grupo)} & {y0}--{y0 + int(r.L) - 1} & {int(r.L)} & {int(r.n_filled)} & {r.bv:.2f}{dag} & {tp('none')} & {tp('s1')} & {conc(d[d['stat'] == 'ac1'])}/{conc(d[d['stat'] == 'var'])} \\\\")
 hdr = ("\\begin{tabular}{llrrrrrrrrr}\n\\hline\nHD & Group & Years & $L$ & Interp. & $B\\!-\\!V$ & $\\tau$ & $p$ & $\\tau$ & $p$ & Conc. \\\\\n"
        " & & & & & & \\multicolumn{2}{c}{original series} & \\multicolumn{2}{c}{$\\sigma = 1$ yr} & AR/Var \\\\\n\\hline\n")
-open(OUT, "w", encoding="utf-8").write(hdr + "\n".join(rows) + "\n\\hline\n\\end{tabular}\n")
+block = hdr + "\n".join(rows) + "\n\\hline\n\\end{tabular}"
+src = open(OUT, encoding="utf-8").read()
+beg, end = "%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE"
+i = src.index(beg); i = src.index("\n", i) + 1; j = src.index(end)
+open(OUT, "w", encoding="utf-8").write(src[:i] + block + "\n" + src[j:])
 print(len(rows), "rows ->", OUT)
