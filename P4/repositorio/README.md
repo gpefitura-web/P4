@@ -31,6 +31,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | R'_HK (Sect. 3.3) | `rhk.py`, `run_all.py` | `results/star_results.csv` (series `RHK`) |
 | Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
+| Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
 | Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
 | Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
 | Facts report | `report.py` | `results/REPORT.md` |

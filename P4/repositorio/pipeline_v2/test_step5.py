@@ -1,5 +1,5 @@
 """Step 5 mandatory self-test: on synthetic null AR(1) series (no trend), the rejection rate at 5 % must lie in
-[3 %, 7 %]. Fixed seeds, 600 series, 1000 surrogates each; L = 30 with two interpolated points (mask), window 50 %,
+[3 %, 7 %]. Fixed seeds, 600 series, 1000 surrogates each; L = 30 with three interpolated points (mask), window 50 %,
 statistic = rolling lag-1 autocorrelation, Kendall tau, original series (no detrending)."""
 import os, sys, time
 import numpy as np
