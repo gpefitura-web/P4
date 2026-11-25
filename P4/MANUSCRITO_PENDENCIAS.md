@@ -34,6 +34,10 @@ Rascunho em `P4/manuscrito/` (layout neutro, em inglês), gerado a partir de `pi
 - Ainda abertos: título, biblioteca do IFTM (lista de elegíveis do acordo CAPES–Elsevier e participação), BibTeX com autores truncados (Baliunas, Isaacson), texto alternativo das figuras.
 
 ## Estado em 2026-11-25 (após a revisão de leitura)
-- Texto revisado e compilado (14 páginas em formato de revisão da New Astronomy), título provisório em uso (`SUGESTOES_TITULO.md`).
+- Texto revisado e compilado (14 páginas em formato de revisão da New Astronomy), título provisório v2 em uso (`SUGESTOES_TITULO.md`).
 - **Falta, e é seu:** e-mail do autor correspondente; CRediT, conflito de interesses, financiamento, agradecimentos e declaração de uso de IA (marcadores no texto); link do repositório na seção de dados; confirmação das regras da revista (`kit/revistas/new-astronomy/ficha.md`); lista de elegíveis do acordo CAPES–Elsevier; título definitivo.
 - **Falta, técnico:** BibTeX com autores completos de Baliunas e Isaacson e DOI de Noyes (do ADS); texto alternativo das figuras.
+
+## Atualização de 2026-11-25 (BibTeX e título)
+- `references.bib` refeito a partir do **Crossref** (o ADS exige token pessoal de API, que não existe aqui), com autores completos, DOI, volume e páginas; cada registro conferido contra a primeira página do PDF do projeto. Títulos protegidos com chaves para o estilo numerado não os passar para minúsculas. Resolvido: autores de Baliunas e Isaacson e DOI de Noyes. Se quiser as chaves do ADS (bibcode), forneça um token de API do ADS.
+- Título provisório trocado para a versão 2 (sem "null").
