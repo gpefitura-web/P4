@@ -1,0 +1,58 @@
+\section{Results}
+
+\subsection{H1: variability of HD~166620 by state}
+
+Table~\ref{tab:h1} gives the three states. The mean S falls from \HOneMeanMinOne{} in minimum~1 to \HOneMeanGrand{} in the grand minimum, and $\sigma_S$ (account A) from \HOneSigAMinOne{} to \HOneSigAGrand{}; minimum~2 has the largest, \HOneSigAMinTwo{} (Fig.~\ref{fig:h1}). The $F$ test of minimum~1 against the grand minimum gives $p = $ \HOnePRaw{} with the raw variances and $p = $ \HOnePCorrA{} with the corrected ones (account A); with account B the corrected value is $p = $ \HOnePCorrB{}. Minimum~2 against the grand minimum gives $p = $ \HOnePTwoRaw{} (raw) and $p = $ \HOnePTwoCorrA{} (corrected, account A).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrrrr}
+\hline
+State & $N$ & $\langle S\rangle$ & raw $\sigma$ & $\sigma_S$ (A) & $\sigma_S$ (B) \\
+\hline
+Minimum 1 (1971--75) & \HOneNMinOne & \HOneMeanMinOne & \HOneRawMinOne & \HOneSigAMinOne & \HOneSigBMinOne \\
+Minimum 2 (1987--91) & \HOneNMinTwo & \HOneMeanMinTwo & \HOneRawMinTwo & \HOneSigAMinTwo & \HOneSigBMinTwo \\
+Grand minimum (2004--) & \HOneNGrand & \HOneMeanGrand & \HOneRawGrand & \HOneSigAGrand & \HOneSigBGrand \\
+\hline
+\end{tabular}
+\caption{HD~166620 by state: number of points, mean S, raw standard deviation of the interval, and $\sigma_S$ with the instrumental noise removed in quadrature, accounts A and B.}
+\label{tab:h1}
+\end{table}
+
+\subsection{Temporal indicators}
+
+\begin{table}[p]
+\centering\small
+\input{tab_segments}
+\caption{Segments with an indicator. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance.}
+\label{tab:seg}
+\end{table}
+
+Table~\ref{tab:seg} lists the \NSegments{} segments. With a window of 50\,\%, \NSigHalf{} of the \NCellsHalf{} combinations of segment, indicator and configuration have $\tau > 0$ and $p < 0.05$. No segment reaches three of four configurations for the lag-1 autocorrelation (maximum \MaxConcAR) or for the variance (maximum \MaxConcVar). Across all window lengths, the largest number of concordant configurations in one segment is \MaxConcSweep{} of 20. With the $\sigma = 1$ year residual, $\tau$ is positive in \NTauPosARSOne{} of \NSegments{} segments for the lag-1 autocorrelation and in \NTauPosVarSOne{} for the variance (Fig.~\ref{fig:tau}).
+
+For HD~166620 ($L = $ \HDHL{} years, Mount Wilson era, which ends before the transition), the lag-1 autocorrelation has $\tau = $ \HDHTauNone{} ($p = $ \HDHPNone) without removal and $\tau = $ \HDHTauSOne{} ($p = $ \HDHPSOne) for the $\sigma = 1$ year residual (Fig.~\ref{fig:roll}); the variance has $\tau = $ \HDHVarTauNone{} ($p = $ \HDHVarPNone) and $\tau = $ \HDHVarTauSOne{} ($p = $ \HDHVarPSOne), respectively. For the Sun, the values are $\tau = $ \SunTauNone{} ($p = $ \SunPNone) and $\tau = $ \SunTauSOne{} ($p = $ \SunPSOne).
+
+Converting S to $R'_{\rm HK}$ changes nothing in these indicators: the conversion is linear in S for a given $B\!-\!V$, and the largest difference in $\tau$ over \RHKNCompare{} comparisons is \RHKMaxDiff.
+
+\subsection{Group comparisons}
+
+The primary pair (Var and Long against Flat, $\sigma = 1$ residual) has $n = \PrimN$ and \PrimNFlat{} stars, $U = \PrimU$, $p = \PrimP$; the medians of the lag-1 autocorrelation are \PrimMedVL{} and \PrimMedFlat. Of the \NHolmTests{} remaining tests, \NRawSig{} have an uncorrected $p < 0.05$ and \NHolmSig{} remain below 0.05 after Holm within blocks. Both are Cycle against Flat in the normalised variance: with $\sigma = 1$, $p = $ \CycFlatPSOne{} and $p_{\rm Holm} = $ \CycFlatHolmSOne; without removal, $p = $ \CycFlatPNone{} and $p_{\rm Holm} = $ \CycFlatHolmNone.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/figure1}
+\caption{$\sigma_S$ of HD~166620 in the three states: raw interval value, corrected account A and account B.}
+\label{fig:h1}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/figure2}
+\caption{Annual S (top) and rolling lag-1 autocorrelation with a window of 50\,\% of the segment (bottom) for HD~166620 and the Sun, without removal (solid) and after a Gaussian smooth with $\sigma = 1$ year (dashed).}
+\label{fig:roll}
+\end{figure}
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{figures/figure3}
+\caption{Kendall $\tau$ of the rolling lag-1 autocorrelation for each segment, by group; asterisks mark $p < 0.05$ against the surrogates.}
+\label{fig:tau}
+\end{figure}

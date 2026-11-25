@@ -22,3 +22,4 @@
 4. ~~`inspecao/run_all.sh`~~ — rodado uma vez após o fecho (ACHADOS #12); hashes congelados intactos.
 5. Figuras e manuscrito: não iniciados (fora do escopo desta etapa).
 - Verificação final e recomendações: `RECOMENDACOES_POS_PIPELINE.md`.
+- Etapa de figuras e manuscrito iniciada (D110): `manuscrito/`, `MANUSCRITO_PENDENCIAS.md`.

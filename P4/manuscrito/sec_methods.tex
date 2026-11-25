@@ -1,0 +1,31 @@
+\section{Data and methods}
+
+\subsection{Sample and series}
+
+The star catalogue is the frozen version of Table~2 of Baliunas et al.\ \cite{baliunas1995} (\NCatalog{} stars), extended with series from three sources: the \NBaumStars{} stars of Baum et al.\ \cite{baum2022} (Table~1, with the points flagged as outliers removed), the \NVTwoStars{} stars of the HK Project v2001 files, and the calibrated solar S-index of Egeland et al.\ \cite{egeland2017} (Table~4, 1966--2016, a composite of several instruments). Calibration stars, two binaries and stars without a series were excluded before any indicator was computed. Stars were grouped by the class in Baliunas et al.: Flat (four clean stars), Cycle (excellent false-alarm probability), Var and Long. The Sun is treated as exploratory.
+
+For the temporal indicators each star is reduced to annual means of S by calendar year. Only the Mount Wilson era is used, so that no segment crosses the instrument junction. Gaps of one or two missing years are filled by linear interpolation and the filled points are marked; gaps of three or more years split the series into separate segments. Indicators are computed only in segments of at least 24 years, so that a window of 50\,\% has at least 12 points and 13 windows. Segments of 24--39 years are labelled low precision and their results exploratory; segments of 40 years or more are labelled adequate. \NStarsRun{} stars have such a segment (\LMin--\LMax{} years), plus the Sun (\NSunYears{} years); \NNotRun{} further stars have a Mount Wilson segment shorter than 24 years and receive a description only.
+
+\subsection{Indicators and detrending}
+
+In each segment we compute the lag-1 autocorrelation and the variance in a sliding window of 50\,\% of the segment length, and the Kendall $\tau$ of each against window index. The window length is also varied from 25\,\% to 75\,\% (five values). The series is analysed in four configurations: without detrending, and as the residual of a Gaussian smooth with $\sigma = 1$, 3 or 5 years; $\sigma = 1$ year is the default. Both the original series and the residuals are reported. A star is flagged only if $\tau > 0$ with $p < 0.05$ in at least three of the four configurations.
+
+\subsection{Significance}
+
+The $p$ value of each $\tau$ comes from \NSurr{} surrogate series from an ARMA($p,q$) model with $p,q \le 2$ chosen by AIC and fitted to the series (or residual) being tested. Each surrogate receives the same gap positions and the same linear interpolation as the data. We report $p = P(\tau^{*} \ge \tau)$, the tail in the direction of critical slowing down. Before the stellar run, the procedure was tested on synthetic AR(1) series with no trend (600 series of 30 years with three interpolated points): it rejected at the 5\,\% level in \AutoUp\,\% of the series with the upper-tail $p$ and in \AutoLo\,\% with the lower-tail $p$, inside the 3--7\,\% range fixed beforehand.
+
+\subsection{State comparison for HD~166620}
+
+For H1 we use the raw (not annual) series of Luhn et al.\ \cite{luhn2022}, in the three states they define: minimum~1 (1971--1975), minimum~2 (1987--1991) and the grand minimum (from 2004). The variability $\sigma_S$ of each state is the standard deviation of the interval with the instrumental noise (1.2\,\% of the mean S for Mount Wilson, 0.3\,\% for Keck) removed in quadrature (account A, primary). As a sensitivity check, account B takes the mean of the per-season values with the same correction. Variances are compared with an $F$ test, with raw and with corrected values.
+
+\subsection{R$'_{\rm HK}$}
+
+S is also converted to $R'_{\rm HK}$ with the recipe of Noyes et al.\ \cite{noyes1984} and the colour correction of the same paper, using $B\!-\!V$ from the CLS~V catalogue \cite{isaacson2024} when the star is in it and from Baliunas et al.\ otherwise. The recipe is calibrated for $0.44 < B\!-\!V < 0.82$; stars outside are marked in the segment table.
+
+\subsection{Group comparisons}
+
+Groups are compared per star, using the lag-1 autocorrelation and the normalised variance of the longest segment. The primary pair is Var and Long together against Flat, lag-1 autocorrelation of the $\sigma = 1$ residual, one-sided Mann--Whitney test, fixed before the tests were read. The remaining pairs (five per metric and configuration) are corrected with the Holm procedure within each metric and configuration block. These tests are exploratory, with four to eight stars per group.
+
+\subsection{Software}
+
+Python with NumPy, pandas, SciPy and statsmodels; the pipeline, the seeds (base \SeedBase) and the single official run are in the repository.

@@ -792,6 +792,10 @@ Os testes entre grupos (`REPORT.md` §6) são **exploratórios** (n = 4 a 8 por 
 **Data:** 2026-11-24 · **Autor:** pesquisador ("Usar a família Holm por métrica e configuração") · **Base:** D108, `pipeline_v2/ACHADOS.md` #14 · **Status:** ativa · **Grau:** decisão humana
 Holm aplicado dentro de cada bloco métrica × configuração (5 pares por bloco), não sobre os 30 testes juntos. O par primário de D108 continua fora da correção. Recalculado uma vez a partir de `results/star_metrics.csv` (`group_primary.py`); a família de 30 testes do primeiro cálculo fica só como coluna `p_holm_30` (superada). Resultado: 2 dos 30 testes com p_Holm < 0.05, ambos CYCLE_Excellent > Flat na variância normalizada (σ = 1: p = 0.0020, p_Holm = 0.0101; sem remoção: p = 0.0081, p_Holm = 0.0404). Esses dois são o confundidor de ciclo declarado em D108 (iv), não evidência de CSD.
 
+### D110 — Etapa de figuras e manuscrito iniciada: rascunho neutro gerado dos resultados
+**Data:** 2026-11-25 · **Autor:** pesquisador ("Iniciar a etapa de figuras e manuscrito") executado por Claude · **Base:** D105–D109, `pipeline_v2/results/` · **Status:** ativa · **Grau:** registro de execução
+Criados `manuscrito/` (layout neutro, inglês; macros, tabela e figuras geradas por `pipeline_v2/make_macros.py`, `make_tables.py`, `make_figures.py`; `build.sh`), três figuras em preto e branco (EPS e PDF) e o texto de todas as seções, com resumo vazio. Nada de resultado foi digitado à mão; nenhuma decisão anterior foi alterada. Pendências (revista, declarações finais, BibTeX completo, fonte das figuras) em `MANUSCRITO_PENDENCIAS.md`.
+
 ---
 
 ## 5 · Questões abertas — exigem decisão humana
