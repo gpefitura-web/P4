@@ -12,7 +12,7 @@ For the submission form (Elsevier asks for a short alternative text per figure).
 
 ## Figure 3 (`Figure_3`)
 **Short:** Same layout as Figure 2 for the Sun: annual S index with its smooth, and the rolling lag-1 autocorrelation of the original series and of the residual.
-**Long:** Top panel: annual mean S of the solar composite series (Egeland et al.) against year as a solid line with the one-year Gaussian smooth as a dashed line; open circles mark the interpolated years; the solar cycles are visible as regular oscillations. Bottom panel: rolling lag-1 autocorrelation, as in Figure 2. The vertical range of the top panel differs from that of Figure 2.
+**Long:** Top panel: annual mean S of the solar composite series (Egeland et al.) against year as a solid line with the one-year Gaussian smooth as a dashed line; open circles mark the interpolated years; the solar cycles are visible as regular oscillations. Bottom panel: rolling lag-1 autocorrelation, as in Figure 2, with the window bar. The vertical range of the top panel differs from that of Figure 2.
 
 ## Figure 4 (`Figure_4`)
 **Short:** Kendall tau of the rolling lag-1 autocorrelation for each star, grouped as Flat, Cycle, Var and Long, with the Sun last; values of both signs in every group, a few marked with an asterisk.

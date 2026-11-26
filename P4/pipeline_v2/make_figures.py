@@ -47,16 +47,17 @@ def save(fig, name):
 # Colour roles of figures 2-3 (blue = original series, orange = sigma 1 yr treatment) are NOT reused here:
 # raw = hollow gray square, account A = ink circle, account B = aqua triangle (aqua only appears in this figure).
 AQUA_EDGE = "#007a63"
-fig, ax = plt.subplots(figsize=(4.6, 3.5))
+TW = 390.0 / 72.27   # text width of the manuscript (elsarticle preprint, 12 pt) in inches: every figure is drawn at the width it is printed, so type sizes are true
+fig, ax = plt.subplots(figsize=(TW, 4.2))
 keys = ("min1", "min2", "grand")
 x = np.arange(3)
-ax.plot(x - 0.15, [h1[k]["sigma_raw"] for k in keys], "s", ms=7, mfc="white", mec=GRAY, mew=1.4, ls="", label="raw interval")
-ax.plot(x, [h1[k]["sigma_A"] for k in keys], "o", ms=7, mfc=INK, mec=INK, ls="", label="corrected, A")
-ax.plot(x + 0.15, [h1[k]["sigma_B"] for k in keys], "^", ms=8, mfc=AQUA, mec=AQUA_EDGE, mew=1.0, ls="", label="corrected, B")
+ax.plot(x - 0.15, [h1[k]["sigma_raw"] for k in keys], "s", ms=10, mfc="white", mec=GRAY, mew=1.4, ls="", label="raw interval")
+ax.plot(x, [h1[k]["sigma_A"] for k in keys], "o", ms=10, mfc=INK, mec=INK, ls="", label="corrected, A")
+ax.plot(x + 0.15, [h1[k]["sigma_B"] for k in keys], "^", ms=11, mfc=AQUA, mec=AQUA_EDGE, mew=1.0, ls="", label="corrected, B")
 ax.set_xticks(x); ax.set_xticklabels([f"min 1\n1971-75\nN={h1['min1']['n']}", f"min 2\n1987-91\nN={h1['min2']['n']}",
                                         f"grand min\n2004 on\nN={h1['grand']['n']}"])
 ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0085); ax.set_ylabel("sigma of S")
-ax.legend(frameon=False, loc="upper right", fontsize=10)
+ax.legend(frameon=False, loc="upper right", fontsize=11.5)
 save(fig, "Figure_1")
 
 # ---- Figures 2 and 3: annual series and rolling AR(1), one file per series (HD 166620; the Sun) -------------------
@@ -69,7 +70,7 @@ for hd, fname, title, ytick, xtick in (("166620", "Figure_2", "HD 166620 (Mount 
     a_ = annual.annual_means(p4io.load_star(hd, row), None if sun else "MW")
     sg = max(annual.segments(a_), key=lambda s_: len(s_["years"]))
     yrs, S, filled = sg["years"], sg["S"], sg["filled"]
-    fig, axs = plt.subplots(2, 1, figsize=(5.2, 5.4))
+    fig, axs = plt.subplots(2, 1, figsize=(TW, 6.7), gridspec_kw={"height_ratios": [1, 1]})
     ax = axs[0]
     ax.plot(yrs, S, "-", color=BLUE, lw=1.4, zorder=2)
     ax.plot(yrs, S - dt.residual(S, 1), "--", color=ORANGE, lw=2.0, dashes=(4, 2), zorder=3)
@@ -85,6 +86,9 @@ for hd, fname, title, ytick, xtick in (("166620", "Figure_2", "HD 166620 (Mount 
         roll = ind.rolling(dt.residual(S, cfg), 0.5)
         kw = {"dashes": dsh} if dsh else {}
         ax.plot(yrs[w - 1:], roll, ls, color=cl, lw=2.0, **kw)
+    xa, xb = yrs[w - 1], yrs[w - 1] + (w - 1)      # a bar as long as the window, drawn at the left edge of the axis
+    ax.annotate("", xy=(xb, -0.92), xytext=(xa, -0.92), arrowprops=dict(arrowstyle="|-|,widthA=0.25,widthB=0.25", color=GRAY, lw=1.2))
+    ax.text((xa + xb) / 2, -0.86, f"window = {w} yr", ha="center", va="bottom", fontsize=10, color=GRAY)
     ax.axhline(0, color=GRAY, lw=0.6); ax.set_xlabel("year at window end"); ax.set_ylabel("lag-1 AC"); ax.set_ylim(-1.05, 1.05); ax.yaxis.set_major_locator(MultipleLocator(0.5))
     for ax_ in axs:
         ax_.xaxis.set_major_locator(MultipleLocator(xtick))
@@ -94,8 +98,8 @@ for hd, fname, title, ytick, xtick in (("166620", "Figure_2", "HD 166620 (Mount 
     if filled.any():
         handles.append(Line2D([], [], color=INK, marker="o", mfc="white", ls="", ms=5, label="interpolated year"))
     axs[0].set_title(title, fontsize=12)
-    fig.tight_layout(rect=(0, 0.14 if sun else 0.11, 1, 1))
-    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.0), ncol=1, frameon=False, fontsize=9.5, handlelength=2.2)
+    fig.tight_layout(rect=(0, 0.13 if sun else 0.10, 1, 1))
+    fig.legend(handles=handles, loc="lower center", bbox_to_anchor=(0.5, 0.0), ncol=1, frameon=False, fontsize=10.5, handlelength=2.2)
     save(fig, fname)
 
 # ---- Figure 4: tau per star, AR(1), window 50 % ---------------------------------------------------------------
@@ -108,9 +112,9 @@ for g in order:
     stars += [(g, h) for h in hds]
 stars.append(("Sun", "(Sun)"))
 STAR = (6, 2, 0)    # asterisk marker, same glyph in plot and legend
-fig, ax = plt.subplots(figsize=(7.2, 3.6))
+fig, ax = plt.subplots(figsize=(TW, 4.7))
 for i, (g, h) in enumerate(stars):
-    for cfg, mk, mc, dx, ms in (("none", "o", BLUE, -0.17, 6), ("s1", "D", ORANGE, 0.17, 5.5)):
+    for cfg, mk, mc, dx, ms in (("none", "o", BLUE, -0.17, 7.5), ("s1", "D", ORANGE, 0.17, 6.5)):
         r = d[(d.HD == h) & (d.config == cfg)].iloc[0]
         ax.plot(i + dx, r.tau, mk, mfc=mc, mec=mc, ms=ms, ls="")
         if r.p_upper < 0.05:
@@ -120,15 +124,15 @@ gs = [g for g, _ in stars]
 for i in range(1, len(stars)):
     if gs[i] != gs[i - 1]:
         ax.axvline(i - 0.5, color="#9a9a9a", lw=1.0, ls=(0, (1, 2)))
-ax.set_xticks(range(len(stars))); ax.set_xticklabels([h.strip("()") for _, h in stars], rotation=90)
+ax.set_xticks(range(len(stars))); ax.set_xticklabels([h.strip("()") for _, h in stars], rotation=90, fontsize=9)
 for g in order:
     idx = [i for i, x in enumerate(gs) if x == g]
     ax.text(np.mean(idx), 1.02, lab[g], ha="center", va="bottom", transform=ax.get_xaxis_transform())
 ax.set_ylim(-1.05, 1.05); ax.set_xlim(-0.7, len(stars) - 0.3); ax.set_ylabel("Kendall tau")
-handles = [Line2D([], [], marker="o", color=BLUE, ls="", ms=6, label="original series"),
-           Line2D([], [], marker="D", color=ORANGE, ls="", ms=5.5, label="sigma = 1 yr residual"),
+handles = [Line2D([], [], marker="o", color=BLUE, ls="", ms=7.5, label="original series"),
+           Line2D([], [], marker="D", color=ORANGE, ls="", ms=6.5, label="sigma = 1 yr residual"),
            Line2D([], [], marker=STAR, color=INK, ls="", ms=9, mew=1.3, label="p < 0.05")]
-ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.30), ncol=3, fontsize=10.5)
+ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.27), ncol=3, fontsize=11)
 save(fig, "Figure_4")
 open(os.path.join(OUT, "README.txt"), "w").write(f"Figures from pipeline_v2/make_figures.py. Font used: {FONT} (OFL; files and licence in pipeline_v2/fonts).\n"
                                                     "Super Mongo style, colour (D111). No figure number or caption inside the files. EPS and PDF.\n")
