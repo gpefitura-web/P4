@@ -20,8 +20,8 @@ ST = {"ac1": "Ac", "var": "Var"}
 
 # ---- positive controls (positive_control_full.csv) ----
 pc = pd.read_csv(os.path.join(R, "positive_control_full.csv"))
-put("PCNRep", pcf.NREP); put("PCNSurr", pcf.NS); put("PCL", pcf.L); put("PCNoiseDyn", pcf.S0, "{:.2f}"); put("PCNoiseObs", pcf.OBS, "{:.2f}")
-put("PCPeriod", 11); put("PCStepsPerYear", pcf.SPY)
+put("PCFNRep", pcf.NREP); put("PCNSurr", pcf.NS); put("PCL", pcf.L); put("PCNoiseDyn", pcf.S0, "{:.2f}"); put("PCNoiseObs", pcf.OBS, "{:.2f}")
+put("PCFPeriod", 11); put("PCStepsPerYear", pcf.SPY)
 MN = {"super": "Super", "sub": "Sub", "mult": "Mult"}
 def auc(pos, neg):
     pos, neg = np.asarray(pos), np.asarray(neg)

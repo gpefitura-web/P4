@@ -24,7 +24,7 @@ rows = [
   "$L = 30, 50, 100, 200$ yr", f"{pdz.NREP}", f"{pdz.NS}", seed("power_design.py")),
  ("Instrumental step", "AR(1) 0.5, step in level or noise after year %d" % si.K, f"$L={si.L}$ yr; level 0.5, 1, 2 sd; noise $\\times$0.5, $\\times$1.5", f"{si.NREP}", f"{si.NS}", seed("step_injection.py")),
 ]
-body = ("\\begin{tabular}{p{2.4cm}p{4.2cm}p{4.6cm}rrr}\n\\hline\nExperiment & Model & Parameters & Series per case & Surrogates & Seed \\\\\n\\hline\n"
+body = ("\\begin{tabular}{p{1.8cm}p{3.3cm}p{3.5cm}p{1.5cm}rr}\n\\hline\nExperiment & Model & Parameters & Series & Surr. & Seed \\\\\n\\hline\n"
         + "\n".join(f"{a} & {b} & {c} & {d} & {e} & {f} \\\\" for a, b, c, d, e, f in rows) + "\n\\hline\n\\end{tabular}\n")
 open(os.path.join(MAN, "cal_table_simulations.tex"), "w", encoding="utf-8").write(body)
 
