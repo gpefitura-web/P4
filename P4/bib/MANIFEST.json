@@ -18,6 +18,24 @@
   "validacao": "padrão de título /Five Decades of Chromospheric Activity/ nas páginas 1-2",
   "versao": "manuscript (arXiv:2203.13376)"
  },
+ "BoettigerHastings_2012a_JRSocInterface_9_2527_arXiv1204.6231.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 983467,
+  "doi": "10.1098/rsif.2012.0125",
+  "sha256": "ba12224f06815fd6f0a21025cd0713af75fa1ff56f264e35f3df2a252659006f",
+  "url": "https://arxiv.org/pdf/1204.6231",
+  "validacao": "primeira página: título e autores (Boettiger, Hastings), arXiv:1204.6231v1; J. R. Soc. Interface 9, 2527 conferido pela citação em Boettiger & Hastings 2012b e pelo Crossref",
+  "versao": "manuscript (arXiv:1204.6231v1)"
+ },
+ "BoettigerHastings_2012b_ProcRSocB_279_4734_arXiv1210.1204.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 556335,
+  "doi": "10.1098/rspb.2012.2085",
+  "sha256": "8be911bc2b4f37d7e43bd7667ceb2b7e6d47b3a6f3693848930efdc8bda16685",
+  "url": "https://arxiv.org/pdf/1210.1204",
+  "validacao": "primeira página: título e autores, arXiv:1210.1204v1; DOI do arXiv e do Crossref",
+  "versao": "manuscript (arXiv:1210.1204v1)"
+ },
  "Boettiger_2013_TheorEcol_6_255_arXiv1305.6700.pdf": {
   "baixado_em": "2026-11-24",
   "bytes": 436003,
@@ -166,6 +184,15 @@
   "validacao": "padrão de título /Portrait of a Star Entering a Grand Magnetic Minimum/ nas páginas 1-2",
   "versao": "manuscript (arXiv:2207.00612)"
  },
+ "Metcalfe_2017_SolPhys_292_126_arXiv1705.09668.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 465798,
+  "doi": "10.1007/s11207-017-1157-5",
+  "sha256": "1677c6a3f27cacebd8c3bcf479e0cadf55a7012ef817338042d142f70bc1d187",
+  "url": "https://arxiv.org/pdf/1705.09668",
+  "validacao": "primeira página: título, autores (Metcalfe, van Saders) e arXiv:1705.09668v3 conferidos; DOI do Crossref (a página não imprime DOI)",
+  "versao": "manuscript (arXiv:1705.09668v3)"
+ },
  "Noyes1984.pdf": {
   "baixado_em": "2026-11-14 (inventariado; enviado antes)",
   "bytes": 1482975,
@@ -220,5 +247,14 @@
   "url": "https://iopscience.iop.org/article/10.3847/2041-8213/aad40c/pdf",
   "validacao": "padrão de título /HD 4915/ nas páginas 1-2",
   "versao": "published"
+ },
+ "Wright_2004_AJ_128_1273_arXiv0406338.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 783333,
+  "doi": "10.1086/423221",
+  "sha256": "8f6963e88fb96b6123be7b6fccf7aa0da49380fcf6b0b5b927de0f24fc675b8f",
+  "url": "https://arxiv.org/pdf/astro-ph/0406338",
+  "validacao": "primeira página: título e autor (J. T. Wright), arXiv:astro-ph/0406338v2; AJ 128, 1273 conferido pelas citações em Shah+2018 e Järvinen+2025 e pelo Crossref",
+  "versao": "manuscript (arXiv:astro-ph/0406338v2)"
  }
 }

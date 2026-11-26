@@ -60,7 +60,7 @@ assert f2["raw"]["p_two"] < 1e-3 and f2["corrected_A"]["p_two"] < 1e-3
 put("HOnePTwoBound", "$<10^{-3}$")
 # source counts read from the frozen catalog and the input files (check_manuscript_constants.py and test_step1.py also confront them)
 cat = p4io.load_catalog(only_included=False)
-put("NCatalog", len(cat)); put("NBaumStars", p4io.load_baum(drop_sigma=False).HD.nunique()); put("NVTwoStars", p4io.load_v2001().HD.nunique())
+put("NCatalog", len(cat)); put("NCatalogStars", int((cat.HD != "(Sun)").sum())); put("NBaumStars", p4io.load_baum(drop_sigma=False).HD.nunique()); put("NVTwoStars", p4io.load_v2001().HD.nunique())
 put("NExclCalib", int(cat.motivo.str.startswith("D13").sum())); put("NExclBinary", int(cat.motivo.str.startswith("R11").sum()))
 flat = cat[cat.classe_B95.str.startswith("Flat")]
 put("NFlatClass", len(flat)); put("NFlatCalib", int(flat.motivo.str.startswith("D13").sum()))
@@ -172,6 +172,14 @@ for k_, tag in (("min1", "One"), ("min2", "Two")):
         put(f"BootShare{tag}{mt}", float(hb[f"boot_share_sigma_{k_}_not_above_grand_{meth}"]), "{:.1f}")
         lo_, hi_ = hb[f"boot_ratio_{k_}_over_grand_{meth}_low_high"].split()
         put(f"BootRatio{tag}{mt}Lo", float(lo_), "{:.1f}"); put(f"BootRatio{tag}{mt}Hi", float(hi_), "{:.1f}")
+pcl = open(os.path.join(R, "positive_control.txt")).read()
+for case, ct in (("cycle persists", "Pers"), ("cycle lost", "Lost")):
+    for stat, st in (("ac1", "Ac"), ("var", "Var")):
+        mm = _re.search(rf"^{case} \| {stat} \| ([+-][0-9.]+) \| ([0-9.]+) \| ([0-9.]+)$", pcl, _re.M)
+        put(f"PCtl{ct}{st}Tau", float(mm.group(1)), "{:.2f}")
+        put(f"PCtl{ct}{st}Up", 100 * float(mm.group(2)), "{:.1f}"); put(f"PCtl{ct}{st}Lo", 100 * float(mm.group(3)), "{:.1f}")
+put("PCtlNRep", _re.search(r"(\d+) series per case", pcl).group(1)); put("PCtlPeriod", _re.search(r"period (\d+) yr", pcl).group(1))
+put("NSigHalfLow", int(((m5.tau < 0) & (m5.p_D22 < 0.05)).sum()))
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"

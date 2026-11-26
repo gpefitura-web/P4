@@ -79,3 +79,15 @@ Os 35 arquivos `.mgd` e o `README.pdf` do Dataverse `10.7910/DVN/H85QPF` foram c
 | srca2022 | falhou na tentativa 1 (HTTP 403) | http://link.aps.org/pdf/10.1103/PhysRevE.105.024206 |
 | srca2022 | ok (tentativa 2) | https://arxiv.org/pdf/2112.04843 |
 | gaps2026 (outra versão) | ok | https://arxiv.org/pdf/2505.19034 (manuscrito; Science e PMC falharam) |
+
+## 2026-11-26 (D122): referências novas
+| item | resultado | origem |
+|---|---|---|
+| metcalfe2017 | ok (tentativa 1) | https://arxiv.org/pdf/1705.09668 |
+| wright2004 | ok (tentativa 1) | https://arxiv.org/pdf/astro-ph/0406338 |
+| boettiger2012a | ok (tentativa 1) | https://arxiv.org/pdf/1204.6231 |
+| boettiger2012b | ok (tentativa 1) | https://arxiv.org/pdf/1210.1204 |
+| radick2018 (ApJ 855, 75) | **pendente**: sem versão no arXiv; tentativa 1 com id adivinhado devolveu outro artigo (descartado na validação da 1ª página) | -- |
+| vaughan1978, wilson1978, baliunas_jastrow1990 | **pendentes**: scans do ADS devolvem HTTP 500 (2 tentativas: articles.adsabs e link_gateway); precisam de PDF subido pelo pesquisador | -- |
+| dakos2008 (PNAS), lenton2012 (Phil Trans), lenton2011, boettner_boers2022 (Phys. Rev. Research) | **pendentes**: HTTP 403 nos editores; Europe PMC não abre PDF; sem arXiv | -- |
+| wiesenfeld1985, duncan1991 | **pendentes**: sem versão aberta | -- |
