@@ -316,6 +316,16 @@
   "validacao": "padrão de título /HD 4915/ nas páginas 1-2",
   "versao": "published"
  },
+ "Vaquero_2016_SolPhys_291_3061.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 1349762,
+  "doi": "10.1007/s11207-016-0982-2",
+  "key": "vaquero2016",
+  "sha256": "fd4f8dd242543d9b3c904f5fd0b580b377e5df8cad61d1ef5663c5349528d1c5",
+  "url": "enviado pelo pesquisador (fonte: manual)",
+  "validacao": "primeira página: título 'A Revised Collection of Sunspot Group Numbers', Vaquero et al., Solar Physics 291:3061–3074, DOI no cabeçalho; páginas 2–4 lidas (formato do arquivo, Tabelas 1–3, Figura 1)",
+  "versao": "published"
+ },
  "Vaughan_1978_PASP_90_267.pdf": {
   "baixado_em": "2026-11-26",
   "bytes": 377603,

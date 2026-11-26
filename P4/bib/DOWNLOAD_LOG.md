@@ -107,3 +107,9 @@ OpenAlex indicou as cópias abertas. Uma tentativa com User-Agent de navegador f
 |---|---|
 | vaughan1978, baliunas_jastrow1990, dakos2008, radick2018, duncan1991, lenton2011, wiesenfeld1985 | **ok**, validados pela primeira página (baliunas_jastrow1990 é scan e foi conferido na imagem) |
 | wilson1978 | **o arquivo enviado ("Chromospheric_variations_in_main-sequence_stars.pdf") é Baliunas+1995 (II), byte a byte igual ao da raiz (carimbo 1995ApJ...438..269B); descartado. Wilson 1978 (ApJ 226, 379) continua pendente** |
+
+## 2026-11-26, Vaquero et al. 2016 e catálogo de números de grupo (REG-R4, fonte: manual, enviado pelo pesquisador)
+| item | resultado |
+|---|---|
+| vaquero2016 (PDF, 14 páginas) | **ok**, validado pela primeira página (título, autores, DOI 10.1007/s11207-016-0982-2); sha256 `fd4f8dd2…28d1c5`; não duplica nenhum PDF existente |
+| `data/Vaquero2016_GNobservations_JV_V1-12.csv` | **ok**, cabeçalho do arquivo: "A REVISED COLLECTION OF SUNSPOT GROUP NUMBERS (v1.12; Date: 2016-05-12)", 1610–2010, colunas ano, mês, dia, estação, observador, grupos (−1 = ausente); 1 104 604 linhas de dados; sha256 `b2e8ac30b2643018490298e68ffe22f0c98a12da4921418a44b478edb49a4028`. Termos de uso (SILSO/HASO) **ainda não conferidos**; não entra no pacote público antes disso |
