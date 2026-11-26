@@ -1,0 +1,8 @@
+cells: 1920
+tau_max_abs_difference: 0.0e+00
+p_upper_max_abs_difference: 0.51
+share_of_cells_with_p_change_over_0.05: 8
+arma_order_changed_share: 58
+flagged_cells_run1: 2
+flagged_cells_run2: 2
+flagged_cells_in_both: 2

@@ -14,8 +14,21 @@ ORDERS = [(p, q) for p in (0, 1, 2) for q in (0, 1, 2)]
 
 
 def fit_arma(r):
-    """Best ARMA(p,q) by AIC. Returns dict(const, phi[], theta[], sigma2, order, engine). statsmodels if available,
-    else AR(p) by Yule-Walker (MA ignored) - engine is recorded."""
+    """Best ARMA(p,q) by AIC, fitted on the standardized series (mean 0, SD 1) and mapped back to the units of r (D121):
+    fitting on the raw scale made the AIC choice depend on the scale of the series (see scale_sensitivity.py).
+    Returns dict(const, phi[], theta[], sigma2, order, engine); const and sigma2 are in the units of r."""
+    r = np.asarray(r, float)
+    m, sd = float(r.mean()), float(r.std())
+    if not sd > 0:
+        return _fit_arma_scaled(r)
+    mod = _fit_arma_scaled((r - m) / sd)
+    mod["const"] = mod["const"] * sd + m
+    mod["sigma2"] = mod["sigma2"] * sd ** 2
+    return mod
+
+
+def _fit_arma_scaled(r):
+    """Best ARMA(p,q) by AIC on the series as given. statsmodels if available, else AR(p) by Yule-Walker (MA ignored)."""
     r = np.asarray(r, float)
     try:
         from statsmodels.tsa.arima.model import ARIMA

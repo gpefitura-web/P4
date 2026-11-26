@@ -145,6 +145,22 @@ put("NArmaCmp", len(ar)); put("NArmaDiff", int((ar.S != ar.RHK).sum()))
 sc_txt = open(os.path.join(R, "scale_sensitivity.txt")).read()
 cs = _re.search(r"^(\d+) \| (\d+) \| (\d+)$", sc_txt, _re.M)
 put("NScaleCases", int(cs.group(1))); put("NScaleSame", int(cs.group(2))); put("NScaleDiff", int(cs.group(3)))
+# ---- D121: robustness checks, power with a cycle -------------------------------------------------------------------
+rob = dict(l.split(": ") for l in open(os.path.join(R, "robustness.txt")).read().strip().splitlines())
+put("NCovSeg", int(rob["coverage_segments"])); put("CovMin", int(rob["coverage_min_obs_per_year"])); put("CovMed", int(rob["coverage_median_of_medians"]))
+put("NCovLow", int(rob["coverage_segments_with_a_year_below_5"]))
+put("NInterpOver", int(rob["interp_segments_over_2"])); put("NInterpFlagUp", int(rob["interp_cells_flagged_in_segments_up_to_2"]))
+put("NInterpCellsUp", int(rob["interp_cells_in_segments_up_to_2"]))
+for sg_, tag in ((1, "One"), (3, "Three"), (5, "Five")):
+    put(f"WNAC{tag}", float(rob[f"whitenoise_ac1_sigma{sg_}"]), "{:.2f}")
+pc = open(os.path.join(R, "power_cycle.txt")).read()
+for key, tag in (("null, no cycle", "NullNo"), ("trend, no cycle", "TrendNo"), ("null, with cycle", "NullCyc"), ("trend, with cycle", "TrendCyc")):
+    put(f"PC{tag}", 100 * float(_re.search(rf"^{key} \| ([0-9.]+)$", pc, _re.M).group(1)), "{:.0f}")
+put("PCPeriod", _re.search(r"cycle P = (\d+)", pc).group(1)); put("PCNRep", _re.search(r"(\d+) series per cell", pc).group(1))
+rc = dict(l.split(": ") for l in open(os.path.join(R, "run_comparison.txt")).read().strip().splitlines())
+put("RunPMax", float(rc["p_upper_max_abs_difference"]), "{:.2f}"); put("RunPShare", int(rc["share_of_cells_with_p_change_over_0.05"]))
+put("RunOrderShare", int(rc["arma_order_changed_share"])); put("RunFlagBoth", int(rc["flagged_cells_in_both"])); put("RunFlagOne", int(rc["flagged_cells_run1"]))
+put("RunTauDiff", float(rc["tau_max_abs_difference"]), "{:.0f}")
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"

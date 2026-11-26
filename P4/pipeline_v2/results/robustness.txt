@@ -1,0 +1,11 @@
+coverage_segments: 23
+coverage_min_obs_per_year: 1
+coverage_median_of_medians: 38
+coverage_segments_with_a_year_below_5: 18
+interp_segments_over_2: 3
+interp_cells_flagged_all: 2
+interp_cells_flagged_in_segments_up_to_2: 1
+interp_cells_in_segments_up_to_2: 168
+whitenoise_ac1_sigma1: -0.546
+whitenoise_ac1_sigma3: -0.193
+whitenoise_ac1_sigma5: -0.112
