@@ -20,6 +20,8 @@ d = pd.read_csv(os.path.join(os.path.dirname(PIPE), "data", "Vaquero2016_GNobser
 g = d[(d.GROUPS >= 0) & (d.STATION > 0)]
 day = g.groupby(["YEAR", "MONTH", "DAY"]).GROUPS.mean().reset_index()
 ann = day.groupby("YEAR").GROUPS.agg(["mean", "size"]).reset_index().rename(columns={"YEAR": "year", "mean": "S", "size": "n"})
+ann.to_csv(os.path.join(RESDIR, "dalton_annual.csv"), index=False)   # derived annual series, used by the macros and Figure 8 (the raw file is not redistributed)
+open(os.path.join(RESDIR, "dalton_meta.txt"), "w").write(f"n_obs {len(g)}\nn_observers {g.STATION.nunique()}\n")
 ann = ann[(ann.year >= 1700) & (ann.n >= 50)]
 segs = [s for s in annual.segments(ann[["year", "S", "n"]]) if len(s["years"]) >= 36]
 out = ["Usable segments (>= 50 days/yr, gap rule D98, length >= 36 yr):"]

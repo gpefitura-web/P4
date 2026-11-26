@@ -11,7 +11,7 @@ HERE = os.path.dirname(os.path.abspath(__file__)); FULL = os.path.join(HERE, "re
 MAN = os.path.join(FULL, "CALIBRATION_MANIFEST.sha256")
 FILES = ["positive_control_full.csv", "positive_control_full.txt", "power_bilateral.csv", "power_bilateral.txt", "power_design.csv", "power_design.txt",
          "step_injection.csv", "step_injection.txt", "robustness_data.csv", "robustness_data.txt", "robustness_post.txt", "dalton_control.csv", "dalton_control.txt",
-         "qq_pvalues.csv", "qq_pvalues.txt", "f_sensitivity.txt", "example_series.csv"]
+         "qq_pvalues.csv", "qq_pvalues.txt", "f_sensitivity.txt", "example_series.csv", "dalton_annual.csv", "dalton_meta.txt"]
 def sha(p):
     h = hashlib.sha256()
     with open(p, "rb") as fh:

@@ -97,9 +97,7 @@ ax.axvline(0, color=GRAY, lw=0.8); ax.set_yticks(y); ax.set_yticklabels(lbl); ax
 fig.tight_layout(); save(fig, "cal_fig6_step")
 
 # ---- Fig. 7: Dalton Minimum, sunspot group numbers ----
-v = pd.read_csv(os.path.join(os.path.dirname(HERE), "data", "Vaquero2016_GNobservations_JV_V1-12.csv"), comment="%")
-v = v[(v.GROUPS >= 0) & (v.STATION > 0)]
-an = v.groupby(["YEAR", "MONTH", "DAY"]).GROUPS.mean().reset_index().groupby("YEAR").GROUPS.agg(["mean", "size"]); an = an[(an.index >= 1740) & (an.index <= 1900)]
+an = pd.read_csv(os.path.join(R, "dalton_annual.csv")).set_index("year").rename(columns={"S": "mean", "n": "size"}); an = an[(an.index >= 1740) & (an.index <= 1900)]
 dc = pd.read_csv(os.path.join(R, "dalton_control.csv"))
 fig, (a1, a2) = plt.subplots(2, 1, figsize=(TW, 5.4), gridspec_kw=dict(height_ratios=[1.2, 1]))
 ok = an["size"] >= 50
