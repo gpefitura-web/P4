@@ -1,4 +1,14 @@
 {
+ "BaliunasJastrow_1990_Nature_348_520.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 619431,
+  "doi": "10.1038/348520a0",
+  "fonte": "manual",
+  "sha256": "f429bd5b7e0ff20e36f1b10d987895c6acbe8c5394799704ce27763220833f5f",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "scan; página 1 conferida na imagem: \"Evidence for long-term brightness changes of solar-type stars\", Baliunas & Jastrow, Nature 348, 520 (6 dez 1990)",
+  "versao": "published"
+ },
  "Baum_2022_AJ_163_183.pdf": {
   "baixado_em": "2026-11-14 (inventariado; enviado antes)",
   "bytes": 728410,
@@ -73,6 +83,16 @@
   "validacao": "título, autores e DOI na p. 1 (J. R. Soc. Interface 17: 20200482)",
   "versao": "published"
  },
+ "Dakos_2008_PNAS_105_14308.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 946056,
+  "doi": "10.1073/pnas.0802430105",
+  "fonte": "manual",
+  "sha256": "049aa1f8679250f375e0050279a4429591ce6f5ac8494e907d8a91514e092c43",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "primeira página: título, autores (Dakos, Scheffer, van Nes, Brovkin, Petoukhov, Held), PNAS, aprovado em 16 jul 2008",
+  "versao": "published"
+ },
  "DataGaps_2025_arXiv2505.19034.pdf": {
   "baixado_em": "2026-11-24",
   "bytes": 3303823,
@@ -81,6 +101,16 @@
   "url": "https://arxiv.org/pdf/2505.19034",
   "validacao": "padrão de título /Data gaps and outliers/ nas páginas 1-2",
   "versao": "manuscript (arXiv:2505.19034) da versão publicada em Sci. Adv."
+ },
+ "Duncan_1991_ApJS_76_383.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 4165892,
+  "doi": "10.1086/191572",
+  "fonte": "manual",
+  "sha256": "29f12e3f56213b7fa694620bd2ed22321e2aaece5fb17f60b937ed6c5628830e",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "cabeçalho impresso: ApJS 76:383-430, 1991 maio, \"Ca II H and K measurements made at Mount Wilson Observatory, 1966-1983\", Duncan et al. (scan do ADS 1991ApJS...76..383D)",
+  "versao": "published"
  },
  "Egeland_2017_arXiv1611.04540.pdf": {
   "baixado_em": "2026-11-14",
@@ -165,6 +195,16 @@
   "validacao": "padrão de título /Normal Forms, Variance/ nas páginas 1-2",
   "versao": "manuscript (arXiv:1101.2908)"
  },
+ "Lenton_2011_NatClimChange_1_201.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 917436,
+  "doi": "10.1038/nclimate1143",
+  "fonte": "manual",
+  "sha256": "f34f136c96774e406b9d360e32f0549e7dc5f52b322455d8c2da0e0bbaab8dcc",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "primeira página: \"Early warning of climate tipping points\", Lenton, Nature Climate Change, publicado online 19 jun 2011, DOI impresso",
+  "versao": "published"
+ },
  "Lenton_2012_PhilTransA_370_1185_HAL-02195169.pdf": {
   "baixado_em": "2026-11-26",
   "bytes": 1265266,
@@ -238,6 +278,16 @@
   "validacao": "Finite-size effects on long-range correlations: Implications for analyzing DNA sequences (título e volume 47, pp. 3730-3733 conferidos na p. 1 e no Crossref)",
   "versao": "published"
  },
+ "Radick_2018_ApJ_855_75.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 2562950,
+  "doi": "10.3847/1538-4357/aaaae3",
+  "fonte": "manual",
+  "sha256": "43c36a291f5f25b97b059ece43e3356191703d6dd5aacfdc02200333417b60fb",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "cabeçalho impresso: ApJ 855:75 (28pp), 2018 março 10, \"Patterns of Variation for the Sun and Sun-like Stars\", Radick, Lockwood, Henry, Hall, Pevtsov",
+  "versao": "published"
+ },
  "Rehfeld_2011_NPG_18_389.pdf": {
   "baixado_em": "2026-11-24",
   "bytes": 5817686,
@@ -264,6 +314,26 @@
   "sha256": "f7a4ed03310c3248b3eb3148943b49fed864f22a0d5e7a454f548172213c26c8",
   "url": "https://iopscience.iop.org/article/10.3847/2041-8213/aad40c/pdf",
   "validacao": "padrão de título /HD 4915/ nas páginas 1-2",
+  "versao": "published"
+ },
+ "Vaughan_1978_PASP_90_267.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 377603,
+  "doi": "10.1086/130324",
+  "fonte": "manual",
+  "sha256": "7fa8cc856f5028b98a68a75f7950f46555763bf212f826a1821d701412301500",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "PASP 90:267-274 (1978 junho), \"Flux measurements of Ca II H and K emission\", Vaughan, Preston, Wilson: impressos no cabeçalho",
+  "versao": "published"
+ },
+ "Wiesenfeld_1985_JStatPhys_38_1071.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 1123554,
+  "doi": "10.1007/BF01010430",
+  "fonte": "manual",
+  "sha256": "d95682f87bce7f5e0c21147432ea3822ae65385a9dc7f2eeee91d1d29a751183",
+  "url": "upload do pesquisador (portal CAPES)",
+  "validacao": "primeira página: \"Noisy Precursors of Nonlinear Instabilities\", Kurt Wiesenfeld, J. Stat. Phys. 38, nos. 5/6, 1985",
   "versao": "published"
  },
  "Wright_2004_AJ_128_1273_arXiv0406338.pdf": {

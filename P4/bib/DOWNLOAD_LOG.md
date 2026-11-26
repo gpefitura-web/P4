@@ -101,3 +101,9 @@ OpenAlex indicou as cópias abertas. Uma tentativa com User-Agent de navegador f
 | dakos2008 | falhou: PNAS 403, Wageningen 403, MPG 403, PMC devolve HTML | -- |
 | vaughan1978, radick2018 | falhou: IOP 403 (cópia "bronze" só no site do editor) | -- |
 | wilson1978, baliunas_jastrow1990, lenton2011, wiesenfeld1985, duncan1991 | sem cópia aberta (OpenAlex: fechado) | -- |
+
+## 2026-11-26, PDFs subidos pelo pesquisador (REG-R3, fonte: manual)
+| item | resultado |
+|---|---|
+| vaughan1978, baliunas_jastrow1990, dakos2008, radick2018, duncan1991, lenton2011, wiesenfeld1985 | **ok**, validados pela primeira página (baliunas_jastrow1990 é scan e foi conferido na imagem) |
+| wilson1978 | **o arquivo enviado ("Chromospheric_variations_in_main-sequence_stars.pdf") é Baliunas+1995 (II), byte a byte igual ao da raiz (carimbo 1995ApJ...438..269B); descartado. Wilson 1978 (ApJ 226, 379) continua pendente** |
