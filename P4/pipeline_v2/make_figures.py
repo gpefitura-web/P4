@@ -51,9 +51,17 @@ TW = 390.0 / 72.27   # text width of the manuscript (elsarticle preprint, 12 pt)
 fig, ax = plt.subplots(figsize=(TW, 4.2))
 keys = ("min1", "min2", "grand")
 x = np.arange(3)
-ax.plot(x - 0.15, [h1[k]["sigma_raw"] for k in keys], "s", ms=10, mfc="white", mec=GRAY, mew=1.4, ls="", label="raw interval")
-ax.plot(x, [h1[k]["sigma_A"] for k in keys], "o", ms=10, mfc=INK, mec=INK, ls="", label="corrected, A")
-ax.plot(x + 0.15, [h1[k]["sigma_B"] for k in keys], "^", ms=11, mfc=AQUA, mec=AQUA_EDGE, mew=1.0, ls="", label="corrected, B")
+bs = pd.read_csv(os.path.join(R, "h1_bootstrap.csv"))      # 95 % intervals of a bootstrap over observing seasons (h1_bootstrap.py)
+def ebar(meth, dx, color):
+    for i, k in enumerate(keys):
+        r_ = bs[(bs.state == k) & (bs.method == meth)].iloc[0]
+        ax.plot([i + dx, i + dx], [r_.low, r_.high], "-", color=color, lw=1.4, solid_capstyle="butt", zorder=1)
+        for yy in (r_.low, r_.high):
+            ax.plot([i + dx - 0.03, i + dx + 0.03], [yy, yy], "-", color=color, lw=1.4, zorder=1)
+ebar("raw", -0.15, GRAY); ebar("A", 0.0, INK)
+ax.plot(x - 0.15, [h1[k]["sigma_raw"] for k in keys], "s", ms=10, mfc="white", mec=GRAY, mew=1.4, ls="", label="raw interval", zorder=3)
+ax.plot(x, [h1[k]["sigma_A"] for k in keys], "o", ms=10, mfc=INK, mec=INK, ls="", label="corrected, A", zorder=3)
+ax.plot(x + 0.15, [h1[k]["sigma_B"] for k in keys], "^", ms=11, mfc=AQUA, mec=AQUA_EDGE, mew=1.0, ls="", label="corrected, B (no interval)", zorder=3)
 ax.set_xticks(x); ax.set_xticklabels([f"min 1\n1971-75\nN={h1['min1']['n']}", f"min 2\n1987-91\nN={h1['min2']['n']}",
                                         f"grand min\n2004 on\nN={h1['grand']['n']}"])
 ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0085); ax.set_ylabel("sigma of S")
@@ -116,7 +124,8 @@ fig, ax = plt.subplots(figsize=(TW, 4.7))
 for i, (g, h) in enumerate(stars):
     for cfg, mk, mc, dx, ms in (("none", "o", BLUE, -0.17, 7.5), ("s1", "D", ORANGE, 0.17, 6.5)):
         r = d[(d.HD == h) & (d.config == cfg)].iloc[0]
-        ax.plot(i + dx, r.tau, mk, mfc=mc, mec=mc, ms=ms, ls="")
+        ax.plot([i + dx, i + dx], [r.tau_null_lo, r.tau_null_hi], "-", color=LIGHT, lw=3.2, solid_capstyle="butt", zorder=1)
+        ax.plot(i + dx, r.tau, mk, mfc=mc, mec=mc, ms=ms, ls="", zorder=3)
         if r.p_upper < 0.05:
             ax.plot(i + dx, r.tau + 0.12, marker=STAR, color=INK, ms=9, mew=1.3, ls="")
 ax.axhline(0, color=GRAY, lw=0.6)
@@ -131,8 +140,9 @@ for g in order:
 ax.set_ylim(-1.05, 1.05); ax.set_xlim(-0.7, len(stars) - 0.3); ax.set_ylabel("Kendall tau")
 handles = [Line2D([], [], marker="o", color=BLUE, ls="", ms=7.5, label="original series"),
            Line2D([], [], marker="D", color=ORANGE, ls="", ms=6.5, label="sigma = 1 yr residual"),
-           Line2D([], [], marker=STAR, color=INK, ls="", ms=9, mew=1.3, label="p < 0.05")]
-ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.27), ncol=3, fontsize=11)
+           Line2D([], [], marker=STAR, color=INK, ls="", ms=9, mew=1.3, label="p < 0.05"),
+           Line2D([], [], color=LIGHT, lw=3.2, label="surrogates, 5-95 %")]
+ax.legend(handles=handles, frameon=False, loc="upper center", bbox_to_anchor=(0.5, -0.27), ncol=2, fontsize=11)
 save(fig, "Figure_4")
 open(os.path.join(OUT, "README.txt"), "w").write(f"Figures from pipeline_v2/make_figures.py. Font used: {FONT} (OFL; files and licence in pipeline_v2/fonts).\n"
                                                     "Super Mongo style, colour (D111). No figure number or caption inside the files. EPS and PDF.\n")

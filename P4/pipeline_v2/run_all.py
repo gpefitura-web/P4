@@ -57,6 +57,7 @@ def main():
                                              stat=stat, tau=tau,
                                              p_D22=(np.sum(ts <= tau) + 1) / (NSURR + 1),
                                              p_upper=(np.sum(ts >= tau) + 1) / (NSURR + 1),
+                                             tau_null_lo=float(np.percentile(ts, 5)), tau_null_hi=float(np.percentile(ts, 95)),
                                              arma=f"{model['order']}", engine=model["engine"]))
                     if sname == "S":
                         metrics.append(dict(HD=r.HD, grupo=r.grupo_P4, seg_year0=seg["year0"], L=L, config=dt.label(sigma),
