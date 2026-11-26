@@ -37,6 +37,8 @@ for m, T in MN.items():
     a = pc[(pc.model == m) & pc.lost]
     put(f"PC{T}SDFirst", a.amp_first5.median(), "{:.2f}"); put(f"PC{T}SDLast", a.amp_last5.median(), "{:.2f}")
 
+put("PCPersistMax", pct(max((g[f"{t}_{st}"] < .05).mean() for m in MN for st in ST for t in ("plow", "pup") for g in [pc[(pc.model == m) & ~pc.lost]])), "{:.1f}")
+
 # ---- bilateral power grid (power_bilateral.csv) ----
 bi = pd.read_csv(os.path.join(R, "power_bilateral.csv"))
 c = bi[(bi.P == 11.0) & (bi.s0 == 0.15)]
