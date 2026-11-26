@@ -109,3 +109,10 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 ## Leitura final (2026-11-26)
 - PDF recompilado do fonte atual (23 páginas, sem citação indefinida) e lido por inteiro; números conferidos contra `star_results.csv` e a Tabela 2. Duas correções de redação em `main.tex` (mediana de observações por ano; "runs de S e de R'HK"). Pacote refeito; prova em pasta limpa: `REPRODUCTION OK`; zips atualizados.
 - Segue pendente, do pesquisador: endereço e e-mail, declaração de IA, DOI do Zenodo na seção de dados, confirmação de financiamento/conflito/CRediT; Wilson 1978 não disponível (sem PDF).
+
+## Manuscrito v2 (2026-11-26, D127)
+- **Estado:** `manuscrito/main.tex` reescrito (eixo 1), 33 páginas, compila sem referências indefinidas; v1 em `72191da`. `manuscrito_overleaf.zip` refeito com `make_overleaf_zip.py` (inclui `calibration_macros.tex`, `cal_table_*.tex`, `figures/cal_fig*`); `highlights.docx`/`.tex` e `alt_text.md` refeitos.
+- **Seu (placeholders no texto):** endereço e CEP da afiliação, e-mail, declaração de IA, financiamento, conflito de interesses e CRediT, DOI do repositório (Zenodo).
+- **Decisões abertas:** revista (New Astronomy mantida por ora; alternativa: periódico de métodos/análise de dados), uso de séries de outros objetos, termos de uso de Vaquero antes de qualquer cópia pública.
+- **Conferido:** DOIs de [9] e [14] resolvem no Crossref para os artigos corretos (A&A 698, A93; AJ 170(3), 181).
+- **Análises que os pareceres pediram e não foram feitas:** nulo com ciclo explícito, médias por estação, estágio evolutivo por Gaia, Keck 2004–2021 e HD 4915, varredura com 10^4 surrogates.

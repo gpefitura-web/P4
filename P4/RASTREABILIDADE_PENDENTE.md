@@ -87,3 +87,9 @@ um `check_manuscript_constants.py` no pacote que leia `main.tex` e o código e f
 ## Atualização de 2026-11-26 (D122)
 - Resolvidos por macro: contagens do catálogo (`NCatalogStars`), bootstrap, controle positivo, grade de poder, estrelas com amplitude de ciclo.
 - **Digitados no texto com fonte e página no A15:** "10 yr" (Sol) e "15.8 yr" (HD 166620), Saar & Brandenburg 1999, Tabela 1, p. 297; "seven of 32 stars", Lockwood+2007, p. 260–261; "1986–1990" e "1987.0–1991.0", Luhn+2022, p. 4; "Table 4" de Isaacson+2024 (nome da tabela).
+
+## Atualização de 2026-11-26 (D127, manuscrito v2)
+- Resolvido por macro ou script do pacote: todos os números das seções novas (`calibration_macros.tex`, 354 macros), as tabelas de simulações e estelar (`cal_table_*.tex`) e as oito figuras novas; a série anual de manchas solares entra por `results_calibration/dalton_annual.csv` (o arquivo bruto não é redistribuído).
+- Constantes de projeto escritas à mão no texto, conferidas contra o código por `check_manuscript_constants.py` (31 verificações): queima de 40 anos, coeficientes a e b dos três osciladores, AR(1) 0,5 e 0,3→0,7, comprimentos de 30 a 200 anos, degrau no ano 11 de 30, grade de períodos e de ruído, blocos de 36 anos e regra de 50 dias.
+- **Ainda digitados no texto, com fonte:** "15.8 years" (HD 166620, Saar & Brandenburg 1999, Tabela 1, p. 297, A15); "1.7 to 1.9 %" e "1.9 % for HKP-2 and 1.7 % for HKP-1" (Duncan et al. 1991, A15); "1/4" do ponto de fold da forma normal subcrítica (resultado analítico da forma normal, não de fonte); frases de ordem de grandeza ("100 to 200 years") derivadas da curva de projeto, sem macro.
+- **Não sustentado no pacote:** afirmação de que o tempo de relaxação da amplitude pode ser comparável ao ciclo (declarada no texto como não medida); termos de uso de Vaquero.
