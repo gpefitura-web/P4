@@ -20,6 +20,7 @@ def cp(src, dst=None):
 
 # input data and the frozen catalogue
 cp("consolidacao/p4_star_catalog.csv")
+cp("baum2022_59stars.csv")      # spectral type and log g of the 59 stars of Baum et al. (Table 1 of the analyzed table, grade A), read by make_tables_calibration.py
 for f in ("J_AJ_163_183_table1.tsv", "J_ApJ_936_L23_table2.tsv", "J_ApJS_274_35_table4.tsv"):
     cp(f"data/{f}")
 for f in sorted(glob.glob(os.path.join(ROOT, "data/HK_Project_v2001_NSO/*"))):
@@ -256,6 +257,7 @@ sunspot analysis; without it, the stored result and the derived annual series (`
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
+| `baum2022_59stars.csv` | stellar parameters of the 59 stars of Baum et al. (spectral type, log g), read by `make_tables_calibration.py` |
 | `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; used only to count how many stars have a cycle amplitude), HK_Project_v2001_NSO (Harvard Dataverse) |
 | `pipeline_v2/` | stellar pipeline (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
 | `pipeline_v2/calibration/` | calibration analyses; stored full outputs in `pipeline_v2/results_calibration/` |
