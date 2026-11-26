@@ -1,0 +1,7 @@
+check base vs star_results.csv: cells 960, max |dtau| 0.00e+00, max |dp_upper| 0.000
+variant | segments | cells | tau median ac1 | tau median var | p_upper<0.05 | p_lower<0.05 | median |dtau| vs base | sign flips vs base
+base | 24 | 960 | -0.043 | -0.222 | 14 | 53 | 0.000 | 0/960
+hkp2 | 14 | 560 | +0.094 | -0.046 | 33 | 22 | nan | 0/0
+no6667 | 24 | 960 | -0.058 | -0.101 | 22 | 48 | 0.000 | 0/80
+min5 | 20 | 800 | +0.000 | -0.085 | 10 | 32 | 0.000 | 12/440
+base without 182572/190360/217014 | 21 | 840 | +0.019 | -0.160 | 9 | 31 | - | -

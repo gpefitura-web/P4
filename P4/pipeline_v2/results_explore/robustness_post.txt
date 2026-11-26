@@ -1,0 +1,13 @@
+Fraction of raw cells with p < 0.05 by variant (nominal 0.05 if the test is valid and cells independent)
+variant | cells | upper | lower
+base | 960 | 0.015 | 0.055
+hkp2 | 560 | 0.059 | 0.039
+min5 | 800 | 0.013 | 0.040
+no6667 | 960 | 0.023 | 0.050
+
+HKP-2 only vs base, HD level: 14 stars, 560 matched cells
+median tau base -0.193, hkp2 +0.048; median |dtau| 0.293; sign flips 176/560
+ac1: median tau base -0.127, hkp2 +0.094, corr 0.29
+var: median tau base -0.300, hkp2 -0.046, corr 0.58
+
+HKP-2 flagged cells by star (p_upper<0.05): 115383:4, 131156A:11, 176095:6, 182572:2, 25998:5, 39587:5
