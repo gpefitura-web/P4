@@ -102,3 +102,6 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 ## Bibliografia expandida e análises que faltavam (2026-11-26, D122)
 - 27 referências, todas lidas (A15). Pendentes de PDF (não citadas): ver `bib/DOWNLOAD_LOG.md`.
 - **Mudança de conclusão:** H1 só se sustenta em relação ao mínimo 2 (bootstrap por temporada); o controle positivo mostra que o sinal esperado na perda de ciclo é o oposto do assumido. Texto, resumo, highlights e figuras atualizados. Estado: `paper_state_v12.md`.
+
+## Sete PDFs subidos e citados (2026-11-26, D122)
+- 36 referências, todas lidas (A15). Pendente de PDF: só Wilson 1978. Correção de fato: os fotômetros HKP-1 e HKP-2 já estão numa escala comum nas fontes (Duncan; Baum). Estado: `paper_state_v12.md`.
