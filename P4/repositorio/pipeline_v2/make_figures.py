@@ -64,7 +64,7 @@ ax.plot(x, [h1[k]["sigma_A"] for k in keys], "o", ms=10, mfc=INK, mec=INK, ls=""
 ax.plot(x + 0.15, [h1[k]["sigma_B"] for k in keys], "^", ms=11, mfc=AQUA, mec=AQUA_EDGE, mew=1.0, ls="", label="corrected, B (no interval)", zorder=3)
 ax.set_xticks(x); ax.set_xticklabels([f"min 1\n1971-75\nN={h1['min1']['n']}", f"min 2\n1987-91\nN={h1['min2']['n']}",
                                         f"grand min\n2004 on\nN={h1['grand']['n']}"])
-ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0085); ax.set_ylabel("sigma of S")
+ax.set_xlim(-0.5, 2.5); ax.set_ylim(0, 0.0100); ax.set_ylabel("sigma of S")
 ax.legend(frameon=False, loc="upper right", fontsize=11.5)
 save(fig, "Figure_1")
 

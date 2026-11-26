@@ -1,24 +1,25 @@
 {
-  "title": "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars",
+  "title": "Reproduction package: critical slowing down indicators and the loss of a stellar activity cycle",
   "upload_type": "software",
   "access_right": "open",
   "license": "mit",
   "language": "eng",
-  "version": "1.0.0",
-  "publication_date": "2026-11-25",
+  "version": "2.0.0",
+  "publication_date": "2026-11-26",
   "creators": [
     {
       "name": "Borin Junior, Airton M. S.",
       "affiliation": "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"
     }
   ],
-  "description": "Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017). Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; HK_Project_v2001_NSO; the solar table of Egeland et al. 2017 is downloaded at run time, not redistributed), reference outputs, figures and manuscript sources, with a sha256 manifest.",
+  "description": "Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article on the size, power and positive controls of rolling-window early-warning indicators of critical slowing down, applied to annual Mount Wilson S-index series of Sun-like stars, the Sun and a sunspot record. Run reproduce.sh (about 12 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017). Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; HK_Project_v2001_NSO; the solar table of Egeland et al. 2017 is downloaded at run time, not redistributed), reference outputs, figures and manuscript sources, with a sha256 manifest.",
   "keywords": [
     "critical slowing down",
     "early-warning signals",
     "stellar activity cycles",
     "chromospheric activity",
     "S index",
-    "Maunder minimum"
+    "positive controls",
+    "statistical power"
   ]
 }

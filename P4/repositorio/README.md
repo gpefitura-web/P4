@@ -1,49 +1,65 @@
-# Reproduction package: testing critical slowing down in Mount Wilson S-index series of Sun-like stars
+# Reproduction package (version 2.0.0): critical slowing down indicators and the loss of a stellar activity cycle
 
 This folder holds everything needed to reproduce every number, table and figure of the manuscript (`manuscrito/main.tex`), and nothing else:
 the input data, the code, the reference outputs and the manuscript sources. `MANIFEST.sha256` lists every file; `reproduce.sh` checks it.
 
 ## Run
 ```
-pip install -r requirements.txt          # Python 3.13
-PYTHON=python3 bash reproduce.sh         # about 6 minutes
+pip install -r requirements.txt                  # Python 3.13
+PYTHON=python3 bash reproduce.sh                 # about 12 minutes
+PYTHON=python3 bash reproduce.sh --full          # about 1.5 hours; also re-runs the calibration simulations in full
 ```
 `reproduce.sh` (1) checks the manifest, (2) saves the published outputs to `_published/` and clears them, (3) runs the checks, the size test of the
-surrogate procedure, the power simulation and the single stellar run (fixed seeds), (4) rewrites the generated blocks of `main.tex` and the figures,
-(5) compares everything with the published outputs (`REPRODUCTION OK`), and (6) compiles the manuscript if `pdflatex` is installed (class `elsarticle`).
+surrogate procedure, the power simulation and the single stellar run (fixed seeds), (4) runs the calibration analyses, (5) rewrites the generated
+blocks of `main.tex`, the macros, tables and figures, (6) compares everything with the published outputs (`REPRODUCTION OK`), and (7) compiles the
+manuscript if `pdflatex` is installed (class `elsarticle`).
+
+The calibration simulations (positive controls, power curves, instrumental step, data choices) are large. By default they run in a reduced form
+(`--quick`: same seeds, fewer series and surrogates) in `pipeline_v2/results_calibration_quick/`, and `verify_calibration.py` checks that every
+rejection rate agrees with the stored full run within four standard errors and that the statistics computed on the data alone are identical. The stored
+full outputs in `pipeline_v2/results_calibration/` are checked by sha256 (`CALIBRATION_MANIFEST.sha256`); with `--full` they are regenerated and must
+match byte for byte. The macros, tables and figures are always rebuilt from the stored full outputs.
+
+The sunspot group numbers of Vaquero et al. (2016) are not redistributed (terms of use not yet checked). Give the file with `VAQUERO_FILE=...` to re-run the
+sunspot analysis; without it, the stored result and the derived annual series (`results_calibration/dalton_annual.csv`) are used.
 
 ## Layout
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; cycle amplitudes, used only to count how many stars have one), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
-| `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
-| `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
+| `baum2022_59stars.csv` | stellar parameters of the 59 stars of Baum et al. (spectral type, log g), read by `make_tables_calibration.py` |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; used only to count how many stars have a cycle amplitude), HK_Project_v2001_NSO (Harvard Dataverse) |
+| `pipeline_v2/` | stellar pipeline (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
+| `pipeline_v2/calibration/` | calibration analyses; stored full outputs in `pipeline_v2/results_calibration/` |
+| `manuscrito/` | `main.tex`, `calibration_macros.tex`, `cal_table_*.tex`, `references.bib`, highlights, `figures/` (PDF and EPS), `build.sh` |
 
 ## From the manuscript to the code
 | Manuscript item | Produced by | Output |
 |---|---|---|
-| Sample, segments (Sect. 2.1; Table 2 columns L, Interp.) | `p4io.py`, `annual.py` (via `run_all.py`) | `results/segments.csv` |
-| Indicators, detrending, surrogate p values (Sects. 2.2, 2.3, 3.3; Table 2) | `indicators.py`, `detrend.py`, `surrogates.py`, `run_all.py` | `results/star_results.csv` |
-| Size of the surrogate test (Sect. 3.1) | `test_step5.py` | `results/autotest_step5.txt` |
-| Power (AUC; Sect. 3.1) | `power_simulation.py` | `results/power_simulation.txt` |
-| H1, Table 1, Figure 1 | `state_comparison.py` (via `run_all.py`) | `results/h1.json` |
-| R'_HK (Sect. 3.3) | `rhk.py`, `run_all.py` | `results/star_results.csv` (series `RHK`) |
-| Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
-| All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
-| ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
-| Power with a cycle (Sect. 3.1) | `power_cycle.py` | `results/power_cycle.txt` |
-| Power over cycle period and amplitude (Sect. 3.1) | `power_grid.py` | `results/power_grid.txt` |
-| Positive control, noisy Hopf oscillator (Sect. 3.1) | `positive_control.py` | `results/positive_control.txt` |
-| Bootstrap over observing seasons, H1 (Sect. 3.2, Fig. 1) | `h1_bootstrap.py` | `results/h1_bootstrap.txt`, `.csv` |
-| Coverage, interpolation, white-noise reference (Sect. 4) | `robustness.py` | `results/robustness.txt` |
-| First run against the second (Sect. 2.7) | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
-| Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
-| Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
-| Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
+| Sample and segments (Sect. 2.1; Table 1) | `p4io.py`, `annual.py` (via `run_all.py`), `make_tables_calibration.py` | `results/segments.csv`, `manuscrito/cal_table_stars.tex` |
+| Indicators, detrending, surrogate test (Sect. 2.2) | `indicators.py`, `detrend.py`, `surrogates.py`, `run_all.py` | `results/star_results.csv` |
+| Simulations (Sect. 2.3; Table 2) | `calibration/*.py`, `make_tables_calibration.py` | `manuscrito/cal_table_simulations.tex` |
+| Size of the test (Sect. 3.1) | `test_step5.py`, `calibration/power_bilateral.py` | `results/autotest_step5.txt`, `results_calibration/power_bilateral.*` |
+| Distribution of the stellar p values (Sect. 3.1; Fig. 1) | `calibration/qq_pvalues.py` | `results_calibration/qq_pvalues.*` |
+| Positive controls (Sect. 3.2; Table 3; Figs. 2, 3) | `calibration/positive_control_full.py`, `example_series.py`, `power_bilateral.py` | `results_calibration/positive_control_full.*`, `example_series.csv`, `power_bilateral.*` |
+| Power against a true rise (Sect. 3.3; Fig. 4) | `calibration/power_design.py`, `power_bilateral.py` | `results_calibration/power_design.*` |
+| Instrumental step and data choices (Sect. 3.4; Fig. 5) | `calibration/step_injection.py`, `robustness_data.py`, `robustness_post.py` | `results_calibration/step_injection.*`, `robustness_data.*`, `robustness_post.txt` |
+| Stellar scan (Sect. 3.5) | `run_all.py`, `make_macros.py` | `results/star_results.csv` |
+| HD 166620 by state (Sect. 3.6; Table 4; Figs. 6, 7) | `state_comparison.py` (via `run_all.py`), `h1_bootstrap.py`, `calibration/f_sensitivity.py` | `results/h1.json`, `results/h1_bootstrap.*`, `results_calibration/f_sensitivity.txt` |
+| Sunspot numbers, Dalton Minimum (Sect. 3.7; Fig. 8) | `calibration/dalton_control.py`, `fetch_vaquero.py` | `results_calibration/dalton_control.*`, `dalton_annual.csv`, `dalton_meta.txt` |
+| Conversion to R'_HK (Appendix A) | `rhk.py`, `run_all.py`, `scale_sensitivity.py` | `results/star_results.csv` (series `RHK`), `results/scale_sensitivity.txt` |
+| Group tests (Appendix B) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
+| Table of indicators by segment, Figs. 9-11 (Appendix C) | `make_tables.py`, `make_figures.py` | block between `%%% BEGIN/END GENERATED TABLE`, `manuscrito/figures/Figure_2-4` |
+| Analysis log (Sect. 2.6): first run against the second | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
+| Earlier power studies (power with a cycle, grid, first positive control, coverage) | `power_simulation.py`, `power_cycle.py`, `power_grid.py`, `positive_control.py`, `robustness.py` | `results/*.txt` |
+| Numbers in the text | `make_macros.py`, `make_macros_calibration.py` | block between `%%% BEGIN/END GENERATED MACROS`, `manuscrito/calibration_macros.tex` |
+| Design constants written in the text | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
+| Figure 6 and Figures 9 to 11 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
+| Figures 1 to 5, 7, 8 | `make_figures_calibration.py` | `manuscrito/figures/cal_fig*.pdf` and `.eps` |
 | Facts report | `report.py` | `results/REPORT.md` |
 
-Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
+Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L; calibration simulations 20261126 to 20261130 (one per script, listed in Table 2 of the manuscript);
+example series 20261201. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
 Tables and JSON are compared numerically (relative tolerance 1e-9): the ARMA fits depend on the `statsmodels` version, so use the pinned versions.
 
 ## Table 4 of Egeland et al. (2017): downloaded, not redistributed

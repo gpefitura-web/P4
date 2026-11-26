@@ -12,6 +12,10 @@ TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.c
 JSONS = [RES + "h1.json"]
 EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "power_grid.txt", "positive_control.txt", "h1_bootstrap.txt", "robustness.txt", "run_comparison.txt")] + ["manuscrito/main.tex"] + \
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
+CAL = ["manuscrito/calibration_macros.tex", "manuscrito/cal_table_stars.tex", "manuscrito/cal_table_simulations.tex"] + \
+      [f"manuscrito/figures/{n}.{e}" for n in ("cal_fig1_controls", "cal_fig2_power_grid", "cal_fig3_design", "cal_fig4_qq", "cal_fig5_sigma_f", "cal_fig6_step", "cal_fig7_dalton") for e in ("pdf", "eps")] + \
+      ["pipeline_v2/results_calibration/" + f for f in ("f_sensitivity.txt", "qq_pvalues.csv", "qq_pvalues.txt", "example_series.csv")]   # regenerated every run
+EXACT += CAL
 FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
 

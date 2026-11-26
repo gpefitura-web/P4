@@ -58,7 +58,7 @@ lo, hi = macro("LowMax"), macro("AdeqMin")
 good = run_all.precision(int(lo)) == "baixa" and run_all.precision(int(lo) + 1) == "adequada" and hi == lo + 1
 ok &= good; print(f"{'PASS' if good else 'FAIL'} precision bands: low up to {lo:g}, adequate from {hi:g}")
 w = ind.window_size(run_all.MIN_SEG, 0.5)
-check("points and windows at the minimum segment", r"has at least (\d+) points and (\d+) windows", (w, run_all.MIN_SEG - w + 1))
+check("points at the minimum segment", r"has at least (\d+) points", (w,))
 # --- windows and detrending
 m = re.search(r"with \$f = (0\.25)\$, ([\d., and]+); \$f = ([\d.]+)\$ is the default", text)
 fr = tuple(float(x) for x in re.findall(r"[\d.]+\d", m.group(1) + ", " + m.group(2))) if m else None
@@ -92,17 +92,32 @@ ok &= good; print(f"{'PASS' if good else 'FAIL'} published size test header matc
 a, b = (float(x) for x in re.search(r"0\.03 <= up <= 0\.07", t5) and (0.03, 0.07))
 check("size acceptance range (percent)", r"\\newcommand\{\\SizeLo\}\{(\d+)\}", (round(100 * a),))
 check("size acceptance range (percent), upper", r"\\newcommand\{\\SizeHi\}\{(\d+)\}", (round(100 * b),))
-# --- power simulation (script runs on import; parsed)
-ps = source("power_simulation.py")
-c0 = float(re.search(r"np\.full\(L, ([\d.]+)\)", ps).group(1)); c1 = tuple(float(x) for x in re.search(r"np\.linspace\(([\d.]+), ([\d.]+), L\)", ps).groups())
-nsim = int(re.search(r"for _ in range\((\d+)\)", ps).group(1)); frac = float(re.search(r"int\(round\(L \* ([\d.]+)\)\)", ps).group(1))
-check("power simulation design", r"stayed at ([\d.]+) or rose linearly from ([\d.]+) to ([\d.]+) \((\d+) series per length, window (\d+)\\,\\%",
-      (c0, c1[0], c1[1], nsim, round(100 * frac)))
-lens = tuple(int(x) for x in re.search(r"LENGTHS = \(([\d, ]+)\)", ps).group(1).split(","))
-pub = open(os.path.join(HERE, "results", "power_simulation.txt"), encoding="utf-8").read()
-pl = tuple(int(x) for x in re.findall(r"^(\d+) \| \d+ \| \d+ \| [+-]", pub, re.M))
-good = pl == lens
-ok &= good; print(f"{'PASS' if good else 'FAIL'} published power table has the lengths of the script: {pl} vs {lens}")
+# --- calibration simulations (D126): constants written by hand in the text against the scripts in pipeline_v2/calibration
+CAL = os.path.join(HERE, "calibration")
+def csrc(name):
+    return open(os.path.join(CAL, name), encoding="utf-8").read()
+pcs, pds, sis, pbs, dcs = csrc("positive_control_full.py"), csrc("power_design.py"), csrc("step_injection.py"), csrc("power_bilateral.py"), csrc("dalton_control.py")
+good = re.search(r"for _ in range\(40 \* SPY\)", pcs) is not None
+ok &= good; print(f"{'PASS' if good else 'FAIL'} positive control burn-in of 40 years is in the script")
+check("burn-in of the oscillator", r"after a (\d+)-year burn-in", (40,))
+good = re.search(r"cub = 1\.0 if model == \"sub\" else -1\.0", pcs) and re.search(r"abs\(z\) \*\* 4 \* z if model == \"sub\"", pcs) and re.search(r"\(1 \+ abs\(z\)\) if model == \"mult\"", pcs)
+ok &= good is not None; print(f"{'PASS' if good else 'FAIL'} oscillator models of the text (a, b, multiplicative 1 + |z|) match the script")
+good = all(x in text for x in ("supercritical model ($a = -1$, $b = 0$)", "subcritical model ($a = 1$, $b = 1$)", "multiplied by $1 + |z|$"))
+ok &= good; print(f"{'PASS' if good else 'FAIL'} text states the coefficients a, b of the three models")
+good = "np.linspace(0.3, 0.7, L)" in pds and "np.full(L, 0.5)" in pds and "(30, 50, 100, 200)" in pds and "0.3 to 0.7" in text and "constant at 0.5" in text and "from 30 to 200 years" in text
+ok &= good; print(f"{'PASS' if good else 'FAIL'} true-CSD AR(1) design (0.5 constant, 0.3 to 0.7, lengths 30-200) in text and script")
+good = "x[K:] = x[K:] * g + d * SD" in sis and re.search(r"L, K, NS, NREP, SD = 30, 11,", sis) is not None
+ok &= good; print(f"{'PASS' if good else 'FAIL'} step injected after year 11 of 30 (macros SIStepYear and SIL read the script)")
+import pandas as _pd
+_bi = _pd.read_csv(os.path.join(HERE, "results_calibration", "power_bilateral.csv"))
+good = tuple(sorted(_bi[_bi.P > 0].P.unique())) == (8.0, 11.0, 15.0) and tuple(sorted(_bi[_bi.s0 > 0].s0.unique())) == (0.10, 0.15, 0.30) and "(8.0, 11.0, 15.0)" in pbs and "(0.10, 0.15, 0.30)" in pbs
+ok &= good; print(f"{'PASS' if good else 'FAIL'} period and noise grid of the two-sided power experiment: script and stored results agree")
+good = "BLOCKS" in dcs and re.search(r"1795 \+ 36 \* i", dcs) is not None and "n >= 50" in dcs
+ok &= good; print(f"{'PASS' if good else 'FAIL'} Dalton blocks of 36 years from 1795 and the 50-day rule are in the script (macros DALBlockLen, DALDaysMin)")
+blk = int(re.search(r"1795 \+ (\d+) \* i", dcs).group(1)); days = int(re.search(r"n >= (\d+)", dcs).group(1))
+mm = open(os.path.join(HERE, "make_macros_calibration.py")).read()
+good = re.search(rf'put\("DALBlockLen", {blk}\)', mm) is not None and re.search(rf'put\("DALDaysMin", {days}\)', mm) is not None
+ok &= good; print(f"{'PASS' if good else 'FAIL'} Dalton block length {blk} and day rule {days} in the script equal the macros")
 # --- B-V band of the R'_HK conversion
 m = re.search(r"valid for \$([\d.]+) < B\\!-\\!V < ([\d.]+)\$", text); blo, bhi = float(m.group(1)), float(m.group(2))
 good = (rhk.band(blo - 1e-6).startswith("FORA") and rhk.band(blo + 1e-6) == "DENTRO" and rhk.band(bhi - 1e-6) == "DENTRO"

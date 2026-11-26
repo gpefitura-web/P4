@@ -1,0 +1,16 @@
+Step injected at year 11 of 30 (AR(1) 0.5, no trend); 500 series/case, 500 surrogates, window 50 %
+case | stat | median tau | reject upper | reject lower
+none | ac1 | -0.02 | 0.044 | 0.062
+none | var | +0.03 | 0.038 | 0.034
+level 0.5sd | ac1 | -0.08 | 0.048 | 0.054
+level 0.5sd | var | -0.05 | 0.036 | 0.032
+level 1sd | ac1 | -0.22 | 0.038 | 0.070
+level 1sd | var | -0.28 | 0.004 | 0.066
+level 2sd | ac1 | -0.45 | 0.002 | 0.128
+level 2sd | var | -0.53 | 0.000 | 0.124
+noise x0.5 | ac1 | +0.03 | 0.036 | 0.032
+noise x0.5 | var | -0.68 | 0.000 | 0.288
+noise x1.5 | ac1 | -0.01 | 0.050 | 0.052
+noise x1.5 | var | +0.52 | 0.146 | 0.008
+level 1sd + noise x0.5 | ac1 | -0.26 | 0.014 | 0.040
+level 1sd + noise x0.5 | var | -0.72 | 0.000 | 0.294
