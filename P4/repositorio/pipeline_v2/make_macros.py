@@ -60,7 +60,7 @@ assert f2["raw"]["p_two"] < 1e-3 and f2["corrected_A"]["p_two"] < 1e-3
 put("HOnePTwoBound", "$<10^{-3}$")
 # source counts read from the frozen catalog and the input files (check_manuscript_constants.py and test_step1.py also confront them)
 cat = p4io.load_catalog(only_included=False)
-put("NCatalog", len(cat)); put("NBaumStars", p4io.load_baum(drop_sigma=False).HD.nunique()); put("NVTwoStars", p4io.load_v2001().HD.nunique())
+put("NCatalog", len(cat)); put("NCatalogStars", int((cat.HD != "(Sun)").sum())); put("NBaumStars", p4io.load_baum(drop_sigma=False).HD.nunique()); put("NVTwoStars", p4io.load_v2001().HD.nunique())
 put("NExclCalib", int(cat.motivo.str.startswith("D13").sum())); put("NExclBinary", int(cat.motivo.str.startswith("R11").sum()))
 flat = cat[cat.classe_B95.str.startswith("Flat")]
 put("NFlatClass", len(flat)); put("NFlatCalib", int(flat.motivo.str.startswith("D13").sum()))
@@ -100,9 +100,9 @@ put("MedACNone", best[best.config == "none"].ac1.median(), "{:.2f}"); put("MedAC
 put("NACNoneHigh", int((best[best.config == "none"].ac1 > 0.5).sum())); put("NStarsMetric", int((best.config == "none").sum()))
 # R'HK identity
 pv = res.pivot_table(index=["HD", "seg_year0", "config", "frac", "stat"], columns="series", values="tau")
-put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.1f}"); put("RHKNCompare", len(pv))
+put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.0f}"); put("RHKNCompare", len(pv))
 # group tests
-put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.1f}")
+put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.0f}")
 put("PrimMedVL", prim.med1, "{:.2f}"); put("PrimMedFlat", prim.med2, "{:.2f}")
 put("NHolmTests", len(hol)); put("NHolmSig", int((hol.p_holm < 0.05).sum())); put("NRawSig", int((hol.p < 0.05).sum()))
 for cfg, tag in (("s1", "SOne"), ("none", "None")):
@@ -125,7 +125,7 @@ for cfg, tag in (("s1", "SOne"), ("none", "None")):
 put("MinPCycleFlat", 1 / math.comb(12, 4), "{:.4f}"); put("MinPFourFour", 1 / math.comb(8, 4), "{:.3f}")
 for P, n in ((10, "Ten"), (12, "Twelve"), (16, "Sixteen")):
     put(f"Per{n}", P)
-    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.1f}")
+    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.0f}")
 ng = ran[ran.HD != "(Sun)"].grupo.value_counts()
 for g, n in (("Flat_limpa", "Flat"), ("CYCLE_Excellent", "Cycle"), ("Var", "Var"), ("Long", "Long")):
     put(f"NGroup{n}", int(ng.get(g, 0)))
@@ -151,6 +151,7 @@ put("NCovSeg", int(rob["coverage_segments"])); put("CovMin", int(rob["coverage_m
 put("NCovLow", int(rob["coverage_segments_with_a_year_below_5"]))
 put("NInterpOver", int(rob["interp_segments_over_2"])); put("NInterpFlagUp", int(rob["interp_cells_flagged_in_segments_up_to_2"]))
 put("NInterpCellsUp", int(rob["interp_cells_in_segments_up_to_2"]))
+put("NAmpStars", int(rob["amplitude_stars_with_CLSV_cycle_amplitude"])); put("NAmpAnalyzed", int(rob["amplitude_stars_analyzed"]))
 for sg_, tag in ((1, "One"), (3, "Three"), (5, "Five")):
     put(f"WNAC{tag}", float(rob[f"whitenoise_ac1_sigma{sg_}"]), "{:.2f}")
 pc = open(os.path.join(R, "power_cycle.txt")).read()
@@ -163,6 +164,30 @@ rc = dict(l.split(": ") for l in open(os.path.join(R, "run_comparison.txt")).rea
 put("RunPMax", float(rc["p_upper_max_abs_difference"]), "{:.2f}"); put("RunPShare", int(rc["share_of_cells_with_p_change_over_0.05"]))
 put("RunOrderShare", int(rc["arma_order_changed_share"])); put("RunFlagBoth", int(rc["flagged_cells_in_both"])); put("RunFlagOne", int(rc["flagged_cells_run1"]))
 put("RunTauDiff", float(rc["tau_max_abs_difference"]), "{:.0f}")
+hb = dict(l.split(": ") for l in open(os.path.join(R, "h1_bootstrap.txt")).read().strip().splitlines())
+put("BootN", int(hb["resamples"]))
+for k_, tag in (("min1", "One"), ("min2", "Two"), ("grand", "Grand")):
+    put(f"BootSeas{tag}", int(hb[f"seasons_{k_}"]))
+for k_, tag in (("min1", "One"), ("min2", "Two")):
+    for meth, mt in (("A", "A"), ("raw", "Raw")):
+        put(f"BootShare{tag}{mt}", float(hb[f"boot_share_sigma_{k_}_not_above_grand_{meth}"]), "{:.1f}")
+        lo_, hi_ = hb[f"boot_ratio_{k_}_over_grand_{meth}_low_high"].split()
+        put(f"BootRatio{tag}{mt}Lo", float(lo_), "{:.1f}"); put(f"BootRatio{tag}{mt}Hi", float(hi_), "{:.1f}")
+pcl = open(os.path.join(R, "positive_control.txt")).read()
+for case, ct in (("cycle persists", "Pers"), ("cycle lost", "Lost")):
+    for stat, st in (("ac1", "Ac"), ("var", "Var")):
+        mm = _re.search(rf"^{case} \| {stat} \| ([+-][0-9.]+) \| ([0-9.]+) \| ([0-9.]+)$", pcl, _re.M)
+        put(f"PCtl{ct}{st}Tau", float(mm.group(1)), "{:.2f}")
+        put(f"PCtl{ct}{st}Up", 100 * float(mm.group(2)), "{:.1f}"); put(f"PCtl{ct}{st}Lo", 100 * float(mm.group(3)), "{:.1f}")
+put("PCtlNRep", _re.search(r"(\d+) series per case", pcl).group(1)); put("PCtlPeriod", _re.search(r"period (\d+) yr", pcl).group(1))
+put("NSigHalfLow", int(((m5.tau < 0) & (m5.p_D22 < 0.05)).sum()))
+pg = [tuple(float(x) for x in l.split(" | ")) for l in open(os.path.join(R, "power_grid.txt")).read().splitlines() if _re.match(r"^\d+ \| [0-9.]+ \| [0-9.]+ \| [0-9.]+$", l)]
+cyc = [r for r in pg if r[1] > 0]; amax = max(r[1] for r in cyc)
+put("PGridTrendMax", 100 * max(r[3] for r in cyc), "{:.1f}"); put("PGridNullMax", 100 * max(r[2] for r in cyc), "{:.1f}")
+put("PGridStrongMax", 100 * max(max(r[2], r[3]) for r in cyc if r[1] == amax), "{:.1f}")
+put("PGridPMin", int(min(r[0] for r in cyc))); put("PGridPMax", int(max(r[0] for r in cyc)))
+put("PGridAMin", min(r[1] for r in cyc), "{:g}"); put("PGridAMax", amax, "{:g}")
+put("PGridNRep", _re.search(r"(\d+) series per cell", open(os.path.join(R, "power_grid.txt")).read()).group(1))
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"

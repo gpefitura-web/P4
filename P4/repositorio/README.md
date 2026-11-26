@@ -16,7 +16,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; cycle amplitudes, used only to count how many stars have one), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
 | `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
 | `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
 
@@ -33,6 +33,9 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
 | ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
 | Power with a cycle (Sect. 3.1) | `power_cycle.py` | `results/power_cycle.txt` |
+| Power over cycle period and amplitude (Sect. 3.1) | `power_grid.py` | `results/power_grid.txt` |
+| Positive control, noisy Hopf oscillator (Sect. 3.1) | `positive_control.py` | `results/positive_control.txt` |
+| Bootstrap over observing seasons, H1 (Sect. 3.2, Fig. 1) | `h1_bootstrap.py` | `results/h1_bootstrap.txt`, `.csv` |
 | Coverage, interpolation, white-noise reference (Sect. 4) | `robustness.py` | `results/robustness.txt` |
 | First run against the second (Sect. 2.7) | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
 | Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |

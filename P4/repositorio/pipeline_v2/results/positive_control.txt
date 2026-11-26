@@ -1,0 +1,6 @@
+Positive control: noisy supercritical Hopf oscillator, L = 30 yr, period 11 yr, noise 0.15; 200 series per case, 1000 surrogates; window 50 %
+case | indicator | median tau | rejection upper tail | rejection lower tail
+cycle persists | ac1 | +0.02 | 0.015 | 0.020
+cycle persists | var | +0.13 | 0.005 | 0.000
+cycle lost | ac1 | -0.33 | 0.010 | 0.140
+cycle lost | var | -0.90 | 0.000 | 0.355

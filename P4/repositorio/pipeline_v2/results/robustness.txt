@@ -9,3 +9,5 @@ interp_cells_in_segments_up_to_2: 168
 whitenoise_ac1_sigma1: -0.546
 whitenoise_ac1_sigma3: -0.193
 whitenoise_ac1_sigma5: -0.112
+amplitude_stars_with_CLSV_cycle_amplitude: 4
+amplitude_stars_analyzed: 23

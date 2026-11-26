@@ -38,5 +38,10 @@ for s in (1, 3, 5):
     imp = np.zeros(1201); imp[600] = 1.0
     h = imp - gaussian_filter1d(imp, s, truncate=8.0)
     out.append(f"whitenoise_ac1_sigma{s}: {np.sum(h[:-1] * h[1:]) / np.sum(h * h):.3f}")
+# (4) cycle amplitude in a homogeneous source (CLS V, Isaacson et al. 2024, Table 4) for the analyzed stars
+rows_ = [l.rstrip("\n").split(";") for l in open(os.path.join(os.path.dirname(HERE), "data", "J_ApJS_274_35_table4.tsv"), encoding="utf-8") if l.strip() and not l.startswith("#")]
+amp = {r_[0].replace("HD", "").strip() for r_ in rows_[3:]}
+stars = set(seg[(seg.rodou == "sim") & (seg.HD != "(Sun)")].HD)
+out.append(f"amplitude_stars_with_CLSV_cycle_amplitude: {len(stars & amp)}"); out.append(f"amplitude_stars_analyzed: {len(stars)}")
 open(os.path.join(R, "robustness.txt"), "w").write("\n".join(out) + "\n")
 print("\n".join(out))

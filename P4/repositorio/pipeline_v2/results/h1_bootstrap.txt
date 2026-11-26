@@ -1,0 +1,12 @@
+resamples: 4000
+seasons_min1: 4
+seasons_min2: 4
+seasons_grand: 14
+boot_share_sigma_min1_not_above_grand_raw: 0.3
+boot_ratio_min1_over_grand_raw_low_high: 1.1 2.6
+boot_share_sigma_min2_not_above_grand_raw: 0.0
+boot_ratio_min2_over_grand_raw_low_high: 1.8 4.2
+boot_share_sigma_min1_not_above_grand_A: 12.6
+boot_ratio_min1_over_grand_A_low_high: 0.8 2.2
+boot_share_sigma_min2_not_above_grand_A: 0.0
+boot_ratio_min2_over_grand_A_low_high: 1.7 4.2

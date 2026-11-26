@@ -18,6 +18,9 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I robustness.py > /dev/null
 "$PY" -I compare_runs.py > /dev/null
 "$PY" -I power_cycle.py > /dev/null          # surrogate test with a cycle (~3 min)
+"$PY" -I power_grid.py > /dev/null           # grid over cycle period and amplitude (~4 min)
+"$PY" -I positive_control.py > /dev/null     # noisy Hopf oscillator losing its cycle (~4 min)
+"$PY" -I h1_bootstrap.py > /dev/null         # bootstrap over observing seasons for H1 (seconds)
 "$PY" -I scale_sensitivity.py > /dev/null            # does the ARMA order depend on the scale of the series? (~1 min)
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
