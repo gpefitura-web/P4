@@ -93,3 +93,8 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 - Texto alternativo das figuras: `manuscrito/alt_text.md` (no pacote do Overleaf e no repositório); copiar para o formulário da submissão.
 - Achado novo: a ordem do ARMA escolhida pelo AIC depende da escala da série. O texto foi corrigido para dizer isso; **reexecutar o pipeline com a série padronizada é decisão sua** (`paper_state_v10.md`, seção 3).
 - Correções por parecer e o que ficou como análise nova: `REVISOES_INDEPENDENTES.md`, "Segunda rodada". Estado: `paper_state_v10.md`.
+
+## Segunda rodada estelar e revisões (2026-11-26, D121)
+- A série foi padronizada no ajuste do ARMA e a rodada estelar foi **repetida** (D121). As mesmas 2 células seguem marcadas; os p mudaram (até 0,51). O texto (Métodos, registro de análise, Resultados, Discussão, Conclusões e resumo) foi atualizado; a história das duas rodadas está no registro de análise.
+- Novo no manuscrito: poder com ciclo (nulo), cobertura por ano, sensibilidade à interpolação, AR(1) do ruído branco após o filtro. Figuras maiores. Estado: `paper_state_v11.md`; pareceres: `REVISOES_INDEPENDENTES.md` (3 rodadas).
+- **Falta, e é seu:** o que está em `paper_state_v11.md`, seção 3.

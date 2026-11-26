@@ -77,3 +77,7 @@ um `check_manuscript_constants.py` no pacote que leia `main.tex` e o código e f
 - Novos macros: `NChanceEff`, `HOneMeanPct`, `HOneRatioA`, `HOneRatioRaw`, `NArmaCmp`, `NArmaDiff`, `NScaleCases`, `NScaleSame`, `NScaleDiff`; `scale_sensitivity.py` sustenta a afirmação sobre a escala (`results/scale_sensitivity.txt`).
 - Literais ainda digitados nas legendas: "no interpolated years" (Figura 2, HD 166620) e "the two interpolated years" (Figura 3, Sol); o valor sai de `segments.csv` (coluna `n_filled`) e deve virar macro na próxima rodada.
 - A definição do S index (introdução) e a afirmação sobre Bury 2020 e Kuehn são paráfrases de PDFs do projeto sem página citada no texto; páginas no caderno (D88–D89, linhas 3.11-63 a 3.11-74).
+
+## Atualização de 2026-11-26 (D121)
+- Resolvido: contagens das legendas das Figuras 2 e 3 (`HDHFilled`, `SunFilled`); constantes novas (`PCPeriod`, `PCNRep`) vêm de `power_cycle.txt`; história das duas rodadas sustentada por `archive/star_results_run1.csv` e `compare_runs.py`.
+- **Ainda digitados no texto:** faixa "1966--2016" da Tabela 4 de Egeland (as 6349 linhas são conferidas por `test_step1`, o intervalo não); "this affects two stars, HD 190360 and HD 217014" e "HD 190360 would fall below the minimum length" (regra do ponto 1day/sigma, D106; falta um script que conte); limiar "1--1.5 %" e "longer than 25 years" das classes de Baliunas (citação sem página); "five instruments" do composto solar de Egeland.

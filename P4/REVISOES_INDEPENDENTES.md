@@ -56,3 +56,6 @@ Cada ponto foi conferido contra os dados e o texto antes de decidir.
 
 **Não aplicados:** referências novas (R2-m2) sem PDF lido; numeração de linhas (R2-m5) até a revista pedir.
 
+## Terceira rodada (2026-11-26, D121): consistência após a segunda rodada estelar
+Leitura do PDF recompilado depois da última edição, com três lentes. **(1) Estatística e coerência:** achados e correções: "all but 0 of 96" (frase mecânica) reescrita; taxas de rejeição da simulação com ciclo arredondadas a inteiro (4,5 % virava 4 %) passaram a uma casa decimal; conferido contra os dados que as frases sobre HD 166620 (τ ≤ 0 da variância; p ≥ 0,05 do AR(1) nas quatro configurações) valem para a nova rodada. **(2) Rastreabilidade:** varredura dos literais fora dos blocos gerados; o que resta digitado está listado em `RASTREABILIDADE_PENDENTE.md` (faixa 1966–2016 da Tabela 4 de Egeland; "afeta duas estrelas" da regra do ponto 1day/sigma; limiares de classe de Baliunas). **(3) Lista da revista:** resumo com 243 palavras (limite 250), 6 palavras-chave, highlights (4 itens, ≤ 85 caracteres, ainda verdadeiros), seção de IA com o título exato, seção de agradecimentos antes das referências, figuras `Figure_N` em PDF e EPS com a fonte incorporada. Nada a corrigir além do já feito.
+

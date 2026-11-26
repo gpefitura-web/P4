@@ -1,0 +1,6 @@
+Rejection rate of the surrogate test (p_upper < 0.05); L = 30, 200 series per cell, 1000 surrogates, cycle P = 11 yr, A = 1.5
+cell | rejection rate
+null, no cycle | 0.055
+trend, no cycle | 0.075
+null, with cycle | 0.045
+trend, with cycle | 0.045

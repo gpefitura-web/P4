@@ -100,9 +100,9 @@ put("MedACNone", best[best.config == "none"].ac1.median(), "{:.2f}"); put("MedAC
 put("NACNoneHigh", int((best[best.config == "none"].ac1 > 0.5).sum())); put("NStarsMetric", int((best.config == "none").sum()))
 # R'HK identity
 pv = res.pivot_table(index=["HD", "seg_year0", "config", "frac", "stat"], columns="series", values="tau")
-put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.0f}"); put("RHKNCompare", len(pv))
+put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.1f}"); put("RHKNCompare", len(pv))
 # group tests
-put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.0f}")
+put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.1f}")
 put("PrimMedVL", prim.med1, "{:.2f}"); put("PrimMedFlat", prim.med2, "{:.2f}")
 put("NHolmTests", len(hol)); put("NHolmSig", int((hol.p_holm < 0.05).sum())); put("NRawSig", int((hol.p < 0.05).sum()))
 for cfg, tag in (("s1", "SOne"), ("none", "None")):
@@ -125,7 +125,7 @@ for cfg, tag in (("s1", "SOne"), ("none", "None")):
 put("MinPCycleFlat", 1 / math.comb(12, 4), "{:.4f}"); put("MinPFourFour", 1 / math.comb(8, 4), "{:.3f}")
 for P, n in ((10, "Ten"), (12, "Twelve"), (16, "Sixteen")):
     put(f"Per{n}", P)
-    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.0f}")
+    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.1f}")
 ng = ran[ran.HD != "(Sun)"].grupo.value_counts()
 for g, n in (("Flat_limpa", "Flat"), ("CYCLE_Excellent", "Cycle"), ("Var", "Var"), ("Long", "Long")):
     put(f"NGroup{n}", int(ng.get(g, 0)))
@@ -155,8 +155,10 @@ for sg_, tag in ((1, "One"), (3, "Three"), (5, "Five")):
     put(f"WNAC{tag}", float(rob[f"whitenoise_ac1_sigma{sg_}"]), "{:.2f}")
 pc = open(os.path.join(R, "power_cycle.txt")).read()
 for key, tag in (("null, no cycle", "NullNo"), ("trend, no cycle", "TrendNo"), ("null, with cycle", "NullCyc"), ("trend, with cycle", "TrendCyc")):
-    put(f"PC{tag}", 100 * float(_re.search(rf"^{key} \| ([0-9.]+)$", pc, _re.M).group(1)), "{:.0f}")
+    put(f"PC{tag}", 100 * float(_re.search(rf"^{key} \| ([0-9.]+)$", pc, _re.M).group(1)), "{:.1f}")
 put("PCPeriod", _re.search(r"cycle P = (\d+)", pc).group(1)); put("PCNRep", _re.search(r"(\d+) series per cell", pc).group(1))
+put("PCSE", 100 * math.sqrt(0.05 * 0.95 / int(pc_n)), "{:.1f}") if (pc_n := _re.search(r"(\d+) series per cell", pc).group(1)) else None
+put("HDHFilled", int(seg_ok.loc["166620", "n_filled"])); put("SunFilled", int(seg_ok.loc["(Sun)", "n_filled"]))
 rc = dict(l.split(": ") for l in open(os.path.join(R, "run_comparison.txt")).read().strip().splitlines())
 put("RunPMax", float(rc["p_upper_max_abs_difference"]), "{:.2f}"); put("RunPShare", int(rc["share_of_cells_with_p_change_over_0.05"]))
 put("RunOrderShare", int(rc["arma_order_changed_share"])); put("RunFlagBoth", int(rc["flagged_cells_in_both"])); put("RunFlagOne", int(rc["flagged_cells_run1"]))
