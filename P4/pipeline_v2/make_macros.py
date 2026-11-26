@@ -100,9 +100,9 @@ put("MedACNone", best[best.config == "none"].ac1.median(), "{:.2f}"); put("MedAC
 put("NACNoneHigh", int((best[best.config == "none"].ac1 > 0.5).sum())); put("NStarsMetric", int((best.config == "none").sum()))
 # R'HK identity
 pv = res.pivot_table(index=["HD", "seg_year0", "config", "frac", "stat"], columns="series", values="tau")
-put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.1f}"); put("RHKNCompare", len(pv))
+put("RHKMaxDiff", float(np.abs(pv.RHK - pv.S).max()), "{:.0f}"); put("RHKNCompare", len(pv))
 # group tests
-put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.1f}")
+put("PrimN", int(prim.n1)); put("PrimNFlat", int(prim.n2)); put("PrimP", prim.p, "{:.2f}"); put("PrimU", prim.U, "{:.0f}")
 put("PrimMedVL", prim.med1, "{:.2f}"); put("PrimMedFlat", prim.med2, "{:.2f}")
 put("NHolmTests", len(hol)); put("NHolmSig", int((hol.p_holm < 0.05).sum())); put("NRawSig", int((hol.p < 0.05).sum()))
 for cfg, tag in (("s1", "SOne"), ("none", "None")):
@@ -125,7 +125,7 @@ for cfg, tag in (("s1", "SOne"), ("none", "None")):
 put("MinPCycleFlat", 1 / math.comb(12, 4), "{:.4f}"); put("MinPFourFour", 1 / math.comb(8, 4), "{:.3f}")
 for P, n in ((10, "Ten"), (12, "Twelve"), (16, "Sixteen")):
     put(f"Per{n}", P)
-    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.1f}")
+    put(f"ResAmp{n}", 100 * (1 - math.exp(-0.5 * (2 * math.pi * 1.0 / P) ** 2)), "{:.0f}")
 ng = ran[ran.HD != "(Sun)"].grupo.value_counts()
 for g, n in (("Flat_limpa", "Flat"), ("CYCLE_Excellent", "Cycle"), ("Var", "Var"), ("Long", "Long")):
     put(f"NGroup{n}", int(ng.get(g, 0)))
@@ -163,6 +163,15 @@ rc = dict(l.split(": ") for l in open(os.path.join(R, "run_comparison.txt")).rea
 put("RunPMax", float(rc["p_upper_max_abs_difference"]), "{:.2f}"); put("RunPShare", int(rc["share_of_cells_with_p_change_over_0.05"]))
 put("RunOrderShare", int(rc["arma_order_changed_share"])); put("RunFlagBoth", int(rc["flagged_cells_in_both"])); put("RunFlagOne", int(rc["flagged_cells_run1"]))
 put("RunTauDiff", float(rc["tau_max_abs_difference"]), "{:.0f}")
+hb = dict(l.split(": ") for l in open(os.path.join(R, "h1_bootstrap.txt")).read().strip().splitlines())
+put("BootN", int(hb["resamples"]))
+for k_, tag in (("min1", "One"), ("min2", "Two"), ("grand", "Grand")):
+    put(f"BootSeas{tag}", int(hb[f"seasons_{k_}"]))
+for k_, tag in (("min1", "One"), ("min2", "Two")):
+    for meth, mt in (("A", "A"), ("raw", "Raw")):
+        put(f"BootShare{tag}{mt}", float(hb[f"boot_share_sigma_{k_}_not_above_grand_{meth}"]), "{:.1f}")
+        lo_, hi_ = hb[f"boot_ratio_{k_}_over_grand_{meth}_low_high"].split()
+        put(f"BootRatio{tag}{mt}Lo", float(lo_), "{:.1f}"); put(f"BootRatio{tag}{mt}Hi", float(hi_), "{:.1f}")
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"
