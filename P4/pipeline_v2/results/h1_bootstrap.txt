@@ -1,3 +1,4 @@
+resamples: 4000
 seasons_min1: 4
 seasons_min2: 4
 seasons_grand: 14

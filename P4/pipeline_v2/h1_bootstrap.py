@@ -29,7 +29,7 @@ for k, (a, b, noise) in sc.STATES.items():
         pick = rng.integers(0, len(blocks), len(blocks))
         boot[k].append(sig([blocks[i] for i in pick], noise))
     boot[k] = np.array(boot[k])
-rows, out = [], []
+rows, out = [], [f"resamples: {NB}"]
 for k, (a, b, noise) in sc.STATES.items():
     est = sig(seasons[k], noise)
     for j, meth in enumerate(("raw", "A")):

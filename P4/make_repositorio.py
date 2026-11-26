@@ -20,13 +20,13 @@ def cp(src, dst=None):
 
 # input data and the frozen catalogue
 cp("consolidacao/p4_star_catalog.csv")
-for f in ("J_AJ_163_183_table1.tsv", "J_ApJ_936_L23_table2.tsv"):
+for f in ("J_AJ_163_183_table1.tsv", "J_ApJ_936_L23_table2.tsv", "J_ApJS_274_35_table4.tsv"):
     cp(f"data/{f}")
 for f in sorted(glob.glob(os.path.join(ROOT, "data/HK_Project_v2001_NSO/*"))):
     cp(os.path.relpath(f, ROOT))
 # code, tests, fonts
 for f in ("fetch_egeland_table4", "p4io", "annual", "indicators", "detrend", "surrogates", "state_comparison", "rhk", "run_all", "group_primary",
-          "report", "scale_sensitivity", "power_cycle", "robustness", "compare_runs", "check_manuscript_constants", "make_macros", "make_tables", "make_figures", "power_simulation",
+          "report", "scale_sensitivity", "power_cycle", "power_grid", "positive_control", "h1_bootstrap", "robustness", "compare_runs", "check_manuscript_constants", "make_macros", "make_tables", "make_figures", "power_simulation",
           "test_step1", "test_step2", "test_step3", "test_step4", "test_step5", "test_step6", "test_step7"):
     cp(f"pipeline_v2/{f}.py")
 for f in ("CourierPrime-Regular.ttf", "CourierPrime-Bold.ttf", "CourierPrime-Italic.ttf", "OFL.txt"):
@@ -34,7 +34,7 @@ for f in ("CourierPrime-Regular.ttf", "CourierPrime-Bold.ttf", "CourierPrime-Ita
 cp("pipeline_v2/archive/star_results_run1.csv"); cp("pipeline_v2/archive/README.txt")
 # reference outputs (deterministic ones only; run_log.txt and run_stdout.txt carry timings)
 for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "h1.json", "group_primary.csv", "group_holm.csv",
-          "power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "robustness.txt", "run_comparison.txt"):
+          "power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "power_grid.txt", "positive_control.txt", "h1_bootstrap.txt", "h1_bootstrap.csv", "robustness.txt", "run_comparison.txt"):
     cp(f"pipeline_v2/results/{f}")
 # manuscript sources
 for f in ("main.tex", "references.bib", "highlights.docx", "highlights.tex", "alt_text.md", "build.sh"):
@@ -77,6 +77,9 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I robustness.py > /dev/null
 "$PY" -I compare_runs.py > /dev/null
 "$PY" -I power_cycle.py > /dev/null          # surrogate test with a cycle (~3 min)
+"$PY" -I power_grid.py > /dev/null           # grid over cycle period and amplitude (~4 min)
+"$PY" -I positive_control.py > /dev/null     # noisy Hopf oscillator losing its cycle (~4 min)
+"$PY" -I h1_bootstrap.py > /dev/null         # bootstrap over observing seasons for H1 (seconds)
 "$PY" -I scale_sensitivity.py > /dev/null            # does the ARMA order depend on the scale of the series? (~1 min)
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
@@ -103,7 +106,7 @@ SNAP = os.path.join(HERE, "_published")
 RES = "pipeline_v2/results/"
 TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "group_primary.csv", "group_holm.csv")]
 JSONS = [RES + "h1.json"]
-EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "robustness.txt", "run_comparison.txt")] + ["manuscrito/main.tex"] + \\
+EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "power_grid.txt", "positive_control.txt", "h1_bootstrap.txt", "robustness.txt", "run_comparison.txt")] + ["manuscrito/main.tex"] + \\
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
 FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
@@ -208,7 +211,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; cycle amplitudes, used only to count how many stars have one), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
 | `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
 | `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
 
@@ -225,6 +228,9 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
 | ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
 | Power with a cycle (Sect. 3.1) | `power_cycle.py` | `results/power_cycle.txt` |
+| Power over cycle period and amplitude (Sect. 3.1) | `power_grid.py` | `results/power_grid.txt` |
+| Positive control, noisy Hopf oscillator (Sect. 3.1) | `positive_control.py` | `results/positive_control.txt` |
+| Bootstrap over observing seasons, H1 (Sect. 3.2, Fig. 1) | `h1_bootstrap.py` | `results/h1_bootstrap.txt`, `.csv` |
 | Coverage, interpolation, white-noise reference (Sect. 4) | `robustness.py` | `results/robustness.txt` |
 | First run against the second (Sect. 2.7) | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
 | Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |

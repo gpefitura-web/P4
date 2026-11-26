@@ -151,6 +151,7 @@ put("NCovSeg", int(rob["coverage_segments"])); put("CovMin", int(rob["coverage_m
 put("NCovLow", int(rob["coverage_segments_with_a_year_below_5"]))
 put("NInterpOver", int(rob["interp_segments_over_2"])); put("NInterpFlagUp", int(rob["interp_cells_flagged_in_segments_up_to_2"]))
 put("NInterpCellsUp", int(rob["interp_cells_in_segments_up_to_2"]))
+put("NAmpStars", int(rob["amplitude_stars_with_CLSV_cycle_amplitude"])); put("NAmpAnalyzed", int(rob["amplitude_stars_analyzed"]))
 for sg_, tag in ((1, "One"), (3, "Three"), (5, "Five")):
     put(f"WNAC{tag}", float(rob[f"whitenoise_ac1_sigma{sg_}"]), "{:.2f}")
 pc = open(os.path.join(R, "power_cycle.txt")).read()
@@ -180,6 +181,13 @@ for case, ct in (("cycle persists", "Pers"), ("cycle lost", "Lost")):
         put(f"PCtl{ct}{st}Up", 100 * float(mm.group(2)), "{:.1f}"); put(f"PCtl{ct}{st}Lo", 100 * float(mm.group(3)), "{:.1f}")
 put("PCtlNRep", _re.search(r"(\d+) series per case", pcl).group(1)); put("PCtlPeriod", _re.search(r"period (\d+) yr", pcl).group(1))
 put("NSigHalfLow", int(((m5.tau < 0) & (m5.p_D22 < 0.05)).sum()))
+pg = [tuple(float(x) for x in l.split(" | ")) for l in open(os.path.join(R, "power_grid.txt")).read().splitlines() if _re.match(r"^\d+ \| [0-9.]+ \| [0-9.]+ \| [0-9.]+$", l)]
+cyc = [r for r in pg if r[1] > 0]; amax = max(r[1] for r in cyc)
+put("PGridTrendMax", 100 * max(r[3] for r in cyc), "{:.1f}"); put("PGridNullMax", 100 * max(r[2] for r in cyc), "{:.1f}")
+put("PGridStrongMax", 100 * max(max(r[2], r[3]) for r in cyc if r[1] == amax), "{:.1f}")
+put("PGridPMin", int(min(r[0] for r in cyc))); put("PGridPMax", int(max(r[0] for r in cyc)))
+put("PGridAMin", min(r[1] for r in cyc), "{:g}"); put("PGridAMax", amax, "{:g}")
+put("PGridNRep", _re.search(r"(\d+) series per cell", open(os.path.join(R, "power_grid.txt")).read()).group(1))
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"

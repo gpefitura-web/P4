@@ -26,6 +26,6 @@ Fase de auditoria. O pipeline (`p4_pipeline.ipynb`) está **congelado** até a c
 A7 (Scheffer 2009 + Held & Kleinen 2004) e A8 (Usoskin 2017) não foram executadas. A tabela 4 de Egeland+2017 (série solar) ainda não foi obtida.
 
 ## Estado atual (2026-11-25) e regra 9
-O pipeline novo, o manuscrito (New Astronomy) e o pacote de reprodução existem e foram verificados (D105–D118). O estado corrente está em `paper_state_v11.md` (a rodada estelar foi repetida na D121; não reexecutar `run_all.py` sem pedido); o handoff, em `PROMPT_PROXIMO_CHAT_MANUSCRITO.md`.
+O pipeline novo, o manuscrito (New Astronomy) e o pacote de reprodução existem e foram verificados (D105–D118). O estado corrente está em `paper_state_v12.md` (a rodada estelar foi repetida na D121; não reexecutar `run_all.py` sem pedido); o handoff, em `PROMPT_PROXIMO_CHAT_MANUSCRITO.md`.
 9. **Tudo que vai para o manuscrito precisa ser sustentado no repositório (`repositorio/`):** números vêm de macros gerados de `pipeline_v2/results/`, figuras e tabelas vêm de scripts do pacote, e afirmações sobre dados ou código têm arquivo no pacote ou são citações com PDF e página. Depois de qualquer mudança: `make_repositorio.py`, depois `reproduce.sh` numa cópia limpa.
 

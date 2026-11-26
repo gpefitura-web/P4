@@ -81,3 +81,7 @@ um `check_manuscript_constants.py` no pacote que leia `main.tex` e o código e f
 ## Atualização de 2026-11-26 (D121)
 - Resolvido: contagens das legendas das Figuras 2 e 3 (`HDHFilled`, `SunFilled`); constantes novas (`PCPeriod`, `PCNRep`) vêm de `power_cycle.txt`; história das duas rodadas sustentada por `archive/star_results_run1.csv` e `compare_runs.py`.
 - **Ainda digitados no texto:** faixa "1966--2016" da Tabela 4 de Egeland (as 6349 linhas são conferidas por `test_step1`, o intervalo não); "this affects two stars, HD 190360 and HD 217014" e "HD 190360 would fall below the minimum length" (regra do ponto 1day/sigma, D106; falta um script que conte); limiar "1--1.5 %" e "longer than 25 years" das classes de Baliunas (citação sem página); "five instruments" do composto solar de Egeland.
+
+## Atualização de 2026-11-26 (D122)
+- Resolvidos por macro: contagens do catálogo (`NCatalogStars`), bootstrap, controle positivo, grade de poder, estrelas com amplitude de ciclo.
+- **Digitados no texto com fonte e página no A15:** "10 yr" (Sol) e "15.8 yr" (HD 166620), Saar & Brandenburg 1999, Tabela 1, p. 297; "seven of 32 stars", Lockwood+2007, p. 260–261; "1986–1990" e "1987.0–1991.0", Luhn+2022, p. 4; "Table 4" de Isaacson+2024 (nome da tabela).
