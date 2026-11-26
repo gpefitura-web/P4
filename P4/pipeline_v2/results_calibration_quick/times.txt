@@ -1,0 +1,6 @@
+robustness_data 25s
+power_bilateral 86s
+positive_control_full 122s
+power_design 215s
+step_injection 237s
+dalton_control 249s
