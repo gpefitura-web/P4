@@ -135,6 +135,16 @@ put("PowLMin", min(pl)); put("PowLMax", max(pl))
 for Lx, n in ((24, "TwentyFour"), (30, "Thirty"), (40, "Forty")):
     mm = _re.search(rf"^{Lx} \| \d+ \| \d+ \| [^|]+\| [^|]+\| [^|]+\| ([0-9.]+) \|", txt16, _re.M)
     put(f"AUC{n}", float(mm.group(1)), "{:.2f}")
+# ---- additions after the second round of independent reviews (D120) -------------------------------------------------
+put("NChanceEff", int(round(len(m5.groupby(["HD", "seg_year0", "stat", "config"])) * float(a.group(1)))))   # expected count at the measured size
+hs = h1["states"]
+put("HOneMeanPct", 100 * (hs["min2"]["mean"] - hs["grand"]["mean"]) / hs["min2"]["mean"], "{:.1f}")
+put("HOneRatioRaw", hs["min2"]["sigma_raw"] / hs["grand"]["sigma_raw"], "{:.1f}"); put("HOneRatioA", hs["min2"]["sigma_A"] / hs["grand"]["sigma_A"], "{:.1f}")
+ar = res.drop_duplicates(["HD", "seg_year0", "config", "series"]).pivot_table(index=["HD", "seg_year0", "config"], columns="series", values="arma", aggfunc="first")
+put("NArmaCmp", len(ar)); put("NArmaDiff", int((ar.S != ar.RHK).sum()))
+sc_txt = open(os.path.join(R, "scale_sensitivity.txt")).read()
+cs = _re.search(r"^(\d+) \| (\d+) \| (\d+)$", sc_txt, _re.M)
+put("NScaleCases", int(cs.group(1))); put("NScaleSame", int(cs.group(2))); put("NScaleDiff", int(cs.group(3)))
 block = "\n".join(f"\\newcommand{{\\{k}}}{{{v}}}" for k, v in M.items())
 src = open(OUT, encoding="utf-8").read()
 beg, end = "%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"

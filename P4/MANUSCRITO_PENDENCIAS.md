@@ -88,3 +88,8 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 ## Rastreabilidade das contagens e constantes (2026-11-25, D119)
 - Contagens e probabilidades antes digitadas viraram macros; `check_manuscript_constants.py` (no `reproduce.sh`) confronta as constantes de projeto do texto com o código; `test_step1.py` liga 112, Flat limpas, calibração e binárias ao catálogo. Duas correções de texto: janelas de 14 a 26 pontos (não 12 a 26) e comparação R'HK em 28 a 51 pontos (não 28 a 36). Detalhe e o que resta em `RASTREABILIDADE_PENDENTE.md`.
 - Pacote e zips refeitos; prova em pasta limpa registrada na D119.
+
+## Texto alternativo, segunda rodada de pareceres e paper_state v10 (2026-11-26, D120)
+- Texto alternativo das figuras: `manuscrito/alt_text.md` (no pacote do Overleaf e no repositório); copiar para o formulário da submissão.
+- Achado novo: a ordem do ARMA escolhida pelo AIC depende da escala da série. O texto foi corrigido para dizer isso; **reexecutar o pipeline com a série padronizada é decisão sua** (`paper_state_v10.md`, seção 3).
+- Correções por parecer e o que ficou como análise nova: `REVISOES_INDEPENDENTES.md`, "Segunda rodada". Estado: `paper_state_v10.md`.

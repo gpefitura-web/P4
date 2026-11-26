@@ -26,17 +26,17 @@ for f in sorted(glob.glob(os.path.join(ROOT, "data/HK_Project_v2001_NSO/*"))):
     cp(os.path.relpath(f, ROOT))
 # code, tests, fonts
 for f in ("fetch_egeland_table4", "p4io", "annual", "indicators", "detrend", "surrogates", "state_comparison", "rhk", "run_all", "group_primary",
-          "report", "check_manuscript_constants", "make_macros", "make_tables", "make_figures", "power_simulation",
+          "report", "scale_sensitivity", "check_manuscript_constants", "make_macros", "make_tables", "make_figures", "power_simulation",
           "test_step1", "test_step2", "test_step3", "test_step4", "test_step5", "test_step6", "test_step7"):
     cp(f"pipeline_v2/{f}.py")
 for f in ("CourierPrime-Regular.ttf", "CourierPrime-Bold.ttf", "CourierPrime-Italic.ttf", "OFL.txt"):
     cp(f"pipeline_v2/fonts/{f}")
 # reference outputs (deterministic ones only; run_log.txt and run_stdout.txt carry timings)
 for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "h1.json", "group_primary.csv", "group_holm.csv",
-          "power_simulation.txt", "autotest_step5.txt", "REPORT.md"):
+          "power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt"):
     cp(f"pipeline_v2/results/{f}")
 # manuscript sources
-for f in ("main.tex", "references.bib", "highlights.docx", "highlights.tex", "build.sh"):
+for f in ("main.tex", "references.bib", "highlights.docx", "highlights.tex", "alt_text.md", "build.sh"):
     cp(f"manuscrito/{f}")
 for f in sorted(glob.glob(os.path.join(ROOT, "manuscrito/figures/Figure_*"))):
     cp(os.path.relpath(f, ROOT))
@@ -73,6 +73,7 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I run_all.py                                # the single stellar run, fixed seeds (~1 min)
 "$PY" -I group_primary.py > /dev/null
 "$PY" -I report.py
+"$PY" -I scale_sensitivity.py > /dev/null            # does the ARMA order depend on the scale of the series? (~1 min)
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
 "$PY" -I make_figures.py
@@ -98,7 +99,7 @@ SNAP = os.path.join(HERE, "_published")
 RES = "pipeline_v2/results/"
 TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "group_primary.csv", "group_holm.csv")]
 JSONS = [RES + "h1.json"]
-EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md")] + ["manuscrito/main.tex"] + \\
+EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt")] + ["manuscrito/main.tex"] + \\
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
 FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
@@ -218,6 +219,7 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | R'_HK (Sect. 3.3) | `rhk.py`, `run_all.py` | `results/star_results.csv` (series `RHK`) |
 | Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
+| ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
 | Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
 | Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
 | Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |

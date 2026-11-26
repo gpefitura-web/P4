@@ -1,0 +1,20 @@
+# paper_state_v10.md
+
+**Paper P4** · **Estado em:** 2026-11-26, rastreabilidade do texto, texto alternativo das figuras e segunda rodada de revisões · **Substitui:** `paper_state_v9.md` · **Último commit de conteúdo antes do fecho:** 9ab85c2 (D119); o fecho vem depois (`git log -3`)
+
+## 1. Onde estamos
+- Tudo de `paper_state_v9.md` continua valendo (pipeline executado uma vez, semente 20261124; manuscrito `elsarticle` para a New Astronomy; pacote `repositorio/` com `reproduce.sh`).
+- **D119:** os literais numéricos digitados viraram macros de `make_macros.py`; `check_manuscript_constants.py` (24 verificações, no `reproduce.sh`) confronta as constantes de projeto do texto com o código; `test_step1.py` liga 112, as 5 Flat limpas (4 com série), 17 de calibração e 2 binárias ao catálogo. Duas correções de texto (janelas de 14 a 26 pontos; R'HK em 28 a 51 pontos).
+- **D120 (esta etapa):** texto alternativo das quatro figuras em `manuscrito/alt_text.md` (descritivo, sem resultados numéricos); avaliação de dois pareceres simulados (`REVISOES_INDEPENDENTES.md`, seção "Segunda rodada"); correções feitas: (i) **achado:** a ordem do ARMA escolhida pelo AIC depende da escala da série (muda em 33 de 92 casos ao padronizar o resíduo; difere entre S e R'HK em 77 de 96 pares); o texto antigo atribuía a diferença a "instabilidade do ajuste em séries curtas" e foi reescrito; novo script `scale_sensitivity.py` e `results/scale_sensitivity.txt`; (ii) esperado por acaso com o tamanho medido: cerca de 6, não 10; (iii) H1: a média de S no grande mínimo é só 1,1 % menor que a do mínimo 2, enquanto σ_S cai por fator 2,8, de modo que o nível médio não explica a queda; (iv) premissa de CSD na introdução agora cita Kuehn 2011 e 2013 e Bury 2020 (já lidos e auditados, D88–D89); (v) definição do S index na introdução. `fonttools` fixado em 4.68.0 (a 4.69.1 muda o subconjunto de fonte embutido nos PDF).
+- **Prova em pasta limpa:** ver D120 no caderno.
+
+## 2. Regra que governa a próxima etapa
+A regra 9 (`CLAUDE.md`) continua: edite a fonte, `python3 P4/make_repositorio.py`, `reproduce.sh` numa cópia limpa (venv com `requirements.txt`; exige `REPRODUCTION OK`), só então os zips.
+
+## 3. Decisão pendente do pesquisador que afeta os resultados
+**A seleção da ordem do ARMA depende da escala.** O pipeline foi executado uma vez (D105) com a série em unidades de S (resíduos da ordem de 1e-3). Padronizar a série antes do ajuste (média 0, DP 1; os surrogates voltariam à escala original) removeria a dependência, mas **muda os p dos surrogates e, com eles, os resultados**; exige reexecutar `run_all.py` e novo registro. Não foi feito. O manuscrito declara o achado e não afirma causa além de "o ajuste numérico".
+
+## 4. Pendências
+- **Do pesquisador (manual):** as de `paper_state_v9.md` (declaração de IA, e-mail e endereço, Zenodo e DOI, licenças de Baum e Luhn, acordo CAPES–Elsevier, título final) e a decisão da seção 3.
+- **Análises novas apontadas pelos pareceres (fora do escopo declarado; exigem decisão):** curva de poder com ciclo injetado e nos comprimentos reais; controle positivo (Hopf estocástico) ; sensibilidade à interpolação (HD 182572 tem 10 de 35 anos interpolados); remover o ciclo antes dos indicadores; número de observações por ano e sensibilidade à cobertura; correlacionar a variância normalizada com a amplitude do ciclo; barras de incerteza na Figura 1 e intervalo nulo na Figura 4; AR(1) esperado do ruído branco após o filtro σ = 1.
+- **Técnicas:** revisão de leitura final com o PDF recompilado depois da última edição; numeração de linhas (a pedir só se a revista exigir); referências adicionais sugeridas (Metcalfe e van Saders, Wright 2004, Baliunas e Jastrow 1990, Henry et al. 1996, Dakos 2008, Boettner e Boers 2022) só entram com o PDF lido; "two interpolated years" e "no interpolated years" nas legendas das Figuras 2 e 3 ainda são literais (ver `RASTREABILIDADE_PENDENTE.md`).
