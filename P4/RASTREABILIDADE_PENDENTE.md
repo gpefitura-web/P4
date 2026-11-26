@@ -39,6 +39,8 @@ Varredura automática de `manuscrito/main.tex` fora dos blocos gerados e dos com
 | `1987--91` | 1 | …Minimum 2 (1987--91) & \HOneNMinTwo & \HOneMeanMi… |
 | `0.44--0.82` | 1 | …tnotesize $^{a}$ $B\!-\!V$ outside 0.44--0.82. $^{b}$ Composite of several … |
 | `0.032` | 1 | … original series ($ = +0.75$, $p = 0.032$) and  for the $$ residual ($… |
+
+_Nota (2026-11-26): a tabela abaixo é a varredura de 2025-11-25; valores atuais: p = 0.015 para HD 217014 e janelas de 14 a 26 pontos (macros)._
 | `0.18` | 1 | …2$) and  for the $$ residual ($ = +0.18$, $p = 0.026$), both for the … |
 | `0.026` | 1 | … the $$ residual ($ = +0.18$, $p = 0.026$), both for the lag-1 autocor… |
 | `20` | 1 | … one segment is \MaxConcSweep{} of 20; we computed no null referenc… |
@@ -56,8 +58,8 @@ Varredura automática de `manuscrito/main.tex` fora dos blocos gerados e dos com
 
 ## Classificação preliminar (a confirmar no próximo chat)
 **(C) Resultados ou contagens escritos à mão; devem virar macros gerados de `pipeline_v2/results/`:**
-- "2 of the 192 combinations ... HD 23249 (τ = +0.75, p = 0.032) and HD 217014 (τ = +0.18, p = 0.026)" (Seção 3.3); "in 192 combinations it flagged two" (Discussão).
-- "The other 23 segments" e "the Sun, with 51 years" (Discussão); "28 to 36 points" (Seção 3.3); "Windows of 12 to 26 points" (Discussão); "of 20" na varredura de janelas (Seção 3.3); "1995" como fim do registro de Mount Wilson de HD 166620 e "1995--2002" (Discussão: fato dos dados, a ligar a um arquivo do pacote).
+- "2 of the 192 combinations ... HD 23249 (τ = +0.75, p = 0.032) and HD 217014 (τ = +0.18, p = 0.015)" (Seção 3.3); "in 192 combinations it flagged two" (Discussão).
+- "The other 23 segments" e "the Sun, with 51 years" (Discussão); "28 to 36 points" (Seção 3.3); "Windows of 14 to 26 points" (Discussão); "of 20" na varredura de janelas (Seção 3.3); "1995" como fim do registro de Mount Wilson de HD 166620 e "1995--2002" (Discussão: fato dos dados, a ligar a um arquivo do pacote).
 - "10, 12 and 16 years" (períodos dos ciclos, ilustrativos) e "five" (estrelas Flat limpas) e "two binaries" (Seção 2.1): derivar do catálogo ou declarar como definição.
 
 **(A) Constantes de projeto escritas no texto; precisam de um teste que as confronte com o código (janelas 0.25 a 0.75, σ = 1, 3, 5, p,q ≤ 2, burn-in 100, 600 séries de 30 anos com 3 anos interpolados, 0.3 a 0.7, 0.44 a 0.82, 24, 39, 40, 12 pontos e 13 janelas, 1971–1975, 1987–1991, 2004):**

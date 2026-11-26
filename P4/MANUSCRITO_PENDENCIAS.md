@@ -105,3 +105,7 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 
 ## Sete PDFs subidos e citados (2026-11-26, D122)
 - 36 referências, todas lidas (A15). Pendente de PDF: só Wilson 1978. Correção de fato: os fotômetros HKP-1 e HKP-2 já estão numa escala comum nas fontes (Duncan; Baum). Estado: `paper_state_v12.md`.
+
+## Leitura final (2026-11-26)
+- PDF recompilado do fonte atual (23 páginas, sem citação indefinida) e lido por inteiro; números conferidos contra `star_results.csv` e a Tabela 2. Duas correções de redação em `main.tex` (mediana de observações por ano; "runs de S e de R'HK"). Pacote refeito; prova em pasta limpa: `REPRODUCTION OK`; zips atualizados.
+- Segue pendente, do pesquisador: endereço e e-mail, declaração de IA, DOI do Zenodo na seção de dados, confirmação de financiamento/conflito/CRediT; Wilson 1978 não disponível (sem PDF).
