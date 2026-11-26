@@ -1,0 +1,23 @@
+Positive controls, L=30, obs noise 0.05, dynamical noise 0.15, 1000 series/case, 1000 surrogates, window 50 %
+model | case | stat | median tau | reject upper | reject lower | sd first5 / last5 (median)
+mult | persist | ac1 | -0.03 | 0.018 | 0.020 | 0.255 / 0.265
+mult | persist | var | -0.05 | 0.008 | 0.006 | 0.255 / 0.265
+mult | lost | ac1 | -0.38 | 0.004 | 0.119 | 0.256 / 0.098
+mult | lost | var | -0.82 | 0.001 | 0.274 | 0.256 / 0.098
+sub | persist | ac1 | -0.02 | 0.009 | 0.007 | 0.451 / 0.470
+sub | persist | var | +0.00 | 0.001 | 0.002 | 0.451 / 0.470
+sub | lost | ac1 | -0.35 | 0.001 | 0.146 | 0.434 / 0.086
+sub | lost | var | -0.95 | 0.000 | 0.603 | 0.434 / 0.086
+super | persist | ac1 | +0.00 | 0.011 | 0.016 | 0.268 / 0.261
+super | persist | var | +0.00 | 0.002 | 0.006 | 0.268 / 0.261
+super | lost | ac1 | -0.42 | 0.001 | 0.146 | 0.245 / 0.093
+super | lost | var | -0.88 | 0.000 | 0.351 | 0.245 / 0.093
+
+AUC lost vs persist (score = -lower-tail p / -tau)
+model | stat | AUC(p_low) | AUC(-tau)
+super | ac1 | 0.776 | 0.799
+super | var | 0.949 | 0.947
+sub | ac1 | 0.795 | 0.825
+sub | var | 0.994 | 0.996
+mult | ac1 | 0.709 | 0.722
+mult | var | 0.898 | 0.888
