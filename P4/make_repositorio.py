@@ -32,14 +32,22 @@ for f in ("fetch_egeland_table4", "p4io", "annual", "indicators", "detrend", "su
 for f in ("CourierPrime-Regular.ttf", "CourierPrime-Bold.ttf", "CourierPrime-Italic.ttf", "OFL.txt"):
     cp(f"pipeline_v2/fonts/{f}")
 cp("pipeline_v2/archive/star_results_run1.csv"); cp("pipeline_v2/archive/README.txt")
+# calibration analyses (D126): scripts, stored full outputs (not the logs, flags or the reduced-run folder) and generators
+for f in ("make_macros_calibration", "make_tables_calibration", "make_figures_calibration", "figstyle", "verify_calibration", "fetch_vaquero"):
+    cp(f"pipeline_v2/{f}.py")
+for f in sorted(glob.glob(os.path.join(ROOT, "pipeline_v2/calibration/*.py"))):
+    cp(os.path.relpath(f, ROOT))
+for f in sorted(glob.glob(os.path.join(ROOT, "pipeline_v2/results_calibration/*"))):
+    if not f.endswith((".log", ".flag")):
+        cp(os.path.relpath(f, ROOT))
 # reference outputs (deterministic ones only; run_log.txt and run_stdout.txt carry timings)
 for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "h1.json", "group_primary.csv", "group_holm.csv",
           "power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "power_grid.txt", "positive_control.txt", "h1_bootstrap.txt", "h1_bootstrap.csv", "robustness.txt", "run_comparison.txt"):
     cp(f"pipeline_v2/results/{f}")
 # manuscript sources
-for f in ("main.tex", "references.bib", "highlights.docx", "highlights.tex", "alt_text.md", "build.sh"):
+for f in ("main.tex", "references.bib", "highlights.docx", "highlights.tex", "alt_text.md", "build.sh", "calibration_macros.tex", "cal_table_stars.tex", "cal_table_simulations.tex"):
     cp(f"manuscrito/{f}")
-for f in sorted(glob.glob(os.path.join(ROOT, "manuscrito/figures/Figure_*"))):
+for f in sorted(glob.glob(os.path.join(ROOT, "manuscrito/figures/Figure_*")) + glob.glob(os.path.join(ROOT, "manuscrito/figures/cal_fig*"))):
     cp(os.path.relpath(f, ROOT))
 
 
@@ -59,13 +67,18 @@ open(os.path.join(OUT, "requirements.txt"), "w").write("numpy==2.5.5\npandas==3.
 
 open(os.path.join(OUT, "reproduce.sh"), "w").write('''#!/usr/bin/env bash
 # Reproduces every number, table and figure of the manuscript from the input data and compares them with the published outputs.
-# Usage: PYTHON=/path/to/python bash reproduce.sh      (about 6 minutes; Python 3.13 with requirements.txt)
+# Usage: PYTHON=/path/to/python [VAQUERO_FILE=/path/to/GNobservations_JV_V1-12.csv] bash reproduce.sh [--full]
+# Default: about 12 minutes (Python 3.13 with requirements.txt). The calibration simulations run in a reduced form (same seeds, fewer series) and are
+# checked against the stored full outputs by sha256 and by agreement of the rejection rates. --full re-runs them in full (about 1.5 hours) and
+# requires the stored outputs to be reproduced byte for byte. Without VAQUERO_FILE the sunspot analysis is not re-run (its stored result is checked by hash).
 set -euo pipefail
 cd "$(dirname "${BASH_SOURCE[0]}")"
 PY="${PYTHON:-python3}"
-export SOURCE_DATE_EPOCH=0
+FULL=0; if [ "${1:-}" = "--full" ]; then FULL=1; fi
+export SOURCE_DATE_EPOCH=0 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 "$PY" -I pipeline_v2/fetch_egeland_table4.py       # Table 4 of Egeland et al. is downloaded, not redistributed (needs network; or: --from FILE)
 "$PY" -I verify_reproduction.py --manifest        # the folder is exactly the published one
+if [ -n "${VAQUERO_FILE:-}" ]; then "$PY" -I pipeline_v2/fetch_vaquero.py --from "$VAQUERO_FILE"; fi   # sunspot group numbers, not redistributed
 "$PY" -I verify_reproduction.py --snapshot        # keep the published outputs in _published/ and clear them
 cd pipeline_v2
 for t in 1 2 3 4 6 7; do echo "test_step$t: $("$PY" -I test_step$t.py | tail -1)"; done
@@ -81,9 +94,26 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I positive_control.py > /dev/null     # noisy Hopf oscillator losing its cycle (~4 min)
 "$PY" -I h1_bootstrap.py > /dev/null         # bootstrap over observing seasons for H1 (seconds)
 "$PY" -I scale_sensitivity.py > /dev/null            # does the ARMA order depend on the scale of the series? (~1 min)
+# --- calibration analyses (positive controls, power, instrumental step, data choices, sunspot numbers)
+HAVE_VAQ=0; if [ -f ../data/Vaquero2016_GNobservations_JV_V1-12.csv ]; then HAVE_VAQ=1; fi
+Q="--quick"; if [ "$FULL" = 1 ]; then
+  Q=""
+  rm -f results_calibration/{robustness_data,power_bilateral,positive_control_full,power_design,step_injection}.{csv,txt} results_calibration/robustness_post.txt
+  if [ "$HAVE_VAQ" = 1 ]; then rm -f results_calibration/dalton_*; fi
+fi
+for s in robustness_data power_bilateral positive_control_full power_design step_injection; do "$PY" -I calibration/$s.py $Q > /dev/null; done
+"$PY" -I calibration/robustness_post.py $Q > /dev/null
+if [ "$HAVE_VAQ" = 1 ]; then "$PY" -I calibration/dalton_control.py $Q > /dev/null; else echo "sunspot analysis not re-run (no Vaquero file); stored result checked by hash"; fi
+"$PY" -I calibration/f_sensitivity.py > /dev/null
+"$PY" -I calibration/qq_pvalues.py > /dev/null
+"$PY" -I calibration/example_series.py > /dev/null
+if [ "$FULL" = 1 ]; then "$PY" -I verify_calibration.py --manifest; else "$PY" -I verify_calibration.py --manifest --quick; fi
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
 "$PY" -I make_figures.py
+"$PY" -I make_macros_calibration.py
+"$PY" -I make_tables_calibration.py
+"$PY" -I make_figures_calibration.py
 "$PY" -I check_manuscript_constants.py | tail -1   # design constants written in main.tex vs the code
 cd ..
 "$PY" -I verify_reproduction.py --compare
@@ -108,6 +138,10 @@ TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.c
 JSONS = [RES + "h1.json"]
 EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt", "power_cycle.txt", "power_grid.txt", "positive_control.txt", "h1_bootstrap.txt", "robustness.txt", "run_comparison.txt")] + ["manuscrito/main.tex"] + \\
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
+CAL = ["manuscrito/calibration_macros.tex", "manuscrito/cal_table_stars.tex", "manuscrito/cal_table_simulations.tex"] + \\
+      [f"manuscrito/figures/{n}.{e}" for n in ("cal_fig1_controls", "cal_fig2_power_grid", "cal_fig3_design", "cal_fig4_qq", "cal_fig5_sigma_f", "cal_fig6_step", "cal_fig7_dalton") for e in ("pdf", "eps")] + \\
+      ["pipeline_v2/results_calibration/" + f for f in ("f_sensitivity.txt", "qq_pvalues.csv", "qq_pvalues.txt", "example_series.csv")]   # regenerated every run
+EXACT += CAL
 FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
 
@@ -193,52 +227,67 @@ def compare():
 {"--manifest": manifest, "--snapshot": snapshot, "--compare": compare}[sys.argv[1]]()
 ''')
 
-open(os.path.join(OUT, "README.md"), "w").write(f'''# Reproduction package: testing critical slowing down in Mount Wilson S-index series of Sun-like stars
+open(os.path.join(OUT, "README.md"), "w").write(f'''# Reproduction package (version 2.0.0): critical slowing down indicators and the loss of a stellar activity cycle
 
 This folder holds everything needed to reproduce every number, table and figure of the manuscript (`manuscrito/main.tex`), and nothing else:
 the input data, the code, the reference outputs and the manuscript sources. `MANIFEST.sha256` lists every file; `reproduce.sh` checks it.
 
 ## Run
 ```
-pip install -r requirements.txt          # Python 3.13
-PYTHON=python3 bash reproduce.sh         # about 6 minutes
+pip install -r requirements.txt                  # Python 3.13
+PYTHON=python3 bash reproduce.sh                 # about 12 minutes
+PYTHON=python3 bash reproduce.sh --full          # about 1.5 hours; also re-runs the calibration simulations in full
 ```
 `reproduce.sh` (1) checks the manifest, (2) saves the published outputs to `_published/` and clears them, (3) runs the checks, the size test of the
-surrogate procedure, the power simulation and the single stellar run (fixed seeds), (4) rewrites the generated blocks of `main.tex` and the figures,
-(5) compares everything with the published outputs (`REPRODUCTION OK`), and (6) compiles the manuscript if `pdflatex` is installed (class `elsarticle`).
+surrogate procedure, the power simulation and the single stellar run (fixed seeds), (4) runs the calibration analyses, (5) rewrites the generated
+blocks of `main.tex`, the macros, tables and figures, (6) compares everything with the published outputs (`REPRODUCTION OK`), and (7) compiles the
+manuscript if `pdflatex` is installed (class `elsarticle`).
+
+The calibration simulations (positive controls, power curves, instrumental step, data choices) are large. By default they run in a reduced form
+(`--quick`: same seeds, fewer series and surrogates) in `pipeline_v2/results_calibration_quick/`, and `verify_calibration.py` checks that every
+rejection rate agrees with the stored full run within four standard errors and that the statistics computed on the data alone are identical. The stored
+full outputs in `pipeline_v2/results_calibration/` are checked by sha256 (`CALIBRATION_MANIFEST.sha256`); with `--full` they are regenerated and must
+match byte for byte. The macros, tables and figures are always rebuilt from the stored full outputs.
+
+The sunspot group numbers of Vaquero et al. (2016) are not redistributed (terms of use not yet checked). Give the file with `VAQUERO_FILE=...` to re-run the
+sunspot analysis; without it, the stored result and the derived annual series (`results_calibration/dalton_annual.csv`) are used.
 
 ## Layout
 | Path | Content |
 |---|---|
 | `consolidacao/p4_star_catalog.csv` | frozen star catalog (groups, B-V, eligibility) |
-| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; cycle amplitudes, used only to count how many stars have one), HK_Project_v2001_NSO (Harvard Dataverse, doi:10.7910/DVN/H85QPF). Table 4 of Egeland et al. is **not** included: `pipeline_v2/fetch_egeland_table4.py` downloads it |
-| `pipeline_v2/` | code (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
-| `manuscrito/` | `main.tex`, `references.bib`, highlights, `figures/Figure_1-4` (PDF and EPS), `build.sh` |
+| `data/` | input series: Baum et al. Table 1 (VizieR J/AJ/163/183), Luhn et al. Table 2 (VizieR J/ApJ/936/L23), Isaacson et al. Table 4 (VizieR J/ApJS/274/35; used only to count how many stars have a cycle amplitude), HK_Project_v2001_NSO (Harvard Dataverse) |
+| `pipeline_v2/` | stellar pipeline (`p4io`, `annual`, `indicators`, `detrend`, `surrogates`, `state_comparison`, `rhk`, `run_all`, `group_primary`, `report`, `power_simulation`), tests, figure fonts, `results/` |
+| `pipeline_v2/calibration/` | calibration analyses; stored full outputs in `pipeline_v2/results_calibration/` |
+| `manuscrito/` | `main.tex`, `calibration_macros.tex`, `cal_table_*.tex`, `references.bib`, highlights, `figures/` (PDF and EPS), `build.sh` |
 
 ## From the manuscript to the code
 | Manuscript item | Produced by | Output |
 |---|---|---|
-| Sample, segments (Sect. 2.1; Table 2 columns L, Interp.) | `p4io.py`, `annual.py` (via `run_all.py`) | `results/segments.csv` |
-| Indicators, detrending, surrogate p values (Sects. 2.2, 2.3, 3.3; Table 2) | `indicators.py`, `detrend.py`, `surrogates.py`, `run_all.py` | `results/star_results.csv` |
-| Size of the surrogate test (Sect. 3.1) | `test_step5.py` | `results/autotest_step5.txt` |
-| Power (AUC; Sect. 3.1) | `power_simulation.py` | `results/power_simulation.txt` |
-| H1, Table 1, Figure 1 | `state_comparison.py` (via `run_all.py`) | `results/h1.json` |
-| R'_HK (Sect. 3.3) | `rhk.py`, `run_all.py` | `results/star_results.csv` (series `RHK`) |
-| Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
-| All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
-| ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
-| Power with a cycle (Sect. 3.1) | `power_cycle.py` | `results/power_cycle.txt` |
-| Power over cycle period and amplitude (Sect. 3.1) | `power_grid.py` | `results/power_grid.txt` |
-| Positive control, noisy Hopf oscillator (Sect. 3.1) | `positive_control.py` | `results/positive_control.txt` |
-| Bootstrap over observing seasons, H1 (Sect. 3.2, Fig. 1) | `h1_bootstrap.py` | `results/h1_bootstrap.txt`, `.csv` |
-| Coverage, interpolation, white-noise reference (Sect. 4) | `robustness.py` | `results/robustness.txt` |
-| First run against the second (Sect. 2.7) | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
-| Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
-| Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
-| Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
+| Sample and segments (Sect. 2.1; Table 1) | `p4io.py`, `annual.py` (via `run_all.py`), `make_tables_calibration.py` | `results/segments.csv`, `manuscrito/cal_table_stars.tex` |
+| Indicators, detrending, surrogate test (Sect. 2.2) | `indicators.py`, `detrend.py`, `surrogates.py`, `run_all.py` | `results/star_results.csv` |
+| Simulations (Sect. 2.3; Table 2) | `calibration/*.py`, `make_tables_calibration.py` | `manuscrito/cal_table_simulations.tex` |
+| Size of the test (Sect. 3.1) | `test_step5.py`, `calibration/power_bilateral.py` | `results/autotest_step5.txt`, `results_calibration/power_bilateral.*` |
+| Distribution of the stellar p values (Sect. 3.1; Fig. 1) | `calibration/qq_pvalues.py` | `results_calibration/qq_pvalues.*` |
+| Positive controls (Sect. 3.2; Table 3; Figs. 2, 3) | `calibration/positive_control_full.py`, `example_series.py`, `power_bilateral.py` | `results_calibration/positive_control_full.*`, `example_series.csv`, `power_bilateral.*` |
+| Power against a true rise (Sect. 3.3; Fig. 4) | `calibration/power_design.py`, `power_bilateral.py` | `results_calibration/power_design.*` |
+| Instrumental step and data choices (Sect. 3.4; Fig. 5) | `calibration/step_injection.py`, `robustness_data.py`, `robustness_post.py` | `results_calibration/step_injection.*`, `robustness_data.*`, `robustness_post.txt` |
+| Stellar scan (Sect. 3.5) | `run_all.py`, `make_macros.py` | `results/star_results.csv` |
+| HD 166620 by state (Sect. 3.6; Table 4; Figs. 6, 7) | `state_comparison.py` (via `run_all.py`), `h1_bootstrap.py`, `calibration/f_sensitivity.py` | `results/h1.json`, `results/h1_bootstrap.*`, `results_calibration/f_sensitivity.txt` |
+| Sunspot numbers, Dalton Minimum (Sect. 3.7; Fig. 8) | `calibration/dalton_control.py`, `fetch_vaquero.py` | `results_calibration/dalton_control.*`, `dalton_annual.csv`, `dalton_meta.txt` |
+| Conversion to R'_HK (Appendix A) | `rhk.py`, `run_all.py`, `scale_sensitivity.py` | `results/star_results.csv` (series `RHK`), `results/scale_sensitivity.txt` |
+| Group tests (Appendix B) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
+| Table of indicators by segment, Figs. 9-11 (Appendix C) | `make_tables.py`, `make_figures.py` | block between `%%% BEGIN/END GENERATED TABLE`, `manuscrito/figures/Figure_2-4` |
+| Analysis log (Sect. 2.6): first run against the second | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
+| Earlier power studies (power with a cycle, grid, first positive control, coverage) | `power_simulation.py`, `power_cycle.py`, `power_grid.py`, `positive_control.py`, `robustness.py` | `results/*.txt` |
+| Numbers in the text | `make_macros.py`, `make_macros_calibration.py` | block between `%%% BEGIN/END GENERATED MACROS`, `manuscrito/calibration_macros.tex` |
+| Design constants written in the text | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
+| Figure 6 and Figures 9 to 11 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
+| Figures 1 to 5, 7, 8 | `make_figures_calibration.py` | `manuscrito/figures/cal_fig*.pdf` and `.eps` |
 | Facts report | `report.py` | `results/REPORT.md` |
 
-Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
+Seeds: stellar run 20261124; size test 5050; power simulation 1600 + L; calibration simulations 20261126 to 20261130 (one per script, listed in Table 2 of the manuscript);
+example series 20261201. The figure files are byte-for-byte reproducible (`SOURCE_DATE_EPOCH=0`).
 Tables and JSON are compared numerically (relative tolerance 1e-9): the ARMA fits depend on the `statsmodels` version, so use the pinned versions.
 
 ## Table 4 of Egeland et al. (2017): downloaded, not redistributed
@@ -293,13 +342,13 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 """)
 ABSTRACT = ("Code, input data, reference outputs and manuscript sources that reproduce every number, table and figure of the article "
-            "on rolling-window early-warning indicators of critical slowing down in annual Mount Wilson S-index series of Sun-like stars and the Sun. "
-            "Run reproduce.sh (about 6 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017).")
+            "on the size, power and positive controls of rolling-window early-warning indicators of critical slowing down, applied to annual Mount Wilson S-index series of Sun-like stars, the Sun and a sunspot record. "
+            "Run reproduce.sh (about 12 minutes). Third-party input data keep the terms of their original sources; code is MIT. Needs network access once, to download Table 4 of Egeland et al. (2017).")
 open(os.path.join(OUT, "CITATION.cff"), "w").write(f"""cff-version: 1.2.0
 message: "If you use this software, please cite it using the metadata below."
-title: "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars"
-version: 1.0.0
-date-released: 2026-11-25
+title: "Reproduction package: critical slowing down indicators and the loss of a stellar activity cycle"
+version: 2.0.0
+date-released: 2026-11-26
 license: MIT
 authors:
   - family-names: "Borin Junior"
@@ -312,18 +361,19 @@ keywords:
   - stellar activity cycles
   - chromospheric activity
   - S index
-  - Maunder minimum
+  - positive controls
+  - statistical power
 repository-code: "https://github.com/gpefitura-web/P4"
 # doi: "10.5281/zenodo.XXXXXXX"   (add the DOI reserved on Zenodo)
 """)
 import json
-json.dump({"title": "Reproduction package: testing critical slowing down in Mount Wilson S-index of Sun-like stars",
-           "upload_type": "software", "access_right": "open", "license": "mit", "language": "eng", "version": "1.0.0",
-           "publication_date": "2026-11-25",
+json.dump({"title": "Reproduction package: critical slowing down indicators and the loss of a stellar activity cycle",
+           "upload_type": "software", "access_right": "open", "license": "mit", "language": "eng", "version": "2.0.0",
+           "publication_date": "2026-11-26",
            "creators": [{"name": "Borin Junior, Airton M. S.", "affiliation": "Instituto Federal do Triangulo Mineiro (IFTM), Uberaba, Brazil"}],
            "description": ABSTRACT + " Contents: pipeline code and tests, input series (Baum et al. 2022; Luhn et al. 2022; HK_Project_v2001_NSO; the solar table of Egeland et al. 2017 is downloaded at run time, not redistributed), "
                           "reference outputs, figures and manuscript sources, with a sha256 manifest.",
-           "keywords": ["critical slowing down", "early-warning signals", "stellar activity cycles", "chromospheric activity", "S index", "Maunder minimum"]},
+           "keywords": ["critical slowing down", "early-warning signals", "stellar activity cycles", "chromospheric activity", "S index", "positive controls", "statistical power"]},
           open(os.path.join(OUT, ".zenodo.json"), "w"), indent=2, ensure_ascii=False)
 
 # manifest, last
@@ -339,10 +389,10 @@ with open(os.path.join(OUT, "MANIFEST.sha256"), "w") as fh:
 print(len(files), "files in", OUT, sum(os.path.getsize(os.path.join(OUT, p)) for p in files) // 1024, "KB")
 
 import zipfile
-ZIP = os.path.join(ROOT, "repositorio_zenodo_v1.0.0.zip")
+ZIP = os.path.join(ROOT, "repositorio_zenodo_v2.0.0.zip")
 with zipfile.ZipFile(ZIP, "w", zipfile.ZIP_DEFLATED) as z:
     for p in sorted(files + ["MANIFEST.sha256"]):
-        zi = zipfile.ZipInfo(os.path.join("p4-repositorio-v1.0.0", p), date_time=(2026, 11, 25, 0, 0, 0))
+        zi = zipfile.ZipInfo(os.path.join("p4-repositorio-v2.0.0", p), date_time=(2026, 11, 26, 0, 0, 0))
         zi.compress_type = zipfile.ZIP_DEFLATED; zi.external_attr = 0o644 << 16
         z.writestr(zi, open(os.path.join(OUT, p), "rb").read())
 print("zip for Zenodo:", os.path.basename(ZIP), os.path.getsize(ZIP) // 1024, "KB, sha256", sha(ZIP))
