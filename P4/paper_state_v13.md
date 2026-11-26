@@ -12,5 +12,8 @@
 - Análises não feitas (limites declarados na v1): Hopf subcrítico e ruído multiplicativo; curva de poder com ciclo real; efeito da interpolação; amplitude do ciclo (só 4 de 23 estrelas).
 - Rastreabilidade: `RASTREABILIDADE_PENDENTE.md`.
 
+## 2b. Subsídios da reestruturação (D125, exploratórios)
+- Memorando: `DECISAO_REESTRUTURACAO.md`. Resumo: H1 só vale frente ao mínimo 2 (o mín. 1 inverte em f ≈ 1,58 %); o teste detecta a perda de ciclo pela cauda inferior (variância: AUC 0,96, rejeição 34 %), mas tem poder baixo para CSD verdadeiro (AUC 0,55–0,61); a era HKP-2 sozinha muda τ em 31 % das células. Eixo do artigo, revista e novas rodadas aguardam o pesquisador.
+
 ## 3. Próxima etapa
 `PROMPT_PROXIMO_CHAT_REESTRUTURACAO.md`.
