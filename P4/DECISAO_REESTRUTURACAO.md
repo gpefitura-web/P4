@@ -68,6 +68,16 @@ Leitura:
 ## 6. Revista (decidir depois)
 New Astronomy aceita o enquadramento metodológico; periódicos de métodos/análise de dados (por exemplo, Astronomy and Computing) ajustam melhor o escopo de um resultado nulo com calibração. Os dois pareceres veem o valor na calibração, não na astrofísica.
 
+## 6b. Atualização após a escolha do eixo 1 (D126)
+Decisão: eixo 1, reescrita do zero, CSD mantido como ideia. Resultados novos (`results_explore/`, D126; exploratórios):
+- **Controle positivo completo** (1000 séries/caso): nos três modelos de perda de ciclo (supercrítico, subcrítico com queda abrupta, ruído multiplicativo) a variância cai (τ −0,82 a −0,95; rejeição inferior 27–60 %, AUC 0,90–0,99) e a autocorrelação também (τ −0,35 a −0,42; AUC 0,71–0,80). Rejeição superior 0–0,4 %. Mesmo no subcrítico, o colapso de amplitude domina o sinal.
+- **Poder de projeto para CSD verdadeiro** (AR(1) 0,3→0,7; 200 séries/célula): ≈ nominal em L = 30–50; 32 % (AUC 0,82) em L = 200 sem ruído nem ciclo; 19 % com ruído de observação igual ao do processo; 8–20 % com ciclo de 11 anos. Só uma forma de tendência foi testada.
+- **Degrau instrumental:** degrau de 1 σ no ano 11/30 já dá τ −0,22 (AC1) e −0,28 (var); queda do ruído à metade, τ(var) −0,68 (rejeição inferior 29 %); ruído ×1,5, +0,52 (rejeição superior 14,6 %). Explica a sensibilidade da era HKP-2.
+- **QQ dos 192 p-valores:** cauda superior 1,0 % abaixo de 0,05 (KS D 0,15); inferior 5,7 %; não uniforme.
+- **Controle real (Vaquero 2016, Dalton):** bloco 1795–1830, sem sinal (p inferior da variância 0,33–0,74); amplitude cai 22 % e recupera; um evento, ilustrativo. A entrada em Maunder não é analisável em séries anuais (lacunas ≥ 3 anos antes de 1645; amostragem de 1779–1794 insuficiente).
+- **Dados que mantêm a ideia do CSD:** a curva de projeto diz que séries de ≥ 100–200 anos, com ruído de observação menor que o do processo e sem ciclo dominante, dão poder moderado; séries de outros objetos entram se você as fornecer (origem aberta, cadência, termos de uso).
+- **Pendente:** termos de uso do catálogo de Vaquero (SILSO/HASO) antes de qualquer cópia pública.
+
 ## 7. Decisões que dependem de você
 1. Eixo (1, 2 ou 3). Minha recomendação é o 1, com título que diga que o teste detecta a perda de amplitude e não o CSD.
 2. Autorizar A4 (protótipo de nulo com ciclo) e o teste de injeção de degrau.

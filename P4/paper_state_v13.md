@@ -15,5 +15,8 @@
 ## 2b. Subsídios da reestruturação (D125, exploratórios)
 - Memorando: `DECISAO_REESTRUTURACAO.md`. Resumo: H1 só vale frente ao mínimo 2 (o mín. 1 inverte em f ≈ 1,58 %); o teste detecta a perda de ciclo pela cauda inferior (variância: AUC 0,96, rejeição 34 %), mas tem poder baixo para CSD verdadeiro (AUC 0,55–0,61); a era HKP-2 sozinha muda τ em 31 % das células. Eixo do artigo, revista e novas rodadas aguardam o pesquisador.
 
+## 2c. Decisões do pesquisador (D126)
+- **Eixo 1** (calibração e poder do CSD em séries anuais do índice S), reescrita do zero com pipeline e 36 referências; CSD mantido como ideia, com possíveis dados novos (Vaquero entregue; séries de outros objetos a fornecer); revista em aberto. Análises D126 prontas em `pipeline_v2/results_explore/` (controle positivo completo, curva de projeto, degrau, QQ, Dalton); resumo em `DECISAO_REESTRUTURACAO.md` §6b. Próximo: plano curto de reescrita e fluxo da regra 1; termos de uso de Vaquero a conferir.
+
 ## 3. Próxima etapa
 `PROMPT_PROXIMO_CHAT_REESTRUTURACAO.md`.
