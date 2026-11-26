@@ -91,3 +91,13 @@ Os 35 arquivos `.mgd` e o `README.pdf` do Dataverse `10.7910/DVN/H85QPF` foram c
 | vaughan1978, wilson1978, baliunas_jastrow1990 | **pendentes**: scans do ADS devolvem HTTP 500 (2 tentativas: articles.adsabs e link_gateway); precisam de PDF subido pelo pesquisador | -- |
 | dakos2008 (PNAS), lenton2012 (Phil Trans), lenton2011, boettner_boers2022 (Phys. Rev. Research) | **pendentes**: HTTP 403 nos editores; Europe PMC não abre PDF; sem arXiv | -- |
 | wiesenfeld1985, duncan1991 | **pendentes**: sem versão aberta | -- |
+
+## 2026-11-26, nova rodada de tentativas (pedido do pesquisador), só vias abertas e sem disfarçar o cliente
+OpenAlex indicou as cópias abertas. Uma tentativa com User-Agent de navegador foi **recusada pelo ambiente e não repetida** (contornar o bloqueio dos editores não é legítimo).
+| item | resultado | origem |
+|---|---|---|
+| lenton2012 | **ok** | https://hal.science/hal-02195169v1/document (artigo tipografado sob CC BY, 21 p.) |
+| boettner2022 | **ok** | repositório do PIK (cópia publicada, 7 p.); a cópia do TUM também baixou e foi descartada (arquivo diferente, mesmo artigo) |
+| dakos2008 | falhou: PNAS 403, Wageningen 403, MPG 403, PMC devolve HTML | -- |
+| vaughan1978, radick2018 | falhou: IOP 403 (cópia "bronze" só no site do editor) | -- |
+| wilson1978, baliunas_jastrow1990, lenton2011, wiesenfeld1985, duncan1991 | sem cópia aberta (OpenAlex: fechado) | -- |

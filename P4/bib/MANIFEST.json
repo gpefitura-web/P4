@@ -45,6 +45,15 @@
   "validacao": "padrão de título /charted and uncharted/ nas páginas 1-2 (autores: Boettiger, Ross & Hastings; o nome inicial \"Dakos\" estava errado e foi corrigido)",
   "versao": "manuscript (arXiv:1305.6700)"
  },
+ "Boettner_2022_PhysRevResearch_4_013230_PIK.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 840424,
+  "doi": "10.1103/PhysRevResearch.4.013230",
+  "sha256": "f79fcda48f738f9f8ed105acdb49ad50e39b2a8a85c29a82ad1ab3aa0e03c212",
+  "url": "https://publications.pik-potsdam.de/pubman/item/item_26793_3/component/file_26929/26793oa.pdf",
+  "validacao": "primeira página: título, autores (Boettner, Boers) e \"Physical Review Research 4, 013230 (2022)\" impressos",
+  "versao": "publicada (acesso aberto, cópia do repositório do PIK)"
+ },
  "Brandenburg_1998_ApJL_498_L51.pdf": {
   "baixado_em": "2026-11-14",
   "bytes": 131721,
@@ -155,6 +164,15 @@
   "url": "https://arxiv.org/pdf/1101.2908",
   "validacao": "padrão de título /Normal Forms, Variance/ nas páginas 1-2",
   "versao": "manuscript (arXiv:1101.2908)"
+ },
+ "Lenton_2012_PhilTransA_370_1185_HAL-02195169.pdf": {
+  "baixado_em": "2026-11-26",
+  "bytes": 1265266,
+  "doi": "10.1098/rsta.2011.0304",
+  "sha256": "931de5781b53d79bfcc634fd04a4fd2647ee6b48d4aa28d8a92018d53cad0463",
+  "url": "https://hal.science/hal-02195169v1/document",
+  "validacao": "primeira página (folha do HAL) e título/autores/periódico impressos no artigo; leitura completa (21 p.)",
+  "versao": "artigo tipografado (layout da Royal Society) depositado no HAL sob CC BY; página da revista = página do PDF + 1183"
  },
  "Livina_2007_GRL_34_L03712.pdf": {
   "baixado_em": "2026-11-24",
