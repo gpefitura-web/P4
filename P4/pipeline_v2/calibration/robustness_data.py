@@ -4,16 +4,17 @@ Variants of the annual series of every eligible star segment, same pipeline and 
   hkp2       : observations before 1977.0 dropped (HKP-2 era only), segments >= 24 yr kept
   no6667     : years 1966 and 1967 set missing (gap rule D98 then re-applied)
   min5       : years with fewer than 5 observations set missing
-Output: results_explore/robustness_data.csv and .txt.   Usage: python -I robustness_data.py"""
+Output: results_calibration/robustness_data.csv and .txt.   Usage: python -I robustness_data.py"""
 import os, sys, warnings
 warnings.filterwarnings("ignore")
 HERE = os.path.dirname(os.path.abspath(__file__)); PIPE = os.path.dirname(HERE)
+QUICK = "--quick" in sys.argv; RESDIR = os.path.join(PIPE, "results_calibration_quick" if QUICK else "results_calibration"); os.makedirs(RESDIR, exist_ok=True)
 sys.path.insert(0, PIPE)
 import numpy as np, pandas as pd
 from multiprocessing import Pool
 import p4io, annual, indicators as ind, detrend as dt, surrogates as sg
 
-BASE_SEED, NSURR, MIN_SEG = 20261124, 1000, 24
+BASE_SEED, NSURR, MIN_SEG = 20261124, (200 if QUICK else 1000), 24
 VARIANTS = ("base", "hkp2", "no6667", "min5")
 
 def ann_variant(obs, sun, v):
@@ -53,7 +54,7 @@ def work(args):
 if __name__ == "__main__":
     cat = p4io.load_catalog()
     with Pool(4) as p: res = p.map(work, [(ci, r.to_dict()) for ci, r in cat.iterrows()])
-    df = pd.DataFrame([x for rr in res for x in rr]); df.to_csv(os.path.join(PIPE, "results_explore", "robustness_data.csv"), index=False)
+    df = pd.DataFrame([x for rr in res for x in rr]); df.to_csv(os.path.join(RESDIR, "robustness_data.csv"), index=False)
     ref = pd.read_csv(os.path.join(PIPE, "results", "star_results.csv")); ref = ref[ref.series == "S"]
     out = []
     b = df[df.variant == "base"].merge(ref, on=["HD", "seg_year0", "config", "frac", "stat"], suffixes=("", "_ref"))
@@ -69,4 +70,4 @@ if __name__ == "__main__":
     # exclude the three segments with > 2 interpolated years
     ex = df[(df.variant == "base") & ~df.HD.isin(["182572", "190360", "217014"])]
     out.append(f"base without 182572/190360/217014 | {ex.groupby(['HD','seg_year0']).ngroups} | {len(ex)} | {ex[ex.stat=='ac1'].tau.median():+.3f} | {ex[ex.stat=='var'].tau.median():+.3f} | {(ex.p_upper<.05).sum()} | {(ex.p_D22<.05).sum()} | - | -")
-    txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_explore", "robustness_data.txt"), "w").write(txt + "\n")
+    txt = "\n".join(out); print(txt); open(os.path.join(RESDIR, "robustness_data.txt"), "w").write(txt + "\n")

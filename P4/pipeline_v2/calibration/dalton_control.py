@@ -7,14 +7,15 @@ Declared before running the indicators (only the coverage table was looked at, t
  - the pipeline test as in run_all.py (four detrending configurations, window 50 %, ARMA surrogates by AIC with the gap mask, 1000
    surrogates, seed 20261130), on the annual mean and on its square root (variance-stabilising for counts).
 One real event only: this is an illustration of the sign and size of the indicators, not a statistical test of CSD.
-Output: results_explore/dalton_control.{csv,txt}.   Usage: python -I dalton_control.py"""
+Output: results_calibration/dalton_control.{csv,txt}.   Usage: python -I dalton_control.py"""
 import os, sys, warnings
 warnings.filterwarnings("ignore")
 HERE = os.path.dirname(os.path.abspath(__file__)); PIPE = os.path.dirname(HERE); sys.path.insert(0, PIPE)
+QUICK = "--quick" in sys.argv; RESDIR = os.path.join(PIPE, "results_calibration_quick" if QUICK else "results_calibration"); os.makedirs(RESDIR, exist_ok=True)
 import numpy as np, pandas as pd
 import annual, detrend as dt, indicators as ind, surrogates as sg
 
-NS, SEED = 1000, 20261130
+NS, SEED = (200 if QUICK else 1000), 20261130
 d = pd.read_csv(os.path.join(os.path.dirname(PIPE), "data", "Vaquero2016_GNobservations_JV_V1-12.csv"), comment="%")
 g = d[(d.GROUPS >= 0) & (d.STATION > 0)]
 day = g.groupby(["YEAR", "MONTH", "DAY"]).GROUPS.mean().reset_index()
@@ -40,7 +41,7 @@ for (a, b) in BLOCKS:
                 tau = float(sg.tau_rows(sg.rolling_stat(res[None, :], w, stat))[0]); ts = sg.tau_rows(sg.rolling_stat(Ss, w, stat))
                 rows.append(dict(block=f"{a}-{b}", transform=tname, config=dt.label(sigma), stat=stat, tau=tau,
                                  p_lower=(np.sum(ts <= tau) + 1) / (NS + 1), p_upper=(np.sum(ts >= tau) + 1) / (NS + 1), arma=str(model["order"]), filled=int(fl.sum())))
-df = pd.DataFrame(rows); df.to_csv(os.path.join(PIPE, "results_explore", "dalton_control.csv"), index=False)
+df = pd.DataFrame(rows); df.to_csv(os.path.join(RESDIR, "dalton_control.csv"), index=False)
 out += ["", "Annual maxima of the long segment by Schwabe cycle (year of max: value), for the amplitude record:"]
 yrs, S = long["years"], long["S"]
 mx = [(int(yrs[i]), round(float(S[i]), 2)) for i in range(1, len(S) - 1) if S[i] >= S[i - 1] and S[i] >= S[i + 1] and S[i] > 2.0]
@@ -48,4 +49,4 @@ out.append("  " + ", ".join(f"{a}: {b}" for a, b in mx))
 out += ["", "block | transform | stat | tau (4 configs: none, s1, s3, s5) | p_lower (4 configs) | p_upper (4 configs)"]
 for (blk, tr, st), q in df.groupby(["block", "transform", "stat"], sort=False):
     out.append(f"{blk} | {tr} | {st} | " + " ".join(f"{v:+.2f}" for v in q.tau) + " | " + " ".join(f"{v:.3f}" for v in q.p_lower) + " | " + " ".join(f"{v:.3f}" for v in q.p_upper))
-txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_explore", "dalton_control.txt"), "w").write(txt + "\n")
+txt = "\n".join(out); print(txt); open(os.path.join(RESDIR, "dalton_control.txt"), "w").write(txt + "\n")

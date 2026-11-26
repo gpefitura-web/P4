@@ -1,10 +1,10 @@
-"""Exploratory (D125): post-processing of results_explore/robustness_data.csv (no surrogates re-run).
+"""Exploratory (D125): post-processing of results_calibration/robustness_data.csv (no surrogates re-run).
 Compares the HKP-2-only variant with the base run star by star (HD level, since segments start in 1977 and the keys differ):
 median tau per (HD, config, frac, stat) and fraction of raw cells with p_upper < 0.05 / p_lower < 0.05 per variant.
-Output: results_explore/robustness_post.txt.   Usage: python -I robustness_post.py"""
-import os
+Output: results_calibration/robustness_post.txt.   Usage: python -I robustness_post.py"""
+import os, sys
 import numpy as np, pandas as pd
-HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(os.path.dirname(HERE), "results_explore")
+HERE = os.path.dirname(os.path.abspath(__file__)); R = os.path.join(os.path.dirname(HERE), "results_calibration_quick" if "--quick" in sys.argv else "results_calibration")
 df = pd.read_csv(os.path.join(R, "robustness_data.csv"), dtype={"HD": str})
 out = ["Fraction of raw cells with p < 0.05 by variant (nominal 0.05 if the test is valid and cells independent)", "variant | cells | upper | lower"]
 for v, g in df.groupby("variant"):

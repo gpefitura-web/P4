@@ -4,16 +4,17 @@ Cases (L = 30 yr, window 50 %, 1000 surrogates, seed 20261126):
   ar1_null / ar1_trend     : AR(1) without cycle, constant 0.5 or rising 0.3 -> 0.7 (true critical slowing down, no cycle)
 Per series: tau and p_D22 (lower tail) and p_upper for ac1 and var, one ARMA fit shared by both indicators.
 AUC: probability that a 'lost' series has a smaller lower-tail p (resp. larger tau) than a 'persist' series (ties = 1/2).
-Usage: python -I power_bilateral.py   Output: results_explore/power_bilateral.{csv,txt}"""
+Usage: python -I power_bilateral.py   Output: results_calibration/power_bilateral.{csv,txt}"""
 import os, sys, warnings, itertools
 warnings.filterwarnings("ignore")
 HERE = os.path.dirname(os.path.abspath(__file__)); PIPE = os.path.dirname(HERE)
+QUICK = "--quick" in sys.argv; RESDIR = os.path.join(PIPE, "results_calibration_quick" if QUICK else "results_calibration"); os.makedirs(RESDIR, exist_ok=True)
 sys.path.insert(0, PIPE)
 import numpy as np, pandas as pd
 from multiprocessing import Pool
 import surrogates as sg
 
-L, SPY, NS = 30, 20, 1000
+L, SPY, NS = 30, 20, (200 if QUICK else 1000)
 FILLED = np.zeros(L, bool)
 
 def hopf(mu_path, P, s0, rng):
@@ -54,13 +55,13 @@ if __name__ == "__main__":
     ss = np.random.SeedSequence(20261126); tasks = []
     grid = list(itertools.product((8.0, 11.0, 15.0), (0.10, 0.15, 0.30)))
     for P, s0 in grid:
-        n = 1000 if (P, s0) == (11.0, 0.15) else 300
+        n = (100 if QUICK else 1000) if (P, s0) == (11.0, 0.15) else (40 if QUICK else 300)
         for case in ("hopf_persist", "hopf_lost"):
             tasks += [(case, P, s0, r) for r in range(n)]
-    tasks += [(c, 0.0, 0.0, r) for c in ("ar1_null", "ar1_trend") for r in range(1000)]
+    tasks += [(c, 0.0, 0.0, r) for c in ("ar1_null", "ar1_trend") for r in range(100 if QUICK else 1000)]
     seeds = ss.spawn(len(tasks)); tasks = [t + (s,) for t, s in zip(tasks, seeds)]
     with Pool(4) as p: rows = p.map(job, tasks, chunksize=8)
-    df = pd.DataFrame(rows); df.to_csv(os.path.join(PIPE, "results_explore", "power_bilateral.csv"), index=False)
+    df = pd.DataFrame(rows); df.to_csv(os.path.join(RESDIR, "power_bilateral.csv"), index=False)
     out = ["Two-sided rejection (p < 0.05) and AUC; L=30, window 50 %, 1000 surrogates. n per cell in column n.",
            "case | P | s0 | n | stat | median tau | reject upper | reject lower"]
     for (case, P, s0), g in df.groupby(["case", "P", "s0"]):
@@ -74,4 +75,4 @@ if __name__ == "__main__":
     a = df[df.case == "ar1_trend"]; b = df[df.case == "ar1_null"]
     out += ["", "AUC ar1_trend vs ar1_null (score = -upper-tail p)"]
     for stat in ("ac1", "var"): out.append(f"{stat} | {auc(-a[f'pup_{stat}'], -b[f'pup_{stat}']):.3f}")
-    txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_explore", "power_bilateral.txt"), "w").write(txt + "\n")
+    txt = "\n".join(out); print(txt); open(os.path.join(RESDIR, "power_bilateral.txt"), "w").write(txt + "\n")

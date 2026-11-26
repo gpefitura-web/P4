@@ -1,6 +1,6 @@
 """Exploratory (D126): distribution of the 192 stellar p-values of the official run (series S, window 50 %: 24 segments x 4 configurations x
 2 indicators) against the uniform law. No new surrogates. The 4 configurations of one segment are strongly dependent, so KS p-values are
-indicative only; the per-configuration subsets (48 cells) are also given. Output: results_explore/qq_pvalues.{csv,txt}.
+indicative only; the per-configuration subsets (48 cells) are also given. Output: results_calibration/qq_pvalues.{csv,txt}.
 Usage: python -I qq_pvalues.py"""
 import os
 import numpy as np, pandas as pd
@@ -17,5 +17,5 @@ for tail, col in (("upper", "p_upper"), ("lower", "p_D22")):
         out.append(f"{tail} | {sub} | {len(p)} | {(p < .05).mean():.3f} | {(p < .01).mean():.3f} | {ks.statistic:.3f} | {ks.pvalue:.3f}")
     p = np.sort(d[col].values); q = (np.arange(1, len(p) + 1) - 0.5) / len(p)
     rows += [dict(tail=tail, rank=i + 1, p_obs=a, p_unif=b) for i, (a, b) in enumerate(zip(p, q))]
-pd.DataFrame(rows).to_csv(os.path.join(PIPE, "results_explore", "qq_pvalues.csv"), index=False)
-txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_explore", "qq_pvalues.txt"), "w").write(txt + "\n")
+pd.DataFrame(rows).to_csv(os.path.join(PIPE, "results_calibration", "qq_pvalues.csv"), index=False)
+txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_calibration", "qq_pvalues.txt"), "w").write(txt + "\n")

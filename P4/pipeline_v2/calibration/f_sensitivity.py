@@ -32,4 +32,4 @@ g = d[(d.y >= 1971) & (d.y < 1975)]
 fx = np.sqrt((g.s.var(ddof=1) - sg ** 2)) / g.s.mean()
 out.append(f"f_MW at which sigma_A(min1) = sigma_A(grand): {fx:.4f}")
 txt = "\n".join(out); print(txt)
-open(os.path.join(os.path.dirname(HERE), "results_explore", "f_sensitivity.txt"), "w").write(txt + "\n")
+open(os.path.join(os.path.dirname(HERE), "results_calibration", "f_sensitivity.txt"), "w").write(txt + "\n")

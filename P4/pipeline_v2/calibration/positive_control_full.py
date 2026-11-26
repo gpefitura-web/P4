@@ -6,15 +6,16 @@ dynamical noise s0 = 0.15 (complex white, per-component sd s0 sqrt(dt/2)), obser
   sub   : dz = (mu + iw) z + |z|^2 z - |z|^4 z,     persist mu = -0.1, lost mu: -0.1 -> -0.5 (fold of the limit cycle at mu = -0.25, t = 11.25 yr)
   mult  : as super but noise sd multiplied by (1 + |z|)
 Surrogate test of the pipeline (ARMA by AIC on the series as it is, config 'none', window 50 %, 1000 surrogates); 1000 series per case,
-seed sequence 20261127. Output: results_explore/positive_control_full.{csv,txt}.   Usage: python -I positive_control_full.py"""
+seed sequence 20261127. Output: results_calibration/positive_control_full.{csv,txt}.   Usage: python -I positive_control_full.py"""
 import os, sys, warnings
 warnings.filterwarnings("ignore")
 HERE = os.path.dirname(os.path.abspath(__file__)); PIPE = os.path.dirname(HERE); sys.path.insert(0, PIPE)
+QUICK = "--quick" in sys.argv; RESDIR = os.path.join(PIPE, "results_calibration_quick" if QUICK else "results_calibration"); os.makedirs(RESDIR, exist_ok=True)
 import numpy as np, pandas as pd
 from multiprocessing import Pool
 import surrogates as sg
 
-L, SPY, NS, W, S0, OBS, NREP = 30, 20, 1000, 2 * np.pi / 11.0, 0.15, 0.05, 1000
+L, SPY, NS, W, S0, OBS, NREP = 30, 20, (200 if QUICK else 1000), 2 * np.pi / 11.0, 0.15, 0.05, (100 if QUICK else 1000)
 MU = {"super": (0.3, -0.3), "sub": (-0.1, -0.5), "mult": (0.3, -0.3)}
 FILLED = np.zeros(L, bool)
 
@@ -48,7 +49,7 @@ if __name__ == "__main__":
     tasks = [(m, l, r) for m, l in cases for r in range(NREP)]
     seeds = np.random.SeedSequence(20261127).spawn(len(tasks)); tasks = [t + (s,) for t, s in zip(tasks, seeds)]
     with Pool(4) as p: rows = p.map(job, tasks, chunksize=8)
-    df = pd.DataFrame(rows); df.to_csv(os.path.join(PIPE, "results_explore", "positive_control_full.csv"), index=False)
+    df = pd.DataFrame(rows); df.to_csv(os.path.join(RESDIR, "positive_control_full.csv"), index=False)
     out = [f"Positive controls, L={L}, obs noise {OBS}, dynamical noise {S0}, {NREP} series/case, {NS} surrogates, window 50 %",
            "model | case | stat | median tau | reject upper | reject lower | sd first5 / last5 (median)"]
     for (m, l), g in df.groupby(["model", "lost"]):
@@ -59,4 +60,4 @@ if __name__ == "__main__":
         a = df[(df.model == m) & df.lost]; b = df[(df.model == m) & ~df.lost]
         for stat in ("ac1", "var"):
             out.append(f"{m} | {stat} | {auc(-a[f'plow_{stat}'], -b[f'plow_{stat}']):.3f} | {auc(-a[f'tau_{stat}'], -b[f'tau_{stat}']):.3f}")
-    txt = "\n".join(out); print(txt); open(os.path.join(PIPE, "results_explore", "positive_control_full.txt"), "w").write(txt + "\n")
+    txt = "\n".join(out); print(txt); open(os.path.join(RESDIR, "positive_control_full.txt"), "w").write(txt + "\n")
