@@ -1,6 +1,6 @@
 # paper_state_v12.md
 
-**Paper P4** · **Estado em:** 2026-11-26, bibliografia expandida e lida, análises que faltavam feitas, manuscrito para leitura final · **Substitui:** `paper_state_v11.md` · **Último commit de conteúdo antes do fecho:** ver `git log -3`
+**Paper P4** · **Estado em:** 2026-11-26, bibliografia expandida e lida, análises que faltavam feitas, manuscrito para leitura final · **Substitui:** `paper_state_v11.md` · **Último commit de conteúdo antes do fecho:** d79da54 P4: repositorio e zips refeitos com 36 referencias; prova em pasta limpa REPRODUCTION OK (D122)
 
 ## 1. Onde estamos
 - Estado de v11 (segunda rodada estelar com série padronizada, D121) continua valendo. **D122** (esta etapa): **36 referências**, todas com PDF validado e lidas (`audit/A15_leitura_referencias_D122.md`); 8 referências sugeridas ficaram pendentes por falta de PDF aberto (`bib/DOWNLOAD_LOG.md`).
@@ -15,3 +15,6 @@ Regra 9 (`CLAUDE.md`). **Não reexecutar `run_all.py` no projeto sem pedido expl
 - **Do pesquisador (manual):** declaração de IA, e-mail e endereço, financiamento, conflito de interesses e CRediT; Zenodo e DOI (depois refazer o pacote); licenças de Baum e Luhn; acordo CAPES–Elsevier; título final; copiar `alt_text.md` e `highlights.docx` no formulário; **subir Wilson 1978 (ApJ 226, 379)**, o único pendente (o arquivo enviado com esse rótulo é Baliunas+1995 II); as outras sete referências pendentes foram enviadas e estão citadas.
 - **Análises ainda não feitas (limites declarados no texto):** controles positivos adicionais (Hopf subcrítico, ruído multiplicativo); curva de poder com propriedades de ciclo reais; efeito da interpolação sobre os indicadores; reanálise com amplitude do ciclo (falta fonte).
 - **Rastreabilidade:** `RASTREABILIDADE_PENDENTE.md` (agora também: "15.8 yr" e "10 yr" de Saar & Brandenburg, "seven of 32 stars" de Lockwood, "1986–1990" de Luhn, digitados com página no A15).
+
+## 4. Próxima etapa
+Handoff em `PROMPT_PROXIMO_CHAT_SUBMISSAO.md`.
