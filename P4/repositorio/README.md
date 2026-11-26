@@ -32,6 +32,9 @@ surrogate procedure, the power simulation and the single stellar run (fixed seed
 | Group tests (Sect. 3.4) | `run_all.py`, `group_primary.py` | `results/star_metrics.csv`, `group_primary.csv`, `group_holm.csv` |
 | All numbers in the text | `make_macros.py` | block between `%%% BEGIN/END GENERATED MACROS` in `manuscrito/main.tex` |
 | ARMA order against the scale of the series (Sect. 3.3) | `scale_sensitivity.py` | `results/scale_sensitivity.txt` |
+| Power with a cycle (Sect. 3.1) | `power_cycle.py` | `results/power_cycle.txt` |
+| Coverage, interpolation, white-noise reference (Sect. 4) | `robustness.py` | `results/robustness.txt` |
+| First run against the second (Sect. 2.7) | `compare_runs.py`, `archive/star_results_run1.csv` | `results/run_comparison.txt` |
 | Design constants written in the text (windows, widths, ARMA grid, size test, power design, B-V band, states) | `check_manuscript_constants.py` | fails if `main.tex` and the code disagree |
 | Table 2 | `make_tables.py` | block between `%%% BEGIN/END GENERATED TABLE` |
 | Figures 1 to 4 | `make_figures.py` | `manuscrito/figures/Figure_N.pdf` and `.eps` |
