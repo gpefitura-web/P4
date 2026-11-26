@@ -15,6 +15,7 @@ echo "test_step5 (size of the surrogate test, ~2 min): $("$PY" -I test_step5.py 
 "$PY" -I run_all.py                                # the single stellar run, fixed seeds (~1 min)
 "$PY" -I group_primary.py > /dev/null
 "$PY" -I report.py
+"$PY" -I scale_sensitivity.py > /dev/null            # does the ARMA order depend on the scale of the series? (~1 min)
 "$PY" -I make_macros.py
 "$PY" -I make_tables.py
 "$PY" -I make_figures.py

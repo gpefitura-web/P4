@@ -10,7 +10,7 @@ SNAP = os.path.join(HERE, "_published")
 RES = "pipeline_v2/results/"
 TABULAR = [RES + f for f in ("star_results.csv", "segments.csv", "star_metrics.csv", "group_primary.csv", "group_holm.csv")]
 JSONS = [RES + "h1.json"]
-EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md")] + ["manuscrito/main.tex"] + \
+EXACT = [RES + f for f in ("power_simulation.txt", "autotest_step5.txt", "REPORT.md", "scale_sensitivity.txt")] + ["manuscrito/main.tex"] + \
         [f"manuscrito/figures/Figure_{n}.{e}" for n in (1, 2, 3, 4) for e in ("pdf", "eps")]
 FETCHED = "data/Egeland2017_table4_apjaa4e49t4_mrt.txt"; FETCHED_SHA = "6e2746d535d7d9e3e69ebc860b840494b5efca5460e613cc43fc46e060a90548"
 BLOCKS = [("%%% BEGIN GENERATED MACROS", "%%% END GENERATED MACROS"), ("%%% BEGIN GENERATED TABLE", "%%% END GENERATED TABLE")]
