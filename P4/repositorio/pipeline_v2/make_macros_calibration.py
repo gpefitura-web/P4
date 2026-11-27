@@ -103,6 +103,7 @@ put("FSCrossF", 100 * math.sqrt(g1.s.var(ddof=1) - sg_ ** 2) / g1.s.mean(), "{:.
 ratio2 = [sig("min2", f)[0] / sg_ for f in np.arange(0.008, 0.0191, 0.001)]
 put("FSRatioTwoMin", min(ratio2), "{:.1f}"); put("FSRatioTwoMax", max(ratio2), "{:.1f}")
 put("FSNOne", sig("min1", 0.012)[1])
+put("LuhnNewMW", int((d.Inst == "new_MW").sum()))
 
 # ---- data robustness (robustness_data.csv) ----
 rb = pd.read_csv(os.path.join(R, "robustness_data.csv"), dtype={"HD": str})
