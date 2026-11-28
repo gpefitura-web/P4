@@ -73,7 +73,7 @@ ok &= good; print(f"{'PASS' if good else 'FAIL'} make_macros counts segments wit
 ms = inspect.signature(annual.segments).parameters["max_fill"].default
 check("gap rule", r"Gaps of (\w+) or (\w+) missing years are filled by linear interpolation and the filled points are marked; gaps of (\w+) or more", (1, ms, ms + 1))
 # --- surrogates
-check("ARMA orders", r"ARMA\(\$p,q\$\) model with \$p,q \\le (\d)\$", (max(max(o) for o in sg.ORDERS),))
+check("ARMA orders", r"\(ARMA\) model of order \$\(p,q\)\$ with \$p,q \\le (\d)\$", (max(max(o) for o in sg.ORDERS),))
 good = max(max(o) for o in sg.ORDERS) == 2 and min(min(o) for o in sg.ORDERS) == 0 and len(sg.ORDERS) == 9
 ok &= good; print(f"{'PASS' if good else 'FAIL'} ARMA grid is p,q in 0..2 (9 models)")
 burn = inspect.signature(sg.simulate).parameters["burn"].default
