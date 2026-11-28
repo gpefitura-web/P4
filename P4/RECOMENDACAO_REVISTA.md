@@ -78,3 +78,5 @@ Por quê: (1) os ativos do artigo são a série solar de Egeland, a motivação 
 Ajustes de enquadramento para Solar Physics (não feitos, aguardam sua decisão): título e resumo citando o Sol; Introdução e Discussão com mais peso no Mínimo de Maunder e na previsibilidade de grandes mínimos solares.
 
 **Decisão do pesquisador (2026-11-25, D112): New Astronomy.** A recomendação final acima (Solar Physics) fica como alternativa.
+
+**Atualização (2026-11-28, D129): decisão reafirmada, New Astronomy**, com o artigo reenquadrado como calibração e poder de método; sem consulta prévia ao editor. Ver `SUBMISSAO_NEW_ASTRONOMY_V2.md`.

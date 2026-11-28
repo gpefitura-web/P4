@@ -1,0 +1,550 @@
+% Manuscript for New Astronomy (Elsevier), class elsarticle (review format).
+% The text, the constants, the abstract and the two generated blocks (macros, Table 2) are all in this file; only
+% figures/ and references.bib are separate. Blocks between %%% BEGIN/END GENERATED markers are rewritten by build.sh; calibration_macros.tex and cal_table_*.tex are generated as well.
+\documentclass[preprint,12pt]{elsarticle}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx,amsmath,booktabs}
+\usepackage{url}
+\DeclareGraphicsExtensions{.pdf,.png}
+\journal{New Astronomy}
+
+%%% BEGIN GENERATED MACROS (pipeline_v2/make_macros.py; do not edit between the markers)
+\newcommand{\NSegments}{24}
+\newcommand{\NStarsRun}{23}
+\newcommand{\NNotRun}{4}
+\newcommand{\NLow}{23}
+\newcommand{\NSunYears}{51}
+\newcommand{\NSurr}{1000}
+\newcommand{\SeedBase}{20261124}
+\newcommand{\NConfigs}{4}
+\newcommand{\NFracs}{5}
+\newcommand{\LMin}{28}
+\newcommand{\LMax}{36}
+\newcommand{\HOneNMinOne}{44}
+\newcommand{\HOneMeanMinOne}{0.1810}
+\newcommand{\HOneRawMinOne}{0.0035}
+\newcommand{\HOneSigAMinOne}{0.0027}
+\newcommand{\HOneSigBMinOne}{0.0028}
+\newcommand{\HOneNMinTwo}{315}
+\newcommand{\HOneMeanMinTwo}{0.1724}
+\newcommand{\HOneRawMinTwo}{0.0058}
+\newcommand{\HOneSigAMinTwo}{0.0054}
+\newcommand{\HOneSigBMinTwo}{0.0048}
+\newcommand{\HOneNGrand}{103}
+\newcommand{\HOneMeanGrand}{0.1705}
+\newcommand{\HOneRawGrand}{0.0020}
+\newcommand{\HOneSigAGrand}{0.0019}
+\newcommand{\HOneSigBGrand}{0.0015}
+\newcommand{\HOnePRaw}{$9\times10^{-6}$}
+\newcommand{\HOnePCorrA}{$9\times10^{-3}$}
+\newcommand{\HOnePCorrB}{$1\times10^{-6}$}
+\newcommand{\HOneFRaw}{2.95}
+\newcommand{\HOneFCorrA}{1.90}
+\newcommand{\NCellsHalf}{192}
+\newcommand{\NSigHalf}{2}
+\newcommand{\MaxConcAR}{1}
+\newcommand{\NConcThreeAR}{0}
+\newcommand{\NTauPosARSOne}{11}
+\newcommand{\MaxConcVar}{0}
+\newcommand{\NConcThreeVar}{0}
+\newcommand{\NTauPosVarSOne}{12}
+\newcommand{\MaxConcSweep}{5}
+\newcommand{\HOnePTwoBound}{$<10^{-3}$}
+\newcommand{\NCatalog}{112}
+\newcommand{\NCatalogStars}{111}
+\newcommand{\NBaumStars}{59}
+\newcommand{\NVTwoStars}{35}
+\newcommand{\NExclCalib}{17}
+\newcommand{\NExclBinary}{2}
+\newcommand{\NFlatClass}{15}
+\newcommand{\NFlatCalib}{8}
+\newcommand{\NFlatBin}{2}
+\newcommand{\NFlatClean}{5}
+\newcommand{\NFlatSeries}{4}
+\newcommand{\SigOneHD}{23249}
+\newcommand{\SigOneTau}{+0.75}
+\newcommand{\SigOneP}{0.032}
+\newcommand{\SigTwoHD}{217014}
+\newcommand{\SigTwoTau}{+0.18}
+\newcommand{\SigTwoP}{0.015}
+\newcommand{\NChance}{10}
+\newcommand{\NOtherSeg}{23}
+\newcommand{\NSweepCells}{20}
+\newcommand{\HDHEnd}{1995}
+\newcommand{\WinMin}{14}
+\newcommand{\WinMax}{26}
+\newcommand{\RHKLMin}{28}
+\newcommand{\RHKLMax}{51}
+\newcommand{\HDHTauNone}{0.40}
+\newcommand{\HDHPNone}{0.27}
+\newcommand{\HDHTauSOne}{0.55}
+\newcommand{\HDHPSOne}{0.19}
+\newcommand{\SunTauNone}{0.26}
+\newcommand{\SunPNone}{0.32}
+\newcommand{\SunTauSOne}{0.25}
+\newcommand{\SunPSOne}{0.27}
+\newcommand{\HDHL}{30}
+\newcommand{\HDHVarTauSOne}{\textminus{}0.75}
+\newcommand{\HDHVarPSOne}{0.90}
+\newcommand{\HDHVarTauNone}{0.08}
+\newcommand{\HDHVarPNone}{0.49}
+\newcommand{\WinHD}{15}
+\newcommand{\WinSun}{26}
+\newcommand{\NFigTests}{48}
+\newcommand{\MedACNone}{0.58}
+\newcommand{\MedACSOne}{\textminus{}0.31}
+\newcommand{\NACNoneHigh}{15}
+\newcommand{\NStarsMetric}{23}
+\newcommand{\RHKMaxDiff}{0}
+\newcommand{\RHKNCompare}{960}
+\newcommand{\PrimN}{11}
+\newcommand{\PrimNFlat}{4}
+\newcommand{\PrimP}{0.89}
+\newcommand{\PrimU}{13}
+\newcommand{\PrimMedVL}{\textminus{}0.37}
+\newcommand{\PrimMedFlat}{\textminus{}0.29}
+\newcommand{\NHolmTests}{30}
+\newcommand{\NHolmSig}{2}
+\newcommand{\NRawSig}{3}
+\newcommand{\CycFlatPSOne}{0.0020}
+\newcommand{\CycFlatHolmSOne}{0.0101}
+\newcommand{\CycFlatPNone}{0.0081}
+\newcommand{\CycFlatHolmNone}{0.0404}
+\newcommand{\AutoUp}{3.2}
+\newcommand{\AutoLo}{4.2}
+\newcommand{\RHKMaxPDiff}{0.06}
+\newcommand{\NSigHalfRHK}{4}
+\newcommand{\NHolmSigThirty}{0}
+\newcommand{\CycFlatHolmThirtySOne}{0.06}
+\newcommand{\CycFlatHolmThirtyNone}{0.23}
+\newcommand{\MinPCycleFlat}{0.0020}
+\newcommand{\MinPFourFour}{0.014}
+\newcommand{\PerTen}{10}
+\newcommand{\ResAmpTen}{18}
+\newcommand{\PerTwelve}{12}
+\newcommand{\ResAmpTwelve}{13}
+\newcommand{\PerSixteen}{16}
+\newcommand{\ResAmpSixteen}{7}
+\newcommand{\NGroupFlat}{4}
+\newcommand{\NGroupCycle}{8}
+\newcommand{\NGroupVar}{7}
+\newcommand{\NGroupLong}{4}
+\newcommand{\PowLMin}{24}
+\newcommand{\PowLMax}{40}
+\newcommand{\AUCTwentyFour}{0.59}
+\newcommand{\AUCThirty}{0.60}
+\newcommand{\AUCForty}{0.63}
+\newcommand{\NChanceEff}{6}
+\newcommand{\HOneMeanPct}{1.1}
+\newcommand{\HOneRatioRaw}{2.9}
+\newcommand{\HOneRatioA}{2.8}
+\newcommand{\NArmaCmp}{96}
+\newcommand{\NArmaDiff}{0}
+\newcommand{\NScaleCases}{92}
+\newcommand{\NScaleSame}{92}
+\newcommand{\NScaleDiff}{0}
+\newcommand{\NCovSeg}{23}
+\newcommand{\CovMin}{1}
+\newcommand{\CovMed}{38}
+\newcommand{\NCovLow}{18}
+\newcommand{\NInterpOver}{3}
+\newcommand{\NInterpFlagUp}{1}
+\newcommand{\NInterpCellsUp}{168}
+\newcommand{\NAmpStars}{4}
+\newcommand{\NAmpAnalyzed}{23}
+\newcommand{\WNACOne}{\textminus{}0.55}
+\newcommand{\WNACThree}{\textminus{}0.19}
+\newcommand{\WNACFive}{\textminus{}0.11}
+\newcommand{\PCNullNo}{5.5}
+\newcommand{\PCTrendNo}{7.5}
+\newcommand{\PCNullCyc}{4.5}
+\newcommand{\PCTrendCyc}{4.5}
+\newcommand{\PCPeriod}{11}
+\newcommand{\PCNRep}{200}
+\newcommand{\PCSE}{1.5}
+\newcommand{\HDHFilled}{0}
+\newcommand{\SunFilled}{2}
+\newcommand{\RunPMax}{0.51}
+\newcommand{\RunPShare}{8}
+\newcommand{\RunOrderShare}{58}
+\newcommand{\RunFlagBoth}{2}
+\newcommand{\RunFlagOne}{2}
+\newcommand{\RunTauDiff}{0}
+\newcommand{\BootN}{4000}
+\newcommand{\BootSeasOne}{4}
+\newcommand{\BootSeasTwo}{4}
+\newcommand{\BootSeasGrand}{14}
+\newcommand{\BootShareOneA}{12.6}
+\newcommand{\BootRatioOneALo}{0.8}
+\newcommand{\BootRatioOneAHi}{2.2}
+\newcommand{\BootShareOneRaw}{0.3}
+\newcommand{\BootRatioOneRawLo}{1.1}
+\newcommand{\BootRatioOneRawHi}{2.6}
+\newcommand{\BootShareTwoA}{0.0}
+\newcommand{\BootRatioTwoALo}{1.7}
+\newcommand{\BootRatioTwoAHi}{4.2}
+\newcommand{\BootShareTwoRaw}{0.0}
+\newcommand{\BootRatioTwoRawLo}{1.8}
+\newcommand{\BootRatioTwoRawHi}{4.2}
+\newcommand{\PCtlPersAcTau}{0.02}
+\newcommand{\PCtlPersAcUp}{1.5}
+\newcommand{\PCtlPersAcLo}{2.0}
+\newcommand{\PCtlPersVarTau}{0.13}
+\newcommand{\PCtlPersVarUp}{0.5}
+\newcommand{\PCtlPersVarLo}{0.0}
+\newcommand{\PCtlLostAcTau}{\textminus{}0.33}
+\newcommand{\PCtlLostAcUp}{1.0}
+\newcommand{\PCtlLostAcLo}{14.0}
+\newcommand{\PCtlLostVarTau}{\textminus{}0.90}
+\newcommand{\PCtlLostVarUp}{0.0}
+\newcommand{\PCtlLostVarLo}{35.5}
+\newcommand{\PCtlNRep}{200}
+\newcommand{\PCtlPeriod}{11}
+\newcommand{\NSigHalfLow}{11}
+\newcommand{\PGridTrendMax}{11.3}
+\newcommand{\PGridNullMax}{7.3}
+\newcommand{\PGridStrongMax}{2.0}
+\newcommand{\PGridPMin}{8}
+\newcommand{\PGridPMax}{16}
+\newcommand{\PGridAMin}{0.75}
+\newcommand{\PGridAMax}{3}
+\newcommand{\PGridNRep}{150}
+%%% END GENERATED MACROS
+\input{calibration_macros}   % generated by pipeline_v2/make_macros_calibration.py
+
+% Design constants quoted in the text (not results). Origin of each value in the project record:
+\newcommand{\NoiseMW}{1.2}      % instrumental noise, Mount Wilson, percent of mean S (Luhn et al. 2022, Sect. 3.1; decision D45)
+\newcommand{\NoiseKeck}{0.3}    % same, Keck (same source; quoted as an upper limit)
+\newcommand{\MinSeg}{24}        % minimum segment, years (decisions D99, D100)
+\newcommand{\LowMax}{39}        % upper end of the "low precision" band, years (D100)
+\newcommand{\AdeqMin}{40}       % start of the "adequate" band, years (D100)
+\newcommand{\SizeLo}{3}         % accepted range of the size check, percent, fixed before the run
+\newcommand{\SizeHi}{7}
+
+\begin{document}
+\begin{frontmatter}
+% Provisional title (author's approval of the new framing, 2026-11-26); alternatives in SUGESTOES_TITULO.md.
+\title{Can critical slowing down indicators detect the loss of a stellar activity cycle? Size, power and positive controls on annual S-index series}
+\author[iftm]{Airton M. S. Borin Junior\corref{cor1}}
+% \ead{corresponding author e-mail, to be added by the author}
+\cortext[cor1]{Corresponding author}
+\affiliation[iftm]{organization={Instituto Federal do Tri\^angulo Mineiro (IFTM)}, addressline={[street and number, to be added by the author]}, city={Uberaba}, postcode={[postal code]}, state={MG}, country={Brazil}}
+\begin{abstract}
+The rolling lag-1 autocorrelation and variance of a time series are proposed as early warnings of a critical transition. We ask whether they can signal the loss of a stellar activity cycle in annual means of the Ca\,\textsc{ii} H and K index (S), and we calibrate its surrogate test, which has close to nominal size, on synthetic series and on three models of cycle loss (supercritical and subcritical Hopf oscillators, and multiplicative noise). In the models both indicators fall, not rise; the lower-tail test detects the loss (area under the ROC curve, AUC, \PCSuperVarAUC{} for the variance in the supercritical model), but this is the fall of the amplitude, not slowing down. For a true rise of the autocorrelation the test has little power: AUC \PBTrendAcAUC{} at 30 years and \PDTwoZeroZeroZeroNoCycAcAUC{} at 200 years without observation noise or cycle. An instrumental step of one standard deviation already shifts Kendall $\tau$. Applied to \NStarsRun{} Mount Wilson stars (HD~166620 among them), the Sun and a sunspot record around the Dalton Minimum, the test flags no excess in either tail. The variability of HD~166620 in its grand minimum is lower than in its second cycle minimum for any instrumental noise we assumed, but lower than in the first only if that noise is below about \FSCrossF\,\% of the mean. Annual series of 30 to 50 years cannot give such warnings; records of 100 to 200 years with low observation noise and no dominant cycle would be needed.
+\end{abstract}
+\begin{keyword}
+critical slowing down \sep early-warning signals \sep stellar activity cycles \sep chromospheric activity \sep S index \sep positive controls \sep statistical power
+\end{keyword}
+% Highlights are required by New Astronomy as a separate editable file (highlights.docx / highlights.tex), 3 to 5 bullets of at most 85 characters.
+\end{frontmatter}
+
+\section{Introduction}
+
+Stars of roughly solar type show chromospheric activity that is cyclic in some, irregular in others and nearly constant in a few \cite{baliunas1995,lockwood2007}, and the cycles are not strictly periodic: their lengths change within one star \cite{olah2016}. Stars can also change state: $\psi$~Ser showed several years of flat emission followed by cycles of growing amplitude \cite{radick2018a}. We follow the activity through the S index, a ratio of the counts in two 1\,\AA{} bands centered on the Ca\,\textsc{ii} H and K lines to the counts in two 20\,\AA{} continuum bands, multiplied by a nightly calibration factor \cite{vaughan1978,baliunas1995}. The Sun went through the Maunder minimum, when sunspots almost vanished; whether the entry into such a minimum has a precursor is unsettled, and prediction beyond one cycle is judged impossible \cite{usoskin2017}. Low and flat activity in the Mount Wilson survey led to the tentative proposal that about a third of the well-sampled Sun-like stars (four of 13) are in Maunder-minimum-like states at any one time \cite{baliunas1990}, but most such candidates turned out to be evolved stars \cite{wright2004}, and a search of single-epoch spectra of more than ten thousand dwarfs concluded that such stars are very rare \cite{jarvinen2025}. HD~4915 has been proposed as a star entering a grand minimum, from a decreasing cycle amplitude \cite{shah2018}, and HD~166620 is a second candidate \cite{baum2022,luhn2022}. The disappearance of cycles has been tied to stellar evolution, on time scales of Gyr \cite{metcalfe2017}, whereas a gap in the distribution of S-index variability has been read as a sign that the transition can be quick, on the order of years \cite{isaacson2025}.
+
+The idea we test comes from dynamical systems. Near a transition where a stable state disappears, recovery from small perturbations slows down, and the lag-1 autocorrelation and the variance of the time series tend to rise \cite{scheffer2009,held2004}. Rolling-window indicators of this kind, with significance tested against surrogate series, are one way to look for the effect: Dakos et al.\ found rising autocorrelation before eight abrupt climate transitions \cite{dakos2008}, described the surrogate test that we follow \cite{dakos2012}, and a review is in \cite{lenton2011}. The premise needs care for an oscillating system. The sign of each indicator depends on the system \cite{boettiger2013}. A Hopf bifurcation is a critical transition, in the sense of an abrupt jump to a distant state, only if it is subcritical \cite{kuehn2011}. On the stable side of a Hopf bifurcation the variance grows, but multiplicative noise can hide the rise \cite{kuehn2013}, and spectral reddening need not precede transitions with an oscillatory component, although the variance and the peak of the spectrum are expected to rise \cite{bury2020}. For a stable periodic orbit, noisy precursors of its instabilities were derived for the power spectrum before the instability occurs \cite{wiesenfeld1985}. A transition driven by noise rather than by a slow change of a parameter should show none of these signals \cite{lenton2011}, and the mechanism that takes a star into or out of a minimum has been called stochastic \cite{isaacson2025}.
+
+Public data make a test possible. The Mount Wilson HK Project observed dozens of stars for decades \cite{baliunas1995}, Baum et al.\ \cite{baum2022} assembled the series of 59 stars from Mount Wilson and Keck, and Luhn et al.\ \cite{luhn2022} reported that HD~166620 is entering a grand minimum, which gives one star with states on both sides of a change. The Sun has its own calibrated S-index record \cite{egeland2017}, and the sunspot group numbers extend the solar record to 1610 \cite{vaquero2016}.
+
+We declared two hypotheses before computing any indicator on a real star. H1 (confirmatory): the variability of the S index of HD~166620 in the grand minimum is smaller than in its cycle minima; it re-analyzes intervals that Luhn et al.\ already published, so it is a re-test and not a blind one. H2 (exploratory, one star): in the segment before the transition, the lag-1 autocorrelation and the variance of the detrended annual series both rise (Kendall $\tau > 0$ with one-sided $p < 0.05$ against surrogates in at least three of four detrending configurations). The stellar results, a null scan of series with no known transition, came out empty for H2, and the record of HD~166620 ends before its transition. What remained was a question about the method: if the test cannot see a cycle being lost, a null scan says little. This paper therefore asks what the test can detect. We measure its size, its power against a rise of the autocorrelation, and its response to the loss of a cycle in three dynamical models, and we examine how an instrumental step and the length of the record change the answer. These analyses were decided after the first stellar run and are exploratory (Sect.~\ref{sec:log}).
+
+\section{Data and methods}
+
+\subsection{Sample and series}
+
+The catalog is the frozen version of the star table in Baliunas et al.\ \cite{baliunas1995} (their Table~2, \NCatalogStars{} stars and the Sun). Its classes are Flat (S-index scatter below about 1--1.5\,\% of the mean), Cycle (a cycle period with a false-alarm class; we use the ``excellent'' ones), Var (variable without a periodic signal) and Long (variability on timescales longer than 25 years). Series come from three sources: the \NBaumStars{} stars of Baum et al.\ \cite{baum2022} (their Table~1; points flagged ``sigma'', the sigma-clipped outliers, are removed; points flagged both ``1 day'' and ``sigma'' are kept), the \NVTwoStars{} stars of the HK Project v2001 files \cite{radick2018}, and the calibrated solar S index of Egeland et al.\ \cite{egeland2017} (their Table~4, 1966--2016, a composite of several instruments). The \NExclCalib{} calibration stars, \NExclBinary{} binaries and the stars with no series in any source were excluded before any indicator was computed. The stars analyzed are \NGroupFlat{} Flat, \NGroupCycle{} Cycle, \NGroupVar{} Var and \NGroupLong{} Long, plus the Sun, which is exploratory. Table~\ref{tab:stars} lists them with their source, spectral type and log\,$g$ where Baum et al.\ give them, and the number of observations per year.
+
+For the temporal indicators each star is reduced to annual means of S, the mean of all observations in a calendar year. Only the Mount Wilson era is used, so no segment crosses the change to Keck. The two Mount Wilson photometers, HKP-1 (100-inch scanner, from 1966) and HKP-2 (60-inch spectrometer, from 1977) \cite{duncan1991,vaughan1978}, are put on one scale in the data of Duncan et al.\ (a polynomial relation) and of Baum et al.\ (a shift of the medians), and we apply no further correction; a single measurement has a scatter of about 2\,\% (1.9\,\% for HKP-2 and 1.7\,\% for HKP-1 in the overlap of 1977) \cite{duncan1991}. The solar composite combines five instrument configurations (four instruments) as calibrated by Egeland et al. Gaps of one or two missing years are filled by linear interpolation and the filled points are marked; gaps of three or more years split the series into segments. Indicators are computed only in segments of at least \MinSeg{} years, so that a window of 50\,\% has at least 12 points. Segments of \MinSeg--\LowMax{} years are labeled low precision and their results exploratory; segments of \AdeqMin{} years or more are labeled adequate. Such a segment exists in \NStarsRun{} stars (\LMin--\LMax{} years) and in the Sun (\NSunYears{} years); \NNotRun{} further stars have a Mount Wilson segment shorter than \MinSeg{} years and receive a description only. The sunspot series (Sect.~\ref{sec:dalton}) is described there.
+
+\begin{table}[tbp]
+\centering\scriptsize\setlength{\tabcolsep}{2.5pt}
+\input{cal_table_stars}
+\par\smallskip\noindent\parbox{\textwidth}{\footnotesize Group: class of Baliunas et al. Source: Baum et al.\ (Baum), HK Project v2001 files (HK v2001), Egeland et al. Spectral type and log\,$g$ are from Baum et al.\ and are missing for stars that come only from the v2001 files. Flag: evolutionary flag of the frozen catalog (sub., subgiant; MS, not flagged); it disagrees with the log\,$g$ of Baum et al.\ for HD~10700 (flagged, but with a main-sequence log\,$g$) and HD~217014 (not flagged, spectral type G2IV). $L$: segment length; Interp.: interpolated years; $n$: observations per year, median and minimum over the years of the segment.}
+\caption{Segments analyzed.}
+\label{tab:stars}
+\end{table}
+
+\subsection{Indicators and the surrogate test}
+
+In each segment we compute the lag-1 autocorrelation (AR(1) coefficient) and the variance in a sliding window, and the Kendall $\tau$ of each against window index (no tie correction; the same computation is used for the data and the surrogates). The sign and size of the trends depend on the bandwidth of the Gaussian filter and on the window \cite{lenton2012}, so both are varied. The window is a fraction $f$ of the segment length $L$, $w = \mathrm{round}(fL)$, with $f = 0.25$, 0.375, 0.5, 0.625 and 0.75; $f = 0.5$ is the default. The series is analyzed in four configurations: the original series, and the residual of a Gaussian smooth with $\sigma = 1$, 3 or 5 years (edges handled by repeating the end values). A Gaussian smooth of width $\sigma$ keeps a fraction $\exp[-\tfrac{1}{2}(2\pi\sigma/P)^2]$ of the amplitude of a cycle of period $P$, so the residual is a high-pass version of the series, not the series without its cycle.
+
+The $p$ value of each $\tau$ comes from \NSurr{} surrogate series from an autoregressive moving-average (ARMA) model of order $(p,q)$ with $p,q \le 2$ chosen by the Akaike information criterion as in Dakos et al.\ \cite{dakos2012}, fitted by maximum likelihood to the series (or residual) being tested after standardizing it to mean 0 and standard deviation 1, with Gaussian innovations and a burn-in of 100 steps. Each surrogate receives the same gap positions and the same linear interpolation as the data. We compute both tails, $p_{\rm up} = P(\tau^{*} \ge \tau)$ and $p_{\rm low} = P(\tau^{*} \le \tau)$, with the correction $(k+1)/(N+1)$ for $k$ exceedances in $N$ surrogates. The upper tail is the direction of critical slowing down. A segment is flagged for an indicator when $\tau > 0$ with $p_{\rm up} < 0.05$ in at least three of the four configurations. The size of the procedure was checked on synthetic AR(1) series with no trend (600 series of 30 years, three interpolated points, coefficient 0.5), with an acceptance range of \SizeLo--\SizeHi\,\% for a nominal 5\,\% fixed beforehand.
+
+\subsection{Simulations}\label{sec:sim}
+
+Table~\ref{tab:sim} summarizes the simulations, all of annual means over $L$ years with the full surrogate test above, window 50\,\%, no detrending, and fixed seeds. Three are positive controls, in which a cycle is lost. The oscillator is a complex amplitude $z$ whose real part is observed, $\mathrm{d}z = [(\mu + \mathrm{i}\omega)z + a|z|^{2}z - b|z|^{4}z]\,\mathrm{d}t + \sigma_{\rm d}\,\mathrm{d}W$, with $\omega = 2\pi/\PCFPeriod$ per year, complex white noise $\mathrm{d}W$ and dynamical noise $\sigma_{\rm d} = \PCNoiseDyn$, integrated by the Euler--Maruyama scheme with \PCStepsPerYear{} steps per year after a 40-year burn-in at the initial parameter, averaged over each year, with an offset of 1 and observation noise of standard deviation \PCNoiseObs{} added. In the supercritical model ($a = -1$, $b = 0$) $\mu$ falls linearly from \PCMuSuperStart{} to \PCMuSuperEnd{}, crossing the bifurcation in the middle of the record; the control series keeps $\mu$ at \PCMuSuperStart. In the subcritical model ($a = 1$, $b = 1$) $\mu$ falls from \PCMuSubStart{} to \PCMuSubEnd, and the limit cycle disappears abruptly where $\mu$ crosses $-1/4$, about a third of the way through; the control keeps $\mu$ at \PCMuSubStart. In the third model the noise amplitude is multiplied by $1 + |z|$, with the supercritical dynamics. Each case has \PCFNRep{} series. A fourth experiment repeats the supercritical case on a grid of periods (\PBPeriodMin{} to \PBPeriodMax{} years) and dynamical noise (\PBNoiseMin{} to \PBNoiseMax) with a smaller number of series outside the central cell. The quantity that summarizes how well the lower-tail $p$ separates a series that loses its cycle from one that keeps it is the area under the ROC curve (AUC; 1 is perfect, 0.5 is none).
+
+A different question is whether the test can see a true rise of the autocorrelation. For that we use an AR(1) process whose coefficient is constant at 0.5 (the null) or rises linearly from 0.3 to 0.7 (critical slowing down, with no cycle), with white observation noise of a stated ratio to the standard deviation of the process, and, in half of the cases, a sinusoidal cycle of period \PCFPeriod{} years whose amplitude is \PDCycleAmp{} times the innovation standard deviation. Record length runs from 30 to 200 years. The last experiment injects an instrumental step into the null AR(1) series: a change in level or in noise standard deviation after year \SIStepYear{} of \SIL, the position of the change from HKP-1 to HKP-2 in a segment that starts in 1966.
+
+\begin{table}[tbp]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+\input{cal_table_simulations}
+\caption{Simulations. Every case uses the surrogate test of Sect.~2.2 on annual means; the seed is the base of the sequence from which each series receives its own stream.}
+\label{tab:sim}
+\end{table}
+
+\subsection{State comparison for HD~166620}
+
+For H1 we use the raw (not annual) series of Luhn et al.\ \cite{luhn2022}, in the three states they define: minimum~1 (1971--1975), minimum~2 (1987--1991) and the grand minimum (from 2004). The variability $\sigma_S$ of a state is the standard deviation of the interval with the instrumental noise variance removed in quadrature, the noise being a fraction $f_{\rm n}$ of the mean S: \NoiseMW\,\% for Mount Wilson, the value that Luhn et al.\ quote from Baliunas et al.\ for the least variable stars, and \NoiseKeck\,\% for Keck, an upper limit that Luhn et al.\ adopt (method A, primary). Method B takes the mean over seasons of the same corrected value. The table of Luhn et al.\ also lists \LuhnNewMW{} further Mount Wilson points for 1995 to 2002 that they digitized from a published figure; they are not original measurements and we do not use them. Whole observing seasons (calendar years) are also resampled with replacement within each state (\BootN{} resamples), which gives 95\,\% intervals of $\sigma_S$ and of the ratio between states. Variances are compared with a two-sided $F$ test, which treats observations as independent, which they are not. Because the single-measurement scatter in the 1977 overlap (1.7--1.9\,\%) \cite{duncan1991} is larger than the value used for the correction, we also vary $f_{\rm n}$ of the Mount Wilson states from 0.8 to 1.9\,\% and report where the ratios change.
+
+\subsection{Sunspot group numbers}\label{sec:dalton}
+
+The revised collection of Vaquero et al.\ \cite{vaquero2016} (version 1.12, \DALNObs{} daily counts from \DALNObservers{} observers, 1610--2010) gives the number of sunspot groups per day and observer. The daily value is the mean over the observers of that day, and the annual value is the mean of the daily values. A year is usable if it has at least \DALDaysMin{} days with data; gaps of one or two unusable years are interpolated and gaps of three or more split the series, as for the stars. Before 1795 the record has years with too few days, so the long continuous segment is 1795--2010. We cut it into \DALNBlocks{} non-overlapping blocks of \DALBlockLen{} years, one of which, 1795--1830, contains the Dalton Minimum, and apply the pipeline of Sect.~2.2 to each, on the annual mean and on its square root. The blocks and the rule were fixed before the indicators were computed; only the coverage of the data was inspected. This is one real event and serves as an illustration.
+
+\subsection{Analysis log}\label{sec:log}
+
+Fixed before the stellar run: the sample and groups, the segment rule, windows, detrending, surrogate design, H1 and H2, and the size check with its acceptance range. Decided after the run, without changing any computed value: (i) the tail of $p$ (upper tail; the lower tail is also computed); (ii) keeping the points flagged both ``1 day'' and ``sigma'' (two stars, HD~190360 and HD~217014; with the opposite choice HD~190360 would fall below the minimum length). After the first stellar run we checked the conversion from S to $R'_{\rm HK}$, an affine change that should not alter the ARMA fit. It did: fitted on the raw scale of the series, the order chosen by the AIC depended on that scale. We changed the fit to the standardized series and repeated the stellar run once with the same seeds. The values of $\tau$ were unchanged; the surrogate $p$ values changed by up to \RunPMax{} (by more than 0.05 in \RunPShare\,\% of the cells), and the \RunFlagBoth{} cells flagged at a window of 50\,\% were the same in both runs. Only the second run is reported; the first is kept in the repository for this comparison.
+
+Everything in Sect.~\ref{sec:sim} and in the Results from Sect.~\ref{sec:size} on was decided after the stellar runs, motivated by what they and the first positive control showed: the one-sided hypotheses had the wrong sign for the loss of a cycle, and the instrumental noise assumed for HD~166620 was not consistent with the single-measurement scatter quoted from the same source. These analyses are exploratory. They were run once, with the seeds in Table~\ref{tab:sim}, and did not change any value of the stellar run. The program of the analyses and the code are in the repository (Data availability).
+
+\section{Results}
+
+\subsection{Size of the test}\label{sec:size}
+
+On synthetic AR(1) series with no trend, the test rejected at the 5\,\% level in \AutoUp\,\% of the series with the upper-tail $p$ and in \AutoLo\,\% with the lower-tail $p$, inside the accepted range. In the larger set of \PBNNull{} null series used below the rejection is \PBNullAcUp\,\% (upper) and \PBNullAcLow\,\% (lower) for the autocorrelation and \PBNullVarUp\,\% and \PBNullVarLow\,\% for the variance, with a 95\,\% sampling interval of about $\pm 1.4$ percentage points. The size is close to nominal; the lower-tail rate of the autocorrelation, \PBNullAcLow\,\%, is at the edge of the sampling error, and the upper tail is if anything slightly conservative.
+
+On the stars, the $p$ values of the \QQNCells{} cells of the official run at a window of 50\,\% (Fig.~\ref{fig:qq}) are not uniform. Only \QQUpFrac\,\% fall below 0.05 in the upper tail (\QQUpVarFrac\,\% for the variance, \QQUpAcFrac\,\% for the autocorrelation) and \QQLowFrac\,\% in the lower tail (\QQLowAcFrac\,\% and \QQLowVarFrac\,\%); the Kolmogorov--Smirnov distance to the uniform law is \QQUpKSD{} in the upper tail. The four configurations of a segment are strongly dependent, so these figures are indicative. The shortfall in the upper tail is what one expects of a test that is conservative for series with a cycle (Sect.~\ref{sec:controls}).
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Figure_1}
+\caption{Quantile--quantile plot of the \QQNCells{} surrogate $p$ values of the stellar run (series S, window of 50\,\%) against the uniform law, upper tail (the direction of critical slowing down) and lower tail. The four detrending configurations and the two indicators of one segment are not independent.}
+\label{fig:qq}
+\end{figure}
+
+\subsection{Positive controls: the loss of a cycle}\label{sec:controls}
+
+In all three models both indicators fall when the cycle is lost (Table~\ref{tab:pc}, Fig.~\ref{fig:controls}). The variance falls most (median $\tau$ \PCSuperVarTauLost{} in the supercritical model, \PCSubVarTauLost{} in the subcritical model, \PCMultVarTauLost{} with multiplicative noise), the autocorrelation less (\PCSuperAcTauLost, \PCSubAcTauLost, \PCMultAcTauLost). The upper-tail test, the direction assumed in the hypotheses, almost never rejects (at most \PCSuperAcUpLost\,\% for the autocorrelation in the supercritical model and \PCSuperVarUpLost\,\% for the variance). The lower-tail test does: it rejects in \PCSuperVarLowLost\,\%, \PCSubVarLowLost\,\% and \PCMultVarLowLost\,\% of the series for the variance and in \PCSuperAcLowLost\,\%, \PCSubAcLowLost\,\% and \PCMultAcLowLost\,\% for the autocorrelation, and the AUC of the variance is \PCSuperVarAUC, \PCSubVarAUC{} and \PCMultVarAUC. In the subcritical model, the one that loses its cycle through a jump, the standard deviation of the annual means falls from \PCSubSDFirst{} in the first five years to \PCSubSDLast{} in the last five (supercritical: \PCSuperSDFirst{} to \PCSuperSDLast), and the variance follows that fall. When the cycle persists, in no model and for no indicator does either tail reject more than \PCPersistMax\,\%, so the test is conservative for series with a stable cycle.
+
+\begin{table}[tbp]
+\centering\scriptsize
+\begin{tabular}{llrrrrrr}
+\hline
+Model & Indicator & median $\tau$ & upper & lower & upper & lower & AUC \\
+ & & (lost) & \multicolumn{2}{c}{rejection, lost (\%)} & \multicolumn{2}{c}{rejection, persists (\%)} & \\
+\hline
+Supercritical & autocorrelation & \PCSuperAcTauLost & \PCSuperAcUpLost & \PCSuperAcLowLost & \PCSuperAcUpPersist & \PCSuperAcLowPersist & \PCSuperAcAUC \\
+ & variance & \PCSuperVarTauLost & \PCSuperVarUpLost & \PCSuperVarLowLost & \PCSuperVarUpPersist & \PCSuperVarLowPersist & \PCSuperVarAUC \\
+Subcritical & autocorrelation & \PCSubAcTauLost & \PCSubAcUpLost & \PCSubAcLowLost & \PCSubAcUpPersist & \PCSubAcLowPersist & \PCSubAcAUC \\
+ & variance & \PCSubVarTauLost & \PCSubVarUpLost & \PCSubVarLowLost & \PCSubVarUpPersist & \PCSubVarLowPersist & \PCSubVarAUC \\
+Mult.\ noise & autocorrelation & \PCMultAcTauLost & \PCMultAcUpLost & \PCMultAcLowLost & \PCMultAcUpPersist & \PCMultAcLowPersist & \PCMultAcAUC \\
+ & variance & \PCMultVarTauLost & \PCMultVarUpLost & \PCMultVarLowLost & \PCMultVarUpPersist & \PCMultVarLowPersist & \PCMultVarAUC \\
+\hline
+\end{tabular}
+\caption{Positive controls (\PCFNRep{} series per case, $L = \PCL$ years, window of 50\,\%). Median Kendall $\tau$ of the rolling indicator when the cycle is lost, rejection rates at a nominal 5\,\% of the upper-tail and lower-tail tests, for series that lose the cycle and for series that keep it, and the AUC of the lower-tail $p$ for separating the two.}
+\label{tab:pc}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.82\textwidth]{figures/Figure_2}
+\caption{One example series per model (left) and its rolling lag-1 autocorrelation (center) and variance (right) in a window of 50\,\% of the record, plotted at the last year of each window. Gray: the cycle persists; blue: the cycle is lost. The indicators of the series that loses the cycle fall; in the subcritical model the fall follows the jump of the amplitude.}
+\label{fig:controls}
+\end{figure}
+
+On the grid of periods and dynamical noise (supercritical model; \PBNCentral{} series in the central cell and \PBNOther{} elsewhere) the AUC of the variance runs from \PBGridVarAUCMin{} to \PBGridVarAUCMax{} and that of the autocorrelation from \PBGridAcAUCMin{} to \PBGridAcAUCMax{}; the lower-tail rejection of the variance runs from \PBGridVarLowMin{} to \PBGridVarLowMax\,\% and falls as the dynamical noise grows (Fig.~\ref{fig:grid}). The upper-tail rejection of series that keep their cycle never exceeds \PBPersistAcUpMax\,\% (autocorrelation) or \PBPersistVarUpMax\,\% (variance). What the lower tail detects is the loss of amplitude. It is not critical slowing down, and it does not need the system to be near a critical transition: it shows even when the cycle is lost abruptly.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_3}
+\caption{Supercritical positive control over the period of the cycle (colors) and the dynamical noise. Top: AUC of the lower-tail $p$ for separating series that lose the cycle from series that keep it. Bottom: rejection rate of the lower-tail test at a nominal 5\,\% (gray line) for series that lose the cycle.}
+\label{fig:grid}
+\end{figure}
+
+\subsection{Power against a true rise of the autocorrelation}
+
+When the autocorrelation really rises (AR(1) coefficient from 0.3 to 0.7, no cycle), the test does little at 30 years. In the larger bilateral set the upper-tail test rejects in \PBTrendAcUp\,\% of the series for the autocorrelation and \PBTrendVarUp\,\% for the variance, against \PBNullAcUp\,\% and \PBNullVarUp\,\% for the null, and the AUC of the upper-tail $p$ is \PBTrendAcAUC{} and \PBTrendVarAUC. Longer records help, slowly (Fig.~\ref{fig:design}). Without observation noise or a cycle the AUC of the autocorrelation is \PDThreeZeroZeroNoCycAcAUC{} at 30 years, \PDFiveZeroZeroNoCycAcAUC{} at 50, \PDOneZeroZeroZeroNoCycAcAUC{} at 100 and \PDTwoZeroZeroZeroNoCycAcAUC{} at 200, with a power of \PDTwoZeroZeroZeroNoCycAcPower\,\% at 200 years (size \PDTwoZeroZeroZeroNoCycAcSize\,\%). The estimates are not monotonic in length because they have a sampling error of a few hundredths with 200 series per cell (the value at 30 years differs from the \PBTrendAcAUC{} of the larger set above for the same reason), so differences of that size should not be read. With observation noise as large as the standard deviation of the process, the AUC at 200 years is \PDTwoZeroZeroOneNoCycAcAUC; with the cycle of \PCFPeriod{} years added it is \PDTwoZeroZeroZeroCycAcAUC{} and, with both, \PDTwoZeroZeroOneCycAcAUC. The variance does less than the autocorrelation in every case (AUC \PDTwoZeroZeroZeroNoCycVarAUC{} at 200 years without noise or cycle). Each cell has \PDNRep{} series and \PDNSurr{} surrogates, so rates have a 95\,\% sampling interval of about $\pm 3$ percentage points; one form of rise (from 0.3 to 0.7) is simulated.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_4}
+\caption{Power of the upper-tail test (nominal 5\,\%, gray line) for a true rise of the AR(1) coefficient from 0.3 to 0.7, as a function of the length of the record, for three levels of observation noise (ratio to the standard deviation of the process, colors), for the autocorrelation (solid) and the variance (dashed), without a cycle (left) and with a cycle of \PCFPeriod{} years (right).}
+\label{fig:design}
+\end{figure}
+
+\subsection{An instrumental step, and the choices of the data}
+
+An instrumental step moves the indicators in a way that has nothing to do with slowing down (Fig.~\ref{fig:step}). In null AR(1) series of \SIL{} years, a step in level of one standard deviation after year \SIStepYear{} gives median $\tau$ \SILevelOneAcTau{} for the autocorrelation and \SILevelOneVarTau{} for the variance, and one of two standard deviations gives \SILevelTwoAcTau{} and \SILevelTwoVarTau, with a lower-tail rejection of \SILevelTwoAcLow\,\% and \SILevelTwoVarLow\,\%. A step in the noise acts on the variance alone: halving the noise gives median $\tau$ \SINoiseHalfVarTau{} (lower-tail rejection \SINoiseHalfVarLow\,\%), and raising it by half gives \SINoiseUpVarTau{} (upper-tail rejection \SINoiseUpVarUp\,\%). The direction is that of the change in noise per point. This is not hypothetical: nearly every Mount Wilson segment starts under HKP-1 and crosses to HKP-2 in 1977, with different cadence and noise per point.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Figure_5}
+\caption{Median Kendall $\tau$ of the rolling autocorrelation (blue circles) and variance (orange squares) of null AR(1) series of \SIL{} years with an instrumental step after year \SIStepYear{}, of a given size in level (in standard deviations of the process) or in noise (factor), without any trend (\SINRep{} series per case).}
+\label{fig:step}
+\end{figure}
+
+The stellar data react in the same way. Restricting every segment to the HKP-2 era (observations from 1977, \RBHKPTwoNSeg{} segments of at least \MinSeg{} years), the median $\tau$ of \RBHKPTwoMatched{} matched cells (star, configuration, window and indicator) changes sign in \RBHKPTwoFlips{} of them (\RBHKPTwoFlipPct\,\%), and the correlation of $\tau$ between the two versions is only \RBHKPTwoAcCorr{} for the autocorrelation and \RBHKPTwoVarCorr{} for the variance. The shorter segments contribute to that, so the change is not all attributable to the step. Other choices matter less (fractions of all cells with an upper-tail $p < 0.05$, nominal 5\,\%, cells not independent): \RBBaseUp\,\% in the official run (\RBBaseNSeg{} segments), \RBNoStartUp\,\% with 1966--67 removed, \RBMinFiveUp\,\% with years of fewer than five observations treated as missing (\RBMinFiveNSeg{} segments; the sign of $\tau$ changes in \RBMinFiveFlips{} of \RBMinFiveMatched{} cells), \RBNoInterpUp\,\% without the three segments with more than two interpolated years (\RBNoInterpNSeg{} segments) and \RBHKPTwoUp\,\% for the HKP-2 era alone. None gives a rate clearly above the nominal level; the HKP-2 era alone is the nearest to it.
+
+\subsection{The stellar scan}
+
+With a window of 50\,\%, \NSigHalf{} of the \NCellsHalf{} combinations of segment, indicator and configuration have $\tau > 0$ and $p_{\rm up} < 0.05$ (about \NChance{} expected by chance at the nominal level and \NChanceEff{} at the measured size, if the cells were independent, which they are not): HD~\SigOneHD{} for the original series ($\tau = \SigOneTau$, $p = \SigOneP$) and HD~\SigTwoHD{} for the $\sigma = 1$ residual ($\tau = \SigTwoTau$, $p = \SigTwoP$), both for the lag-1 autocorrelation. No segment reaches three of four configurations for the autocorrelation (maximum \MaxConcAR) or for the variance (maximum \MaxConcVar). In the lower tail, \NSigHalfLow{} cells have $\tau < 0$ with $p_{\rm low} < 0.05$. There is no excess in either direction. Given Sect.~\ref{sec:controls}, this is the expected outcome for \NSegments{} segments of \LMin{} to \NSunYears{} years with no known transition, whatever the stars are doing: the test could not have seen a rise in the autocorrelation (Sect.~3.3) and is conservative where a cycle is present. The values of $\tau$ and $p$ for every segment are in~\ref{app:table}.
+
+\subsection{H1: variability of HD~166620 by state}
+
+Table~\ref{tab:h1} gives the three states. The mean S is lower in the grand minimum (\HOneMeanGrand) than in minimum~1 (\HOneMeanMinOne), a difference we did not test. The variability $\sigma_S$ (method A) falls from \HOneSigAMinOne{} in minimum~1 to \HOneSigAGrand{} in the grand minimum; minimum~2 has the largest value, \HOneSigAMinTwo{} (Fig.~\ref{fig:h1}). Method B gives the same ordering (\HOneSigBMinOne, \HOneSigBMinTwo, \HOneSigBGrand). The $F$ test of minimum~1 against the grand minimum gives $p = $ \HOnePRaw{} with the raw variances and $p = $ \HOnePCorrA{} with the corrected ones (method A); minimum~2 against the grand minimum gives $p$~\HOnePTwoBound{} in every version. Resampling whole seasons gives for the ratio $\sigma_S(\mathrm{minimum~2})/\sigma_S(\mathrm{grand})$ an interval of \BootRatioTwoALo--\BootRatioTwoAHi{} (method A; \BootRatioTwoRawLo--\BootRatioTwoRawHi{} raw), and \BootShareTwoA\,\% of the resamples put the grand minimum at or above minimum~2. For minimum~1 the interval of the ratio is \BootRatioOneALo--\BootRatioOneAHi{} (method A; \BootRatioOneRawLo--\BootRatioOneRawHi{} raw), and \BootShareOneA\,\% of the resamples (\BootShareOneRaw\,\% raw) put the grand minimum at or above minimum~1. With \BootSeasOne{} and \BootSeasTwo{} seasons in the two cycle minima and \BootSeasGrand{} in the grand minimum, these intervals are themselves approximate.
+
+\begin{table}[tbp]
+\centering
+\begin{tabular}{lrrrrr}
+\hline
+State & $N$ & $\langle S\rangle$ & raw $\sigma$ & $\sigma_S$ (A) & $\sigma_S$ (B) \\
+\hline
+Minimum 1 (1971--75) & \HOneNMinOne & \HOneMeanMinOne & \HOneRawMinOne & \HOneSigAMinOne & \HOneSigBMinOne \\
+Minimum 2 (1987--91) & \HOneNMinTwo & \HOneMeanMinTwo & \HOneRawMinTwo & \HOneSigAMinTwo & \HOneSigBMinTwo \\
+Grand minimum (2004--) & \HOneNGrand & \HOneMeanGrand & \HOneRawGrand & \HOneSigAGrand & \HOneSigBGrand \\
+\hline
+\end{tabular}
+\caption{HD~166620 by state: number of observations, mean S, raw standard deviation of the interval, and $\sigma_S$ with the instrumental noise removed in quadrature, methods A and B (noise fractions of Sect.~2.4).}
+\label{tab:h1}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_6}
+\caption{Variability of HD~166620 by state. Standard deviation $\sigma$ of the S index in three states (data of Luhn et al.). $N$ is the number of observations in the interval. Squares: standard deviation of the whole interval (raw). Circles (method A): interval standard deviation with the instrumental noise variance removed in quadrature. Triangles (method B): mean over seasons of the same corrected value. Bars: 95\,\% intervals of a bootstrap that resamples observing seasons (\BootN{} resamples), for the raw and method-A values; there is none for method B.}
+\label{fig:h1}
+\end{figure}
+
+The conclusion about minimum~1 depends on the instrumental noise (Fig.~\ref{fig:sigmaf}). The correction used \NoiseMW\,\% of the mean S for the Mount Wilson states, whereas the single-measurement scatter in the 1977 overlap is 1.7 to 1.9\,\% \cite{duncan1991}. The two numbers can coexist, since the second may include differences between instruments, but the choice matters. With \FSPubF\,\% the ratio $\sigma_S(\mathrm{minimum~1})/\sigma_S(\mathrm{grand})$ is \FSPubRatioOne, with \FSHighF\,\% it is \FSHighRatioOne, and the ratio crosses 1 at \FSCrossF\,\%; at \FSTopF\,\% the corrected variance of minimum~1 is almost gone (\FSTopSigOne). For minimum~2 nothing changes: the ratio stays between \FSRatioTwoMin{} and \FSRatioTwoMax{} for noise fractions from 0.8 to 1.9\,\% (Keck fixed at \NoiseKeck\,\%). The difference between the grand minimum and the second minimum is the only part of H1 that does not depend on the noise assumed. Minimum~1 has only \FSNOne{} observations.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/Figure_7}
+\caption{Ratio of the noise-corrected $\sigma_S$ of minimum~1 (orange) and minimum~2 (blue) to that of the grand minimum, against the instrumental noise fraction assumed for the Mount Wilson states (percent of the mean S; Keck fixed at \NoiseKeck\,\%). Light vertical lines: the value used in the main analysis and 1.7\,\%.}
+\label{fig:sigmaf}
+\end{figure}
+
+\subsection{A real event: the Dalton Minimum}
+
+The annual maxima of the sunspot group number fall from \DALMaxOneEightZeroOne{} in 1801 to \DALMaxOneEightOneSix{} in 1816 and recover to \DALMaxOneEightThreeZero{} in 1830 (Fig.~\ref{fig:dalton}). In the block 1795--1830 the Kendall $\tau$ of the variance ranges from \DALVarTauMin{} to \DALVarTauMax{} over the four configurations, with lower-tail $p$ between \DALVarPLowMin{} and \DALVarPLowMax, and that of the autocorrelation from \DALAcTauMin{} to \DALAcTauMax{} (upper-tail $p$ from \DALAcPUpMin{} to \DALAcPUpMax). The other blocks give $\tau$ of both signs too (Fig.~\ref{fig:dalton}). The test therefore does not flag the Dalton Minimum. This is not a surprise: the amplitude falls and recovers within the block, which is not the complete loss of a cycle of the positive controls, and one event is not a test.
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_8}
+\caption{Top: annual mean of the sunspot group number \cite{vaquero2016} from 1740 to 1900; gray dots are years with fewer than \DALDaysMin{} days of data, which are excluded; the shaded band is the block 1795--1830. Bottom: Kendall $\tau$ of the rolling autocorrelation (blue circles) and variance (orange squares) in each block of \DALBlockLen{} years, in the four detrending configurations (raw annual means).}
+\label{fig:dalton}
+\end{figure}
+
+\section{Discussion}\label{sec:disc}
+
+\paragraph{What the indicators measure in an oscillator} In every model of cycle loss that we tried, the variance and the autocorrelation of the annual means fall, and the variance falls more. The reason is that the amplitude falls, and in a series dominated by a cycle the variance is the square of the amplitude. This is not the slowing down that the indicators are built to detect, which concerns the recovery from small perturbations of a state that is about to disappear. The supercritical Hopf bifurcation is not a critical transition in the sense of an abrupt jump \cite{kuehn2011}, so a control that is built on it tests the response of the indicators to a loss of amplitude. The subcritical model, in which the cycle does disappear through a jump, gives the same sign. In the formal analysis of the approach to a Hopf point, the variance grows on the stable side, and multiplicative noise can hide that rise \cite{kuehn2013}. A star that loses a cycle by a noise-driven jump would show nothing of this kind \cite{lenton2011}. The one-sided hypotheses of the stellar scan assumed that the indicators rise before the loss of a cycle, and for the model of that loss the sign was wrong. Here the lower tail is the useful one.
+
+\paragraph{Separation of scales} The indicators assume that the sampling is much finer than the relaxation time and that the relaxation time is much shorter than the window. For annual means of a star with a cycle of \PerTen{} to \PerSixteen{} years (15.8 years for HD~166620 \cite{saar1999}; the cycles are not strictly periodic \cite{olah2016,saar1999}) the sampling interval is a tenth of the cycle or more, and windows of \WinMin{} to \WinMax{} years cover about one cycle. If the relaxation time of the amplitude is comparable to the cycle, which we did not measure, neither condition holds. That would be a physical reason for the blindness of the test, besides the statistical one of the short series. Low power is not peculiar to stars: in other series of ecological and climate data a false-alarm rate of 5\,\% was found to go with a true-positive rate of only about 5\,\% \cite{boettiger2012a}, and the stellar null scan is not selected on any outcome, which avoids the selection effect described by Boettiger and Hastings \cite{boettiger2012b}. The simulations show the consequence here: at 30 years the power for a true rise is close to the size, and a record of 200 years, without observation noise and without a dominant cycle, still gives a power of only \PDTwoZeroZeroZeroNoCycAcPower\,\%.
+
+\paragraph{What data would work} The design curve suggests the type of record that would make the test informative: well over a hundred annual points, observation noise smaller than the variability of the process, and a cycle that is weak or removed by a model, since in our simulations the ARMA surrogates absorb part of a cycle and the test then reacts less (at 200 years the power for the autocorrelation falls from \PDTwoZeroZeroZeroNoCycAcPower\,\% to \PDTwoZeroZeroZeroCycAcPower\,\%). The sunspot record has that length. We used it for one event, the Dalton Minimum, which does not qualify as a loss of the cycle, and the entry into the Maunder Minimum is not analyzable in annual means because of the gaps and the number of days per year in the early record \cite{vaquero2016}. For stars, the records of 30 to 50 years of the Mount Wilson survey are several times shorter than the 100 to 200 years of the design curve. Longer Keck records and records of stars with declining cycle amplitude, such as HD~4915 \cite{shah2018}, are the natural next step.
+
+\paragraph{HD~166620 and the instrument} H1 survives only in part. The point estimates of $\sigma_S$ are lower in the grand minimum than in both cycle minima, but only the difference to minimum~2 holds up under the bootstrap over seasons and for every instrumental noise we assumed. The difference to minimum~1 needs a noise below about \FSCrossF\,\% of the mean, which is lower than the single-measurement scatter quoted in the overlap of 1977. A lower variance in a lower-activity state is also what one expects without any dynamical transition, but the mean S of the grand minimum is only \HOneMeanPct\,\% below that of minimum~2, while $\sigma_S$ falls by a factor of \HOneRatioA{} (method A; \HOneRatioRaw{} for the raw interval). We treat the difference as descriptive; it rests on one star, on published intervals, and on observations that come from three instruments, and the $F$ test is not credible at face value because the observations within a season are correlated.
+
+\paragraph{Limits} The positive controls use one form of parameter ramp (linear in $\mu$), one record length (\PCL{} years) and a fixed observation noise, and the subcritical model is a normal form, not a model of a dynamo. The design curve examines one form of rise, and its cells have 200 series. The Dalton block is one event, with no replication. Annual means of the stellar series rest on few observations in some years (Table~\ref{tab:stars}): the number per year drops to one in several segments, and the lag-1 autocorrelation is vulnerable to noise and to interpolation \cite{rehfeld2011,livina2007}. The indicators can also rise with no approach to a bifurcation when the autocorrelation of the noise increases in time \cite{boettner2022}, and the ARMA surrogates assume a stationary noise structure. The evolutionary flag of the frozen catalog disagrees with the log\,$g$ of Baum et al.\ for two stars; all four stars of the Flat class carry the subgiant flag of the catalog or an evolved type in Baum et al., which makes the identification of the class with a state near a minimum doubtful \cite{wright2004}. Linear interpolation was not tested for its effect beyond removing the segments that have more than two interpolated years. The records are annual means of a quantity whose instrument changes in the middle of nearly every segment, and the step experiment shows that this alone can move $\tau$ as much as any signal we are looking for.
+
+\section{Conclusions}
+
+\begin{enumerate}
+\item The surrogate test has nominal size on synthetic series, and is conservative for series with a stable cycle.
+\item When a cycle is lost, in three dynamical models, the variance and the lag-1 autocorrelation of annual means fall, and the lower-tail test detects the loss (AUC of the variance from \PBGridVarAUCMin{} to \PBGridVarAUCMax{} in the supercritical grid). This is the fall of the amplitude. The one-sided hypotheses of critical slowing down had the wrong sign for this kind of transition.
+\item For a true rise of the autocorrelation the test has little power: AUC \PBTrendAcAUC{} at 30 years and \PDTwoZeroZeroZeroNoCycAcAUC{} at 200 years without noise or cycle, and lower with either. An instrumental step of one standard deviation already moves $\tau$ by about \SILevelOneAcTau{} to \SILevelOneVarTau.
+\item In \NSegments{} Mount Wilson segments and in the Dalton Minimum no excess of rejections appears in either tail; the variability of HD~166620 is lower in the grand minimum than in minimum~2 for every instrumental noise assumed, and lower than in minimum~1 only if that noise is below about \FSCrossF\,\% of the mean. Nothing follows about stars about to lose a cycle.
+\item Early warnings of this kind need records of 100 to 200 years or more, low observation noise and no dominant cycle, a controlled instrumental scale, and positive controls matched to the system.
+\end{enumerate}
+
+\appendix
+\renewcommand{\thetable}{\arabic{table}}\renewcommand{\thefigure}{\arabic{figure}}
+
+\section{Conversion to $R'_{\rm HK}$}\label{app:rhk}
+
+S is also converted to $R'_{\rm HK}$ with the recipe and color correction of Noyes et al.\ \cite{noyes1984}, using $B\!-\!V$ from the California Legacy Survey V catalog \cite{isaacson2024} when the star is in it and from Baliunas et al.\ otherwise. The photospheric term of that calibration is valid for $0.44 < B\!-\!V < 0.82$; stars outside it are marked in Table~\ref{tab:seg}. For a given $B\!-\!V$ the conversion is linear in S, so $\tau$ is unchanged, and the run serves as a check. It leaves $\tau$ unchanged in all \RHKNCompare{} comparisons (largest difference \RHKMaxDiff). The surrogate $p$ values do not carry over as closely: for the same segment and configuration at a window of 50\,\%, the $p$ of the S and $R'_{\rm HK}$ runs differ by up to \RHKMaxPDiff, and \NSigHalfRHK{} cells instead of \NSigHalf{} fall below 0.05. The ARMA order differs between the two runs in \NArmaDiff{} of \NArmaCmp{} pairs of segment and configuration, and \NScaleDiff{} of \NScaleCases{} orders change under an affine rescaling of a stellar residual. Each run draws its own surrogates, so the remaining spread is Monte Carlo variation between independent draws of \NSurr{} series.
+
+\section{Group comparisons}\label{app:groups}
+
+Groups are compared per star with the lag-1 autocorrelation and the normalized variance (variance divided by the squared mean S) of the longest segment. The lag-1 autocorrelation is compared in all four configurations and the normalized variance in two (original series and $\sigma = 1$ residual). The primary pair is Var and Long together against Flat, lag-1 autocorrelation of the $\sigma = 1$ residual, one-sided Mann--Whitney test, fixed before the tests were read. The remaining pairs are five per block (Var, Long and Cycle against Flat, Var and Long against Cycle), in six blocks, hence \NHolmTests{} tests; they are corrected with the Holm procedure within each block, and over all tests as well. The groups have four to eight stars, so the smallest attainable one-sided $p$ is \MinPCycleFlat{} (eight against four) or \MinPFourFour{} (four against four).
+
+The primary pair has $n = \PrimN$ and \PrimNFlat{} stars, $U = \PrimU$, $p = \PrimP$; the medians of the lag-1 autocorrelation are \PrimMedVL{} and \PrimMedFlat. Of the \NHolmTests{} remaining tests, \NRawSig{} have an uncorrected $p < 0.05$. With Holm within blocks, \NHolmSig{} remain below 0.05, both Cycle against Flat in the normalized variance: with $\sigma = 1$, $p = $ \CycFlatPSOne{} and $p_{\rm Holm} = $ \CycFlatHolmSOne; for the original series, $p = $ \CycFlatPNone{} and $p_{\rm Holm} = $ \CycFlatHolmNone. With Holm over all \NHolmTests{} tests, \NHolmSigThirty{} remain (the same two comparisons give \CycFlatHolmThirtySOne{} and \CycFlatHolmThirtyNone).
+
+These two differences should not be read as a physical effect. The Flat class is defined by a low scatter of S relative to its mean, and the normalized variance is nearly that same quantity, so the comparison of Cycle against Flat in the normalized variance reproduces the classification. The lag-1 autocorrelation of a Flat series, whose variability is small, is also expected to be lower for a signal-to-noise reason, since measurement noise is nearly white. The comparison therefore says little about amplitude, and the attribution of the differences to cycle amplitude is an interpretation that was not tested.
+
+\section{Indicators by segment}\label{app:table}
+
+\begin{table}[p]
+\centering\scriptsize\setlength{\tabcolsep}{3pt}
+%%% BEGIN GENERATED TABLE (pipeline_v2/make_tables.py; do not edit between the markers)
+\begin{tabular}{llrrrrrrrrr}
+\hline
+HD & Group & Years & $L$ & Interp. & $B\!-\!V$ & $\tau$ & $p$ & $\tau$ & $p$ & Conc. \\
+ & & & & & & \multicolumn{2}{c}{original series} & \multicolumn{2}{c}{$\sigma = 1$ yr} & AR/Var \\
+\hline
+10700 & Flat & 1967--1995 & 29 & 0 & 0.66 & $-$0.10 & 0.531 & $-$0.57 & 0.857 & 0/0 \\
+23249 & Flat & 1967--1995 & 29 & 0 & 0.88$^{a}$ & +0.75 & 0.032 & +0.38 & 0.268 & 1/0 \\
+182572 & Flat & 1967--2001 & 35 & 10 & 0.73 & $-$0.40 & 0.766 & $-$0.58 & 0.556 & 0/0 \\
+190360 & Flat & 1967--1994 & 28 & 5 & 0.72 & $-$0.83 & 0.983 & $-$0.35 & 0.276 & 0/0 \\
+4628 & Cycle & 1966--1995 & 30 & 0 & 0.85$^{a}$ & +0.57 & 0.104 & +0.33 & 0.373 & 0/0 \\
+10476 & Cycle & 1966--2001 & 36 & 0 & 0.80 & +0.13 & 0.395 & $-$0.35 & 0.690 & 0/0 \\
+26965 & Cycle & 1967--1995 & 29 & 0 & 0.76 & +0.50 & 0.153 & +0.42 & 0.246 & 0/0 \\
+103095 & Cycle & 1968--2001 & 34 & 0 & 0.67 & $-$0.44 & 0.826 & $-$0.69 & 0.915 & 0/0 \\
+152391 & Cycle & 1966--2001 & 36 & 0 & 0.72 & $-$0.47 & 0.814 & +0.44 & 0.253 & 0/0 \\
+160346 & Cycle & 1966--2001 & 36 & 0 & 0.96$^{a}$ & $-$0.11 & 0.606 & $-$0.26 & 0.645 & 0/0 \\
+166620 & Cycle & 1966--1995 & 30 & 0 & 0.83$^{a}$ & +0.40 & 0.272 & +0.55 & 0.191 & 0/0 \\
+201091 & Cycle & 1967--2001 & 35 & 0 & 1.15$^{a}$ & $-$0.05 & 0.540 & +0.24 & 0.414 & 0/0 \\
+3795 & Var & 1966--1994 & 29 & 1 & 0.68 & $-$0.20 & 0.627 & $-$0.18 & 0.612 & 0/0 \\
+39587 & Var & 1966--2001 & 36 & 0 & 0.59 & $-$0.23 & 0.653 & $-$0.29 & 0.648 & 0/0 \\
+75332 & Var & 1966--2001 & 36 & 0 & 0.49 & $-$0.43 & 0.745 & $-$0.10 & 0.561 & 0/0 \\
+101501 & Var & 1968--1995 & 28 & 0 & 0.70 & +0.71 & 0.065 & +0.35 & 0.281 & 0/0 \\
+115383 & Var & 1966--2001 & 36 & 0 & 0.58 & +0.26 & 0.323 & $-$0.05 & 0.555 & 0/0 \\
+131156A & Var & 1967--2001 & 35 & 0 & 0.76 & +0.15 & 0.413 & +0.05 & 0.494 & 0/0 \\
+217014 & Var & 1966--1995 & 30 & 4 & 0.65 & +0.07 & 0.165 & +0.18 & 0.015 & 1/0 \\
+25998 & Long & 1966--2001 & 36 & 0 & 0.46 & $-$0.60 & 0.905 & +0.33 & 0.300 & 0/0 \\
+35296 & Long & 1966--2001 & 36 & 0 & 0.53 & $-$0.73 & 0.975 & $-$0.70 & 0.926 & 0/0 \\
+141004 & Long & 1966--1995 & 30 & 1 & 0.59 & +0.70 & 0.064 & $-$0.37 & 0.689 & 0/0 \\
+176095 & Long & 1966--2001 & 36 & 1 & 0.46 & $-$0.24 & 0.566 & $-$0.33 & 0.542 & 0/0 \\
+Sun$^{b}$ & Sun & 1966--2016 & 51 & 2 & 0.66 & +0.26 & 0.317 & +0.25 & 0.272 & 0/0 \\
+\hline
+\end{tabular}
+%%% END GENERATED TABLE
+\par\smallskip\noindent\parbox{\textwidth}{\footnotesize $^{a}$ $B\!-\!V$ outside 0.44--0.82. $^{b}$ Composite of several instruments; exploratory.}
+\caption{Segments analyzed. $L$: length in years; Interp.: interpolated years; $\tau$ and $p$: Kendall $\tau$ of the rolling lag-1 autocorrelation (window 50\,\%) and its surrogate $p$, for the original series and for the $\sigma = 1$ year residual; Conc.: number of the four configurations with $\tau > 0$ and $p < 0.05$, for the lag-1 autocorrelation and for the variance (the other two configurations are not shown).}
+\label{tab:seg}
+\end{table}
+
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/Figure_9}
+\caption{Annual series and rolling lag-1 autocorrelation of HD~166620. Top: annual mean S (solid) and its Gaussian smooth with $\sigma = 1$ year (dashed), Mount Wilson era; there are \HDHFilled{} interpolated years. Bottom: rolling lag-1 autocorrelation (AC) in a window of 50\,\% of the segment (\WinHD{} years), plotted at the end year of each window, for the original series (solid) and for the residual, that is, the series minus its smooth (dashed). The bar marks the length of the window.}
+\label{fig:roll}
+\end{figure}
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=0.88\textwidth]{figures/Figure_10}
+\caption{Annual series and rolling lag-1 autocorrelation of the Sun (composite series of Egeland et al.; exploratory). Same layout as Fig.~\ref{fig:roll}. Open circles mark the \SunFilled{} interpolated years; the window is \WinSun{} years. The vertical range of the top panel differs from that of Fig.~\ref{fig:roll}.}
+\label{fig:sun}
+\end{figure}
+\begin{figure}[tbp]
+\centering
+\includegraphics[width=\textwidth]{figures/Figure_11}
+\caption{Trend of the rolling autocorrelation by star. Kendall $\tau$ of the rolling lag-1 autocorrelation (window of 50\,\% of the longest Mount Wilson segment of each star, annual mean S) for the original series (circles) and the $\sigma = 1$ year residual (diamonds). Stars are grouped as Flat, Cycle, Var and Long and sorted by HD number within a group, which carries no meaning; the Sun (composite series, exploratory) is shown last. An asterisk above a marker means $p < 0.05$ for that configuration, with $p = P(\tau^{*} \ge \tau)$ against the ARMA surrogates (one-sided, upper tail, not corrected for the \NFigTests{} tests shown). Gray bars: 5th to 95th percentile of $\tau$ among the \NSurr{} surrogates of each configuration. The Sun's two markers nearly coincide.}
+\label{fig:tau}
+\end{figure}
+
+% Declarations required by Elsevier. The statements on funding and competing interests are the standard wording and must be
+% confirmed by the author; the AI-use statement is left for the author to write in Overleaf.
+\section*{CRediT authorship contribution statement}
+\textbf{Airton M. S. Borin Junior:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Data curation, Writing -- original draft, Writing -- review \& editing, Visualization.
+
+\section*{Declaration of competing interest}
+The author declares no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.
+
+\section*{Funding}
+This research did not receive any specific grant from funding agencies in the public, commercial, or not-for-profit sectors.
+
+\section*{Data availability}
+The series come from public sources cited in the Methods: the HK\_\allowbreak Project\_\allowbreak v2001\_\allowbreak NSO files \cite{radick2018}, the VizieR tables of Baum et al., Luhn et al.\ and Isaacson et al., the solar series of Egeland et al., and the sunspot group numbers of Vaquero et al.\ \cite{vaquero2016}, which are not redistributed with the code (the derived annual series is) The code, the processed results, the log of analysis decisions and the sources of this manuscript are deposited at [repository and DOI, to be added by the author before submission], and also in \url{https://github.com/gpefitura-web/P4}.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+[To be written by the author in Overleaf.]
+
+\section*{Acknowledgements}
+The HK\_\allowbreak Project\_\allowbreak v2001\_\allowbreak NSO data derive from the Mount Wilson Observatory HK Project, which was supported by both public and private funds through the Carnegie Observatories, the Mount Wilson Institute, and the Harvard-Smithsonian Center for Astrophysics starting in 1966 and continuing for over 36 years. These data are the result of the dedicated work of O. Wilson, A. Vaughan, G. Preston, D. Duncan, S. Baliunas, and many others. This research has made use of the VizieR catalogue access tool, CDS, Strasbourg, France (doi:10.26093/cds/vizier).
+
+\bibliographystyle{elsarticle-num}
+\bibliography{references}
+\end{document}

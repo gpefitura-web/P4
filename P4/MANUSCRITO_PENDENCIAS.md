@@ -116,3 +116,6 @@ Feito: palavras-chave (6, sem "and"), resumo de 226 palavras (limite 250), highl
 - **Decisões abertas:** revista (New Astronomy mantida por ora; alternativa: periódico de métodos/análise de dados), uso de séries de outros objetos, termos de uso de Vaquero antes de qualquer cópia pública.
 - **Conferido:** DOIs de [9] e [14] resolvem no Crossref para os artigos corretos (A&A 698, A93; AJ 170(3), 181).
 - **Análises que os pareceres pediram e não foram feitas:** nulo com ciclo explícito, médias por estação, estágio evolutivo por Gaia, Keck 2004–2021 e HD 4915, varredura com 10^4 surrogates.
+
+## Revista decidida (2026-11-28, D129)
+- **New Astronomy**, submissão direta. Arquivos: `submissao_new_astronomy.zip` (`make_submission_folder.py`), `highlights.docx` separado, `cover_letter_new_astronomy.md` (rascunho). Lista do que falta (endereço, e-mail, IA, ferramenta de interesses, Zenodo, biblioteca, Vaquero): `SUBMISSAO_NEW_ASTRONOMY_V2.md`.

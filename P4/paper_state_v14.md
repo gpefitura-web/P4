@@ -14,4 +14,4 @@
 - Rastreabilidade: `RASTREABILIDADE_PENDENTE.md`; pendências do manuscrito: `MANUSCRITO_PENDENCIAS.md`.
 
 ## 3. Próxima etapa
-Handoff: `PROMPT_PROXIMO_CHAT_SUBMISSAO_V2.md`. Passo 5 concluído (D128): pareceres e estado da v2 em `REVISOES_INDEPENDENTES.md` (quinta rodada), nova leitura de revisão feita, texto com uma frase nova sobre os 119 pontos digitalizados de 1995–2002 da tabela de Luhn (não usados). Decisões abertas: revista, Vaquero, séries de outros objetos, análises não feitas, placeholders.
+Handoff: `PROMPT_PROXIMO_CHAT_SUBMISSAO_V2.md`. Passo 5 concluído (D128): pareceres e estado da v2 em `REVISOES_INDEPENDENTES.md` (quinta rodada), nova leitura de revisão feita, texto com uma frase nova sobre os 119 pontos digitalizados de 1995–2002 da tabela de Luhn (não usados). Revista decidida (D129): New Astronomy, submissão direta; lista do que falta em `SUBMISSAO_NEW_ASTRONOMY_V2.md`. Decisões abertas: Vaquero, séries de outros objetos, análises não feitas, placeholders.
